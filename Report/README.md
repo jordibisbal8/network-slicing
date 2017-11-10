@@ -1,0 +1,2 @@
+# Thesis Template
+This project contains the TU Darmstadt thesis template with modifications for theses written at the KOM Lab. Please adhere to this template and *do not* modify any of the formatting parameters, unless instructed to do so!
