@@ -15,7 +15,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="product.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="product.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/product/product.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
@@ -23,6 +23,16 @@
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,6 +109,7 @@
         <option value="$PROJECT_DIR$/src/app/product/product.component.ts" />
         <option value="$PROJECT_DIR$/src/app/home/home.component.ts" />
         <option value="$PROJECT_DIR$/tsconfig.json" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -111,7 +122,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="363" />
     <option name="y" value="106" />
     <option name="width" value="1855" />
@@ -142,32 +153,20 @@
             <path>
               <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
               <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="contracts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
               <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
               <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -238,15 +237,15 @@
       <workItem from="1511168065406" duration="762000" />
       <workItem from="1511168875109" duration="37000" />
       <workItem from="1511169295409" duration="8150000" />
-      <workItem from="1511177458668" duration="938000" />
+      <workItem from="1511177458668" duration="1423000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33727000" />
+    <option name="totallyTimeSpent" value="34212000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="363" y="106" width="1857" height="1092" extended-state="7" />
+    <frame x="363" y="106" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -280,7 +279,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/styles/abstracts/_functions.scss" />
     <entry file="file://$PROJECT_DIR$/src/styles/business-model/_business-model.scss" />
     <entry file="file://$PROJECT_DIR$/src/styles/components/_button.scss" />
     <entry file="file://$PROJECT_DIR$/src/styles/headings.css" />
@@ -544,6 +542,14 @@
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
