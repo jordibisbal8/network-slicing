@@ -1,0 +1,54 @@
+.header-container {
+  margin-top:-18px;
+}
+.header2 {
+  color: white;
+  height: 100px
+}
+
+.md-tab-link {
+  font-size:13pt !important;
+  color:white !important;
+  opacity:0.8 !important;
+}
+.header-content {
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+}
+.container {
+  max-width: 1160px !important;
+}
+
+.header {
+  background-color: #008fd3;
+  height: 219px;
+
+  .tiles {
+    margin-top:7px;
+    margin-right:12px;
+  }
+
+  .tile {
+    width: 90px;
+    /* border: solid 1px white; */
+    height: 60px;
+    float: right;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin-left: 2px;
+
+  .figure {
+    margin-left:4px;
+    font-size: 18pt;
+    font-weight: bold;
+    color: white;
+    }
+  }
+}
+.example-card {
+  width: 1000px;
+  margin-left:400px
+}
