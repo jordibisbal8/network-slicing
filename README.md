@@ -1,7 +1,7 @@
 # Network Slicing
 
 <p align="center">		
-  <img src="./src/assets/img/kom_logo.png">		
+  <img src="./network-slicing-prototype/src/assets/img/kom_logo.png">		
  </p>		
  	
  ------------------------		
@@ -18,7 +18,7 @@ There are 2 small parts to successfully running this project.
 
 ### Part 1
 
-1. `git clone https://dev.kom.e-technik.tu-darmstadt.de/gitlab/aoc-theses/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing.git'
+1. `git clone https://dev.kom.e-technik.tu-darmstadt.de/gitlab/aoc-theses/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing.git`
 2. `cd network-slicing-prototype`
 3. `npm install`
 

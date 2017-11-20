@@ -14,20 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="product.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/product/product.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -210,12 +197,12 @@
       <workItem from="1511168875109" duration="37000" />
       <workItem from="1511169295409" duration="8150000" />
       <workItem from="1511177458668" duration="1423000" />
-      <workItem from="1511185127694" duration="289000" />
+      <workItem from="1511185127694" duration="448000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34501000" />
+    <option name="totallyTimeSpent" value="34660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="363" y="106" width="1857" height="1092" extended-state="6" />
