@@ -11,24 +11,30 @@ import {BrowserModule} from "@angular/platform-browser";
 import {AppComponent} from "./app.component";
 import {NgModule} from "@angular/core";
 import {RegisterComponent} from "./auth/register/register.component";
+import {Ng2CompleterModule} from "ng2-completer";
+import {LoginComponent} from "./auth/login/login.component";
+import {AuthService} from "./auth/auth.service";
+
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
     ProductComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    Ng2CompleterModule,
     MaterialModule.forRoot(),
     AppRoutingModule
   ],
   // expose our Services and Providers into Angular's dependency injection
-  providers: [],
+  providers: [AuthService],
   entryComponents: [],
 })
 export class AppModule { }

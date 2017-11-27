@@ -1,0 +1,33 @@
+<div class="header-container">
+  <div class="header2" style="background-color: #008fd3">
+    <div class="header-content" style="font-size:18pt;padding-top: 57px;padding-left: 35px">
+      Login
+    </div>
+  </div>
+</div>
+
+<md-card class="example-card">
+  <md-card-content>
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Login</h2>
+        <form name="form">
+          <div class="form-group">
+            <md-input placeholder="Username" name="inputUsername"  [(ngModel)]="inputUsername"  style="width: 100%" required></md-input>
+          </div>
+          <div class="form-group">
+            <md-input type="password" name="inputPassword"  placeholder="Password" [(ngModel)]="inputPassword" style="width: 100%" required></md-input>
+          </div>
+          <div class="form-group" style="margin-top: 15px;">
+            <button md-raised-button (click)="login()" style="background-color: #008fd3;color: white">
+              Login <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
+            </button>
+            <button md-button [routerLink]="['/home']">Back</button>
+          </div>
+          <span><i>Brought to you by KOM TU Darmstadt</i></span>
+        </form>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
+

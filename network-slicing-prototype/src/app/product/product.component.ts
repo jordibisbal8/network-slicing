@@ -103,13 +103,6 @@ export class ProductComponent implements OnInit {
       })
     })
   }
-  createAccount(){
-    this.web3.personal.newAccount(this.inputPassword);
-    this.web3.personal.unlockAccount(this.web3.personal.listAccounts[this.web3.personal.listAccounts.length -1],this.inputPassword,15000);
-    this.inputPassword = null;
-    // TODO THEN WE CALL THE USER CONTRACT
-    window.alert('Your account has been successfully created');
-  }
   getUserCountFromFactory(){
     this.User.deployed().then(userContract => {
       this.productFactory.deployed().then(contractInstance => {

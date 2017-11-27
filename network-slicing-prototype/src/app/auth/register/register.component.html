@@ -6,5 +6,39 @@
   </div>
 </div>
 
-EOA CREATION THROUGH APP or externally.
-DEFINE THE USER as SP or Provider
+
+<md-card class="example-card">
+  <md-card-content>
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Register</h2>
+        <form name="form">
+          <div class="form-group">
+            <md-input placeholder="First Name" name="inputName" [(ngModel)]="inputName" style="width: 100%" required></md-input>
+          </div>
+          <div class="form-group">
+            <md-input placeholder="Last Name" name="inputLastName"  [(ngModel)]="inputLastName" style="width: 100%" required></md-input>
+          </div>
+          <div class="form-group">
+            <md-select [(ngModel)]="inputUserType" name="InputUserType" placeholder="User Type" style="width:100%;" required>
+              <md-option value="serviceProvider">Service Provider</md-option>
+              <md-option value="infrastructureProvider">Infrastructure Provider</md-option>
+              <md-option value="customer">Customer</md-option>
+            </md-select>
+          </div>
+          <div class="form-group">
+            <md-input placeholder="Username" name="inputUsername"  [(ngModel)]="inputUsername"  style="width: 100%" required></md-input>
+          </div>
+            <md-input type="password" name="inputPassword"  placeholder="Password" [(ngModel)]="inputPassword" style="width: 100%" required></md-input>
+          <div class="form-group" style="margin-top: 15px;">
+            <button md-raised-button (click)="register()" style="background-color: #008fd3;color: white">
+              Register <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
+            </button>
+            <button md-button [routerLink]="['/home']">Back</button>
+          </div>
+          <span><i>Brought to you by KOM TU Darmstadt</i></span>
+        </form>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>
