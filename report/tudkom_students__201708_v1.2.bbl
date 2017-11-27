@@ -1,9 +1,36 @@
-\begin{thebibliography}{SW05}
+\begin{thebibliography}{DRP15}
 
-\bibitem[SW05]{Steinmetz2005}
-Ralf Steinmetz and Klaus Wehrle, editors.
-\newblock {\em {P}eer-to-{P}eer {S}ystems and {A}pplications ({L}ecture {N}otes
-  in {C}omputer {S}cience)}.
-\newblock Springer, 1 edition, 10 2005.
+\bibitem[AM16]{abeyratne2016blockchain}
+Saveen~A Abeyratne and Radmehr~P Monfared.
+\newblock Blockchain ready manufacturing supply chain using distributed ledger.
+\newblock 2016.
+
+\bibitem[Cla17]{JenClarck2017}
+Jen Clarck.
+\newblock {B}lockchain {T}echnology: the {N}ext {G}eneration of the {I}nternet,
+  March 2017.
+\newblock accessed:2017-11-27.
+
+\bibitem[DRP15]{dietrich2015multi}
+David Dietrich, Amr Rizk, and Panagiotis Papadimitriou.
+\newblock Multi-provider virtual network embedding with limited information
+  disclosure.
+\newblock {\em IEEE Transactions on Network and Service Management},
+  12(2):188--201, 2015.
+
+\bibitem[Nak08]{nakamoto2008bitcoin}
+Satoshi Nakamoto.
+\newblock Bitcoin: A peer-to-peer electronic cash system, 2008.
+
+\bibitem[Swa15]{swan2015blockchain}
+Melanie Swan.
+\newblock {\em Blockchain: Blueprint for a new economy}.
+\newblock " O'Reilly Media, Inc.", 2015.
+
+\bibitem[TT16]{tapscott2016blockchain}
+Don Tapscott and Alex Tapscott.
+\newblock {\em Blockchain Revolution: How the technology behind Bitcoin is
+  changing money, business, and the world}.
+\newblock Penguin, 2016.
 
 \end{thebibliography}

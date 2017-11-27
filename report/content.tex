@@ -1,5 +1,5 @@
 \begin{abstract}
- The abstract goes here...
+ The abstract goes here... 
 \end{abstract}
 
 
@@ -8,17 +8,39 @@
 %*****************************************
 \chapter{Introduction}
 %*****************************************
-\hint{This chapter should motivate the thesis, provide a clear description of the problem to be solved, and describe the major contributions of this thesis. The chapter should have a length of about two pages!}
+
+Blockchain (BC) has been considered as one of the most promising disruptive technologies during the last years. Many market-leading companies, experts and global innovators have referred it as the "Next Generation of the Internet" \cite{JenClarck2017}, succeeding the World Wide Web era. Evaluating its potential benefits, different banks and major enterprises, such as UBS, Microsoft or IBM, have already accomplished important investments in such innovative technologies.
+
+The revolution started in 2008, with a whitepaper publication by Satoshi Nakamoto \cite{nakamoto2008bitcoin}, who introduces a new digital payment protocol called Bitcoin. In 2009, a deployed software version based on the paper was launched. Bitcoin uses an alternative virtual currency, to make trusted transactions between different peers. This system relies on a distributed database allocated on the Internet, the blockchain. Thus, it combines a peer-to-peer architecture model with the secure public key cryptography. 
+
+At the beginning, the blockchain architecture was restricted to only one application: online payments. However, after observing its advantages and possible use cases, an improvement of Bitcoin emerged: Ethereum \footnote{\url{https://www.ethereum.org/}}. By contrast, Ethereum extends the power of decentralized transactions with a Turing-complete contract system. A Turing-complete system can perform any computation, with just writing a few lines of code, which then creates a smart contract. A smart contract can be written with non-restrictive and user-friendly programming languages, allowing developers to easily learn and benefit from them. Therefore, it brings to the user the opportunity to develop their own applications. Smart contracts applications are called decentralized apps, and unlike normal webapps, they may not be server from a central server. In other words, they use the blockchain to retrieve and store data instead of a database.
+
 
 \section{Motivation}
-What is the motivation for doing research in this area?
+
+Nowadays, blockchain is becoming a trending topic in the business world. Thousands of articles, research papers and books, such as: How the technology behind bitcoin is changing money, business and the world \cite{tapscott2016blockchain} or Blockchain: Blue print for a new economy \cite{swan2015blockchain}, are catching the eye of the public. Nevertheless, as it is an emerging technology, a necessity to look towards new horizons exists. Through the above mentioned Ethereum smart contracts, this task will be easier to handle and manage, which opens up new possibilities to approach existing problems. Hence, blockchain can be used as a software connector in many applications beyond currency.
+
+Many use cases are currently derived from blockchain, e.g: voting or asset tracking \cite{abeyratne2016blockchain}. In the former, a normal voting system could be easily performed, where voters use their private keys for being authenticated in the system. In the latter,  each physical asset is encoded in the blockchain. For example, Everledger \footnote{\url{https://www.everledger.ioafa}}, a startup company from London, tracks diamonds through storing each diamond's digital identity on the BC. Thus, diamond theft could be no longer a problem.
+
+After a deep research on possible real scenarios, one blockchain application is clear: It can be used as a middleware or service, to face security, storage's problem, communication and coordination between different parties. In this paper, we will focus on enterprises or organizations, suffering from such supply chain management problems.
 
 \section{Problem Statement and Contribution}
-What is the problem that should be solved with this thesis?
+
+Supply chain management is the process of linking organizations through information flows, in order to achieve a competitive strength or advantage, which will maximise customer value. Supply chain activities go from the design or development of a product, up to its return on investment (ROI). Thus, a good coordination during these activities is extremely needed.
+
+Nowadays in the Big Data era, enterprises must handle huge amount of information. This leads companies to suffer from considerable issues, such as scalability, data's security or communication. One could think that currently most of these companies rely on third parties, which help them on the mentioned problems. But what if we would like to accelerate the process in a secure and decentralized manner? Here, is where Blockchain can play a crucial role.
+
+During these paper, the focus will be on IT companies facing these problems. The scenario will include in one side different customers, and in the other organizations acting as providers. For example, eBay, one of the biggest multinational e-commerce corporations, acts as an intermediate for the product's purchase-sale. Thus, eBay is responsible for managing all this data. However, can a user/company always safely trust third-parties? Why not using BC as the responsible for handling such complex tasks? As we previously mentioned in the IT companies scenario, any third person or organization will not undertake these functions, meaning that only a customer-provider relation will exist. 
+
+For this scenario, a current application example that consists of the embedding of virtual networks (network virtualization) between different Infrastructure Providers (InPs), will be further investigated \cite{dietrich2015multi}. This process can also be called network slicing. In this example, Service Providers (SPs) are willing to embed virtual nodes among different InPs. Nevertheless, Infrastructure Providers are not willing to publicly disclose its internal network topology, along with its resources availability and costs. In such cases, brokers, usually known as VN Providers (VNP) try to perform the embedding under the mentioned limited information disclosure (LID) problem. As a result, it can be clearly observed that blockchain can solve this interaction, providing: secure sensitive data storage, customer-provider negotiation without third-parties (without VNP) and finally maintaining a coordinated process. The negotiation between the involved parties will be based on a time-limited auction system, where each VN request will be stored as a contract on the blockchain network.
+
+Therefore, a good question for the theses could be: How blockchain takes advantage of distributed workflows using an agile and secure environment? Exemplifying workflows, with the Network Slicing example. At the end, a decentralized application (in the BC) interacting with a user-friendly front-end, which approaches the multi-provider virtual network embedding scenario, will be deployed.
+
 
 \section{Outline}
 How is the rest of this thesis structured?
 
+\hint{This chapter should motivate the thesis, provide a clear description of the problem to be solved, and describe the major contributions of this thesis. The chapter should have a length of about two pages!}
 
 
 %*****************************************
@@ -27,12 +49,20 @@ How is the rest of this thesis structured?
 %*****************************************
 \hint{This chapter should give a comprehensive overview on the background necessary to understand the thesis.
 The chapter should have a length of about five pages!}
-Bib\TeX-Test: \cite{Steinmetz2005} \citeauthor{Steinmetz2005} \citep{Steinmetz2005}
 
+\section{Blockchain: A decentralized and distributed trustless ledger}
 
-\section{Background Topic 1}
+\subsection{Bitcoin}
 
-\section{Background Topic 2}
+\subsection{Smart Contracts}
+
+\subsection{Decentralized Applications}
+
+\section{Network Virtualization}
+
+\subsection{Multi-Provider Virtual Network Embeding}
+
+\section{Auction Mechanisms}
 
 \section{Summary}
 
