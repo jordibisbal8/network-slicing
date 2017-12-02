@@ -3,17 +3,20 @@ pragma solidity ^0.4.0;
 contract User {
 
   struct UserStruct {
-  bytes32 userEmail;
-  bytes32 privilege;
+  bytes32 name;
+  bytes32 email;
+  bytes32 role;
+  bytes32 password;
   // TODO community/group
+
   uint index;
   }
 
   mapping(address => UserStruct) private userStructs;
-  address[] private userAddresses;
+  address[] private userAddresses;   // TODO ADDRESS (SHOULD BE UNIQUE)!
 
-  event LogNewUser   (address indexed userAddress, uint index, bytes32 userEmail, bytes32 privilege);
-  event LogUpdateUser(address indexed userAddress, uint index, bytes32 userEmail, bytes32 privilege);
+  event LogNewUser   (address indexed userAddress, uint index, bytes32 email, bytes32 role);
+  event LogUpdateUser(address indexed userAddress, uint index, bytes32 email, bytes32 role);
   event LogDeleteUser(address indexed userAddress, uint index);
 
   function isUser(address userAddress) public constant returns(bool isIndeed)
@@ -22,13 +25,15 @@ contract User {
     return (userAddresses[userStructs[userAddress].index] == userAddress);
   }
 
-  function insertUser(address userAddress, bytes32 userEmail, bytes32 privilege) public returns(uint index)
+  function insertUser(address userAddress, bytes32 name, bytes32 email, bytes32 role, bytes32 password) public returns(uint index)
   {
     if(isUser(userAddress)) revert(); //it already exists
-    userStructs[userAddress].userEmail = userEmail;
-    userStructs[userAddress].privilege = privilege;
+    userStructs[userAddress].name = name;
+    userStructs[userAddress].email = email;
+    userStructs[userAddress].role = role;
+    userStructs[userAddress].password = password;
     userStructs[userAddress].index = userAddresses.push(userAddress)-1; //since .push() returns the new array length
-    LogNewUser(userAddress, userStructs[userAddress].index, userEmail, privilege);
+    LogNewUser(userAddress, userStructs[userAddress].index, email, role);
     return userAddresses.length-1;
   }
   function deleteUser(address userAddress) public returns(uint index)
@@ -40,16 +45,15 @@ contract User {
     userStructs[lastUser].index = i;
     userAddresses.length--;
     LogDeleteUser(userAddress, i);
-    //LogUpdateUser(lastUser, i, userStructs[lastUser].userEmail, userStructs[lastUser].privilege);
     return i;
   }
 
-  function getUser(address userAddress) public constant returns(bytes32 userEmail, bytes32 privilege, uint index)
+  function getUser(address userAddress) public constant returns(bytes32 email, bytes32 role, uint index)
   {
     if(!isUser(userAddress)) revert();
     return(
-    userStructs[userAddress].userEmail,
-    userStructs[userAddress].privilege,
+    userStructs[userAddress].email,
+    userStructs[userAddress].role,
     userStructs[userAddress].index);
   }
 

@@ -7,8 +7,7 @@ import {AuthService} from "../auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  inputUser: string;
-  inputPassword: string;
+  inputAddress: string;
   public isLoading: boolean;
 
   constructor(private authService: AuthService) { }
@@ -18,5 +17,6 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.isLoading = true;
+    this.authService.login(this.inputAddress);
   }
 }

@@ -14,30 +14,44 @@
         <h2>Register</h2>
         <form name="form">
           <div class="form-group">
-            <md-input placeholder="First Name" name="inputName" [(ngModel)]="inputName" style="width: 100%" required></md-input>
+            <md-input name="inputAddress" (change)=isAddress() name="inputAddress" placeholder="Ethereum Address" [(ngModel)]="inputAddress" style="width: 100%" required></md-input>
           </div>
           <div class="form-group">
-            <md-input placeholder="Last Name" name="inputLastName"  [(ngModel)]="inputLastName" style="width: 100%" required></md-input>
+            <md-input placeholder="Email" name="inputEmail"  [(ngModel)]="inputEmail"  style="width: 100%" required></md-input>
           </div>
+          <br>
           <div class="form-group">
-            <md-select [(ngModel)]="inputUserType" name="InputUserType" placeholder="User Type" style="width:100%;" required>
+            <md-select [(ngModel)]="inputRole" name="InputRole" placeholder="Your Role" style="width:100%;" required>
               <md-option value="serviceProvider">Service Provider</md-option>
               <md-option value="infrastructureProvider">Infrastructure Provider</md-option>
               <md-option value="customer">Customer</md-option>
             </md-select>
           </div>
-          <div class="form-group">
-            <md-input placeholder="Username" name="inputUsername"  [(ngModel)]="inputUsername"  style="width: 100%" required></md-input>
-          </div>
-            <md-input type="password" name="inputPassword"  placeholder="Password" [(ngModel)]="inputPassword" style="width: 100%" required></md-input>
           <div class="form-group" style="margin-top: 15px;">
-            <button md-raised-button (click)="register()" style="background-color: #008fd3;color: white">
+            <button md-raised-button (click)="openDialog()" style="background-color: #008fd3;color: white">
               Register <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
             </button>
             <button md-button [routerLink]="['/home']">Back</button>
           </div>
-          <span><i>Brought to you by KOM TU Darmstadt</i></span>
+          <span><i>Don't have an Ethereum Account yet? Create your own clicking <a (click)="togglecreateEOA()">here</a></i></span>
         </form>
+        <br>
+        <div *ngIf="createMode">
+          <h4>Creating Ethereum Account</h4>
+          <div class="alert alert-info">
+            <strong>Info:</strong> The password and the Ethereum address will be further needed to access the application
+          </div>
+          <div class="form-group">
+            <md-input type="password" placeholder="Password" name="inputPassword"  [(ngModel)]="inputPassword" style="width: 100%"></md-input>
+            <md-input type="password" placeholder="Repeat your password" name="inputPassword2"  [(ngModel)]="inputPassword2" style="width: 100%"></md-input>
+          </div>
+          <div class="form-group" style="margin-top: 15px;">
+            <button md-raised-button (click)="createEOA()" style="background-color: #008fd3;color: white">
+              Create account <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
+            </button>
+            <button md-button (click)="togglecreateEOA()">Cancel</button>
+          </div>
+        </div>
       </div>
     </div>
   </md-card-content>

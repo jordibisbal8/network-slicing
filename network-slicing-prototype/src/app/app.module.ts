@@ -1,4 +1,3 @@
-
 import {HomeComponent} from "./home/home.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {ProductComponent} from "./product/product.component";
@@ -14,6 +13,8 @@ import {RegisterComponent} from "./auth/register/register.component";
 import {Ng2CompleterModule} from "ng2-completer";
 import {LoginComponent} from "./auth/login/login.component";
 import {AuthService} from "./auth/auth.service";
+import {CheckSignatureDialogComponent} from "./auth/login/check-signature.dialog.component";
+import {ProductRequestComponent} from "./product/product-request.component";
 
 
 @NgModule({
@@ -24,6 +25,8 @@ import {AuthService} from "./auth/auth.service";
     LoginComponent,
     ProductComponent,
     RegisterComponent,
+    CheckSignatureDialogComponent,
+    ProductRequestComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,6 @@ import {AuthService} from "./auth/auth.service";
   ],
   // expose our Services and Providers into Angular's dependency injection
   providers: [AuthService],
-  entryComponents: [],
+  entryComponents: [CheckSignatureDialogComponent],
 })
 export class AppModule { }

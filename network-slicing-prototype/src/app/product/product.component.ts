@@ -48,7 +48,12 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  /*this.User.deployed().then(contractInstance => {
+      contractInstance.insertUser(this.address, name, email, role, password,
+        {from: this.web3.eth.accounts[0], gas: 1400000}).then((err, v) => {
+          console.log(v)
+        })
+  })*/
   // BE CAREFUL the gas sent should be enough
   newContract() {
     this.productFactory.deployed().then(contractInstance => {

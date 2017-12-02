@@ -1,0 +1,14 @@
+<h3 md-dialog-title>Please sign the message in order to verify your account</h3>
+<div md-dialog-content>
+  <div class="row">
+    <div class="col-xs-12">
+      <md-input-container style="width: 100%">
+        <textarea md-input md-autosize placeholder="Message to sign..." rows="3" [(ngModel)]="message"></textarea>
+      </md-input-container>
+    </div>
+  </div>
+</div>
+<div md-dialog-actions>
+  <button md-raised-button (click)="checkSig()"><i class="fa fa-key"></i>  Sign Message</button>
+  <button md-button (click)="dialogRef.close()">Cancel</button>
+</div>
