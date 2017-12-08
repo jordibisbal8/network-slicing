@@ -3,12 +3,12 @@
   <div class="row">
     <div class="col-xs-12">
       <md-input-container style="width: 100%">
-        <textarea md-input md-autosize placeholder="Message to sign..." rows="3" [(ngModel)]="message"></textarea>
+        <textarea md-input md-autosize [readOnly]="true" placeholder="Message to sign..." rows="1" [(ngModel)]="message"></textarea>
       </md-input-container>
     </div>
   </div>
 </div>
 <div md-dialog-actions>
-  <button md-raised-button (click)="checkSig()"><i class="fa fa-key"></i>  Sign Message</button>
+  <button md-raised-button (click)="dialogRef.close(message)" style="background-color: #008fd3;color: white"><i class="fa fa-key"></i>  Sign Message</button>
   <button md-button (click)="dialogRef.close()">Cancel</button>
 </div>

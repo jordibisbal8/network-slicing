@@ -17,7 +17,6 @@
         <ul class="nav navbar-nav">
           <li [routerLinkActive]="['active']"><a [routerLink]="['home']">Home</a></li>
           <li [routerLinkActive]="['active']"><a [routerLinkActive]="['active']" [routerLink]="['products']" >Products</a></li>
-          <!--<li [routerLinkActive]="['active']"><a [routerLink]="['archetypes']" [routerLinkActive]="['active']">BM Explorer</a></li>-->
         </ul>
         <form class="navbar-left" style="margin-bottom: -10px;">
           <div class="form-group">
@@ -40,12 +39,18 @@
             </div>
             <div *ngIf="!user" style="margin-top: 20px;margin-right: 20px;">
               <a *ngIf="!loginMode" (click)="toggleLoginMode()">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a>
-              <div *ngIf="loginMode" style="margin-top: -12px;margin-bottom:-12px">
-                <md-input placeholder="Email" [(ngModel)]="inputEmail" type="email"></md-input>
-                <md-input placeholder="Password" [(ngModel)]="inputPassword" type="password"></md-input>
-                <a (click)="login()">Login</a>
-                <a [routerLink]="['/register']">Register</a>
-                <a (click)="toggleLoginMode()">Cancel</a>
+              <div *ngIf="loginMode" style="margin-top: -12px">
+                <form [formGroup]="loginForm">
+                  <div *ngIf="loginForm.controls.address.errors && loginForm.controls.address.touched">
+                    <div [hidden]="!loginForm.controls.address.errors?.isAddressValid">
+                      <span style="color:red">Ethereum address is not valid</span>
+                    </div>
+                  </div>
+                  <md-input placeholder="Ethereum Address" formControlName="address" [(ngModel)]="inputAddress" style="width: 325px"></md-input>
+                  <button md-raised-button [disabled]="!loginForm.valid" (click)="login()" style="background-color: #008fd3;color: white">Login</button>
+                  <a [routerLink]="['/register']">Register</a>
+                  <a (click)="toggleLoginMode()">Cancel</a>
+                </form>
               </div>
             </div>
           </li>

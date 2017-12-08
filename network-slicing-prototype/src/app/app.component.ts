@@ -1,14 +1,9 @@
-
 import {Router} from "@angular/router";
 import {Component, OnInit, ViewEncapsulation} from "@angular/core";
+import {AuthService} from "./auth/auth.service";
+import {AddressValidation} from "./auth/validator/addressValidation";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
-const Web3 = require('web3');
-const contract = require('truffle-contract');
-const productFactoryArtifacts = require('../../build/contracts/ProductFactory.json');
-const UserArtifacts = require('../../build/contracts/User.json');
-
-
-declare let window: any;
 
 @Component({
   selector: 'app',
@@ -20,12 +15,20 @@ export class AppComponent {
 
   public user;
   public loginMode: boolean;
-  public inputEmail: string;
-  public inputPassword: string;
+  public inputAddress:string;
+  loginForm: FormGroup;
+
 
   constructor(
     public router: Router,
+    private authService: AuthService,
+    public fb: FormBuilder
   ) {
+    this.loginForm = fb.group({
+      address: ['', Validators.required],
+    }, {
+      validator: AddressValidation.isAddressValid
+    })
   }
 
   toggleLoginMode(){
@@ -33,6 +36,7 @@ export class AppComponent {
   }
 
   login() {
-    alert('Coming soon');
+    this.authService.login(this.inputAddress);
+    this.loginMode = false;
   }
 }

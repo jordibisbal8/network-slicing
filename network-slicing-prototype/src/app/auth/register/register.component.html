@@ -12,26 +12,44 @@
     <div class="row">
       <div class="col-xs-12">
         <h2>Register</h2>
-        <form name="form">
+        <form [formGroup]="accountForm">
           <div class="form-group">
-            <md-input name="inputAddress" (change)=isAddress() name="inputAddress" placeholder="Ethereum Address" [(ngModel)]="inputAddress" style="width: 100%" required></md-input>
+            <md-input type="email" formControlName="email" placeholder="Email" [(ngModel)]="inputEmail" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" style="width: 100%"></md-input>
+            <div *ngIf="accountForm.controls.email.errors && accountForm.controls.email.touched" class="alert alert-danger">
+              <div [hidden]="!accountForm.controls.email.errors.pattern">
+                Email is invalid
+              </div>
+            </div>
           </div>
           <div class="form-group">
-            <md-input placeholder="Email" name="inputEmail"  [(ngModel)]="inputEmail"  style="width: 100%" required></md-input>
+            <md-input formControlName="address" placeholder="Ethereum Address" [(ngModel)]="inputAddress" style="width: 100%" required></md-input>
+            <div *ngIf="accountForm.controls.address.errors && accountForm.controls.address.touched" class="alert alert-danger">
+              <div [hidden]="!accountForm.controls.address.errors.required">
+                Ethereum address is a mandatory field
+              </div>
+              <div [hidden]="!accountForm.controls.address.errors?.isAddressValid">
+                Ethereum address is not valid
+              </div>
+            </div>
           </div>
           <br>
           <div class="form-group">
-            <md-select [(ngModel)]="inputRole" name="InputRole" placeholder="Your Role" style="width:100%;" required>
+            <md-select [(ngModel)]="inputRole" formControlName="role" placeholder="Your Role" style="width:100%;" required>
               <md-option value="serviceProvider">Service Provider</md-option>
               <md-option value="infrastructureProvider">Infrastructure Provider</md-option>
               <md-option value="customer">Customer</md-option>
             </md-select>
+            <div *ngIf="accountForm.controls.role.errors && accountForm.controls.role.touched" class="alert alert-danger">
+              <div [hidden]="!accountForm.controls.role.errors.required">
+                Role is a mandatory field
+              </div>
+            </div>
           </div>
           <div class="form-group" style="margin-top: 15px;">
-            <button md-raised-button (click)="openDialog()" style="background-color: #008fd3;color: white">
+            <button md-raised-button [disabled]="!accountForm.valid" (click)="login()" style="background-color: #008fd3;color: white">
               Register <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
             </button>
-            <button md-button [routerLink]="['/home']">Back</button>
+            <button md-button type="button" [routerLink]="['/home']">Back</button>
           </div>
           <span><i>Don't have an Ethereum Account yet? Create your own clicking <a (click)="togglecreateEOA()">here</a></i></span>
         </form>
@@ -41,16 +59,15 @@
           <div class="alert alert-info">
             <strong>Info:</strong> The password and the Ethereum address will be further needed to access the application
           </div>
-          <div class="form-group">
-            <md-input type="password" placeholder="Password" name="inputPassword"  [(ngModel)]="inputPassword" style="width: 100%"></md-input>
-            <md-input type="password" placeholder="Repeat your password" name="inputPassword2"  [(ngModel)]="inputPassword2" style="width: 100%"></md-input>
+          <div class="form-group" [formGroup]="form">
+            <md-input input type="password" [ngModel]="inputPassword" placeholder="Password" required formControlName="password" style="width: 100%"></md-input>
+            <md-input type="password" [ngModel]="inputPassword2" placeholder="Repeat your password" required formControlName="confirmPassword" style="width: 100%"></md-input>
+            <div class="alert alert-danger" *ngIf="form.controls.confirmPassword.touched && form.controls.confirmPassword.errors?.MatchPassword">Password do not match</div>
           </div>
-          <div class="form-group" style="margin-top: 15px;">
-            <button md-raised-button (click)="createEOA()" style="background-color: #008fd3;color: white">
-              Create account <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
-            </button>
-            <button md-button (click)="togglecreateEOA()">Cancel</button>
-          </div>
+          <button md-raised-button [disabled]="!form.valid" (click)="createEOA()" style="background-color: #008fd3;color: white">
+            Create account <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
+          </button>
+          <button md-button (click)="togglecreateEOA()">Cancel</button>
         </div>
       </div>
     </div>

@@ -1,6 +1,9 @@
 import {Injectable, OnInit} from '@angular/core';
 import {Http, Headers} from "@angular/http";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {CheckSignatureDialogComponent} from "./login/check-signature.dialog.component";
+import {MdDialog, MdSnackBar} from "@angular/material";
+import {Router} from "@angular/router";
 const Web3 = require('web3');
 
 
@@ -11,31 +14,35 @@ export class AuthService{
   public address: string;
   web3: any;
 
-  constructor(public http: Http){
+  constructor(public http: Http,
+              public dialog: MdDialog,
+              public snackBar: MdSnackBar,
+              public router: Router){
 
   }
   isUserLoggedIn(){
     //TODO check if token is still valid
   }
   login(address) {
-    // TODO authentication with MW, which creates new token
-    // TODO WE CAN UNLOCK THE ACCOUNT same time as token timestamp
+    let dialogRef = this.dialog.open(CheckSignatureDialogComponent, {
+      width: '1000px'
+    });
+    dialogRef.componentInstance.address = address;
+    dialogRef.afterClosed().subscribe(message => {
+      if (message){
+        //this.authenticate(address,message);
+        this.snackBar.open("User successfully authenticated, now you are logged in", 'X', {
+          duration:5000
+        });
+        this.router.navigate(['/home']);
+      }
+    });
   }
 
   register(address, email, role){
     // TODO first make authentication (login) and then addAccount in User contract
   }
-  /*authenticate(sig, user) {
-    return (dispatch) => {
-      // TODO req.params {owner: user, sig: sig})
-      this.http.post('api/authenticate')
-        .then((res) => { return res.text(); })
-        .then((body) => {
-          let token = body.token;
-          dispatch({ type: 'SET_AUTH_TOKEN', result: token})
-        })
-    }
-  }*/
+
   authenticate(address, message) {
     this.web3 = new Web3(
       new Web3.providers.HttpProvider('http://localhost:8545')
@@ -51,6 +58,8 @@ export class AuthService{
         .map(res => res.json())
         .subscribe(res => {
           // TODO UPDATE TOKEN
+          // let token = body.token;
+          //dispatch({ type: 'SET_AUTH_TOKEN', result: token})
           console.log(res);
         })
     })

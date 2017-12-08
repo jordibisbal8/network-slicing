@@ -2,6 +2,7 @@ import {Http, Headers} from '@angular/http';
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MdDialog} from "@angular/material";
+import {VirtualNodeDialogComponent} from "./virtual-node.dialog.component";
 
 declare let vis: any; // load library also in index.html
 
@@ -38,14 +39,14 @@ export class ProductRequestComponent implements OnInit {
   ngOnInit() {
     // Static Nodes
     this.nodes = new vis.DataSet([
-      {id: 0, x: -843, y: 67, color: 'rgba(0,0,0,0)', fixed: true},
+      /*{id: 0, x: -843, y: 67, color: 'rgba(0,0,0,0)', fixed: true},
       {id: 1, x: 841, y: 67, color: 'rgba(0,0,0,0)', fixed: true},
       {id: 2, x: -45, y: -485, color: 'rgba(0,0,0,0)', fixed: true},
       {id: 3, x: -45, y: 669, color: 'rgba(0,0,0,0)', fixed: true},
       {id: 4, label: 'LEADERS', font: '35px arial black',  shape: 'text', x: 129, y: -400},
       {id: 5, label: 'CHALLENGERS', font: '35px arial black', shape: 'text', size: 30, x: -631, y: -398, fixed: true},
       {id: 6, label: 'VISIONAIRES', font: '35px arial black', shape: 'text', size: 30, x: 168, y: 581, fixed: true},
-      {id: 7, label: 'NICHE PLAYERS', font: '35px arial black', shape: 'text', size: 30, x: -692, y: 571, fixed: true}
+      {id: 7, label: 'NICHE PLAYERS', font: '35px arial black', shape: 'text', size: 30, x: -692, y: 571, fixed: true}*/
     ]);
     this.edges = new vis.DataSet([
       {from: 0, to: 1, width: 3, color: '#989898', arrows: 'to', arrowStrikethrough: false},
@@ -60,21 +61,45 @@ export class ProductRequestComponent implements OnInit {
       nodes: {
         physics: false,
         font: {
-          size: 16,
+          size: 30,
         },
+        size:40,
         shapeProperties: {borderRadius: 0},
-        widthConstraint: {maximum: 200}, color: {
+        /*widthConstraint: {maximum: 200}, color: {
           border: 'rgba(52,52,52,1)', background: 'rgba(186,186,186,1)',
           highlight: {border: 'rgba(52,52,52,1)', background: 'rgba(186,186,186,1)'},
           hover: {border: 'rgba(52,52,52,1)', background: 'rgba(186,186,186,1)'}
-        },
+        },*/
       },
       interaction: {hover: true},
       manipulation: {
         enabled: true,
         addNode: (nodeData, callback) => {
-          //TODO ADD NODE DIALOG
-          callback(nodeData);
+          let dialogRef = this.dialog.open(VirtualNodeDialogComponent, {
+            width: '1000px'
+          });
+          dialogRef.afterClosed().subscribe(result => {
+            nodeData.resource = result.resource;
+            if (nodeData.resource === 'a'){
+              nodeData.color = '#FF9900';
+              nodeData.shape = 'dot';
+            }
+            if (nodeData.resource === 'b'){
+              nodeData.color = 'blue';
+              nodeData.shape = 'triangle';
+            }
+
+            if (nodeData.resource === 'c'){
+              nodeData.color = 'orange';
+              nodeData.shape = 'square';
+
+            }
+            nodeData.comment = result.comment;
+            nodeData.location = result.location;
+            nodeData.label = 'TEST';
+            // Todo Label, virtualNodesManager?
+            callback(nodeData);
+          })
         },
         editNode: (nodeData, callback) => {
           //TODO OPEN SIDENAV in parent product.component

@@ -1,0 +1,16 @@
+<h3 md-dialog-title>Your new Ethereum Address has been successfully created</h3>
+<div md-dialog-content>
+  <div class="row">
+    <div class="col-xs-12">
+      <md-input-container style="width: 100%">
+        <textarea md-input md-autosize [readOnly]="true" #addr placeholder="Ethereum account" rows="1" [(ngModel)]="address"></textarea>
+      </md-input-container>
+    </div>
+  </div>
+</div>
+<div md-dialog-actions>
+  <button md-button [ngxClipboard]="addr" (cbOnSuccess)="showCopied()" style="background-color: #008fd3;color: white">
+    Copy to clipboard <i class="fa fa-clipboard" aria-hidden="true"></i>
+  </button>
+  <button md-button (click)="close()">Close</button>
+</div>

@@ -5,7 +5,7 @@ import {ProductComponent} from "./product/product.component";
 import '../styles/styles.scss';
 import {MaterialModule} from "@angular/material";
 import {HttpModule} from "@angular/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppComponent} from "./app.component";
 import {NgModule} from "@angular/core";
@@ -15,6 +15,9 @@ import {LoginComponent} from "./auth/login/login.component";
 import {AuthService} from "./auth/auth.service";
 import {CheckSignatureDialogComponent} from "./auth/login/check-signature.dialog.component";
 import {ProductRequestComponent} from "./product/product-request.component";
+import {ShowAddressDialogComponent} from "./auth/register/show-address.dialog.component";
+import {ClipboardModule} from "ngx-clipboard/dist";
+import {VirtualNodeDialogComponent} from "./product/virtual-node.dialog.component";
 
 
 @NgModule({
@@ -26,7 +29,9 @@ import {ProductRequestComponent} from "./product/product-request.component";
     ProductComponent,
     RegisterComponent,
     CheckSignatureDialogComponent,
-    ProductRequestComponent
+    ShowAddressDialogComponent,
+    ProductRequestComponent,
+    VirtualNodeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,10 +39,12 @@ import {ProductRequestComponent} from "./product/product-request.component";
     HttpModule,
     Ng2CompleterModule,
     MaterialModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    ClipboardModule
   ],
   // expose our Services and Providers into Angular's dependency injection
   providers: [AuthService],
-  entryComponents: [CheckSignatureDialogComponent],
+  entryComponents: [CheckSignatureDialogComponent, ShowAddressDialogComponent, VirtualNodeDialogComponent],
 })
 export class AppModule { }

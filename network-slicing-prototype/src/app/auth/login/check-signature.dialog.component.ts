@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {MdDialogRef, MdSnackBar} from "@angular/material";
 import {AuthService} from "../auth.service";
 const cuid = require('cuid'); //random string
+var randomWords = require('random-words');
 
 
 @Component({
@@ -11,17 +12,9 @@ const cuid = require('cuid'); //random string
 export class CheckSignatureDialogComponent {
 
   public address: string;
-  public message: string = cuid();
+  public message: string = randomWords({ min: 5, max:10, join: ' ' });
 
-  constructor(public dialogRef: MdDialogRef<CheckSignatureDialogComponent>,
-              public snackBar: MdSnackBar,
-              private authService: AuthService) {
-  }
-  checkSig(){
-    //this.authService.authenticate(this.address, this.message);
-    this.dialogRef.close();
-    this.snackBar.open("User successfully authenticate, you are now logged in", 'X', {
-      duration:5000
-    });
+
+  constructor(public dialogRef: MdDialogRef<CheckSignatureDialogComponent>) {
   }
 }

@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../auth.service";
-import {MdDialog} from "@angular/material";
+import {MdDialog, MdSnackBar} from "@angular/material";
 import {CheckSignatureDialogComponent} from "../login/check-signature.dialog.component";
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {PasswordValidation} from "../validator/passwordValidation";
+import {AddressValidation} from "../validator/addressValidation";
+import {ShowAddressDialogComponent} from "./show-address.dialog.component";
+import {Router} from "@angular/router";
+
 const Web3 = require('web3');
 const ethUtil = require('ethereumjs-util');
 const jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
@@ -21,56 +27,56 @@ export class RegisterComponent {
   public createMode: boolean;
   public newAddress: string;
   web3: any;
+  form: FormGroup;
+  accountForm: FormGroup;
 
   constructor(private authService: AuthService,
-              public dialog: MdDialog) {
+              public snackBar: MdSnackBar,
+              public dialog: MdDialog,
+              public fb: FormBuilder,
+              public router: Router) {
+    this.form = fb.group({
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
+    }, {
+      validator: PasswordValidation.MatchPassword // your validation method
+    });
+    this.accountForm  = fb.group({
+      email: ['', Validators.required],
+      address: ['', Validators.required],
+      role: ['', Validators.required],
+    }, {
+      validator: AddressValidation.isAddressValid
+    });
+    this.web3 = new Web3(
+      new Web3.providers.HttpProvider('http://localhost:8545')
+    );
   }
 
-
-  register() {
-
-  }
-  /*authenticate() {
-    this.isLoading = true;
-    this.authService.authenticate(this.inputAddress, this.inputMessage);
-  }*/
 
   togglecreateEOA() {
     this.createMode = !this.createMode;
   }
 
   createEOA(){
-    if (this.inputPassword !== this.inputPassword2)
-      console.log('The introduced passwords are not identical');
     this.newAddress = this.web3.personal.newAccount(this.inputPassword);
     this.web3.personal.unlockAccount(this.newAddress, this.inputPassword, 0);
-    // TODO SHOW NEW ADDRESS TO USER!
-    this.togglecreateEOA();
-  }
-  openDialog(): void {
-    let dialogRef = this.dialog.open(CheckSignatureDialogComponent, {
+    let dialogRef = this.dialog.open(ShowAddressDialogComponent, {
       width: '1000px'
     });
-    dialogRef.componentInstance.address = this.inputAddress;
-
+    dialogRef.componentInstance.address = this.newAddress;
     dialogRef.afterClosed().subscribe(result => {
+      this.snackBar.open("Now you can register on the network slicing application", 'X', {
+        duration:5000
+      });
     });
+    this.togglecreateEOA();
   }
-  isAddress(address) {
-    console.log('ei')
-    if (!/^(0x)?[0-9a-f]{40}$/i.test(address)) {
-      // check if it has the basic requirements of an address
-      return false;
-    } else if (/^(0x)?[0-9a-f]{40}$/.test(address) || /^(0x)?[0-9A-F]{40}$/.test(address)) {
-      // If it's all small caps or all all caps, return "true
-      return true;
-    }
+  login() {
+    this.authService.login(this.inputAddress);
   }
 
-  checkSig() {
-    this.web3 = new Web3(
-      new Web3.providers.HttpProvider('http://localhost:8545')
-    );
+  /*checkSig() {
     let address = this.web3.eth.accounts[0];
     const msg = new Buffer('hello world');
     this.web3.eth.sign(address, '0x' + msg.toString('hex'), (err,sig) => {
@@ -92,6 +98,7 @@ export class RegisterComponent {
         console.log('signature check FAILED');
       }
     })
-  }
+  }*/
+
 }
 

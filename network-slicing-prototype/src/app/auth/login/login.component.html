@@ -11,17 +11,24 @@
     <div class="row">
       <div class="col-xs-12">
         <h2>Login</h2>
-        <form name="form">
+        <form [formGroup]="loginForm">
           <div class="form-group">
-            <md-input placeholder="Ethereum Address" name="inputAddress"  [(ngModel)]="inputAddress"  style="width: 100%" required></md-input>
+            <md-input placeholder="Ethereum Address" formControlName="address" name="inputAddress"  [(ngModel)]="inputAddress"  style="width: 100%" required></md-input>
+            <div *ngIf="loginForm.controls.address.errors && loginForm.controls.address.touched" class="alert alert-danger">
+              <div [hidden]="!loginForm.controls.address.errors.required">
+                Ethereum address is a mandatory field
+              </div>
+              <div [hidden]="!loginForm.controls.address.errors?.isAddressValid">
+                Ethereum address is not valid
+              </div>
+            </div>
           </div>
-          <div class="form-group" style="margin-top: 15px;">
-            <button md-raised-button [disabled]="!inputAddress" (click)="login()" style="background-color: #008fd3;color: white">
-              Login <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
-            </button>
-            <button md-button [routerLink]="['/home']">Back</button>
-          </div>
-          <span><i>Brought to you by KOM TU Darmstadt</i></span>
+          <button md-raised-button [disabled]="!loginForm.valid" (click)="login()" style="background-color: #008fd3;color: white">
+            Login <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
+          </button>
+          <button md-button type="button" [routerLink]="['/home']">Back</button>
+          <br><br>
+          <div><i>Brought to you by KOM TU Darmstadt</i></div>
         </form>
       </div>
     </div>
