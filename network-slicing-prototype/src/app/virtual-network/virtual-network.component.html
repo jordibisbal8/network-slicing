@@ -1,21 +1,33 @@
-<div class="header-container">
-  <div class="header2" style="background-color: #008fd3">
-    <div class="header-content" style="font-size:18pt;padding-top: 57px;padding-left: 35px">
-      Products list
-    </div>
-  </div>
+<project-header [title]="'Virtual Networks List'" [color]="'#009688'"></project-header>
 
+
+<div class="container">
   <md-card class="example-card">
     <md-card-content>
       <div class="row">
         <div class="col-xs-12">
-          <h3>Virtual Network request  <i mdTooltip="Using the following graph, you can create your own virtual network request. Click on Edit to start adding virtual nodes" class="fa fa-question-circle" style="color: orange;"></i></h3>
-          <br>
-          <product-request></product-request>
+          <button  md-raised-button class="pull-right" [routerLink]="['/virtual-network-request']" style="background-color: #009688;color: white">
+            + Create new VN request
+          </button>
+          <h4>Open Negotiation</h4>
+          <virtual-network-tile></virtual-network-tile>
         </div>
       </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>Closed Negotiation</h4>
+          <virtual-network-tile></virtual-network-tile>
+        </div>
+      </div>
+      <!--<div class="row" style="margin-top: 20px">
+        <div class="col-xs-12">
+          <button (click)="getAllUsers()">GET ALL</button>
+          <button (click)="getInPs()">GET InPs</button>
+        </div>
+      </div>-->
     </md-card-content>
   </md-card>
+
     <!--<div class="row">
       <div class="col-xs-12">
         <h4> Product factory </h4>

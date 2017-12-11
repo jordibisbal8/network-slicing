@@ -6,17 +6,13 @@
 // ```
 
 import jwt from 'jsonwebtoken'; // used to create, sign, and verify tokens
-
-
-// ## Node API Routes
-// Load user model
+import config from '../config/config';
 
 // Load our API routes for user authentication
-import authRoutes from './routes/_authentication.router.js';
+import authRoutes from './routes/_auth.router.js';
 
 // Load our API routes
-
-//import bmRoutes from './routes/_bm.router.js';
+import userRoutes from './routes/_user.router';
 
 
 export default (app, router, passport) => {
@@ -28,22 +24,31 @@ export default (app, router, passport) => {
     next();
   });
 
-  // Define a middleware function to be used for all secured routes
-
+  // Define a middleware function that validates the token.
   let auth = function validateJwt(req, res, next) {
-    req.jwt = jwt.verify(req.body.jwt, 'super secret', (err,decoded) => {
-      if (err)
-        res.json ({ success: false, message: 'Failed to authenticate token.'});
+    let token = req.header('Authorization');
+    jwt.verify(token, config.secret, (err,decoded) => {
+      if (err){
+        if (err.name === 'TokenExpiredError')
+          return res.send(401, err);
+        res.send(500, err);
+      }
       else {
+        // TODO refresh token from Users Contract? (cost gas maybe...)
         req.user = decoded.user;
-        console.log(req.user); //used for further requests
         next();
       }
     });
   };
 
+  let isTokenExpired = function isTokenExpired(req,res,next){
+
+  };
+
 
   // #### RESTful API Routes
+
+  userRoutes(app, router, auth);
 
   // Pass in our Express app and Router
 

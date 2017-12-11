@@ -13,8 +13,12 @@ export class CheckSignatureDialogComponent {
 
   public address: string;
   public message: string = randomWords({ min: 5, max:10, join: ' ' });
+  public inputPassword: string;
 
 
   constructor(public dialogRef: MdDialogRef<CheckSignatureDialogComponent>) {
+  }
+
+  public signMessage(message, inputPassword) {
   }
 }

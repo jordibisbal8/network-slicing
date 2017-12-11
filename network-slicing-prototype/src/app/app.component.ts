@@ -28,7 +28,8 @@ export class AppComponent {
       address: ['', Validators.required],
     }, {
       validator: AddressValidation.isAddressValid
-    })
+    });
+    this.user = this.authService.isUserLoggedIn();
   }
 
   toggleLoginMode(){
@@ -38,5 +39,9 @@ export class AppComponent {
   login() {
     this.authService.login(this.inputAddress);
     this.loginMode = false;
+  }
+
+  logout() {
+    this.user = false;
   }
 }

@@ -1,0 +1,27 @@
+<project-header [title]="'Virtual Networks Request Specification'" [color]="'#009688'"></project-header>
+
+<div class="container">
+  <md-card class="example-card">
+    <md-card-content>
+      <div class="row">
+        <div class="col-xs-12">
+          <div #mynetwork style="
+            width:100%;
+            height:700px;
+            border:1px solid lightgray">
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:20px">
+        <div class="col-xs-12">
+          <div style="float: right">
+            <button md-raised-button style="background-color: #009688;color: white">
+              Send request
+            </button>
+            <button md-button [routerLink]="['/virtual-network']">Back</button>
+          </div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

@@ -1,29 +1,22 @@
-<div class="header-container">
-  <div class="header2" style="background-color: #008fd3">
-    <div class="header-content" style="font-size:18pt;padding-top: 57px;padding-left: 35px">
-      Welcome
-    </div>
-  </div>
-</div>
+<project-header [title]="'Welcome'" [color]="'#008fd3'"></project-header>
 
-<md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar></div>
-    <md-card-title>Jordi Bisbal Ansaldo</md-card-title>
-    <md-card-subtitle>WS 17-18</md-card-subtitle>
-  </md-card-header>
-  <img md-card-image src="../../assets/img/tu_logo.png" alt="Photo of a Shiba Inu">
-  <md-card-content>
-    <div> Welcome to the official home page for the network slicing project </div>
-    <br>
-    <div> You are not logged in</div>
-    <div>
-      <a [routerLink]="['/login']">Login</a>
-      <a [routerLink]="['/register']">Register</a>
-    </div>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button>LIKE<i class="fa fa-thumbs-up" aria-hidden="true" style="margin-left:10px;margin-top:-5px"></i></button>
-    <button md-button>SHARE<i class="fa fa-share-alt" aria-hidden="true" style="margin-left:10px;margin-top:-5px"></i></button>
-  </md-card-actions>
-</md-card>
+
+<div class="container">
+  <md-card class="example-card">
+    <md-card-header>
+      <div md-card-avatar></div>
+      <md-card-title>Jordi Bisbal Ansaldo</md-card-title>
+      <md-card-subtitle>WS 17-18</md-card-subtitle>
+    </md-card-header>
+    <img md-card-image src="../../assets/img/tu_logo.png" alt="Photo of a Shiba Inu">
+    <md-card-content>
+      <div> Welcome to the official home page for the network slicing project </div>
+      <br>
+      <div> You are not logged in</div>
+      <div>
+        <a [routerLink]="['/login']">Login</a>
+        <a [routerLink]="['/register']">Register</a>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

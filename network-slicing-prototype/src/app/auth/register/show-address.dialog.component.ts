@@ -1,4 +1,4 @@
-import {Component, Inject} from "@angular/core";
+import {Component} from "@angular/core";
 import {MdDialogRef, MdSnackBar} from "@angular/material";
 
 
@@ -17,6 +17,7 @@ export class ShowAddressDialogComponent {
     this.snackBar.open("Ethereum account copied. Please store it", 'X', {
       duration:5000
     });
+    this.dialogRef.close();
   }
   close(){
     let result = confirm('Have you already copied your Ethereum account in your PC?');

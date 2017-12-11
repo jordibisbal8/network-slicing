@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {AuthService} from "../auth.service";
 import {MdDialog, MdSnackBar} from "@angular/material";
-import {CheckSignatureDialogComponent} from "../login/check-signature.dialog.component";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {PasswordValidation} from "../validator/passwordValidation";
 import {AddressValidation} from "../validator/addressValidation";
 import {ShowAddressDialogComponent} from "./show-address.dialog.component";
 import {Router} from "@angular/router";
 
-const Web3 = require('web3');
-const ethUtil = require('ethereumjs-util');
-const jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
+import Web3 from 'web3';
 
 @Component({
   selector: 'app-register',
@@ -60,7 +57,6 @@ export class RegisterComponent {
 
   createEOA(){
     this.newAddress = this.web3.personal.newAccount(this.inputPassword);
-    this.web3.personal.unlockAccount(this.newAddress, this.inputPassword, 0);
     let dialogRef = this.dialog.open(ShowAddressDialogComponent, {
       width: '1000px'
     });
@@ -72,33 +68,10 @@ export class RegisterComponent {
     });
     this.togglecreateEOA();
   }
-  login() {
-    this.authService.login(this.inputAddress);
+
+  register() {
+    this.authService.register(this.inputAddress, this.inputEmail, this.inputRole);
   }
-
-  /*checkSig() {
-    let address = this.web3.eth.accounts[0];
-    const msg = new Buffer('hello world');
-    this.web3.eth.sign(address, '0x' + msg.toString('hex'), (err,sig) => {
-      const signature = ethUtil.fromRpcSig(sig);
-      const prefix = new Buffer("\x19Ethereum Signed Message:\n");
-      const prefixedMsg = ethUtil.sha3(
-        Buffer.concat([prefix, new Buffer(String(msg.length)), msg])
-      );
-
-      const pubKey  = ethUtil.ecrecover(prefixedMsg, signature.v, signature.r, signature.s);
-      const addrBuf = ethUtil.pubToAddress(pubKey);
-      const addr    = ethUtil.bufferToHex(addrBuf);
-
-      console.log(this.web3.eth.accounts[0],  addr);
-
-      if(addr === address) {
-        console.log('signature check success');
-      } else {
-        console.log('signature check FAILED');
-      }
-    })
-  }*/
 
 }
 

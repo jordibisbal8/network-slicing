@@ -1,65 +1,89 @@
 <div>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#"><img src="../assets/img/kom_logo.png" style="height:26px"></a>
+  <md-sidenav-container class="sidenav-container">
+    <md-sidenav class="sidenav" mode="side" opened="true">
+      <div class="logo">
+        <a href="#"> <img src="../assets/img/kom_logo.png"></a>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li [routerLinkActive]="['active']"><a [routerLink]="['home']">Home</a></li>
-          <li [routerLinkActive]="['active']"><a [routerLinkActive]="['active']" [routerLink]="['products']" >Products</a></li>
-        </ul>
-        <form class="navbar-left" style="margin-bottom: -10px;">
-          <div class="form-group">
-            <!--<ng2-completer class="completer" placeholder="Search for product">
-            </ng2-completer>-->
+      <div *ngIf="user" style="margin-top: 20px">
+        <div class="col-xs-2">
+          <i class="fa fa-user-circle" style="font-size: 20px;color:#008fd3"></i>
+        </div>
+        <div class="col-xs-10">
+          <div>Jordi Bisbal Ansaldo</div>
+          <div style="margin-top: -8px">
+            jordibisbal8@gmail.com
+            <button md-button [mdMenuTriggerFor]="menu" style="min-width: 1%;"><span class="caret"></span></button>
+            <md-menu #menu="mdMenu">
+              <button md-menu-item (click)="logout()">
+                Logout
+                <i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 5px;"></i>
+              </button>
+            </md-menu>
           </div>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <div *ngIf="user" style="margin-top: 12px;margin-right: 20px;">
-              <i class="fa fa-bell" style="font-size:16pt;opacity:0.5;"></i>
-              <img src="{{user.avatar}}" style="border-radius:100px;height:28px;width:28px;margin-bottom: 5px;" mdTooltip="{{user.name}}">
-              <button md-button [mdMenuTriggerFor]="menu" style="min-width: 1%;"><span class="caret"></span></button>
-              <md-menu #menu="mdMenu">
-                <button md-menu-item (click)="logout()">
-                  Logout
-                  <i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 5px;"></i>
-                </button>
-              </md-menu>
-            </div>
-            <div *ngIf="!user" style="margin-top: 20px;margin-right: 20px;">
-              <a *ngIf="!loginMode" (click)="toggleLoginMode()">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a>
-              <div *ngIf="loginMode" style="margin-top: -12px">
-                <form [formGroup]="loginForm">
-                  <div *ngIf="loginForm.controls.address.errors && loginForm.controls.address.touched">
-                    <div [hidden]="!loginForm.controls.address.errors?.isAddressValid">
-                      <span style="color:red">Ethereum address is not valid</span>
-                    </div>
-                  </div>
-                  <md-input placeholder="Ethereum Address" formControlName="address" [(ngModel)]="inputAddress" style="width: 325px"></md-input>
-                  <button md-raised-button [disabled]="!loginForm.valid" (click)="login()" style="background-color: #008fd3;color: white">Login</button>
-                  <a [routerLink]="['/register']">Register</a>
-                  <a (click)="toggleLoginMode()">Cancel</a>
-                </form>
+        </div>
+      </div>
+      <div *ngIf="!user" style="margin-top: 20px;margin-left: 30px;">
+        <a *ngIf="!loginMode" (click)="toggleLoginMode()">
+          Login <i class="fa fa-sign-in"></i>
+        </a>
+        <div *ngIf="loginMode" style="margin-top:-12px">
+          <form [formGroup]="loginForm">
+            <div *ngIf="loginForm.controls.address.errors && loginForm.controls.address.touched">
+              <div [hidden]="!loginForm.controls.address.errors?.isAddressValid">
+                <span style="color:red;font-weight: bold">Ethereum address is not valid</span>
               </div>
             </div>
-          </li>
-        </ul>
+            <md-input placeholder="Ethereum Address" formControlName="address" [(ngModel)]="inputAddress" style="width: 90%;"></md-input>
+            <button md-raised-button [disabled]="!loginForm.valid" (click)="login()" style="min-width: 1%;">Login</button>
+            <a [routerLink]="['/register']">Register</a>
+            <a (click)="toggleLoginMode()">Cancel</a>
+          </form>
+        </div>
       </div>
-    </div>
-  </nav>
+      <nav>
+        <div class="collapse navbar-collapse" style="margin-top: 20px;">
+          <ul class="nav navbar-nav">
+            <li class="link" [routerLinkActive]="['active']" style="width:100%">
+              <a [routerLink]="['home']" style="color:black;font-weight: bold">
+                <i class="fa fa-home" aria-hidden="true" style="font-size: 25px;color: dimgray;"></i>
+                <span style="margin-left:20px">Home</span>
+              </a>
+            </li>
+            <li class="link" [routerLinkActive]="['active']" style="width:100%">
+              <a [routerLinkActive]="['active']" [routerLink]="['virtual-network']" style=";font-weight: bold;color:black">
+                <i class="fa fa-cloud" aria-hidden="true" style="font-size: 20px;color: dimgray;"></i>
+                <span style="margin-left:20px">Virtual networks</span>
+              </a>
+            </li>
+            <li class="link" [routerLinkActive]="['active']" style="width:100%">
+              <a [routerLink]="['contact']" style="color:black;font-weight: bold">
+                <i class="fa fa-users" aria-hidden="true" style="font-size: 22px;color: dimgray;"></i>
+                <span style="margin-left:20px">Contacts</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <hr>
+        <div class="collapse navbar-collapse" style="margin-top: 20px;">
+          <ul class="nav navbar-nav">
+            <li class="link" [routerLinkActive]="['active']" style="width:100%">
+              <a [routerLink]="['settings']" style="color:black;font-weight: bold">
+                <i class="fa fa-cog" aria-hidden="true" style="font-size: 22px;color: dimgray;"></i>
+                <span style="margin-left:20px">Settings</span>
+              </a>
+            </li>
+            <li class="link" [routerLinkActive]="['active']" style="width:100%">
+              <a [routerLink]="['feedback']" style="color:black;font-weight: bold">
+                <i class="fa fa-comment" aria-hidden="true" style="font-size: 22px;color: dimgray;"></i>
+                <span style="margin-left:20px">Send feedback</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-<router-outlet></router-outlet>
-
+    </md-sidenav>
+    <router-outlet></router-outlet>
+  </md-sidenav-container>
 </div>
 

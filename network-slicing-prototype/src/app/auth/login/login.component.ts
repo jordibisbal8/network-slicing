@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import {AuthService} from "../auth.service";
 import {AddressValidation} from "../validator/addressValidation";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {MdDialog, MdSnackBar} from "@angular/material";
-import {CheckSignatureDialogComponent} from "./check-signature.dialog.component";
 import {Router} from "@angular/router";
 
 @Component({

@@ -1,10 +1,11 @@
-import {Injectable, OnInit} from '@angular/core';
-import {Http, Headers} from "@angular/http";
+import {Injectable} from '@angular/core';
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {CheckSignatureDialogComponent} from "./login/check-signature.dialog.component";
 import {MdDialog, MdSnackBar} from "@angular/material";
 import {Router} from "@angular/router";
-const Web3 = require('web3');
+import Web3 from 'web3';
+import {HttpClient} from "../http-client.component";
+import {_localeFactory} from "@angular/core/src/application_module";
 
 
 @Injectable()
@@ -14,60 +15,94 @@ export class AuthService{
   public address: string;
   web3: any;
 
-  constructor(public http: Http,
+  constructor(public http: HttpClient,
               public dialog: MdDialog,
               public snackBar: MdSnackBar,
               public router: Router){
-
+    this.web3 = new Web3(
+      new Web3.providers.HttpProvider('http://localhost:8545')
+    );
   }
+  //TODO Token with user info
   isUserLoggedIn(){
-    //TODO check if token is still valid
+    if (localStorage.getItem('token') !== null)
+      return true;
+    else
+      return false;
   }
-  login(address) {
+  login(address, callback?) {
     let dialogRef = this.dialog.open(CheckSignatureDialogComponent, {
       width: '1000px'
     });
     dialogRef.componentInstance.address = address;
-    dialogRef.afterClosed().subscribe(message => {
-      if (message){
-        //this.authenticate(address,message);
-        this.snackBar.open("User successfully authenticated, now you are logged in", 'X', {
-          duration:5000
-        });
-        this.router.navigate(['/home']);
+    dialogRef.componentInstance.signMessage = (message,password) => {
+      try {
+        this.web3.personal.unlockAccount(address, password, 0)
       }
-    });
+      catch(error) {
+        return window.alert(error);
+      }
+      this.authenticate(address,message, () => {
+        this.snackBar.open("User successfully authenticated, you are now logged in", 'X', {
+          duration:7000
+        });
+        dialogRef.close();
+        this.router.navigate(['/home']);
+        if (callback) callback()
+      });
+    }
   }
 
   register(address, email, role){
-    // TODO first make authentication (login) and then addAccount in User contract
+    // To check if it's the owner of the address
+    this.login(address, (res) => {
+      let url = '/api/user/';
+      this.http.post(url, JSON.stringify({address: address, email:email, role:role}))
+        .subscribe(res => {
+          this.snackBar.open("User registered in the blockchain", 'X', {
+              duration:7000
+            });
+        },
+        err => {
+          window.alert(err._body);
+        });
+    });
   }
 
-  authenticate(address, message) {
-    this.web3 = new Web3(
-      new Web3.providers.HttpProvider('http://localhost:8545')
-    );
-    const msg = new Buffer(message);
-    this.web3.eth.sign(address, '0x' + msg.toString('hex'), (err,sig) => {
-      let url = '/authenticate';
+  authenticate(address, message, callback) {
+    let msg = new Buffer(message);
+    this.web3.eth.sign(address, '0x' + msg.toString('hex'), (err,signature) => {
+      let url = '/api/authenticate/';
       let data = {
         address: address,
+        signature: signature,
         message: message,
       };
-      this.http.post(url, JSON.stringify(data), this.getHeaders())
+      this.http.post(url, JSON.stringify(data))
         .map(res => res.json())
         .subscribe(res => {
-          // TODO UPDATE TOKEN
-          // let token = body.token;
-          //dispatch({ type: 'SET_AUTH_TOKEN', result: token})
-          console.log(res);
+          // We store the token locally along with user's address.
+          console.log("-- res.token", res.token);
+          localStorage.setItem('token', res.token);
+          callback();
         })
     })
   }
-
-  getHeaders() {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return {headers: headers};
+  getAllUsers() {
+    let url = '/api/user';
+    this.http.get(url)
+      .map(res => res.json())
+      .subscribe(addr => {
+        console.log("-- addr", addr);
+      })
   }
+  getInPs() {
+    let url = '/api/user/InPs';
+    this.http.get(url)
+      .map(res => res.json())
+      .subscribe(res => {
+        console.log("--res", res);
+      })
+  }
+
 }

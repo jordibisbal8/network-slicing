@@ -1,4 +1,8 @@
-<h3 md-dialog-title>Your new Ethereum Address has been successfully created</h3>
+<div class="dialog-header">
+  <div class="dialog-header-content">
+    <h3 md-dialog-title>Your new Ethereum Address has been successfully created</h3>
+  </div>
+</div>
 <div md-dialog-content>
   <div class="row">
     <div class="col-xs-12">
@@ -8,7 +12,7 @@
     </div>
   </div>
 </div>
-<div md-dialog-actions>
+<div md-dialog-actions style="float: right">
   <button md-button [ngxClipboard]="addr" (cbOnSuccess)="showCopied()" style="background-color: #008fd3;color: white">
     Copy to clipboard <i class="fa fa-clipboard" aria-hidden="true"></i>
   </button>

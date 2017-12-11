@@ -3,17 +3,18 @@ import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MdDialog} from "@angular/material";
 import {VirtualNodeDialogComponent} from "./virtual-node.dialog.component";
+import {AuthService} from "../auth/auth.service";
 
 declare let vis: any; // load library also in index.html
 
 @Component({
   // HTML tag for specifying this component
-  selector: 'product-request',
+  selector: 'virtual-network-request',
   // Let Angular 2 know about `Http` and `TodoService`
-  templateUrl: './product-request.component.html',
+  templateUrl: './virtual-network-request.html',
 })
 
-export class ProductRequestComponent implements OnInit {
+export class VirtualNetworkRequestComponent implements OnInit {
 
   @ViewChild('mynetwork') public container;
 
@@ -39,11 +40,16 @@ export class ProductRequestComponent implements OnInit {
   ngOnInit() {
     // Static Nodes
     this.nodes = new vis.DataSet([
-      /*{id: 0, x: -843, y: 67, color: 'rgba(0,0,0,0)', fixed: true},
+      {id: 1000, x: -430, y: 303, label: 'A', group: 'A', fixed: true},
+      {id: 1001, x: -366, y: 301, label: 'B', group: 'B', fixed: true},
+      {id: 1002, x: -306, y: 302, label: 'C', group: 'C', fixed: true},
+      {id: 4, label: 'Virtual network request', font: '30px arial black',  shape: 'text', x:-34, y:-303},
+
+      /*
+      {id: 0, x: -843, y: 67, color: 'rgba(0,0,0,0)', fixed: true},
       {id: 1, x: 841, y: 67, color: 'rgba(0,0,0,0)', fixed: true},
       {id: 2, x: -45, y: -485, color: 'rgba(0,0,0,0)', fixed: true},
       {id: 3, x: -45, y: 669, color: 'rgba(0,0,0,0)', fixed: true},
-      {id: 4, label: 'LEADERS', font: '35px arial black',  shape: 'text', x: 129, y: -400},
       {id: 5, label: 'CHALLENGERS', font: '35px arial black', shape: 'text', size: 30, x: -631, y: -398, fixed: true},
       {id: 6, label: 'VISIONAIRES', font: '35px arial black', shape: 'text', size: 30, x: 168, y: 581, fixed: true},
       {id: 7, label: 'NICHE PLAYERS', font: '35px arial black', shape: 'text', size: 30, x: -692, y: 571, fixed: true}*/
@@ -61,7 +67,7 @@ export class ProductRequestComponent implements OnInit {
       nodes: {
         physics: false,
         font: {
-          size: 30,
+          size: 20,
         },
         size:40,
         shapeProperties: {borderRadius: 0},
@@ -72,6 +78,33 @@ export class ProductRequestComponent implements OnInit {
         },*/
       },
       interaction: {hover: true},
+      groups: {
+        A: {
+          shape: 'triangle',
+          color: '#FF9900', // orange
+          size: 20,
+
+        },
+        B: {
+          shape: 'dot',
+          color: "#2B7CE9", // blue
+          size: 20,
+
+        },
+        C: {
+          shape: 'square',
+          color: "#C5000B", // red
+          size: 20,
+        },
+        D: {
+          shape: 'dot',
+          color: "#5A1E5C" // purple
+        },
+        E: {
+          shape: 'square',
+          color: "#109618" // green
+        }
+      },
       manipulation: {
         enabled: true,
         addNode: (nodeData, callback) => {
@@ -81,18 +114,15 @@ export class ProductRequestComponent implements OnInit {
           dialogRef.afterClosed().subscribe(result => {
             nodeData.resource = result.resource;
             if (nodeData.resource === 'a'){
-              nodeData.color = '#FF9900';
-              nodeData.shape = 'dot';
+              nodeData.group = 'A';
             }
             if (nodeData.resource === 'b'){
               nodeData.color = 'blue';
-              nodeData.shape = 'triangle';
+              nodeData.group = 'B';
             }
-
             if (nodeData.resource === 'c'){
               nodeData.color = 'orange';
-              nodeData.shape = 'square';
-
+              nodeData.group = 'C';
             }
             nodeData.comment = result.comment;
             nodeData.location = result.location;
@@ -102,7 +132,7 @@ export class ProductRequestComponent implements OnInit {
           })
         },
         editNode: (nodeData, callback) => {
-          //TODO OPEN SIDENAV in parent product.component
+          //TODO OPEN SIDENAV in parent virtual-network.component
           if (nodeData.id === 9){
             let result = prompt('Name', 'Name');
             if (result) {
@@ -136,7 +166,13 @@ export class ProductRequestComponent implements OnInit {
           }
         },
         addEdge: (edgeData, callback) => {
-          callback(edgeData);
+          let result = prompt('Bandwidth', 'MB');
+          if (result) {
+            edgeData.label = result;
+            callback(edgeData);
+          }
+          else
+            callback();
         },
         editEdge: (edgeData,callback) => {
           // TODO editWithoutDrag
@@ -151,23 +187,24 @@ export class ProductRequestComponent implements OnInit {
     this.network = new vis.Network(this.container.nativeElement, data, options);
 
     // To stabilize the zoom view
-    this.network.once('stabilized', () => {
-      let scaleOption = { scale : 0.57};
+    /*this.network.once('stabilized', () => {
+      let scaleOption = { scale : 0.5};
       this.network.moveTo(scaleOption);
-    });
+    });*/
     // Update node's position when using dragEnd in the DataView
     this.network.on('dragEnd', (event) => {
       /*if (!this.isEditEnabled)
         return;*/
-      //console.log('-- self.network.body.data.nodes._data', this.network.body.data.nodes._data);
       if (event.nodes.length === 0) {
         return;
       }
       // For the case that is a fixed node. Cant move a fixed node.
-      if (typeof event.nodes[0] === 'number') {
+      /*if (typeof event.nodes[0] === 'number') {
         return;
-      }
+      }*/
       this.network.storePositions();
+      console.log('-- self.network.body.data.nodes._data', this.network.body.data.nodes._data);
+
       let nodes = this.network.body.data.nodes._data;
       for (let key in nodes) {
         if (nodes[key].id === event.nodes[0]) {

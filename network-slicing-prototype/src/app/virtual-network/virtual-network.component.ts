@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
+import {AuthService} from "../auth/auth.service";
 
 const Web3 = require('web3');
 const contract = require('truffle-contract');
@@ -8,10 +9,10 @@ const UserArtifacts = require('../../../build/contracts/User.json');
 declare let window: any;
 
 @Component({
-  selector: 'product',
-  templateUrl: './product.component.html'
+  selector: 'virtual-network',
+  templateUrl: './virtual-network.component.html'
 })
-export class ProductComponent implements OnInit {
+export class VirtualNetworkComponent implements OnInit {
 
   public productFactory = contract(productFactoryArtifacts);
   public User = contract(UserArtifacts);
@@ -22,6 +23,7 @@ export class ProductComponent implements OnInit {
 
   constructor(
     public router: Router,
+    private authService: AuthService,
   ) {
   }
 
@@ -116,5 +118,11 @@ export class ProductComponent implements OnInit {
         })
       })
     })
+  }
+  getAllUsers(){
+    this.authService.getAllUsers();
+  }
+  getInPs() {
+    this.authService.getInPs()
   }
 }

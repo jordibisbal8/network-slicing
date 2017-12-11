@@ -1,36 +1,33 @@
-<div class="header-container">
-  <div class="header2" style="background-color: #008fd3">
-    <div class="header-content" style="font-size:18pt;padding-top: 57px;padding-left: 35px">
-      Login
-    </div>
-  </div>
-</div>
+<project-header [title]="'Login'" [color]="'#008fd3'"></project-header>
 
-<md-card class="example-card">
-  <md-card-content>
-    <div class="row">
-      <div class="col-xs-12">
-        <h2>Login</h2>
-        <form [formGroup]="loginForm">
-          <div class="form-group">
-            <md-input placeholder="Ethereum Address" formControlName="address" name="inputAddress"  [(ngModel)]="inputAddress"  style="width: 100%" required></md-input>
-            <div *ngIf="loginForm.controls.address.errors && loginForm.controls.address.touched" class="alert alert-danger">
-              <div [hidden]="!loginForm.controls.address.errors.required">
-                Ethereum address is a mandatory field
-              </div>
-              <div [hidden]="!loginForm.controls.address.errors?.isAddressValid">
-                Ethereum address is not valid
+
+<div class="container">
+  <md-card class="example-card">
+    <md-card-content>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Login</h2>
+          <form [formGroup]="loginForm">
+            <div class="form-group">
+              <md-input placeholder="Ethereum Address" formControlName="address" name="inputAddress"  [(ngModel)]="inputAddress"  style="width: 100%" required></md-input>
+              <div *ngIf="loginForm.controls.address.errors && loginForm.controls.address.touched" class="alert alert-danger">
+                <div [hidden]="!loginForm.controls.address.errors.required">
+                  Ethereum address is a mandatory field
+                </div>
+                <div [hidden]="!loginForm.controls.address.errors?.isAddressValid">
+                  Ethereum address is not valid
+                </div>
               </div>
             </div>
-          </div>
-          <button md-raised-button [disabled]="!loginForm.valid" (click)="login()" style="background-color: #008fd3;color: white">
-            Login <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
-          </button>
-          <button md-button type="button" [routerLink]="['/home']">Back</button>
-          <br><br>
-          <div><i>Brought to you by KOM TU Darmstadt</i></div>
-        </form>
+            <button md-raised-button [disabled]="!loginForm.valid" (click)="login()" style="background-color: #008fd3;color: white">
+              Login <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
+            </button>
+            <button md-button type="button" [routerLink]="['/home']">Back</button>
+            <br><br>
+            <div><i>Brought to you by KOM TU Darmstadt</i></div>
+          </form>
+        </div>
       </div>
-    </div>
-  </md-card-content>
-</md-card>
+    </md-card-content>
+  </md-card>
+</div>

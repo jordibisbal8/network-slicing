@@ -1,14 +1,23 @@
-<h3 md-dialog-title>Please sign the message in order to verify your account</h3>
+<div class="dialog-header">
+  <div class="dialog-header-content">
+    <h3 md-dialog-title>Please sign the message in order to verify your account</h3>
+  </div>
+</div>
+
 <div md-dialog-content>
   <div class="row">
     <div class="col-xs-12">
       <md-input-container style="width: 100%">
         <textarea md-input md-autosize [readOnly]="true" placeholder="Message to sign..." rows="1" [(ngModel)]="message"></textarea>
       </md-input-container>
+      <md-input type="password" placeholder="Ethereum Password" [(ngModel)]="inputPassword" style="width: 100%"></md-input>
     </div>
   </div>
 </div>
-<div md-dialog-actions>
-  <button md-raised-button (click)="dialogRef.close(message)" style="background-color: #008fd3;color: white"><i class="fa fa-key"></i>  Sign Message</button>
+<div md-dialog-actions style="float: right">
+  <button md-raised-button [disabled]="!inputPassword" (click)="signMessage(message,inputPassword)"
+          style="background-color: #008fd3;color: white"><i class="fa fa-key"></i>
+    Sign Message
+  </button>
   <button md-button (click)="dialogRef.close()">Cancel</button>
 </div>

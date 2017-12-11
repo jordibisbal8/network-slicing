@@ -1,5 +1,10 @@
 .header-container {
   margin-top:-18px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 .header2 {
   color: white;
@@ -19,8 +24,9 @@
   padding-right: 20px;
   width: 100%;
 }
+
 .container {
-  max-width: 1160px !important;
+  margin-top:100px;
 }
 
 .header {
@@ -62,6 +68,57 @@ button:disabled {
   background-color: #dddddd !important;
   color:black !important;
 }
+
+.dialog-header {
+  background-color: #008fd3;
+  height: 80px;
+  margin:-24px -24px 24px;
+  .dialog-header-content {
+    color: white;
+    padding-left: 25px;
+    padding-top: 25px;
+  }
+}
+
+.tooltip {
+  font-size:20px;
+}
+
+.sidenav-container{
+  transform: initial !important;
+}
+.sidenav{
+  border-right: 1px solid rgba(0,0,0,.14);
+  bottom: 0;
+  background: #fff;
+  color: #212121;
+  display: block;
+  font-family: Roboto,sans-serif;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 256px;
+  z-index: 4;
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+  transition-delay: .1s;
+  transition-duration: .2s;
+  transition-property: transform,left;
+  transition-timing-function:cubic-bezier(.4,0,.2,1);
+
+  .logo{
+    border-bottom: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    display: block;
+    height: 84px;
+    padding: 12px 0 11px 24px;
+    position: relative;
+  }
+  .link {
+    width:100%;
+  }
+}
+
 
 
 

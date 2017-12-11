@@ -1,6 +1,6 @@
 import {HomeComponent} from "./home/home.component";
 import {AppRoutingModule} from "./app-routing.module";
-import {ProductComponent} from "./product/product.component";
+import {VirtualNetworkComponent} from "./virtual-network/virtual-network.component";
 
 import '../styles/styles.scss';
 import {MaterialModule} from "@angular/material";
@@ -14,24 +14,31 @@ import {Ng2CompleterModule} from "ng2-completer";
 import {LoginComponent} from "./auth/login/login.component";
 import {AuthService} from "./auth/auth.service";
 import {CheckSignatureDialogComponent} from "./auth/login/check-signature.dialog.component";
-import {ProductRequestComponent} from "./product/product-request.component";
+import {VirtualNetworkRequestComponent} from "./virtual-network/virtual-network-request";
 import {ShowAddressDialogComponent} from "./auth/register/show-address.dialog.component";
 import {ClipboardModule} from "ngx-clipboard/dist";
-import {VirtualNodeDialogComponent} from "./product/virtual-node.dialog.component";
+import {VirtualNodeDialogComponent} from "./virtual-network/virtual-node.dialog.component";
+import {HttpClient} from "./http-client.component";
+import {VirtualNetworkTileComponent} from "./virtual-network/virtual-network-tile.component";
+import {ContactComponent} from "./contact/contact.component";
+import {ProjectHeaderComponent} from "./project-header";
 
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
+    CheckSignatureDialogComponent,
+    ContactComponent,
     HomeComponent,
     LoginComponent,
-    ProductComponent,
+    ProjectHeaderComponent,
     RegisterComponent,
-    CheckSignatureDialogComponent,
     ShowAddressDialogComponent,
-    ProductRequestComponent,
-    VirtualNodeDialogComponent
+    VirtualNetworkComponent,
+    VirtualNetworkRequestComponent,
+    VirtualNodeDialogComponent,
+    VirtualNetworkTileComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,7 @@ import {VirtualNodeDialogComponent} from "./product/virtual-node.dialog.componen
     ClipboardModule
   ],
   // expose our Services and Providers into Angular's dependency injection
-  providers: [AuthService],
+  providers: [AuthService, HttpClient],
   entryComponents: [CheckSignatureDialogComponent, ShowAddressDialogComponent, VirtualNodeDialogComponent],
 })
 export class AppModule { }
