@@ -1,6 +1,6 @@
 import {HomeComponent} from "./home/home.component";
 import {AppRoutingModule} from "./app-routing.module";
-import {VirtualNetworkComponent} from "./virtual-network/virtual-network.component";
+import {VirtualNetworkListComponent} from "./virtual-network/virtual-network-list.component";
 
 import '../styles/styles.scss';
 import {MaterialModule} from "@angular/material";
@@ -22,6 +22,7 @@ import {HttpClient} from "./http-client.component";
 import {VirtualNetworkTileComponent} from "./virtual-network/virtual-network-tile.component";
 import {ContactComponent} from "./contact/contact.component";
 import {ProjectHeaderComponent} from "./project-header";
+import {VirtualNetworkDetailComponent} from "./virtual-network/virtual-network-detail.component";
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {ProjectHeaderComponent} from "./project-header";
     ProjectHeaderComponent,
     RegisterComponent,
     ShowAddressDialogComponent,
-    VirtualNetworkComponent,
+    VirtualNetworkDetailComponent,
+    VirtualNetworkListComponent,
     VirtualNetworkRequestComponent,
     VirtualNodeDialogComponent,
     VirtualNetworkTileComponent

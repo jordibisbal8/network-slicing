@@ -60,6 +60,21 @@
   margin-right:auto;
 }
 
+.mini-card {
+  height: 100%;
+  margin: 5px;
+  padding-top:5px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.mini-card:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
 a:hover {
   cursor:pointer;
 }

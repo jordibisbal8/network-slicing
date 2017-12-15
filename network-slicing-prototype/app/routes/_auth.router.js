@@ -33,7 +33,7 @@ export default (app, router, auth) => {
       }
     });
 
-  router.route('/authenticate/test')
+  router.route('/authenticate/kom_mini.png')
     .post(auth,(req,res) => {
       res.sendStatus(200)
     })

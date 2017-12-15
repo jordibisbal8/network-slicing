@@ -9,10 +9,9 @@ const UserArtifacts = require('../../../build/contracts/User.json');
 declare let window: any;
 
 @Component({
-  selector: 'virtual-network',
-  templateUrl: './virtual-network.component.html'
+  templateUrl: './virtual-network-list.component.html'
 })
-export class VirtualNetworkComponent implements OnInit {
+export class VirtualNetworkListComponent implements OnInit {
 
   public productFactory = contract(productFactoryArtifacts);
   public User = contract(UserArtifacts);
@@ -124,5 +123,8 @@ export class VirtualNetworkComponent implements OnInit {
   }
   getInPs() {
     this.authService.getInPs()
+  }
+  openVirtualNetwork() {
+    this.router.navigate(['/virtual-network/vn-0']);
   }
 }
