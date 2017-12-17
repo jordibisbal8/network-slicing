@@ -3,11 +3,12 @@ pragma solidity ^0.4.0;
 contract User {
 
   struct UserStruct {
-    //bytes32 name;
     bytes32 email;
     bytes32 role;
-    // TODO community/group
     uint index;
+    //bytes32 community;
+    //bytes32 name;
+    //bytes32 contacts;
   }
 
   mapping(address => UserStruct) private userStructs;

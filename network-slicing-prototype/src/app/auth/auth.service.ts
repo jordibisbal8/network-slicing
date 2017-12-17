@@ -88,21 +88,5 @@ export class AuthService{
         })
     })
   }
-  getAllUsers() {
-    let url = '/api/user';
-    this.http.get(url)
-      .map(res => res.json())
-      .subscribe(addr => {
-        console.log("-- addr", addr);
-      })
-  }
-  getInPs() {
-    let url = '/api/user/InPs';
-    this.http.get(url)
-      .map(res => res.json())
-      .subscribe(res => {
-        console.log("--res", res);
-      })
-  }
 
 }

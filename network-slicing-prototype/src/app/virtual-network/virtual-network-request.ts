@@ -2,8 +2,10 @@ import {Http, Headers} from '@angular/http';
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {MdDialog} from "@angular/material";
-import {VirtualNodeDialogComponent} from "./virtual-node.dialog.component";
+import {VirtualNodeDialogComponent} from "./dialogs/virtual-node.dialog.component";
 import {AuthService} from "../auth/auth.service";
+import {VnManager} from "../common/vn.manager";
+import {VnService} from "../services/vn-service";
 
 declare let vis: any; // load library also in index.html
 
@@ -16,12 +18,19 @@ declare let vis: any; // load library also in index.html
 
 export class VirtualNetworkRequestComponent implements OnInit {
 
-  @ViewChild('mynetwork') public container;
-
   public network;
   public nodes;
   public edges;
   public movedNode;
+  public vnManager: VnManager = new VnManager();
+  public secondStep: boolean = false;
+
+  @ViewChild('mynetwork') public container;
+
+  public inputPrice: number;
+  public auctionType: string;
+
+  public inPsList: string [];
 
   /*public isEditEnabled: boolean;
 
@@ -34,25 +43,22 @@ export class VirtualNetworkRequestComponent implements OnInit {
   constructor(public route: ActivatedRoute,
               public router: Router,
               public http: Http,
+              public vnService: VnService,
               public dialog: MdDialog) {
   }
 
   ngOnInit() {
+    // TODO use them for the checkboxes.
+    this.vnService.getInPs().subscribe((inPs: string []) => {
+      this.inPsList = inPs;
+    });
     // Static Nodes
     this.nodes = new vis.DataSet([
-      {id: 1000, x: -430, y: 303, label: 'A', group: 'A', fixed: true},
+      /*{id: 1000, x: -430, y: 303, label: 'A', group: 'A', fixed: true},
       {id: 1001, x: -366, y: 301, label: 'B', group: 'B', fixed: true},
       {id: 1002, x: -306, y: 302, label: 'C', group: 'C', fixed: true},
-      {id: 4, label: 'Virtual network request', font: '30px arial black',  shape: 'text', x:-34, y:-303},
-
-      /*
-      {id: 0, x: -843, y: 67, color: 'rgba(0,0,0,0)', fixed: true},
-      {id: 1, x: 841, y: 67, color: 'rgba(0,0,0,0)', fixed: true},
-      {id: 2, x: -45, y: -485, color: 'rgba(0,0,0,0)', fixed: true},
-      {id: 3, x: -45, y: 669, color: 'rgba(0,0,0,0)', fixed: true},
-      {id: 5, label: 'CHALLENGERS', font: '35px arial black', shape: 'text', size: 30, x: -631, y: -398, fixed: true},
-      {id: 6, label: 'VISIONAIRES', font: '35px arial black', shape: 'text', size: 30, x: 168, y: 581, fixed: true},
-      {id: 7, label: 'NICHE PLAYERS', font: '35px arial black', shape: 'text', size: 30, x: -692, y: 571, fixed: true}*/
+      {id: 4, label: 'Legend', font: '30px arial black',  shape: 'text', x:-369, y:248, fixed: true},
+      {id: 5, label: 'Virtual network request', font: '30px arial black',  shape: 'text', x:-34, y:-303, fixed: true},*/
     ]);
     this.edges = new vis.DataSet([
       {from: 0, to: 1, width: 3, color: '#989898', arrows: 'to', arrowStrikethrough: false},
@@ -80,21 +86,23 @@ export class VirtualNetworkRequestComponent implements OnInit {
       interaction: {hover: true},
       groups: {
         A: {
-          shape: 'triangle',
-          color: '#FF9900', // orange
-          size: 20,
+          shape: 'image',
+          image: "../../assets/img/laptop-icon.png",
+          size: 30,
 
         },
         B: {
-          shape: 'dot',
-          color: "#2B7CE9", // blue
-          size: 20,
+          shape: 'image',
+          image: "../../assets/img/db_icon.png",
+          //color: "#2B7CE9", // blue
+          size: 30,
 
         },
         C: {
-          shape: 'square',
-          color: "#C5000B", // red
-          size: 20,
+          shape: 'image',
+          image: "../../assets/img/cloud_icon.png",
+          //color: "#C5000B", // red
+          size: 25,
         },
         D: {
           shape: 'dot',
@@ -112,37 +120,31 @@ export class VirtualNetworkRequestComponent implements OnInit {
             width: '1000px'
           });
           dialogRef.afterClosed().subscribe(result => {
-            nodeData.resource = result.resource;
-            if (nodeData.resource === 'a'){
-              nodeData.group = 'A';
+            if (result) {
+              nodeData.id = 'tmp_' + Math.random();
+              let addedNode = this.fillNodeData(result,nodeData,'add');
+              callback(addedNode);
             }
-            if (nodeData.resource === 'b'){
-              nodeData.color = 'blue';
-              nodeData.group = 'B';
-            }
-            if (nodeData.resource === 'c'){
-              nodeData.color = 'orange';
-              nodeData.group = 'C';
-            }
-            nodeData.comment = result.comment;
-            nodeData.location = result.location;
-            nodeData.label = 'TEST';
-            // Todo Label, virtualNodesManager?
-            callback(nodeData);
+            else callback();
           })
         },
         editNode: (nodeData, callback) => {
-          //TODO OPEN SIDENAV in parent virtual-network.component
-          if (nodeData.id === 9){
-            let result = prompt('Name', 'Name');
-            if (result) {
-              nodeData.label = result;
-              callback(nodeData);
-              return
-            }
-            callback();
-            return
+          if (nodeData.id.indexOf("tmp") >= 0) {
+            let dialogRef = this.dialog.open(VirtualNodeDialogComponent, {
+              width: '1000px'
+            });
+            dialogRef.componentInstance.editMode = true;
+            dialogRef.componentInstance.inputNode = nodeData;
+            dialogRef.afterClosed().subscribe(result => {
+              if (result) {
+                console.log("-- result", result);
+                let editedNode = this.fillNodeData(result,nodeData,'edit');
+                callback(editedNode);
+              }
+              else callback();
+            })
           }
+          else callback();
         },
         deleteNode: (nodeData, callback) => {
           // First we check if a fixed node wants to be deleted.
@@ -166,13 +168,14 @@ export class VirtualNetworkRequestComponent implements OnInit {
           }
         },
         addEdge: (edgeData, callback) => {
-          let result = prompt('Bandwidth', 'MB');
+          /*let result = prompt('Bandwidth', 'MB');
           if (result) {
             edgeData.label = result;
             callback(edgeData);
           }
           else
-            callback();
+            callback();*/
+          callback(edgeData);
         },
         editEdge: (edgeData,callback) => {
           // TODO editWithoutDrag
@@ -212,5 +215,61 @@ export class VirtualNetworkRequestComponent implements OnInit {
         }
       }
     });
+  }
+  fillNodeData(result,nodeData, mode){
+    nodeData.resource = result.resource;
+    //nodeData.comment = result.comment;
+    nodeData.location = result.location;
+    nodeData.label = nodeData.resource;
+    nodeData.group = nodeData.resource;
+    if (nodeData.resource === 'Computing'){
+      nodeData.shape = 'image';
+      nodeData.image = "../../assets/img/laptop-icon.png";
+      nodeData.size = 30;
+      if (mode === 'edit') {
+        this.vnManager.aDimensions.forEach((dim,i) => {
+          if (dim.id === nodeData.id)
+            this.vnManager.aDimensions[i] = nodeData;
+        });
+      }
+      else
+        this.vnManager.aDimensions.push(nodeData);
+    }
+    if (nodeData.resource === 'Storage'){
+      nodeData.shape = 'image';
+      nodeData.image = "../../assets/img/db_icon.png";
+      nodeData.size = 30;
+      if (mode === 'edit') {
+        this.vnManager.bDimensions.forEach((dim,i) => {
+          if (dim.id === nodeData.id)
+            this.vnManager.bDimensions[i] = nodeData;
+        });
+      }
+      else
+        this.vnManager.bDimensions.push(nodeData);
+    }
+    if (nodeData.resource === 'Cloud'){
+      nodeData.shape = 'image';
+      nodeData.image = "../../assets/img/cloud_icon.png";
+      nodeData.size = 25;
+      if (mode === 'edit') {
+        this.vnManager.cDimensions.forEach((dim,i) => {
+          if (dim.id === nodeData.id)
+            this.vnManager.cDimensions[i] = nodeData;
+        });
+      }
+      else
+        this.vnManager.cDimensions.push(nodeData);
+    }
+    return nodeData;
+  }
+
+  toggleSteps() {
+    this.secondStep = !this.secondStep;
+  }
+  send() {
+    if (confirm('Are you sure you want to request the specified virtual network?')) {
+      // TODO request
+    }
   }
 }

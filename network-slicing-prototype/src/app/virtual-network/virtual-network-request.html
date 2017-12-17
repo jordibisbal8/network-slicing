@@ -2,8 +2,11 @@
 
 <div class="container">
   <md-card class="example-card">
-    <md-card-content>
-      <div class="row">
+    <md-card-content [hidden]="secondStep">
+      <h3>
+        1) Create your network topology <span [mdTooltip]="'Click on Edit to start adding virtual nodes'" class="fa fa-question-circle" style="color: #009688"></span>
+      </h3>
+      <div class="row" style="margin-top:20px">
         <div class="col-xs-12">
           <div #mynetwork style="
             width:100%;
@@ -15,10 +18,45 @@
       <div class="row" style="margin-top:20px">
         <div class="col-xs-12">
           <div style="float: right">
-            <button md-raised-button style="background-color: #009688;color: white">
-              Send request
+            <button md-raised-button (click)="toggleSteps()" style="background-color: #009688;color: white">
+              Next
             </button>
             <button md-button [routerLink]="['/virtual-network']">Back</button>
+          </div>
+        </div>
+      </div>
+    </md-card-content>
+    <md-card-content *ngIf="secondStep">
+      <h3>
+        2) Select a maximum price and the recipient users <span [mdTooltip]="'Please enter the maximum amount of money that you are willing to pay and the recipient users'" class="fa fa-question-circle" style="color: #009688"></span>
+      </h3>
+      <div class="row" style="margin-top:20px">
+        <div class="col-xs-12">
+          <md-input type=number placeholder="Maximum price in $" [(ngModel)]="inputPrice" style="width: 100%"></md-input>
+          <br><br>
+          <md-select [(ngModel)]="auctionType" placeholder="Auction Type" style="width:100%;">
+            <md-option value="open">Open</md-option>
+            <md-option value="closed">Closed</md-option>
+          </md-select>
+          <div *ngIf="auctionType === 'closed'">
+            <i>Only the marked Infrastructure providers can participate in the auction</i>
+            <br><br>
+            <md-checkbox>Deutsche Telekomm</md-checkbox>
+            <md-checkbox>Swisscom</md-checkbox>
+            <md-checkbox>Telefonica</md-checkbox>
+          </div>
+          <div *ngIf="auctionType === 'open'">
+            <i>All the Infrastructure Providers can participate in the auction</i>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:20px">
+        <div class="col-xs-12">
+          <div style="float: right">
+            <button md-raised-button (click)="send()" style="background-color: #009688;color: white">
+              Send
+            </button>
+            <button md-button (click)="toggleSteps()">Back</button>
           </div>
         </div>
       </div>

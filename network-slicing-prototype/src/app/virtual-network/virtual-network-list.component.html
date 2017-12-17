@@ -9,6 +9,16 @@
           <button  md-raised-button class="pull-right" [routerLink]="['/virtual-network-request']" style="background-color: #009688;color: white">
             + Create new VN request
           </button>
+          <h4>New Services</h4>
+          <md-grid-list cols="3" rowHeight="250">
+            <md-grid-tile> <!-- ngFor goes here -->
+              <virtual-network-tile (click)="openVirtualNetwork()"></virtual-network-tile>
+            </md-grid-tile>
+          </md-grid-list>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
           <h4>Open Services</h4>
           <md-grid-list cols="3" rowHeight="250">
             <md-grid-tile> <!-- ngFor goes here -->
@@ -20,52 +30,17 @@
           </md-grid-list>
         </div>
       </div>
-      <div class="row">
+      <!--<div class="row">
         <div class="col-xs-12">
           <h4>Closed Services</h4>
           <md-grid-list cols="3" rowHeight="250">
-            <md-grid-tile> <!-- ngFor goes here -->
+            <md-grid-tile> <!-- ngFor goes here
               <virtual-network-tile (click)="openVirtualNetwork()"></virtual-network-tile>
             </md-grid-tile>
           </md-grid-list>
         </div>
-      </div>
-      <!--<div class="row" style="margin-top: 20px">
-        <div class="col-xs-12">
-          <button (click)="getAllUsers()">GET ALL</button>
-          <button (click)="getInPs()">GET InPs</button>
-        </div>
       </div>-->
     </md-card-content>
   </md-card>
-
-    <!--<div class="row">
-      <div class="col-xs-12">
-        <h4> Product factory </h4>
-        <input type="text" [(ngModel)]="name"/>
-        <button (click)="newContract()" class="btn btn-primary">create contract</button>
-        <button (click)="getCount()" class="btn btn-primary">get count</button>
-        <button (click)="getContractByName()" class="btn btn-primary">get by name</button>
-        <button (click)="getAllContracts()" class="btn btn-primary">Get All contracts</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <h4> User Registry </h4>
-        <button (click)="insertUser()" class="btn btn-primary">Insert User</button>
-        <button (click)="getUser()" class="btn btn-primary">Get User</button>
-        <button (click)="getUserAtIndex()" class="btn btn-primary">Get User at Index</button>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12">
-        <h4> Create an account </h4>
-        <md-input type="password" [(ngModel)]="inputPassword" placeholder="New password account"></md-input>
-        <button md-raised-button (click)="createAccount()">Create eth account</button>
-        <button md-button (click)="getUserCountFromFactory()">Get User from Factory</button>
-
-      </div>
-    </div>-->
 </div>
 

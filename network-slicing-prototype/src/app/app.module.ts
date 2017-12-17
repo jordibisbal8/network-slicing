@@ -17,12 +17,13 @@ import {CheckSignatureDialogComponent} from "./auth/login/check-signature.dialog
 import {VirtualNetworkRequestComponent} from "./virtual-network/virtual-network-request";
 import {ShowAddressDialogComponent} from "./auth/register/show-address.dialog.component";
 import {ClipboardModule} from "ngx-clipboard/dist";
-import {VirtualNodeDialogComponent} from "./virtual-network/virtual-node.dialog.component";
+import {VirtualNodeDialogComponent} from "./virtual-network/dialogs/virtual-node.dialog.component";
 import {HttpClient} from "./http-client.component";
 import {VirtualNetworkTileComponent} from "./virtual-network/virtual-network-tile.component";
 import {ContactComponent} from "./contact/contact.component";
 import {ProjectHeaderComponent} from "./project-header";
 import {VirtualNetworkDetailComponent} from "./virtual-network/virtual-network-detail.component";
+import {VnService} from "./services/vn-service";
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import {VirtualNetworkDetailComponent} from "./virtual-network/virtual-network-d
     ClipboardModule
   ],
   // expose our Services and Providers into Angular's dependency injection
-  providers: [AuthService, HttpClient],
-  entryComponents: [CheckSignatureDialogComponent, ShowAddressDialogComponent, VirtualNodeDialogComponent],
+  providers: [AuthService, VnService, HttpClient],
+  entryComponents: [CheckSignatureDialogComponent, ShowAddressDialogComponent,
+                    VirtualNodeDialogComponent],
 })
 export class AppModule { }
