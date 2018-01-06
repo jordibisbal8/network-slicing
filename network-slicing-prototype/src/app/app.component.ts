@@ -18,7 +18,6 @@ export class AppComponent {
   public inputAddress:string;
   loginForm: FormGroup;
 
-
   constructor(
     public router: Router,
     private authService: AuthService,
@@ -29,7 +28,9 @@ export class AppComponent {
     }, {
       validator: AddressValidation.isAddressValid
     });
-    this.user = this.authService.isUserLoggedIn();
+    this.authService.user.subscribe((user) => {
+      this.user = user;
+    })
   }
 
   toggleLoginMode(){
@@ -42,6 +43,6 @@ export class AppComponent {
   }
 
   logout() {
-    this.user = false;
+    this.authService.logout();
   }
 }

@@ -46,11 +46,10 @@ contract ServiceFactory {
   function allServices() constant returns (address[]) {
     return servicesList;
   }
-  function getUserCount(address userContractAddress) constant returns (uint count) {
+  /*function getUserCount(address userContractAddress) constant returns (uint count) {
     User usr = User(userContractAddress);
     return usr.getUserCount();
-
-  }
+  }*/
 
   // Get all the services where user is member
   function getServicesUser(address userAddress) constant returns (address[] services) {

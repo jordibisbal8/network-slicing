@@ -21,20 +21,16 @@ export default (app, router, auth) => {
       let pubKey  = ethUtil.ecrecover(prefixedMsg, signature.v, signature.r, signature.s);
       let addrBuf = ethUtil.pubToAddress(pubKey);
       let addr    = ethUtil.bufferToHex(addrBuf);
-      if(addr === req.body.address) {
+      if (addr === req.body.address) {
         console.log('signature check SUCCEED');
         // TODO isUserRegistered?
         // JSON web token for the owner that expires in 1h
         let token = jwt.sign({user: req.body.address}, config.secret,  {expiresIn: '1h' });
         res.json({token: token});
-      } else {
+      }
+      else {
         console.log('signature check FAILED');
         res.send(500, { err: 'Signature did not match.'});
       }
     });
-
-  router.route('/authenticate/kom_mini.png')
-    .post(auth,(req,res) => {
-      res.sendStatus(200)
-    })
 }

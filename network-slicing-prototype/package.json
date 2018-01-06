@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "2.4.6",
     "@angular/platform-server": "2.4.6",
     "@angular/router": "3.4.6",
+    "angular2-datetimepicker": "^1.1.1",
     "async": "^2.5.0",
     "body-parser": "^1.18.2",
     "core-js": "^2.4.1",
@@ -46,6 +47,7 @@
     "random-words": "0.0.1",
     "rxjs": "^5.5.2",
     "sass-loader": "^6.0.6",
+    "solidity-sha3": "^0.4.1",
     "vis": "^4.21.0",
     "web3": "^0.18.4",
     "zone.js": "^0.8.4"

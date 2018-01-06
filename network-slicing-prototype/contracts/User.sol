@@ -14,9 +14,6 @@ contract User {
   mapping(address => UserStruct) private userStructs;
   address[] public userAddresses;
 
-  /* A dynamically-sized array of Roles.
-  bytes32[] public roles;*/
-
   // Events just called in transactions, not in calls!
   event LogNewUser (address indexed userAddress, uint index, bytes32 email, bytes32 role);
   event LogUpdateUser(address indexed userAddress, uint index, bytes32 email, bytes32 role);
@@ -25,14 +22,14 @@ contract User {
 
   function isUserRegistered(address userAddress) public constant returns(bool isIndeed)
   {
-    if(userAddresses.length == 0) return false;
+    if (userAddresses.length == 0) return false;
     return (userAddresses[userStructs[userAddress].index] == userAddress);
   }
 
   function insertUser(address userAddress, bytes32 email, bytes32 role)
   {
     //require(thing, "Thing is invalid");
-  if(isUserRegistered(userAddress)){
+  if (isUserRegistered(userAddress)) {
       LogErrors("User is already registered");
       return;
     }

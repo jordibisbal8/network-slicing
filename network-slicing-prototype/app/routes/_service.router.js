@@ -5,13 +5,13 @@ export default (app, router, auth) => {
   router.route('/service')
 
     // Method that registers a service
-    .post((req, res) => {
+    .post(auth, (req, res) => {
     });
 
   router.route('/user/:idUser')
 
   // Get all the new or open services were the user is a Member
-    .get((req,res) => {
+    .get(auth, (req,res) => {
     })
 
 }

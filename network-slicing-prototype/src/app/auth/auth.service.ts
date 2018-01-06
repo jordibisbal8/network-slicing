@@ -11,8 +11,7 @@ import {_localeFactory} from "@angular/core/src/application_module";
 @Injectable()
 
 export class AuthService{
-  public token = new BehaviorSubject(null);
-  public address: string;
+  public user = new BehaviorSubject(null);
   web3: any;
 
   constructor(public http: HttpClient,
@@ -22,13 +21,18 @@ export class AuthService{
     this.web3 = new Web3(
       new Web3.providers.HttpProvider('http://localhost:8545')
     );
+    this.sync();
   }
-  //TODO Token with user info
-  isUserLoggedIn(){
-    if (localStorage.getItem('token') !== null)
-      return true;
+  sync() {
+    // TODO update expiration time of token in server.
+    let addr = localStorage.getItem('address');
+    if (addr)
+      this.user.next(addr);
     else
-      return false;
+      this.user.next(null);
+  }
+  isUserLoggedIn(){
+    return (!!localStorage.getItem('token'));
   }
   login(address, callback?) {
     let dialogRef = this.dialog.open(CheckSignatureDialogComponent, {
@@ -82,11 +86,17 @@ export class AuthService{
         .map(res => res.json())
         .subscribe(res => {
           // We store the token locally along with user's address.
-          console.log("-- res.token", res.token);
           localStorage.setItem('token', res.token);
+          localStorage.setItem('address', address);
+          this.user.next(address);
           callback();
         })
     })
+  }
+
+  logout() {
+    localStorage.removeItem('address');
+    this.user.next(null);
   }
 
 }

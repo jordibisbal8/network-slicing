@@ -24,6 +24,7 @@ import {ContactComponent} from "./contact/contact.component";
 import {ProjectHeaderComponent} from "./project-header";
 import {VirtualNetworkDetailComponent} from "./virtual-network/virtual-network-detail.component";
 import {VnService} from "./services/vn-service";
+import {AngularDateTimePickerModule} from "angular2-datetimepicker";
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import {VnService} from "./services/vn-service";
     MaterialModule.forRoot(),
     AppRoutingModule,
     ReactiveFormsModule,
+    AngularDateTimePickerModule,
     ClipboardModule
   ],
   // expose our Services and Providers into Angular's dependency injection

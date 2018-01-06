@@ -17,6 +17,33 @@ export class VnService {
       .map(res => res.json())
   }
 
+  beginAuction(commitTime: Date, revealTime: Date) {
+    let url = '/api/auction';
+    let data = {commitTime: commitTime.getTime() / 1000, revealTime: revealTime.getTime() / 1000};
+    return this.http.post(url,data)
+      .map(res => res.json())
+  }
+
+  commitBid(index:number) {
+    let url = '/api/auction/commit';
+    let data = {auctionIndex: index};
+    return this.http.post(url,data)
+      .map(res => res.json())
+  }
+
+  revealBid(index: number) {
+    let url = '/api/auction/reveal';
+    let data = {auctionIndex: index};
+    return this.http.post(url,data)
+      .map(res => res.json())
+  }
+
+  getAllOpenAuctions() {
+    let url = '/api/auction';
+    return this.http.get(url)
+      .map(res => res.json())
+  }
+
   // BE CAREFUL the gas sent should be enough
   /*newContract() {
     this.productFactory.deployed().then(contractInstance => {

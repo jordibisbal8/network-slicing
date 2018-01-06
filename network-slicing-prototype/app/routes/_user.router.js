@@ -16,7 +16,7 @@ export default (app, router, auth) => {
     .post((req, res) => {
       User.deployed().then(contractInstance => {
         contractInstance.insertUser(req.body.address, req.body.email, req.body.role,
-          {from: req.body.address, gas: 1400000})
+          {from: req.body.address, gas: 1400000});
         // Event fired when the user is added
         contractInstance.LogNewUser().watch( (error,result) => {
           if (error) {
@@ -35,7 +35,7 @@ export default (app, router, auth) => {
     });
 
   router.route('/user/InPs')
-
+    // Get all Infrastructure Providers
     .get((req,res) => {
       User.deployed().then(contractInstance => {
         contractInstance.getAllUsersAndRoles.call().then(data => {

@@ -31,9 +31,8 @@
             <br>
             <div class="form-group">
               <md-select [(ngModel)]="inputRole" formControlName="role" placeholder="Your Role" style="width:100%;" required>
-                <md-option value="serviceProvider">Service Provider</md-option>
-                <md-option value="infrastructureProvider">Infrastructure Provider</md-option>
                 <md-option value="customer">Customer</md-option>
+                <md-option value="infrastructureProvider">Infrastructure Provider</md-option>
               </md-select>
               <div *ngIf="accountForm.controls.role.errors && accountForm.controls.role.touched" class="alert alert-danger">
                 <div [hidden]="!accountForm.controls.role.errors.required">

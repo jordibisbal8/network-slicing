@@ -25,10 +25,18 @@ export class VirtualNetworkRequestComponent implements OnInit {
   public vnManager: VnManager = new VnManager();
   public secondStep: boolean = false;
 
+  public settings = {
+    timePicker: true,
+    format: 'dd-MMM-yyyy hh:mm a',
+  };
+  public inputRevealTime: Date = new Date();
+  public inputCommitTime: Date = new Date();
+
   @ViewChild('mynetwork') public container;
 
   public inputPrice: number;
   public auctionType: string;
+  public auctionsList: string [];
 
   public inPsList: string [];
 
@@ -269,7 +277,31 @@ export class VirtualNetworkRequestComponent implements OnInit {
   }
   send() {
     if (confirm('Are you sure you want to request the specified virtual network?')) {
-      // TODO request
+      this.vnService.beginAuction(this.inputCommitTime, this.inputRevealTime).subscribe(res => {
+        console.log("-- res", res);
+      })
     }
   }
+  getOpenAuctions() {
+    this.vnService.getAllOpenAuctions().subscribe(addresses => {
+      this.auctionsList = addresses;
+    })
+  }
+  commitBid(index: number) {
+    this.vnService.commitBid(index).subscribe(isCommited => {
+      console.log("-- isCommited", isCommited);
+    })
+  }
+  revealBid(index: number) {
+    this.vnService.revealBid(index).subscribe(isRevealed=> {
+      console.log("-- isRevealed", isRevealed);
+    })
+  }
+  commitTimeChanged(event) {
+    this.inputCommitTime = new Date(this.inputCommitTime); //this.inputCommitTime.getTime() / 1000
+  }
+  revealTimeChanged(event) {
+    this.inputRevealTime = new Date(this.inputRevealTime); //this.inputRevealTime.getTime() / 1000
+  }
+
 }

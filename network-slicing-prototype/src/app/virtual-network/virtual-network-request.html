@@ -1,6 +1,6 @@
 <project-header [title]="'Virtual Networks Request Specification'" [color]="'#009688'"></project-header>
 
-<div class="container">
+<div class="container" style="min-height: 600px">
   <md-card class="example-card">
     <md-card-content [hidden]="secondStep">
       <h3>
@@ -48,7 +48,30 @@
           <div *ngIf="auctionType === 'open'">
             <i>All the Infrastructure Providers can participate in the auction</i>
           </div>
+          <br><br>
+          <button md-raised-button (click)="getOpenAuctions()" style="background-color: #009688;color: white">
+            Get all open Auctions
+          </button>
+          <button md-raised-button (click)="finalize()" style="background-color: #009688;color: white">
+            Finalize
+          </button>
+          <div *ngFor="let auction of auctionsList;let i = index">
+            <a (click)="commitBid(i)" *ngIf="auction !== '0x0000000000000000000000000000000000000000'">{{auction}}</a>
+          </div>
+          <br><br>
+          <div *ngFor="let auction of auctionsList;let i = index">
+            <a (click)="revealBid(i)" *ngIf="auction !== '0x0000000000000000000000000000000000000000'">{{auction}}</a>
+          </div>
         </div>
+        <angular2-date-picker (onDateSelect)="commitTimeChanged($event)"
+                              [(ngModel)]="inputCommitTime"
+                              [settings]="settings">
+        </angular2-date-picker>
+
+        <angular2-date-picker (onDateSelect)="revealTimeChanged($event)"
+                              [(ngModel)]="inputRevealTime"
+                              [settings]="settings">
+        </angular2-date-picker>
       </div>
       <div class="row" style="margin-top:20px">
         <div class="col-xs-12">
