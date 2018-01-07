@@ -30,10 +30,10 @@ contract DAuction {
 
   function finalize() public onlyAtEnd(_auctionEnd) isOwner() returns (bool){
     require(!_ended); // this function has already been called_ended = true;
-    _ended = true;
     AuctionEnded(_highestBidder, _reservePrice);
+    _ended = true;
     //In DVickreyAuction, the difference between the first and the second bid value should be sent.
-    // TODO payed from the contract, transfer or sent?
+    // TODO payed from the contract.
     _highestBidder.transfer(_highestBid - _reservePrice);
     // TODO Should be payed from the owner or notify the owner and then make the payment
     //_highestBidder.transfer(_reservePrice);
@@ -78,24 +78,35 @@ contract DVickreyAuction is DAuction {
   }
 
   // Bidders reveal their bids
-  function revealBid() public onlyAfter(_commitTimePeriod) onlyBefore(_revealTimePeriod) payable returns(bool isRevealed) {
-    if (bids[tx.origin].bidCommit == keccak256(msg.value) && bids[tx.origin].isOpened == false) {
-      if (msg.value > _reservePrice) {
-        if (_highestBidder != 0) {
-          _highestBidder.transfer(_highestBid); // old highest bidder refunded
-        }
-        _reservePrice = _highestBid; //reserve price in this case is the second higher bid.
-        _highestBid = msg.value;
-        _highestBidder = tx.origin;
-        tx.origin.transfer(_bidDepositAmount);
-      }
-      else {
-        tx.origin.transfer(msg.value + _bidDepositAmount); // losing bidders get bid amount + bid deposit refunded
+  function revealBid(uint256 value) public onlyAfter(_commitTimePeriod) onlyBefore(_revealTimePeriod) returns(bool isRevealed) {
+    if (bids[tx.origin].bidCommit == keccak256(value) && bids[tx.origin].isOpened == false) {
+      uint refund;
+      refund += _bidDepositAmount;
+      if (placeBid(value)) {
+        // Check if can be negative
+        refund -= value;
       }
       bids[tx.origin].isOpened = true;
+      tx.origin.transfer(refund);
       return true;
     }
     return false;
+  }
+
+  // This is an "internal" function which means that it
+  // can only be called from the contract itself (or from
+  // derived contracts).
+  function placeBid(uint256 value) internal returns (bool success) {
+    if (value <= _highestBid) {
+      return false;
+    }
+    if (_highestBidder != 0) {
+      _highestBidder.transfer(_highestBid); // old highest bidder refunded
+    }
+    _reservePrice = _highestBid; //reserve price in this case is the second higher bid.
+    _highestBid = value;
+    _highestBidder = tx.origin;
+    return true;
   }
 }
 
@@ -117,8 +128,8 @@ contract DAuctions {
     NewBid(auctions[id].commitBid.value(msg.value)(bidCommitment));
   }
 
-  function revealBid(uint256 id) public payable {
-    BidRevealed(auctions[id].revealBid.value(msg.value)());
+  function revealBid(uint256 id, uint256 value) public payable {
+    BidRevealed(auctions[id].revealBid(value));
   }
 
   function finalize(uint256 id) public {

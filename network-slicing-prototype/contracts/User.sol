@@ -11,19 +11,19 @@ contract User {
     //bytes32 contacts;
   }
 
-  mapping(address => UserStruct) private userStructs;
+  mapping(address => UserStruct) private users;
   address[] public userAddresses;
 
   // Events just called in transactions, not in calls!
-  event LogNewUser (address indexed userAddress, uint index, bytes32 email, bytes32 role);
-  event LogUpdateUser(address indexed userAddress, uint index, bytes32 email, bytes32 role);
-  event LogDeleteUser(address indexed userAddress, uint index);
+  event LogNewUser (address userAddress, uint index, bytes32 email, bytes32 role);
+  event LogUpdateUser(address userAddress, uint index, bytes32 email, bytes32 role);
+  event LogDeleteUser(address userAddress, uint index);
   event LogErrors(string error);
 
-  function isUserRegistered(address userAddress) public constant returns(bool isIndeed)
+  function isUserRegistered(address userAddress) internal constant returns(bool isIndeed)
   {
     if (userAddresses.length == 0) return false;
-    return (userAddresses[userStructs[userAddress].index] == userAddress);
+    return (userAddresses[users[userAddress].index] == userAddress);
   }
 
   function insertUser(address userAddress, bytes32 email, bytes32 role)
@@ -33,20 +33,20 @@ contract User {
       LogErrors("User is already registered");
       return;
     }
-    userStructs[userAddress].email = email;
-    userStructs[userAddress].role = role;
-    userStructs[userAddress].index = userAddresses.push(userAddress)-1; //since .push() returns the new array length
-    LogNewUser(userAddress, userStructs[userAddress].index, email, role);
+    users[userAddress].email = email;
+    users[userAddress].role = role;
+    users[userAddress].index = userAddresses.push(userAddress)-1; //since .push() returns the new array length
+    LogNewUser(userAddress, users[userAddress].index, email, role);
   }
   // Function that deletes an user, we overwrite deleted User from userAddresses with the lastUser in the List.
   // Then, we change the user index in the userStruct
   function deleteUser(address userAddress) public returns(uint index)
   {
     if(!isUserRegistered(userAddress)) revert(); //user don't exist
-    uint i = userStructs[userAddress].index;
+    uint i = users[userAddress].index;
     address lastUser = userAddresses[userAddresses.length-1];
     userAddresses[i] = lastUser;
-    userStructs[lastUser].index = i;
+    users[lastUser].index = i;
     userAddresses.length--;
     LogDeleteUser(userAddress, i);
     return i;
@@ -57,16 +57,16 @@ contract User {
   {
     if(!isUserRegistered(userAddress)) revert();
     return(
-    userStructs[userAddress].email,
-    userStructs[userAddress].role,
-    userStructs[userAddress].index);
+    users[userAddress].email,
+    users[userAddress].role,
+    users[userAddress].index);
   }
 
   function updateUserEmail(address userAddress, bytes32 email) public returns(bool success)
   {
     if(!isUserRegistered(userAddress)) revert();
-    userStructs[userAddress].email = email;
-    LogUpdateUser(userAddress, userStructs[userAddress].index, email, userStructs[userAddress].role);
+    users[userAddress].email = email;
+    LogUpdateUser(userAddress, users[userAddress].index, email, users[userAddress].role);
     return true;
   }
 
@@ -84,7 +84,7 @@ contract User {
   function getAllUsersAndRoles() public constant returns (address[] addrs, bytes32[] rolesList) {
     bytes32[] memory roles = new bytes32[](userAddresses.length);
     for(uint i = 0; i < userAddresses.length; i++) {
-      roles[i] = userStructs[userAddresses[i]].role;
+      roles[i] = users[userAddresses[i]].role;
     }
     return (userAddresses, roles);
   }

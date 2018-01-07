@@ -54,7 +54,7 @@ export default (app, router, auth) => {
     .post(auth, (req, res) => {
       console.log("-- req.body.auctionIndex", req.body.auctionIndex);
       DAuctions.deployed().then(contractInstance => {
-        contractInstance.revealBid(req.body.auctionIndex, {from: req.user, gas: 1400000, value: 600});
+        contractInstance.revealBid(req.body.auctionIndex, 600, {from: req.user, gas: 1400000});
         contractInstance.BidRevealed().watch((error,result) => {
           console.log("-- result.args", result.args);
           res.sendStatus(200);

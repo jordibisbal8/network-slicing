@@ -19,14 +19,8 @@ export default (app, router, auth) => {
           {from: req.body.address, gas: 1400000});
         // Event fired when the user is added
         contractInstance.LogNewUser().watch( (error,result) => {
-          if (error) {
-            console.log("-- error1", error);
-            res.send(error);
-          }
-          else {
-            console.log("-- result.args", result.args);
-            res.sendStatus(200);
-          }
+          console.log("-- result.args", result.args);
+          res.sendStatus(200);
         });
         contractInstance.LogErrors().watch( (error,result) => {
           res.status(405).send('User already exists in the Blockchain');

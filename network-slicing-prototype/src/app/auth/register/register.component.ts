@@ -57,6 +57,7 @@ export class RegisterComponent {
 
   createEOA(){
     this.newAddress = this.web3.personal.newAccount(this.inputPassword);
+    this.web3.eth.sendTransaction({from: this.web3.eth.accounts[0], to: this.newAddress, value: this.web3.toWei(500, "ether")});
     let dialogRef = this.dialog.open(ShowAddressDialogComponent, {
       width: '1000px'
     });

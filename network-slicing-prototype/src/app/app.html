@@ -9,9 +9,9 @@
       </div>
       <div class="col-xs-10">
         <span><b>Ethereum address</b></span>
-        <div style="margin-top: -7px;">
+        <div style="margin-top:-7px">
           <span><i>{{user | slice:0:20}}...</i></span>
-          <button md-button [mdMenuTriggerFor]="menu" style="min-width: 1%;margin-left: -3px;"><span class="caret"></span></button>
+          <button md-button [mdMenuTriggerFor]="menu" style="min-width: 1%;margin-left: -8px;"><span class="caret"></span></button>
           <md-menu #menu="mdMenu">
             <button md-menu-item (click)="logout()">
               Logout
@@ -80,6 +80,11 @@
         </ul>
       </div>
     </nav>
+    <hr>
+    <div class="col-xs-10" *ngIf="user" style="margin-left:15px;margin-top:20px">
+      <div><b>BALANCE</b></div>
+      {{ether}} ETHER <span [mdTooltip]="'This is a testnet ether, no real market value'" class="fa fa-question-circle" style="color:#008fd3"></span>
+    </div>
 
   </md-sidenav>
   <router-outlet></router-outlet>
