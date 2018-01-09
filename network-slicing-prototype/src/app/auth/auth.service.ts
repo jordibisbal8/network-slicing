@@ -26,6 +26,7 @@ export class AuthService{
   }
   sync() {
     // TODO update expiration time of token in server.
+    // TODO check in Server and not in localStorage.
     let addr = localStorage.getItem('address');
     if (addr) {
       this.user.next(addr);

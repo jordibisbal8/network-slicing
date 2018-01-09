@@ -8,6 +8,7 @@ export class ProjectHeaderComponent{
 
   @Input() color;
   @Input() title;
+  @Input() icon;
 
   constructor(){
   }

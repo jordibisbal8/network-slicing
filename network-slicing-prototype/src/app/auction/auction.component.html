@@ -1,4 +1,4 @@
-<project-header [title]="'Auctions'" [color]="'#FF9800'"></project-header>
+<project-header [title]="'Auctions'" [icon]="'fa fa-money'"  [color]="'#FFCC80'"></project-header>
 
 
 <div class="container" style="min-height: 900px">
@@ -30,7 +30,7 @@
         </div>
       </div>
       <md-input placeholder="Bid value in ETHER" type="number" [(ngModel)]="inputBidValue" style="width: 100%"></md-input>
-      <button md-raised-button class="pull-right" (click)="toggleNewAuction()" style="background-color: #FF9800;color: white">
+      <button md-raised-button class="pull-right" (click)="toggleNewAuction()" style="background-color: #FFCC80;color: white">
         New Auction
       </button>
       <br><br>
@@ -50,7 +50,7 @@
                                 [settings]="settings">
           </angular2-date-picker>
           <br><br><br>
-          <button md-raised-button class="pull-right" (click)="beginAuction()" style="background-color: #FF9800;color: white">
+          <button md-raised-button class="pull-right" (click)="beginAuction()" style="background-color: #FFCC80;color: white">
             + Create
           </button>
         </div>

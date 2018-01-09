@@ -1,5 +1,5 @@
 import {Router} from "@angular/router";
-import {Component, OnInit, ViewEncapsulation} from "@angular/core";
+import {Component, OnInit, ViewChild, ViewEncapsulation} from "@angular/core";
 import {AuthService} from "./auth/auth.service";
 import {AddressValidation} from "./auth/validator/addressValidation";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
@@ -18,6 +18,7 @@ export class AppComponent {
   public inputAddress:string;
   loginForm: FormGroup;
   ether:number;
+  @ViewChild('menuRight') rightSidenav;
 
   constructor(
     public router: Router,
@@ -49,5 +50,8 @@ export class AppComponent {
 
   logout() {
     this.authService.logout();
+  }
+  toggleRightSidenav(element: string){
+    this.rightSidenav.toggle();
   }
 }

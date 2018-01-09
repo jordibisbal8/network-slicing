@@ -26,6 +26,7 @@ import {VirtualNetworkDetailComponent} from "./virtual-network/virtual-network-d
 import {AngularDateTimePickerModule} from "angular2-datetimepicker";
 import {AuctionComponent} from "./auction/auction.component";
 import {AuctionService} from "./services/auction-service";
+import {SettingsComponent} from "./settings/settings.component";
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import {AuctionService} from "./services/auction-service";
     LoginComponent,
     ProjectHeaderComponent,
     RegisterComponent,
+    SettingsComponent,
     ShowAddressDialogComponent,
     VirtualNetworkDetailComponent,
     VirtualNetworkListComponent,

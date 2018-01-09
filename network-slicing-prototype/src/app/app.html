@@ -1,4 +1,36 @@
 <md-sidenav-container class="sidenav-container">
+  <div class="row tiles">
+    <a (click)="toggleRightSidenav('notifications')">
+      <div class="tile3">
+        <div class="figure">
+          2 <i class="fa fa-exclamation-circle" aria-hidden="true" style="margin-left: 5px;"></i>
+        </div>
+        <div class="label">
+          Notifications
+        </div>
+      </div>
+    </a>
+  </div>
+  <md-sidenav class="rightSidenav" mode="side" align="end" #menuRight>
+    <button md-button class="pull-right" (click)="menuRight.close()" style="min-width: 1%;">X</button>
+    <h4 style="margin-top: 20px;margin-left: 40px;">
+      <i class="fa fa-exclamation-circle" aria-hidden="true" style="margin-right: 5px;color:gray"></i> Notifications (2)
+    </h4>
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-xs-12">
+        <md-list role="list">
+          <md-list-item role="listitem">
+            <i class="fa fa-bell" aria-hidden="true" style="color:gray"></i>
+            <span style="margin-left:7px;font-size: 10pt">The auction for X has finished</span>
+          </md-list-item>
+          <md-list-item role="listitem">
+            <i class="fa fa-bell" aria-hidden="true" style="color:gray"></i>
+            <span style="margin-left:7px;font-size: 10pt">Time to reveal bid in X auction</span>
+          </md-list-item>
+        </md-list>
+      </div>
+    </div>
+  </md-sidenav>
   <md-sidenav class="sidenav" mode="side" opened="true">
     <div class="logo">
       <a href="#"> <img src="../assets/img/kom_logo.png"></a>
@@ -78,7 +110,7 @@
             </a>
           </li>
           <li class="link" [routerLinkActive]="['active']" style="width:100%">
-            <a [routerLink]="['feedback']" style="color:black;font-weight: bold">
+            <a href="mailto:jordi.bisbalansaldo@stud.tu-darmstadt.de" style="color:black;font-weight: bold">
               <i class="fa fa-comment" aria-hidden="true" style="font-size: 22px;color: dimgray;"></i>
               <span style="margin-left:20px">Send feedback</span>
             </a>
@@ -91,7 +123,6 @@
       <div><b>BALANCE</b></div>
       {{ether}} ETHER <span [mdTooltip]="'This is a testnet ether, no real market value'" class="fa fa-question-circle" style="color:#008fd3"></span>
     </div>
-
   </md-sidenav>
   <router-outlet></router-outlet>
 </md-sidenav-container>
