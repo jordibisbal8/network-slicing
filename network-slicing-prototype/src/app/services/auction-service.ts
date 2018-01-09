@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "../http-client.component";
 
 @Injectable()
-export class VnService {
+export class AuctionService {
   constructor(public http: HttpClient)
   {}
 
@@ -17,30 +17,59 @@ export class VnService {
       .map(res => res.json())
   }
 
-  beginAuction(commitTime: Date, revealTime: Date) {
+  beginAuction(commitTime: Date, revealTime: Date, upperBound: number) {
     let url = '/api/auction';
-    let data = {commitTime: commitTime.getTime() / 1000, revealTime: revealTime.getTime() / 1000};
+    let data =
+      { commitTime: commitTime.getTime() / 1000,
+        revealTime: revealTime.getTime() / 1000,
+        upperBound: upperBound
+      };
     return this.http.post(url,data)
       .map(res => res.json())
   }
 
-  commitBid(index:number) {
+  commitBid(auctionAddr: string, bidValue: number) {
     let url = '/api/auction/commit';
-    let data = {auctionIndex: index};
+    let data = {auctionAddr: auctionAddr, bidValue: bidValue};
     return this.http.post(url,data)
       .map(res => res.json())
   }
 
-  revealBid(index: number) {
+  revealBid(auctionAddr: string, bidValue: number) {
     let url = '/api/auction/reveal';
-    let data = {auctionIndex: index};
+    let data = {auctionAddr: auctionAddr, bidValue: bidValue};
     return this.http.post(url,data)
       .map(res => res.json())
   }
 
-  getAllOpenAuctions() {
+  getAllAuctions() {
     let url = '/api/auction';
     return this.http.get(url)
+      .map(res => res.json())
+  }
+
+  getAllAuctionsForCommit() {
+    let url = '/api/auction/commit';
+    return this.http.get(url)
+      .map(res => res.json())
+  }
+
+  getAllAuctionsForReveal() {
+    let url = '/api/auction/reveal';
+    return this.http.get(url)
+      .map(res => res.json())
+  }
+
+  getAllEndedAuctions() {
+    let url = '/api/auction/auctionEnded';
+    return this.http.get(url)
+      .map(res => res.json())
+  }
+
+  finalize(auctionAddr: string) {
+    let url = '/api/auction/finalize';
+    let data = {auctionAddr: auctionAddr};
+    return this.http.put(url,data)
       .map(res => res.json())
   }
 

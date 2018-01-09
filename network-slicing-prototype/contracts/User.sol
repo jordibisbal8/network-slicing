@@ -20,7 +20,7 @@ contract User {
   event LogDeleteUser(address userAddress, uint index);
   event LogErrors(string error);
 
-  function isUserRegistered(address userAddress) internal constant returns(bool isIndeed)
+  function isUserRegistered(address userAddress) public constant returns(bool isIndeed)
   {
     if (userAddresses.length == 0) return false;
     return (userAddresses[users[userAddress].index] == userAddress);

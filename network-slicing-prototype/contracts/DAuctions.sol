@@ -1,93 +1,68 @@
 pragma solidity ^0.4.0;
 
 
-contract DAuction {
+contract DVickreyAuction {
 
-  address _owner;
-  uint256 _auctionEnd;
+  uint256 public _commitTimePeriod;
+  uint public _revealTimePeriod;
+
+  address public _owner;
+
+  // Set to true at the end, bid has been payed.
+  bool public _ended;
 
   // Current state of the auction.
   address public _highestBidder;
   uint256 public _highestBid;
-  uint256 _reservePrice;
-
-  // Set to true at the end, bid has been payed.
-  bool _ended;
-
-  modifier onlyAtEnd(uint _time) { require(now >= _time); _; }
-  modifier isOwner() { require(msg.sender == _owner); _; }
-
-
-  event AuctionEnded(address winner, uint amount);
-
-  /// Create a simple auction with auctionEnd
-  /// seconds bidding time on behalf of the
-  /// address `msg.sender` with a reserve price of 'reservePrice';
-  function DAuction(uint256 reservePrice, uint256 auctionEnd) public {
-    _reservePrice = reservePrice;
-    _auctionEnd = auctionEnd;
-  }
-
-  function finalize() public onlyAtEnd(_auctionEnd) isOwner() returns (bool){
-    require(!_ended); // this function has already been called_ended = true;
-    AuctionEnded(_highestBidder, _reservePrice);
-    _ended = true;
-    //In DVickreyAuction, the difference between the first and the second bid value should be sent.
-    // TODO payed from the contract.
-    _highestBidder.transfer(_highestBid - _reservePrice);
-    // TODO Should be payed from the owner or notify the owner and then make the payment
-    //_highestBidder.transfer(_reservePrice);
-    // TODO service should start
-    return true;
-  }
-}
-
-contract DVickreyAuction is DAuction {
-
-  uint256 public _commitTimePeriod;
-  uint256 public _bidDepositAmount;
-  uint public _revealTimePeriod;
+  uint256 public _reservePrice;
+  uint256 public _upperBoundPrice;
 
   // TODO multiple bids
   struct Bid {
     bytes32 bidCommit;
     bool isOpened;
+    uint256 bidDeposit;
   }
 
   mapping(address => Bid) public bids;
 
   modifier onlyBefore(uint _time) { require(now < _time); _; }
   modifier onlyAfter(uint _time) { require(now > _time); _; }
+  modifier isOwner(address sender) { require(sender == _owner); _; }
 
   // constructor
-  function DVickreyAuction(uint256 reservePrice, uint256 commitTimePeriod, uint256 revealTimePeriod, uint256 bidDepositAmount) public DAuction(reservePrice, revealTimePeriod) {
-    _bidDepositAmount = bidDepositAmount;
+  function DVickreyAuction(uint256 upperBoundPrice, uint256 commitTimePeriod, uint256 revealTimePeriod, address owner) {
+    _upperBoundPrice = upperBoundPrice;
     _commitTimePeriod = commitTimePeriod; // number of seconds since Jan 1 1970.From JS Date.getTime()
     _revealTimePeriod = revealTimePeriod; // number of seconds since Jan 1 1970.
-    _owner = msg.sender;
+    _owner = owner;
+    _ended = false;
+    _highestBid = 0;
   }
 
   // Receives a SHA3 hash of the value
   // msg.sender will be the contract calling the contract.
-  // tx.origin will be the account that initiated the chain of contract calls.
-  function commitBid(bytes32 bidCommitment) public payable onlyBefore(_commitTimePeriod) returns(bytes32 bidCommit) {
-    require(msg.value >= _bidDepositAmount);
-    bids[tx.origin].bidCommit = bidCommitment;
-    bids[tx.origin].isOpened = false;
-    return bidCommitment;
+  function commitBid(bytes32 bidCommitment, address sender) public payable onlyBefore(_commitTimePeriod) returns(bytes32 bidCommit) {
+    bids[sender].bidCommit = bidCommitment;
+    bids[sender].isOpened = false;
+    bids[sender].bidDeposit = msg.value;
+    return bids[sender].bidCommit;
   }
 
   // Bidders reveal their bids
-  function revealBid(uint256 value) public onlyAfter(_commitTimePeriod) onlyBefore(_revealTimePeriod) returns(bool isRevealed) {
-    if (bids[tx.origin].bidCommit == keccak256(value) && bids[tx.origin].isOpened == false) {
-      uint refund;
-      refund += _bidDepositAmount;
-      if (placeBid(value)) {
-        // Check if can be negative
-        refund -= value;
+  function revealBid(uint256 value, uint256 valueInEth, address sender) public onlyAfter(_commitTimePeriod) onlyBefore(_revealTimePeriod) returns(bool isRevealed) {
+    if (bids[sender].bidCommit == keccak256(value) && bids[sender].isOpened == false) {
+      if (valueInEth > _upperBoundPrice) {
+        bids[sender].isOpened = true;
+        return false;
       }
-      bids[tx.origin].isOpened = true;
-      tx.origin.transfer(refund);
+      if (placeBid(valueInEth, sender)){
+        // TODO tell that user is the winner ATM...?
+      }
+      uint256 refund;
+      refund += bids[sender].bidDeposit;
+      bids[sender].isOpened = true;
+      sender.transfer(refund);
       return true;
     }
     return false;
@@ -96,70 +71,109 @@ contract DVickreyAuction is DAuction {
   // This is an "internal" function which means that it
   // can only be called from the contract itself (or from
   // derived contracts).
-  function placeBid(uint256 value) internal returns (bool success) {
+  function placeBid(uint256 value, address sender) internal returns (bool success) {
     if (value <= _highestBid) {
       return false;
     }
     if (_highestBidder != 0) {
       _highestBidder.transfer(_highestBid); // old highest bidder refunded
     }
-    _reservePrice = _highestBid; //reserve price in this case is the second higher bid.
+    // First Bid case
+    if (_highestBid == 0) {
+      _reservePrice = value;
+    }
+    else {
+      _reservePrice = _highestBid; //reserve price in this case is the second higher bid.
+    }
     _highestBid = value;
-    _highestBidder = tx.origin;
+    _highestBidder = sender;
     return true;
+  }
+
+  function finalize(address sender) public onlyAfter(_revealTimePeriod) isOwner(sender) returns (uint256){
+    require(!_ended);
+    _ended = true;
+    //In DVickreyAuction, the difference between the first and the second bid value should be sent.
+    _highestBidder.transfer(_highestBid - _reservePrice);
+    // TODO Owner should transfer to highestBidder the _reservePrice, service should start
+    return _reservePrice;
   }
 }
 
 contract DAuctions {
 
-  mapping(uint256 => DVickreyAuction) auctions;
+  //mapping(address => DVickreyAuction) auctions;
   uint256 numAuctions;
+  address [] auctionList;
 
   //events
-  event NewBid(bytes32 bidCommitment);
+  event NewAuction(address auctionAddr);
+  event NewBid(bytes32 bidCommitment, address sender);
   event BidRevealed(bool isRevealed);
+  event IsFinished(uint256 reservePrice, address highestBidder);
 
-  function beginVickreyAuction(uint256 reservePrice, uint256 commitTimePeriod, uint256 revealTimePeriod, uint256 bidDepositAmount) public {
-    auctions[numAuctions] = new DVickreyAuction(reservePrice, commitTimePeriod, revealTimePeriod, bidDepositAmount);
+  function beginVickreyAuction(uint256 upperBoundPrice, uint256 commitTimePeriod, uint256 revealTimePeriod) public {
+    auctionList.push(new DVickreyAuction(upperBoundPrice, commitTimePeriod, revealTimePeriod, msg.sender));
     numAuctions++;
+    NewAuction(auctionList[numAuctions-1]);
   }
 
-  function commitBid(uint256 id, bytes32 bidCommitment) public payable {
-    NewBid(auctions[id].commitBid.value(msg.value)(bidCommitment));
+  function commitBid(address auctionAddr, bytes32 bidCommitment) public payable {
+    NewBid(DVickreyAuction(auctionAddr).commitBid.value(msg.value)(bidCommitment, msg.sender), msg.sender);
   }
 
-  function revealBid(uint256 id, uint256 value) public payable {
-    BidRevealed(auctions[id].revealBid(value));
+  function revealBid(address auctionAddr, uint256 value, uint256 valueInEther) public {
+    BidRevealed(DVickreyAuction(auctionAddr).revealBid(value, valueInEther, msg.sender));
   }
 
-  function finalize(uint256 id) public {
-    auctions[id].finalize();
+  function finalize(address auctionAddr) public {
+    return IsFinished(DVickreyAuction(auctionAddr).finalize(msg.sender), DVickreyAuction(auctionAddr)._highestBidder());
   }
 
-  function getAllAuctions() public constant returns (DVickreyAuction[]) {
-    DVickreyAuction[] memory dAuctions = new DVickreyAuction[](numAuctions);
+  function getAllAuctions() public constant returns (address[]) {
+    return auctionList;
+  }
+
+  function getAllAuctionsForCommit() public constant returns (address[]) {
+    address[] memory dAuctions = new address[](numAuctions);
     for(uint i = 0; i < numAuctions; i++) {
-      dAuctions[i] = auctions[i];
+      if (now <= DVickreyAuction(auctionList[i])._commitTimePeriod()){
+        dAuctions[i] = auctionList[i];
+      }
     }
     return dAuctions;
   }
-
-  function getAllOpenAuctions() public constant returns (DVickreyAuction[]) {
-    DVickreyAuction[] memory dAuctions = new DVickreyAuction[](numAuctions);
+  function getAllAuctionsForReveal() public constant returns (address[]) {
+    address[] memory dAuctions = new address[](numAuctions);
     for(uint i = 0; i < numAuctions; i++) {
-      if (now <= auctions[i]._commitTimePeriod()){
-        dAuctions[i] = auctions[i];
+      if ((DVickreyAuction(auctionList[i])._commitTimePeriod() <= now)
+        && (now <= DVickreyAuction(auctionList[i])._revealTimePeriod())
+      ){
+        dAuctions[i] = auctionList[i];
+      }
+    }
+    return dAuctions;
+  }
+  // msg.sender in call() not set properly
+  function getAllEndedAuctions(address sender) public constant returns (address[]) {
+    address[] memory dAuctions = new address[](numAuctions);
+    for(uint i = 0; i < numAuctions; i++) {
+      if (now >= DVickreyAuction(auctionList[i])._revealTimePeriod()
+          && DVickreyAuction(auctionList[i])._owner() == sender
+          && DVickreyAuction(auctionList[i])._ended() == false
+      ){
+        dAuctions[i] = auctionList[i];
       }
     }
     return dAuctions;
   }
 
-  function getHighestBid(uint256 id) public constant returns (uint256 highestBid) {
-    return auctions[id]._highestBid();
+  function getHighestBid(address auctionAddr) public constant returns (uint256 highestBid) {
+    return DVickreyAuction(auctionAddr)._highestBid();
   }
 
-  function getHighestBidder(uint256 id) public constant returns (address highestBidder) {
-    return auctions[id]._highestBidder();
+  function getHighestBidder(address auctionAddr) public constant returns (address highestBidder) {
+    return DVickreyAuction(auctionAddr)._highestBidder();
   }
   function getTime() public constant returns (uint256 time){
     return now;
@@ -167,7 +181,7 @@ contract DAuctions {
   function getSha3(uint256 x, uint256 y) public constant returns (bytes32) {
     return sha3(x,y);
   }
-  function getCommitBids(uint256 id) public constant returns (bytes32,bool) {
-    return auctions[id].bids(msg.sender);
+  function getCommitBids(address auctionAddr, address sender) public constant returns (bytes32,bool,uint256) {
+    return DVickreyAuction(auctionAddr).bids(sender);
   }
 }

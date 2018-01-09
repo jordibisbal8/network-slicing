@@ -1,5 +1,3 @@
-import User from '../contracts/user_contract'
-import web3 from '../controllers/web3';
 export default (app, router, auth) => {
 
   router.route('/service')

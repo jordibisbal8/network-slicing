@@ -1,0 +1,60 @@
+<project-header [title]="'Auctions'" [color]="'#FF9800'"></project-header>
+
+
+<div class="container" style="min-height: 900px">
+  <md-card class="example-card">
+    <md-card-content>
+      <div class="row">
+        <div class="col-xs-12">
+          <i class="fa fa-spinner fa-spin" *ngIf="isLoading" style="font-size: 25px"></i>
+          <h4>Auctions for commit</h4>
+          <div *ngFor="let auction of auctionsCommitList">
+            <a (click)="commitBid(auction)" *ngIf="auction !== '0x0000000000000000000000000000000000000000'">{{auction}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>Auctions for reveal</h4>
+          <div *ngFor="let auction of auctionsRevealList">
+            <a (click)="revealBid(auction)" *ngIf="auction !== '0x0000000000000000000000000000000000000000'">{{auction}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>Ended Auctions</h4>
+          <div *ngFor="let auction of auctionsEnded">
+            <a (click)="finalize(auction)" *ngIf="auction !== '0x0000000000000000000000000000000000000000'">{{auction}}</a>
+          </div>
+        </div>
+      </div>
+      <md-input placeholder="Bid value in ETHER" type="number" [(ngModel)]="inputBidValue" style="width: 100%"></md-input>
+      <button md-raised-button class="pull-right" (click)="toggleNewAuction()" style="background-color: #FF9800;color: white">
+        New Auction
+      </button>
+      <br><br>
+      <div class="row" *ngIf="newAuctionMode" style="margin-top:20px">
+        <div class="col-xs-12">
+          <md-input placeholder="Upper bound price in ETHER" type="number" [(ngModel)]="inputUpperBound" style="width: 100%"></md-input>
+          <label>End of commit time</label>
+          <angular2-date-picker (onDateSelect)="commitTimeChanged($event)"
+                                [(ngModel)]="inputCommitTime"
+                                [settings]="settings">
+          </angular2-date-picker>
+
+          <br><br>
+          <label>End of reveal time</label>
+          <angular2-date-picker (onDateSelect)="revealTimeChanged($event)"
+                                [(ngModel)]="inputRevealTime"
+                                [settings]="settings">
+          </angular2-date-picker>
+          <br><br><br>
+          <button md-raised-button class="pull-right" (click)="beginAuction()" style="background-color: #FF9800;color: white">
+            + Create
+          </button>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

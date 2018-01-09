@@ -23,14 +23,16 @@ import {VirtualNetworkTileComponent} from "./virtual-network/virtual-network-til
 import {ContactComponent} from "./contact/contact.component";
 import {ProjectHeaderComponent} from "./project-header";
 import {VirtualNetworkDetailComponent} from "./virtual-network/virtual-network-detail.component";
-import {VnService} from "./services/vn-service";
 import {AngularDateTimePickerModule} from "angular2-datetimepicker";
+import {AuctionComponent} from "./auction/auction.component";
+import {AuctionService} from "./services/auction-service";
 
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
+    AuctionComponent,
     CheckSignatureDialogComponent,
     ContactComponent,
     HomeComponent,
@@ -56,7 +58,7 @@ import {AngularDateTimePickerModule} from "angular2-datetimepicker";
     ClipboardModule
   ],
   // expose our Services and Providers into Angular's dependency injection
-  providers: [AuthService, VnService, HttpClient],
+  providers: [AuthService, AuctionService, HttpClient],
   entryComponents: [CheckSignatureDialogComponent, ShowAddressDialogComponent,
                     VirtualNodeDialogComponent],
 })

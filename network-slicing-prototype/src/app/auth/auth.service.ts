@@ -12,6 +12,7 @@ import {_localeFactory} from "@angular/core/src/application_module";
 
 export class AuthService{
   public user = new BehaviorSubject(null);
+  public ether = new BehaviorSubject(null);
   web3: any;
 
   constructor(public http: HttpClient,
@@ -26,8 +27,10 @@ export class AuthService{
   sync() {
     // TODO update expiration time of token in server.
     let addr = localStorage.getItem('address');
-    if (addr)
+    if (addr) {
       this.user.next(addr);
+      this.ether.next(this.web3.fromWei(this.web3.eth.getBalance(addr), "ether"));
+    }
     else
       this.user.next(null);
   }
@@ -89,8 +92,12 @@ export class AuthService{
           localStorage.setItem('token', res.token);
           localStorage.setItem('address', address);
           this.user.next(address);
+          this.ether.next(this.web3.fromWei(this.web3.eth.getBalance(address), "ether"));
           callback();
-        })
+        },
+        err => {
+          window.alert(err._body);
+        });
     })
   }
 

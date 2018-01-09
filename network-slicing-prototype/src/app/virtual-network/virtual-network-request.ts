@@ -5,7 +5,7 @@ import {MdDialog} from "@angular/material";
 import {VirtualNodeDialogComponent} from "./dialogs/virtual-node.dialog.component";
 import {AuthService} from "../auth/auth.service";
 import {VnManager} from "../common/vn.manager";
-import {VnService} from "../services/vn-service";
+import {AuctionService} from "../services/auction-service";
 
 declare let vis: any; // load library also in index.html
 
@@ -25,18 +25,7 @@ export class VirtualNetworkRequestComponent implements OnInit {
   public vnManager: VnManager = new VnManager();
   public secondStep: boolean = false;
 
-  public settings = {
-    timePicker: true,
-    format: 'dd-MMM-yyyy hh:mm a',
-  };
-  public inputRevealTime: Date = new Date();
-  public inputCommitTime: Date = new Date();
-
   @ViewChild('mynetwork') public container;
-
-  public inputPrice: number;
-  public auctionType: string;
-  public auctionsList: string [];
 
   public inPsList: string [];
 
@@ -51,13 +40,13 @@ export class VirtualNetworkRequestComponent implements OnInit {
   constructor(public route: ActivatedRoute,
               public router: Router,
               public http: Http,
-              public vnService: VnService,
+              public auctionService: AuctionService,
               public dialog: MdDialog) {
   }
 
   ngOnInit() {
     // TODO use them for the checkboxes.
-    this.vnService.getInPs().subscribe((inPs: string []) => {
+    this.auctionService.getInPs().subscribe((inPs: string []) => {
       this.inPsList = inPs;
     });
     // Static Nodes
@@ -276,32 +265,7 @@ export class VirtualNetworkRequestComponent implements OnInit {
     this.secondStep = !this.secondStep;
   }
   send() {
-    if (confirm('Are you sure you want to request the specified virtual network?')) {
-      this.vnService.beginAuction(this.inputCommitTime, this.inputRevealTime).subscribe(res => {
-        console.log("-- res", res);
-      })
-    }
-  }
-  getOpenAuctions() {
-    this.vnService.getAllOpenAuctions().subscribe(addresses => {
-      this.auctionsList = addresses;
-    })
-  }
-  commitBid(index: number) {
-    this.vnService.commitBid(index).subscribe(isCommited => {
-      console.log("-- isCommited", isCommited);
-    })
-  }
-  revealBid(index: number) {
-    this.vnService.revealBid(index).subscribe(isRevealed=> {
-      console.log("-- isRevealed", isRevealed);
-    })
-  }
-  commitTimeChanged(event) {
-    this.inputCommitTime = new Date(this.inputCommitTime); //this.inputCommitTime.getTime() / 1000
-  }
-  revealTimeChanged(event) {
-    this.inputRevealTime = new Date(this.inputRevealTime); //this.inputRevealTime.getTime() / 1000
+    alert('Coming Soon ...');
   }
 
 }

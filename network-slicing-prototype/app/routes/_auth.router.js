@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken'; // used to create, sign, and verify tokens
 import ethUtil from 'ethereumjs-util';
 import config from '../../config/config'
+import User from '../contracts/user_contract';
 
 export default (app, router, auth) => {
 
@@ -23,10 +24,22 @@ export default (app, router, auth) => {
       let addr    = ethUtil.bufferToHex(addrBuf);
       if (addr === req.body.address) {
         console.log('signature check SUCCEED');
-        // TODO isUserRegistered?
         // JSON web token for the owner that expires in 1h
         let token = jwt.sign({user: req.body.address}, config.secret,  {expiresIn: '1h' });
         res.json({token: token});
+        /*User.deployed().then(contractInstance => {
+          contractInstance.isUserRegistered.call(req.body.address).then(isRegistered => {
+            console.log("-- isRegistered", isRegistered);
+            if (isRegistered) {
+              // JSON web token for the owner that expires in 1h
+              let token = jwt.sign({user: req.body.address}, config.secret,  {expiresIn: '1h' });
+              res.json({token: token});
+            }
+            else {
+              res.send(500, { err: 'The user is not registered in the Blockchain.'});
+            }
+          })
+        });*/
       }
       else {
         console.log('signature check FAILED');
