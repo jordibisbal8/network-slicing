@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  7 DEC 2017 10:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  14 JAN 2018 20:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1155,7 +1155,7 @@ LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
 Package  Warning: Title has more then 3 lines. Fontsize reduced on input line 1
 64.
 
-<tud_logo.pdf, id=164, 157.58875pt x 63.23625pt>
+<tud_logo.pdf, id=172, 157.58875pt x 63.23625pt>
 File: tud_logo.pdf Graphic file (type pdf)
  <use tud_logo.pdf>
 Package pdftex.def Info: tud_logo.pdf used on input line 164.
@@ -1190,11 +1190,11 @@ l.164
 ] [2
 
 
-] (./tudkom_students__201708_v1.2.toc)
+] (./tudkom_students__201708_v1.2.toc [3])
 \tf@toc=\write4
 \openout4 = `tudkom_students__201708_v1.2.toc'.
 
- [3] [4] (./macros.tex)
+ [4] (./macros.tex)
 (./content.tex [1
 
 
@@ -1206,114 +1206,98 @@ l.164
 ]
 chapter 1.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 16.
+(Font)              scaled to size 9.21606pt on input line 18.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 16.
+(Font)              scaled to size 6.43204pt on input line 18.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 16.
+(Font)              scaled to size 5.56804pt on input line 18.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.21606pt on input line 16.
+(Font)              scaled to size 9.21606pt on input line 18.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.43204pt on input line 16.
+(Font)              scaled to size 6.43204pt on input line 18.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 5.56804pt on input line 16.
+(Font)              scaled to size 5.56804pt on input line 18.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 16.
+(Font)              scaled to size 9.21606pt on input line 18.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 16.
+(Font)              scaled to size 6.43204pt on input line 18.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 16.
+(Font)              scaled to size 5.56804pt on input line 18.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 16.
+(Font)              scaled to size 9.21606pt on input line 18.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 16.
+(Font)              scaled to size 6.43204pt on input line 18.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 16.
+(Font)              scaled to size 5.56804pt on input line 18.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 16.
+(Font)              scaled to size 9.21606pt on input line 18.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 16.
+(Font)              scaled to size 6.43204pt on input line 18.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 16.
+(Font)              scaled to size 5.56804pt on input line 18.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 16.
+(Font)              scaled to size 9.21606pt on input line 18.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 16.
+(Font)              scaled to size 6.43204pt on input line 18.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 16.
+(Font)              scaled to size 5.56804pt on input line 18.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 16.
+(Font)              scaled to size 9.21606pt on input line 18.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 16.
+(Font)              scaled to size 6.43204pt on input line 18.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 16.
+(Font)              scaled to size 5.56804pt on input line 18.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 9.02402pt on input line 16.
+(Font)              scaled to size 9.02402pt on input line 18.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 6.298pt on input line 16.
+(Font)              scaled to size 6.298pt on input line 18.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 5.45201pt on input line 16.
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 16.
+(Font)              scaled to size 5.45201pt on input line 18.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 18.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 ) [3]
-Underfull \hbox (badness 10000) in paragraph at lines 43--43
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 
  []
 
 [4]
 chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
+<gfx/centralization_vs_decentralization.png, id=292, 451.6875pt x 287.57437pt>
+File: gfx/centralization_vs_decentralization.png Graphic file (type png)
 
- []
+<use gfx/centralization_vs_decentralization.png>
+Package pdftex.def Info: gfx/centralization_vs_decentralization.png used on inp
+ut line 67.
+(pdftex.def)             Requested size: 361.35048pt x 230.0598pt.
+ [5
 
-[5
 
+] [6 <./gfx/centralization_vs_decentralization.png>] <gfx/mining.png, id=309, 9
+09.3975pt x 314.17375pt>
+File: gfx/mining.png Graphic file (type png)
 
-] [6
-
-
-]
+<use gfx/mining.png>
+Package pdftex.def Info: gfx/mining.png used on input line 100.
+(pdftex.def)             Requested size: 454.69765pt x 157.08649pt.
+ [7 <./gfx/mining.png>] [8]
 chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--75
+Underfull \hbox (badness 10000) in paragraph at lines 153--153
 
  []
 
-[7] [8
+[9
+
+
+] [10
 
 
 ]
 chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--88
-
- []
-
-[9] [10
-
-
-]
-chapter 5.
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--111
-
- []
-
-
-Underfull \hbox (badness 1515) in paragraph at lines 111--111
-\T1/5ch/m/n/11 This chap-ter should de-scribe the de-tails of the im-ple-men-ta
--tion ad-dress-ing the fol-low-ing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--111
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--111
+Underfull \hbox (badness 10000) in paragraph at lines 169--169
 
  []
 
@@ -1321,19 +1305,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 111--111
 
 
 ]
-chapter 6.
+chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 130--130
+Underfull \hbox (badness 1515) in paragraph at lines 192--192
+\T1/5ch/m/n/11 This chap-ter should de-scribe the de-tails of the im-ple-men-ta
+-tion ad-dress-ing the fol-low-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
 
  []
 
@@ -1341,18 +1331,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--130
 
 
 ]
-chapter 7.
+chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--146
+Underfull \hbox (badness 10000) in paragraph at lines 211--211
 
  []
 
-) (./tudkom_students__201708_v1.2.bbl [15] [16
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--211
+
+ []
+
+[15] [16
+
+
+]
+chapter 7.
+
+Underfull \hbox (badness 10000) in paragraph at lines 227--227
+
+ []
+
+) (./tudkom_students__201708_v1.2.bbl [17] [18
 
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 199.
- [17]
+ [19]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 199.
 
 (./tudkom_students__201708_v1.2.aux)
@@ -1360,15 +1370,15 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 199.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 199.
 Package rerunfilecheck Info: File `tudkom_students__201708_v1.2.out' has not ch
 anged.
-(rerunfilecheck)             Checksum: 59D95EFA8648791F169956DEB211E295;2619.
+(rerunfilecheck)             Checksum: 9AAC9631B91F8350000AA8F0CFFE5DE1;2818.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 199.
  ) 
 Here is how much of TeX's memory you used:
- 14665 strings out of 494860
- 227607 string characters out of 6177601
- 392644 words of memory out of 5000000
- 17581 multiletter control sequences out of 15000+600000
- 115371 words of font info for 94 fonts, out of 8000000 for 9000
+ 14709 strings out of 494860
+ 228453 string characters out of 6177601
+ 392770 words of memory out of 5000000
+ 17609 multiletter control sequences out of 15000+600000
+ 119382 words of font info for 98 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  59i,13n,100p,1170b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/
@@ -1376,10 +1386,10 @@ fonts/type1/softmake/charter/5chr8a.pfb></usr/share/texmf/fonts/type1/softmake/
 charter/5chri8a.pfb></usr/share/texmf/fonts/type1/softmake/frontpage/5fpm8a.pfb
 ></usr/share/texmf/fonts/type1/softmake/frontpage/5fpr8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb>
-Output written on tudkom_students__201708_v1.2.pdf (23 pages, 108385 bytes).
+Output written on tudkom_students__201708_v1.2.pdf (25 pages, 198862 bytes).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 342 compressed objects within 4 object streams
- 79 named destinations out of 1000 (max. 500000)
- 338 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 415 PDF objects out of 1000 (max. 8388607)
+ 373 compressed objects within 4 object streams
+ 90 named destinations out of 1000 (max. 500000)
+ 364 words of extra memory for PDF output out of 10000 (max. 10000000)
 
