@@ -3,46 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tudkom_students__201708_v1.2.aux
 The style file: alpha.bst
 Database file #1: bibliography.bib
+Warning--to sort, need author or key in amazonEC2
 Warning--empty journal in abeyratne2016blockchain
-You've used 6 entries,
+You've used 13 entries,
             2543 wiz_defined-function locations,
-            590 strings with 5379 characters,
-and the built_in function-call counts, 1921 in all, are:
-= -- 178
-> -- 87
-< -- 3
-+ -- 27
-- -- 27
-* -- 116
-:= -- 331
-add.period$ -- 17
-call.type$ -- 6
-change.case$ -- 32
-chr.to.int$ -- 6
-cite$ -- 7
-duplicate$ -- 80
-empty$ -- 151
-format.name$ -- 36
-if$ -- 384
+            633 strings with 6655 characters,
+and the built_in function-call counts, 5122 in all, are:
+= -- 525
+> -- 214
+< -- 8
++ -- 71
+- -- 69
+* -- 317
+:= -- 802
+add.period$ -- 42
+call.type$ -- 13
+change.case$ -- 73
+chr.to.int$ -- 13
+cite$ -- 16
+duplicate$ -- 221
+empty$ -- 401
+format.name$ -- 83
+if$ -- 1094
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 6
-newline$ -- 32
-num.names$ -- 18
-pop$ -- 49
+missing$ -- 12
+newline$ -- 68
+num.names$ -- 36
+pop$ -- 101
 preamble$ -- 1
-purify$ -- 40
+purify$ -- 88
 quote$ -- 0
-skip$ -- 69
+skip$ -- 198
 stack$ -- 0
-substring$ -- 67
-swap$ -- 5
-text.length$ -- 3
+substring$ -- 263
+swap$ -- 53
+text.length$ -- 8
 text.prefix$ -- 3
 top$ -- 0
-type$ -- 40
-warning$ -- 1
-while$ -- 17
-width$ -- 9
-write$ -- 72
-(There was 1 warning)
+type$ -- 96
+warning$ -- 2
+while$ -- 49
+width$ -- 15
+write$ -- 166
+(There were 2 warnings)
