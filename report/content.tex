@@ -55,7 +55,15 @@ Afterwards, our scenario will be introduced, which focuses on network virtualiza
 
 \section{Blockchain: A decentralized and distributed trustless ledger}
 
-What is a blockchain? A blockchain is a decentralized distributed ledger, which stores the entire history of transactions on the network. In other words, it is a simple database distributed among a network of computers, where each computer has an identical copy of this database. This contrasts with traditional (e.g. SQL) databases that are controlled by a single entity. Thus, in a blockchain, there is no central server or agent in the middle of the communication (Figure \ref{fig:CentralizedvsDecentralized}).
+What is a blockchain? A blockchain is a decentralized distributed ledger, which stores the entire history of transactions on the network. In other words, it is a simple database distributed among a network of computers, where each computer has an identical copy of this database. This contrasts with traditional (e.g. SQL) databases that are controlled by a single entity. Thus, in a blockchain, there is no central server or agent in the middle of the communication. In Figure \ref{fig:CentralizedvsDecentralized}, a money transaction using a centralized (traditional) and decentralized approach (blockchain) is compared.
+
+\begin{figure}[h]
+  \centering
+  	\includegraphics[scale=0.6]{gfx/cenVsDec.png}
+  \caption{Traditional database vs blockchain approach}
+  \label{fig:CentralizedvsDecentralized}
+\end{figure}
+
 
 And why is a blockchain better than a traditional database? The truth of it is that there is no better technology than the others, it just depends on user's requirements. However, blockchain provide multiple advantages such as: \newline
 \textbf{(i) Disintermediation:} Running without a central administrator. This is possible because it uses its own consensus mechanisms, such as the Proof-of-Work (later explained). \newline
@@ -64,13 +72,6 @@ And why is a blockchain better than a traditional database? The truth of it is t
 \textbf{(iv) Transparency:} All the transactions are logged on the system. \newline 
 A good example where all these requirements are needed is in the healthcare environment. There, patient records are stored in multiple databases, which always leads to a costly exchange of information between them. In this scenario, the blockchain could improve the process, preserving at the same time security and patients confidentiality.
 
-
-\begin{figure}
-  \centering
-  	\includegraphics[scale=0.8]{gfx/centralization_vs_decentralization.png}
-  \caption{Traditional database vs blockchain approach}
-  \label{fig:CentralizedvsDecentralized}
-\end{figure}
 
 Returning to the Bitcoin concept, at the beginning, the terms Bitcoin and blockchain were sometimes interchanged, as these words were used to refer: (i) the technology, (ii) the protocol for making transactions and (iii) the cryptocurrency (money). Therefore, before starting there is one statement that needs to be clear: Bitcoin is a cryptocurrency that uses the blockchain technology. Hence, Bitcoin is just one of the multiple applications that use blockchain. 
 
@@ -100,7 +101,7 @@ New transactions are stored in the last block of the blockchain, and a new block
 
 \begin{figure}
   \centering
-  	\includegraphics[scale=0.5]{gfx/mining.png}
+  	\includegraphics[scale=0.4]{gfx/mining.png}
   \caption{Bitcoin Mining}
   \label{fig:Bitcoin mining}
 \end{figure}
@@ -131,9 +132,10 @@ In the end, smart contracts are basically Ethereum scripts that whenever they ar
 
 Therefore, smart contracts allow anyone to write their own functions, in just a few lines of code. Despite Bitcoin and Ethereum have similar features, such as decentralization or transaction-based, Ethereum makes use of smart contracts, which potentially opens up real-world use cases. As shown in Figure \ref{fig:BitcoinEthereum}, Bitcoin and Ethereum can be comparable to a calculator (one application) and a smartphone (multiple applications) respectively.
 
-\begin{figure}
+
+\begin{figure}[h]
   \centering
-  	\includegraphics[scale=0.8]{gfx/bitcoinVSEthereum.jpeg}
+  	\includegraphics[scale=0.7]{gfx/bitcoinVSEthereum.jpeg}
   \caption{Bitcoin vs Ethereum}
   \label{fig:BitcoinEthereum}
 \end{figure}
@@ -145,7 +147,7 @@ Furthermore, Ethereum introduces a new concept called accounts, which are unique
 \begin{figure}
   \centering
   	\includegraphics[scale=0.7]{gfx/ethereumAccounts.png}
-  \caption{Ethereum accounts: EOA and contract accounts}
+  \caption{Ethereum accounts: Externally owned accounts and contract accounts}
   \label{fig:EthereumAccounts}
 \end{figure}
 
@@ -161,7 +163,10 @@ In conclusion, a smart contact is just an account containing code, which lives o
 
 In the Ethereum white paper \cite{buterin2014next} dapps are split into three types. The first group includes financial applications, where users exchange ether in an efficient and distributed manner. The second group is formed by semi-financial applications, in which money is involved but it is mixed with data from the real world, for example with weather feed. And finally, in the third category, there are non-financial applications. For instance, an online voting platform providing a better transparency into elections, without compromising voter confidentiality.
 
-In this paper, the blockchain technology, in particular, the Ethereum platform, will be used to approach a real-world scenario. A decentralized application (third category) that enhances supply chain performance, will be implemented. More precisely, network virtualization providers and customers will improve its communication, through the use of a web application (front-end) connected to the blockchain (back-end).
+Despite the blockchain is a secure technology, its created applications are constantly compromised to multiple attacks. This is because the majority of smart contracts are insecure, due to its code being prone to bugs.
+For example, in June 2016, the DAO \footnote{https://ethereum.org/dao}, a distributed autonomous organization instantiated on the Ethereum blockchain, was hacked. The attack, which was a smart contract bug, had resulted in over 50 million dollars of cryptocurrency theft. Thus, smart contracts need to be protected against malicious attacks before being uploaded on the blockchain.
+
+In this paper, the blockchain technology, in particular, secure smart contracts on the Ethereum platform, will be used to approach a real-world scenario. A decentralized application (third category) that enhances supply chain performance, will be implemented. More precisely, network virtualization providers and customers will improve its communication, through the use of a web application (front-end) connected to the blockchain (back-end).
 
 
 \section{Network Virtualization}
@@ -205,56 +210,109 @@ However, what if the SPs and InPs are not willing to trust a broker? What if the
 
 \section{Auction Mechanisms}
 
-An auction is a public negotiation method involving buyers and sellers that supports market trading between P2P users. Service negotation has already been investigated in \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms. While buyer's goal is to find the desired service at a low price, providers or seller's goal is to catch the attention of buyers able to pay the highest price for its offered service. Thus, an auction must provide fairness in terms of technical and economical efficiency, for both the buyer and the seller.
+An auction is a public negotiation method involving buyers and sellers that enables resource trading between P2P users. Service negotation has already been investigated in \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms. While buyer's goal is to find the desired service at a low price, providers or seller's goal is to catch the attention of buyers able to pay the highest price for its offered service. Thus, an auction must provide fairness in terms of technical and economical efficiency, for both the buyer and the seller.
 
-Firstly, auctions can be divided into: (i) \textit{one-sided auctions} where only the buyers submit their bids (e.g: a painting auctioned in an art auction), or (ii) \textit{two-sided auctions} in which buyers and sellers submit their bids. Normally, when any of the two sides (buyer or seller) cannot performe a good estimatation of the service, a one-side auction is preferred. Secondly, the auctions are: (i) (i) \textit{open-bid} auctions, as it name suggests, the bids are publicly open to the other bidders or (ii) \textit{sealed-bid} auctions where the bids are kept secret in the system.
+Firstly, auctions can be divided into (i) \textit{one-sided auctions} where only the buyers submit their bids (e.g: a painting auctioned in an art auction), or (ii) \textit{two-sided auctions} in which buyers and sellers submit their bids. Normally, when any of the two sides (buyer or seller) cannot perform a good estimation of the service, a one-side auction is preferred. Secondly, the auctions are (i) \textit{open cry} auctions, where the bids are broadcasted to all users (traditional type), or (ii) \textit{sealed-bid} auctions in which bidders first commit bid values in secret that are later revealed (e.g: physical envelopes).
 
 Accordingly, a \textit{sealed one-side auction} is the one which best meets our system specifications, since the InPs do not want to disclose their network topology or nodes information. Our auction procedure will start with the SP requesting a virtual network (a graph of virtual nodes) along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service. Despite it can be seen as a fair system, how can the SP ensure that the InPs are offering prices proportional to the current market costs?
 
 \subsection{Vickrey Auction Model}
 
-Many types of auction models exist, such as the English or Dutch auctions \cite{coppinger1980incentives}, however as previously discussed a fair-price system is extremely needed. The Vickrey auction model matches these requirements, achieving a reasonable price for the buyer by motivating bidders to bid truthfully. One of the Vickrey auction model important aspects is that corresponds to a \textit{second-price} auction. In a second-price auction the bidder (InP) will offer a price for the service, and among all the bids, the lowest one will win the auction. Nevertheless, the service will be rendered at the second lowest bid. It is important to note that in our scenario the lowest auction wins and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
+Many types of auction models exist, such as the English or Dutch auctions \cite{coppinger1980incentives}, however as previously discussed a fair-price system is extremely needed. The Vickrey auction model \cite{vickrey1961counterspeculation} matches these requirements, achieving a reasonable price for the buyer by motivating bidders to bid truthfully. One of the Vickrey auction model important aspects is that corresponds to a \textit{second-price} auction. In a second-price auction the bidder will offer a price for the service, and among all the bids, the higgest one will win the auction. Nevertheless, the service will be rendered at the second highest bid. 
+
+It is important to note that in our scenario the lowest auction will win and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
 
 In addition, as previously introduced, the Vickrey auction has the particularity of being a second-price one. From the bidder point of view means that he can safely bid the true value, knowing that if he wins, he will earn more than his bid. Thus, no InP bidder ends up earning less than what they have committed. However, the second-price concept needs to be thoroughly investigated as long as a bidder can submit multiple bids. Imagine an scenario, where a single bidder A submits two bids: \{1 \euro,9 \euro\} for a service with a real cost 5 \euro. In this case, the buyer will end up paying 9 for the service. Therefore, the second-price auction model needs always to be compared between bidders and not between bids. Suppose the last example, with a second bidder B submitting \{5 \euro, 6 \euro\}. At the end user A, will win the bid but earning 5 \euro, risking that if he would have been the only user bidding, he will earn no more than 1 \euro.
 
-Ultimately, after examining the different attacker scenarios along with the pros and cons of each auction type and model, the \textbf{\textit{two-sided and sealed Vickrey auction}} fulfills the application requirements.  
-
+Ultimately, after judging the preceding analysis along with the pros and cons of each auction type and model, the \textbf{\textit{two-sided and sealed Vickrey auction}} fulfills the application requirements, providing the highest aggregate profit among sellers and buyers.
 
 \section{Summary}
-
 
 %*****************************************
 \chapter{Related Work}
 \label{ch:relatedwork}
 %*****************************************
-\hint{This chapter should give a comprehensive overview on the related work done by other authors followed by an analysis why the existing related work is not capable of solving the problem described in the introduction.
-The chapter should have a length of about three to five pages!}
-\section{Related Work Area 1}
 
-IOTA-TANGLE VS BLOCKCHAIN VS DATABASE
+In the following, we discuss related work on virtual network embedding across multiple InPs, blockchain in supply chain management and auction mechanisms.
 
-\section{Related Work Area 2}
+\section{Multi-provider Virtual Network Embedding}
 
-OTHER PAPERS IN Multi-provider network embedding
+\section{Blockchain in Supply Chain Management}
+
+Blockchain vs database, blockchain types?
+
+\section{Auctions Mechanisms}
+
+P2P negotiation.
+
+Several authors, notable Wellman and Wurman [11], have pointed out the difficulties of truly simulation open cry auctions in the unreliable and insecure environment of the internet.
+
+
 \section{Analysis of Related Work}
 
+
+\hint{This chapter should give a comprehensive overview on the related work done by other authors followed by an analysis why the existing related work is not capable of solving the problem described in the introduction.
+The chapter should have a length of about three to five pages!}
+
 \section{Summary}
+
+Would you be convinced that the third party did not manipulate the second highest bid to maximize profits? Trustworthy auctioneer!
+
+
+Open questions:
+
+-----------------------------------------------------
+
+1. Can a user withdraw bids?
+2. Auction time specified by owner or until a suitable period of inactivity is encountered.
+3. Who open bids, all or just winner? What happen if a bid is not opened?
+4. Highest Bid never needs to be known, just highest bidder? Sol1: All other partiers should not learn the identity of the second highest bidder or any information about the other bids. Still, all parties should be able to verify that the auction was run properly, that the highestBidder won, and tht the clearing price is correct.
+5. What can be externally exctracted from a contract? Since value transfers cannot be blinded in Ethereum, anyone can see the value.
+6. ecrecover in Solidity? Understand how transactions are signed.
+7. Gas amount to prevent DoS attacks.
+
+-----------------------------------------------------
+
+Attacks in internet Auctions:
+
+- Bid shielding., etc.
+
+Countermeasures:
+
+Feedback (report user)
+Escrow services (allow buyers to wait until goods are received before authorising payment).
+
+---------------------------
+
+Smart contract attacks (smart contract security super important):
+
+Reentrancy attack
+
+This attack consists on recursively calling the call.value() or send method in an ERC20 token to extract the ether stored on the contract if the user is not updating the balance of the sender before sending the ether.
+Because this contract uses send() before setting shareholder share balance to 0 there’s a risk of reentrancy attacks.
+
+Overflows and underflows
+
+An overflow happens when the limit of the type variable uint256 , 2**256, is exceeded. What happens is that the value resets to zero instead of incrementing more. On the other hand, an underflow happens when you try to subtract 0 minus a number bigger than 0. For example, if you subtract 0 -1 the result will be = 2**256 instead of -1. Use SafeMath to protect yourself from such vulnerabilities.
+
+Pay attention to function visibility
+
+Mark all private functions as private so no one can subclass your contract and call private functions. Also, as for best practices, you should use external if you expect that the function will only ever be called externally, and use public if you need to call the function internally. For external functions, the compiler doesn’t need to allow internal calls, and so it allows arguments to be read directly from calldata, saving the copying step and some gas.
 
 %*****************************************
 \chapter{Design}
 \label{ch:design}
 %*****************************************
+
 \hint{This chapter should describe the design of the own approach on a conceptional level without mentioning the implementation details. The section should have a length of about five pages.}
 
-GETH vs ETH NW, web3, Solidity, truffle ...
+1. Blockchain
+2. Scenario
+3. Notification system
 
 \section{Requirements and Assumptions}
 
 \section{System Overview}
-
-
-\subsection{Blockchain types}
-
 
 \subsection{Component 1}
 
@@ -265,7 +323,12 @@ GETH vs ETH NW, web3, Solidity, truffle ...
 %*****************************************
 \chapter{Implementation}
 
-How a contract is compiled in to the Ethereum BC.
+1. How a contract is compiled in to the Ethereum BC.
+2. Technologies used (GETH vs ETH NW, web3, Solidity, truffle)
+3. Component relations in the source code
+4. Code examples
+5. 
+
 \label{ch:implementation}
 %*****************************************
 
@@ -276,6 +339,8 @@ How a contract is compiled in to the Ethereum BC.
 4. How do the components interact with each other?  \\
 5. What are limitations of the implementation? \\ \\
 The section should have a length of about five pages.}
+
+
 \section{Design Decisions}
 
 \section{Architecture}
@@ -317,5 +382,8 @@ The section should have a length of about three pages.}
 \section{Contributions}
 
 \section{Future Work}
+
+
+IOTA-TANGLE
 
 \section{Final Remarks}
