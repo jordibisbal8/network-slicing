@@ -6,7 +6,7 @@
 % Prof. Dr.-Ing. Ralf Steinmetz
 %======================================================
 % Template for Theses
-% VERSION 1.1 (August 2017)
+% VERSION 1.3 (November 2017)
 % Use pdfLaTeX (other possible, but not supported)
 % Contact at KOM: Andr\'e Miede (andre.miede@kom...)
 %======================================================
@@ -28,12 +28,12 @@
 %======================================================
 % General package loading and definitions
 %======================================================
-\usepackage{inputenc} 
+\usepackage[utf8]{inputenc}
 \usepackage{textcomp} 
-\usepackage{ngerman}
+% \usepackage{ngerman}
 \usepackage[american,ngerman]{babel}
-\usepackage{xspace}
 \usepackage{listings}
+\usepackage{xspace}
 \usepackage[fleqn]{amsmath} % math environments and more by the AMS 
 \newcounter{dummy} % necessary for correct hyperlinks (to index, bib, etc.)
 \newcommand{\myfloatalign}{\centering} % how all the floats will be aligned
@@ -57,7 +57,6 @@
 \setlength{\extrarowheight}{3pt} % increase table row height
 \usepackage{booktabs}
 \usepackage{caption}
-\usepackage{url}
 \captionsetup{format=hang,font=small}
 \usepackage[square,numbers]{natbib}
 \usepackage{subfig}
@@ -76,12 +75,12 @@
 % Important information: to be set here and only here
 %======================================================
 \newcommand{\komTitle}{Tenancy over Distributed Workflows using Blockchain Technology exemplified by Network Slicing\xspace}
-\newcommand{\komThesisType}{Masterarbeit\xspace} % Diplomarbeit Studienarbeit Master-Arbeit Bachelor-Arbeit
+\newcommand{\komThesisType}{Master-Arbeit\xspace} % Diplomarbeit Studienarbeit Master-Arbeit Bachelor-Arbeit
 \newcommand{\komName}{Jordi Bisbal Ansaldo\xspace}
 \newcommand{\komSubmissionDate}{30.05.2018\xspace}% use only this date format
 
 \newcommand{\komGutachter}{Gutachter: Prof. Dr.-Ing. Ralf Steinmetz\xspace}
-\newcommand{\komBetreuer}{Betreuer: Dr.-Ing. Amr Rizk und Prof. Paul M�ller \xspace}
+\newcommand{\komBetreuer}{Betreuer: Dr.-Ing. Amr Rizk und Prof. Paul Müller\xspace}
 \newcommand{\komExternerBetreuer}{}
 \newcommand{\komID}{KOM-M-number\xspace}
 
@@ -116,7 +115,7 @@
 \subsubtitle{\komName \\ \komID}
 %\setinstitutionlogo[height]{kom_info}
 \institution{\raggedleft Fachbereich Elektrotechnik \\und Informationstechnik\\%
-	Fachbereich Informatik (Zweitmitglied)\\%[\baselineskip]%
+	Fachbereich Informatik (Zweitmitglied)\\[\baselineskip]%
 	Fachgebiet Multimedia Kommunikation \\%(KOM)
 	Prof. Dr.-Ing. Ralf Steinmetz}
 
@@ -125,7 +124,7 @@
 % Setup of the title backside (do not change)
 %============================================
 \lowertitleback{%
-	Technische Universit�t Darmstadt \\%
+	Technische Universität Darmstadt \\%
 	Fachbereich Elektrotechnik und Informationstechnik\\%
 	Fachbereich Informatik (Zweitmitglied)\\[\baselineskip]%
 	Fachgebiet Multimedia Kommunikation (KOM)\\%
@@ -137,7 +136,7 @@
 }
 
 
-\uppertitleback{%url
+\uppertitleback{%
 	\komTitle \\%
 	\komThesisType \\%
 	\komID \\[\baselineskip]%
@@ -165,16 +164,42 @@
 	
 	% identbar color for the rest of the thesis - DO NOT MODIFY THIS
 	\colorlet{tudidentbar}{tud0b} 
-	
-	\chapter*{Ehrenw\"ortliche Erkl\"arung}
-	Hiermit versichere ich, Jordi Bisbal, die vorliegende \komThesisType ohne Hilfe Dritter und nur mit den angegebenen Quellen
-    und Hilfsmitteln angefertigt zu haben. Alle Stellen, die aus den Quellen entnommen wurden, sind als solche
-    kenntlich gemacht worden. Diese Arbeit hat in dieser oder \"ahnlicher Form noch keiner Pr\"ufungsbeh\"orde vorgelegen.
-    Die schriftliche Fassung stimmt mit der elektronischen Fassung \"uberein.
-	
-	\vspace{1.5cm}
-	
-	\noindent Darmstadt, den \komSubmissionDate\hfill \komName
+    
+    \begin{otherlanguage}{ngerman}
+    
+    \chapter*{Erklärung zur Abschlussarbeit gemäß § 23 Abs.\ 7 APB der TU Darmstadt}
+    Hiermit versichere ich, \komName, die vorliegende \komThesisType ohne Hilfe Dritter und nur mit den angegebenen Quellen und Hilfsmitteln angefertigt zu haben. 
+    Alle Stellen, die Quellen entnommen wurden, sind als solche kenntlich gemacht worden. 
+    Diese Arbeit hat in gleicher oder ähnlicher Form noch keiner Prüfungsbehörde vorgelegen.\\
+
+    \noindent Mir ist bekannt, dass im Falle eines Plagiats (§38 Abs.2 APB) ein Täuschungsversuch vorliegt, der dazu führt, dass die Arbeit mit 5,0 bewertet und damit ein Prüfungsversuch verbraucht wird. 
+    Abschlussarbeiten dürfen nur einmal wiederholt werden.\\
+
+    \noindent Bei der abgegebenen \komThesisType stimmen die schriftliche und die zur Archivierung eingereichte elektronische Fassung überein. 
+    
+    \vspace{4em}
+    
+    \noindent Darmstadt, den \komSubmissionDate 
+    
+    \vspace{3em}
+    
+    \noindent\rule{5cm}{0.4pt}
+    
+    \noindent\komName
+    
+    \end{otherlanguage}
+
+    % Old Version (do not use if submitting via the TUBaMa-Portal!)
+    %\chapter*{Ehrenw\"ortliche Erkl\"arung}
+    %Hiermit versichere ich, die vorliegende \komThesisType ohne Hilfe Dritter und nur mit den angegebenen Quellen
+    %und Hilfsmitteln angefertigt zu haben. Alle Stellen, die aus den Quellen entnommen wurden, sind als solche
+    %kenntlich gemacht worden. Diese Arbeit hat in dieser oder \"ahnlicher Form noch keiner Pr\"ufungsbeh\"orde vorgelegen.
+    %Die schriftliche Fassung stimmt mit der elektronischen Fassung \"uberein.
+    %
+    %\vspace{1.5cm}
+    %
+    %\noindent Darmstadt, den \komSubmissionDate\hfill \komName
+
 	
 	\tableofcontents
 	%\listoffigures

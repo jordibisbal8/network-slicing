@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{SAPMPG16}
+\begin{thebibliography}{KARF03}
 
 \bibitem[AM16]{abeyratne2016blockchain}
 Saveen~A Abeyratne and Radmehr~P Monfared.
@@ -41,6 +41,11 @@ David Dietrich, Amr Rizk, and Panagiotis Papadimitriou.
 \newblock {\em IEEE Transactions on Network and Service Management},
   12(2):188--201, 2015.
 
+\bibitem[Fia05]{fiala2005information}
+Petr Fiala.
+\newblock Information sharing in supply chains.
+\newblock {\em Omega}, 33(5):419--423, 2005.
+
 \bibitem[HS05]{hausheer2005peermart}
 David Hausheer and Burkhard Stiller.
 \newblock Peermart: The technology for a distributed auction-based market for
@@ -66,6 +71,11 @@ Hau~L Lee and Corey Billington.
 \newblock Managing supply chain inventory: pitfalls and opportunities.
 \newblock {\em Sloan management review}, 33(3):65, 1992.
 
+\bibitem[LZ08]{li2008confidentiality}
+Lode Li and Hongtao Zhang.
+\newblock Confidentiality and information sharing in supply chain coordination.
+\newblock {\em Management science}, 54(8):1467--1481, 2008.
+
 \bibitem[MSH16]{mattila2016product}
 Juri Mattila, Timo Sepp{\"a}l{\"a}, and Jan Holmstr{\"o}m.
 \newblock Product-centric information management: A case study of a shared
@@ -81,13 +91,6 @@ Elth Ogston and Stamatis Vassiliadis.
 \newblock A peer-to-peer agent auction.
 \newblock In {\em Proceedings of the first international joint conference on
   Autonomous agents and multiagent systems: part 1}, pages 151--159. ACM, 2002.
-
-\bibitem[SAPMPG16]{soto2016case}
-Pedro Soto-Acosta, Emilio Placer-Maruri, and Daniel Perez-Gonzalez.
-\newblock A case analysis of a product lifecycle information management
-  framework for smes.
-\newblock {\em International Journal of Information Management},
-  36(2):240--244, 2016.
 
 \bibitem[Swa15]{swan2015blockchain}
 Melanie Swan.

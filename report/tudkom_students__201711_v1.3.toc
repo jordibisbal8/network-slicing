@@ -1,3 +1,7 @@
+\select@language {ngerman}
+\select@language {american}
+\select@language {ngerman}
+\select@language {american}
 \contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{3}{section.1.1}
 \contentsline {section}{\numberline {1.2}Problem Statement and Contribution}{4}{section.1.2}
@@ -6,19 +10,18 @@
 \contentsline {section}{\numberline {2.1}Blockchain: A decentralized and distributed trustless ledger}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Blockchain 1.0: Cryptocurrencies}{6}{subsection.2.1.1}
 \contentsline {subsubsection}{Bitcoin}{6}{subsubsection*.11}
-\contentsline {paragraph}{Mining}{7}{paragraph*.12}
+\contentsline {paragraph}{Mining}{6}{paragraph*.12}
 \contentsline {paragraph}{Key management}{7}{paragraph*.14}
 \contentsline {subsection}{\numberline {2.1.2}Blockchain 2.0: Smart contracts}{8}{subsection.2.1.2}
 \contentsline {subsubsection}{Ethereum}{8}{subsubsection*.15}
 \contentsline {subsubsection}{Decentralized applications}{9}{subsubsection*.17}
-\contentsline {section}{\numberline {2.2}Network Virtualization}{9}{section.2.2}
+\contentsline {section}{\numberline {2.2}Network Virtualization}{10}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Multi-Provider Virtual Network Embedding}{10}{subsection.2.2.1}
 \contentsline {section}{\numberline {2.3}Auction Mechanisms}{11}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Vickrey Auction Model}{12}{subsection.2.3.1}
-\contentsline {section}{\numberline {2.4}Summary}{12}{section.2.4}
+\contentsline {section}{\numberline {2.4}Summary}{13}{section.2.4}
 \contentsline {chapter}{\numberline {3}Related Work}{15}{chapter.3}
 \contentsline {section}{\numberline {3.1}Blockchain in Supply Chain Management}{15}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Decentralized Systems}{15}{subsection.3.1.1}
 \contentsline {section}{\numberline {3.2}Multi-provider Virtual Network Embedding}{15}{section.3.2}
 \contentsline {section}{\numberline {3.3}Auctions Mechanisms}{15}{section.3.3}
 \contentsline {section}{\numberline {3.4}Analysis of Related Work}{15}{section.3.4}
@@ -27,8 +30,8 @@
 \contentsline {section}{\numberline {4.1}Requirements and Assumptions}{17}{section.4.1}
 \contentsline {section}{\numberline {4.2}System Overview}{17}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Component 1}{17}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Component 2}{17}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Summary}{17}{section.4.3}
+\contentsline {subsection}{\numberline {4.2.2}Component 2}{18}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Summary}{18}{section.4.3}
 \contentsline {chapter}{\numberline {5}Implementation}{19}{chapter.5}
 \contentsline {section}{\numberline {5.1}Design Decisions}{19}{section.5.1}
 \contentsline {section}{\numberline {5.2}Architecture}{19}{section.5.2}
