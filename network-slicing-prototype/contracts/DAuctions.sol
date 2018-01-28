@@ -7,9 +7,11 @@ contract DVickreyAuction {
   uint public _revealTimePeriod;
 
   address public _owner;
+  address[] public members; // TODO
 
   // Set to true at the end, bid has been payed.
   bool public _ended;
+  enum resourceType {COMPUTING, STORAGE, CLOUD} //TODO
 
   // Current state of the auction.
   address public _highestBidder;
@@ -22,9 +24,28 @@ contract DVickreyAuction {
     bytes32 bidCommit;
     bool isOpened;
     uint256 bidDeposit;
+    //uint nodeIndex; TODO
+  }
+  struct Node {
+    uint index;
+    resourceType resource;
+    uint256 x;
+    uint256 y;
+    bytes32 location;
+    // address  highestBidder; TODO with multiple items
+}
+
+  struct Link {
+    uint index;
+    uint from; // node index
+    uint to; //node index
   }
 
+  Node[] private nodesList;
+  Link[] private linksList;
+
   mapping(address => Bid) public bids;
+  //mapping(address => Bid[]) public bids; TODO
 
   modifier onlyBefore(uint _time) { require(now < _time); _; }
   modifier onlyAfter(uint _time) { require(now > _time); _; }
@@ -37,12 +58,17 @@ contract DVickreyAuction {
     _revealTimePeriod = revealTimePeriod; // number of seconds since Jan 1 1970.
     _owner = owner;
     _ended = false;
-    _highestBid = 0;
+    _highestBid = 0; //the highestBid is the minimum one.
   }
 
   // Receives a SHA3 hash of the value
   // msg.sender will be the contract calling the contract.
   function commitBid(bytes32 bidCommitment, address sender) public payable onlyBefore(_commitTimePeriod) returns(bytes32 bidCommit) {
+    /*bids[sender].push(Bid({
+      bidCommit: bidCommitment,
+      isOpened: false,
+      bidDeposit: msg.value
+    })); TODO*/
     bids[sender].bidCommit = bidCommitment;
     bids[sender].isOpened = false;
     bids[sender].bidDeposit = msg.value;
@@ -62,7 +88,8 @@ contract DVickreyAuction {
       uint256 refund;
       refund += bids[sender].bidDeposit;
       bids[sender].isOpened = true;
-      sender.transfer(refund);
+      // Only the 70% of the bid is given back
+      sender.transfer((refund * 7 / 100));
       return true;
     }
     return false;
@@ -72,11 +99,12 @@ contract DVickreyAuction {
   // can only be called from the contract itself (or from
   // derived contracts).
   function placeBid(uint256 value, address sender) internal returns (bool success) {
-    if (value <= _highestBid) {
+    // lowest bid wins
+    if (value >= _highestBid) {
       return false;
     }
     if (_highestBidder != 0) {
-      _highestBidder.transfer(_highestBid); // old highest bidder refunded
+      _highestBidder.transfer((_highestBid * 7 / 100)); // old highest bidder refunded
     }
     // First Bid case
     if (_highestBid == 0) {
@@ -93,9 +121,9 @@ contract DVickreyAuction {
   function finalize(address sender) public onlyAfter(_revealTimePeriod) isOwner(sender) returns (uint256){
     require(!_ended);
     _ended = true;
-    //In DVickreyAuction, the difference between the first and the second bid value should be sent.
-    _highestBidder.transfer(_highestBid - _reservePrice);
-    // TODO Owner should transfer to highestBidder the _reservePrice, service should start
+    // give back the highestBid to the highestBidder
+    _highestBidder.transfer(_highestBid);
+    // TODO Owner should transfer to highestBidder the _reservePrice, service should start (contract created).
     return _reservePrice;
   }
 }
@@ -178,8 +206,9 @@ contract DAuctions {
   function getTime() public constant returns (uint256 time){
     return now;
   }
+  // keccack256 == sha3 in Solidity
   function getSha3(uint256 x, uint256 y) public constant returns (bytes32) {
-    return sha3(x,y);
+    return keccak256(x,y);
   }
   function getCommitBids(address auctionAddr, address sender) public constant returns (bytes32,bool,uint256) {
     return DVickreyAuction(auctionAddr).bids(sender);

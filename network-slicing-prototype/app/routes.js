@@ -15,6 +15,7 @@ import authRoutes from './routes/_auth.router.js';
 import userRoutes from './routes/_user.router';
 import serviceRoutes from './routes/_service.router';
 import auctionRoutes from './routes/_auction.router';
+import schedulerRoutes from './routes/_scheduler.router';
 
 export default (app, router, passport) => {
 
@@ -54,6 +55,8 @@ export default (app, router, passport) => {
   serviceRoutes(app, router, auth);
 
   auctionRoutes(app, router, auth);
+
+  schedulerRoutes(app, router, auth);
 
   // Pass in our Express app and Router
 

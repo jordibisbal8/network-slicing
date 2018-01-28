@@ -37,7 +37,7 @@ export default (app, router, auth) => {
 
   // Method that commits a bid to a specific auction
     .post(auth, (req, res) => {
-      //let bidValue = web3.toWei(req.body.bidValue, "ether"); //ether converted to wei
+
       let bidDepositAmount = web3.toWei(6, "ether"); //ether converted to wei
       let hashedValue = sha3(req.body.bidValue);
       DAuctions.deployed().then(contractInstance => {

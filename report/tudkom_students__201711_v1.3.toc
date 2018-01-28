@@ -22,29 +22,31 @@
 \contentsline {section}{\numberline {2.4}Summary}{13}{section.2.4}
 \contentsline {chapter}{\numberline {3}Related Work}{15}{chapter.3}
 \contentsline {section}{\numberline {3.1}Blockchain in Supply Chain Management}{15}{section.3.1}
-\contentsline {section}{\numberline {3.2}Multi-provider Virtual Network Embedding}{15}{section.3.2}
-\contentsline {section}{\numberline {3.3}Auctions Mechanisms}{15}{section.3.3}
-\contentsline {section}{\numberline {3.4}Analysis of Related Work}{15}{section.3.4}
-\contentsline {section}{\numberline {3.5}Summary}{15}{section.3.5}
-\contentsline {chapter}{\numberline {4}Design}{17}{chapter.4}
-\contentsline {section}{\numberline {4.1}Requirements and Assumptions}{17}{section.4.1}
-\contentsline {section}{\numberline {4.2}System Overview}{17}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Component 1}{17}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Component 2}{18}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Summary}{18}{section.4.3}
-\contentsline {chapter}{\numberline {5}Implementation}{19}{chapter.5}
-\contentsline {section}{\numberline {5.1}Design Decisions}{19}{section.5.1}
-\contentsline {section}{\numberline {5.2}Architecture}{19}{section.5.2}
-\contentsline {section}{\numberline {5.3}Interaction of Components}{19}{section.5.3}
-\contentsline {section}{\numberline {5.4}Summary}{19}{section.5.4}
-\contentsline {chapter}{\numberline {6}Evaluation}{21}{chapter.6}
-\contentsline {section}{\numberline {6.1}Goal and Methodology}{21}{section.6.1}
-\contentsline {section}{\numberline {6.2}Evaluation Setup}{21}{section.6.2}
-\contentsline {section}{\numberline {6.3}Evaluation Results}{21}{section.6.3}
-\contentsline {section}{\numberline {6.4}Analysis of Results}{21}{section.6.4}
-\contentsline {chapter}{\numberline {7}Conclusions}{23}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary}{23}{section.7.1}
-\contentsline {section}{\numberline {7.2}Contributions}{23}{section.7.2}
-\contentsline {section}{\numberline {7.3}Future Work}{23}{section.7.3}
-\contentsline {section}{\numberline {7.4}Final Remarks}{23}{section.7.4}
-\contentsline {chapter}{Bibliography}{23}{dummy.1}
+\contentsline {subsection}{\numberline {3.1.1}Blockchain Ready Manufacturing Supply Chain}{15}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Lessons Learned}{16}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Multi-provider Virtual Network Embedding}{17}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Auction Mechanisms}{17}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}Analysis of Related Work}{17}{section.3.3}
+\contentsline {section}{\numberline {3.4}Summary}{17}{section.3.4}
+\contentsline {chapter}{\numberline {4}Design}{19}{chapter.4}
+\contentsline {section}{\numberline {4.1}Requirements and Assumptions}{19}{section.4.1}
+\contentsline {section}{\numberline {4.2}System Overview}{19}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Component 1}{19}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Component 2}{20}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Summary}{20}{section.4.3}
+\contentsline {chapter}{\numberline {5}Implementation}{21}{chapter.5}
+\contentsline {section}{\numberline {5.1}Design Decisions}{21}{section.5.1}
+\contentsline {section}{\numberline {5.2}Architecture}{21}{section.5.2}
+\contentsline {section}{\numberline {5.3}Interaction of Components}{21}{section.5.3}
+\contentsline {section}{\numberline {5.4}Summary}{21}{section.5.4}
+\contentsline {chapter}{\numberline {6}Evaluation}{23}{chapter.6}
+\contentsline {section}{\numberline {6.1}Goal and Methodology}{23}{section.6.1}
+\contentsline {section}{\numberline {6.2}Evaluation Setup}{23}{section.6.2}
+\contentsline {section}{\numberline {6.3}Evaluation Results}{23}{section.6.3}
+\contentsline {section}{\numberline {6.4}Analysis of Results}{23}{section.6.4}
+\contentsline {chapter}{\numberline {7}Conclusions}{25}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{25}{section.7.1}
+\contentsline {section}{\numberline {7.2}Contributions}{25}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future Work}{25}{section.7.3}
+\contentsline {section}{\numberline {7.4}Final Remarks}{25}{section.7.4}
+\contentsline {chapter}{Bibliography}{25}{dummy.1}

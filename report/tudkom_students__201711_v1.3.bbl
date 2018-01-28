@@ -1,5 +1,10 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{KARF03}
+\begin{thebibliography}{EDPM13}
+
+\bibitem[AM{\etalchar{+}}06]{ausubel2006lovely}
+Lawrence~M Ausubel, Paul Milgrom, et~al.
+\newblock The lovely but lonely vickrey auction.
+\newblock {\em Combinatorial auctions}, 17:22--26, 2006.
 
 \bibitem[AM16]{abeyratne2016blockchain}
 Saveen~A Abeyratne and Radmehr~P Monfared.
@@ -34,12 +39,23 @@ Vicki~M Coppinger, Vernon~L Smith, and Jon~A Titus.
 \newblock Incentives and behavior in english, dutch and sealed-bid auctions.
 \newblock {\em Economic inquiry}, 18(1):1--22, 1980.
 
+\bibitem[DARP17]{dietrich2017multi}
+David Dietrich, Ahmed Abujoda, Amr Rizk, and Panagiotis Papadimitriou.
+\newblock Multi-provider service chain embedding with nestor.
+\newblock {\em IEEE Transactions on Network and Service Management},
+  14(1):91--105, 2017.
+
 \bibitem[DRP15]{dietrich2015multi}
 David Dietrich, Amr Rizk, and Panagiotis Papadimitriou.
 \newblock Multi-provider virtual network embedding with limited information
   disclosure.
 \newblock {\em IEEE Transactions on Network and Service Management},
   12(2):188--201, 2015.
+
+\bibitem[EDPM13]{esposito2013general}
+Flavio Esposito, Donato Di~Paola, and Ibrahim Matta.
+\newblock A general distributed approach to slice embedding with guarantees.
+\newblock In {\em IFIP Networking Conference, 2013}, pages 1--9. IEEE, 2013.
 
 \bibitem[Fia05]{fiala2005information}
 Petr Fiala.
@@ -76,11 +92,17 @@ Lode Li and Hongtao Zhang.
 \newblock Confidentiality and information sharing in supply chain coordination.
 \newblock {\em Management science}, 54(8):1467--1481, 2008.
 
-\bibitem[MSH16]{mattila2016product}
-Juri Mattila, Timo Sepp{\"a}l{\"a}, and Jan Holmstr{\"o}m.
-\newblock Product-centric information management: A case study of a shared
-  platform with blockchain technology.
-\newblock In {\em Industry Studies Association Conference}, 2016.
+\bibitem[Mer87]{merkle1987digital}
+Ralph~C Merkle.
+\newblock A digital signature based on a conventional encryption function.
+\newblock In {\em Conference on the Theory and Application of Cryptographic
+  Techniques}, pages 369--378. Springer, 1987.
+
+\bibitem[MS15]{mainelli2015sharing}
+Michael Mainelli and Mike Smith.
+\newblock Sharing ledgers for sharing economies: an exploration of mutual
+  distributed ledgers (aka blockchain technology).
+\newblock 2015.
 
 \bibitem[Nak08]{nakamoto2008bitcoin}
 Satoshi Nakamoto.
@@ -91,6 +113,12 @@ Elth Ogston and Stamatis Vassiliadis.
 \newblock A peer-to-peer agent auction.
 \newblock In {\em Proceedings of the first international joint conference on
   Autonomous agents and multiagent systems: part 1}, pages 151--159. ACM, 2002.
+
+\bibitem[Sta15]{stark2015product}
+John Stark.
+\newblock Product lifecycle management.
+\newblock In {\em Product Lifecycle Management (Volume 1)}, pages 1--29.
+  Springer, 2015.
 
 \bibitem[Swa15]{swan2015blockchain}
 Melanie Swan.

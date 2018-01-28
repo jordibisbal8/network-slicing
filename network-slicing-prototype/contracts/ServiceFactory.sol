@@ -3,6 +3,7 @@ pragma solidity ^0.4.0;
 import "./User.sol";
 import "./Service.sol";
 
+// TODO look on Solidity Safe remote purchase example
 
 contract ServiceFactory {
   bytes32[] public servicesNamesList;
