@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{EDPM13}
+\begin{thebibliography}{ZZSRR08}
 
 \bibitem[AM{\etalchar{+}}06]{ausubel2006lovely}
 Lawrence~M Ausubel, Paul Milgrom, et~al.
@@ -34,6 +34,18 @@ Jen Clarck.
   March 2017.
 \newblock accessed:2017-11-27.
 
+\bibitem[CRB09]{chowdhury2009virtual}
+NM~Mosharaf~Kabir Chowdhury, Muntasir~Raihan Rahman, and Raouf Boutaba.
+\newblock Virtual network embedding with coordinated node and link mapping.
+\newblock In {\em INFOCOM 2009, IEEE}, pages 783--791. IEEE, 2009.
+
+\bibitem[CSB10]{chowdhury2010polyvine}
+Mosharaf Chowdhury, Fady Samuel, and Raouf Boutaba.
+\newblock Polyvine: policy-based virtual network embedding across multiple
+  domains.
+\newblock In {\em Proceedings of the second ACM SIGCOMM workshop on Virtualized
+  infrastructure systems and architectures}, pages 49--56. ACM, 2010.
+
 \bibitem[CST80]{coppinger1980incentives}
 Vicki~M Coppinger, Vernon~L Smith, and Jon~A Titus.
 \newblock Incentives and behavior in english, dutch and sealed-bid auctions.
@@ -57,10 +69,28 @@ Flavio Esposito, Donato Di~Paola, and Ibrahim Matta.
 \newblock A general distributed approach to slice embedding with guarantees.
 \newblock In {\em IFIP Networking Conference, 2013}, pages 1--9. IEEE, 2013.
 
+\bibitem[FBB{\etalchar{+}}13]{fischer2013virtual}
+Andreas Fischer, Juan~Felipe Botero, Michael~Till Beck, Hermann De~Meer, and
+  Xavier Hesselbach.
+\newblock Virtual network embedding: A survey.
+\newblock {\em IEEE Communications Surveys \& Tutorials}, 15(4):1888--1906,
+  2013.
+
 \bibitem[Fia05]{fiala2005information}
 Petr Fiala.
 \newblock Information sharing in supply chains.
 \newblock {\em Omega}, 33(5):419--423, 2005.
+
+\bibitem[HLAZ11]{houidi2011virtual}
+Ines Houidi, Wajdi Louati, Walid~Ben Ameur, and Djamal Zeghlache.
+\newblock Virtual network provisioning across multiple substrate networks.
+\newblock {\em Computer Networks}, 55(4):1011--1023, 2011.
+
+\bibitem[HLZ08]{houidi2008distributed}
+Ines Houidi, Wajdi Louati, and Djamal Zeghlache.
+\newblock A distributed virtual network mapping algorithm.
+\newblock In {\em Communications, 2008. ICC'08. IEEE International Conference
+  on}, pages 5634--5640. IEEE, 2008.
 
 \bibitem[HS05]{hausheer2005peermart}
 David Hausheer and Burkhard Stiller.
@@ -147,5 +177,11 @@ Fida-E Zaheer, Jin Xiao, and Raouf Boutaba.
   virtualization.
 \newblock In {\em Network operations and management symposium (NOMS), 2010
   IEEE}, pages 471--478. IEEE, 2010.
+
+\bibitem[ZZSRR08]{zhu2008cabernet}
+Yaping Zhu, Rui Zhang-Shen, Sampath Rangarajan, and Jennifer Rexford.
+\newblock Cabernet: Connectivity architecture for better network services.
+\newblock In {\em Proceedings of the 2008 ACM CoNEXT Conference}, page~64. ACM,
+  2008.
 
 \end{thebibliography}

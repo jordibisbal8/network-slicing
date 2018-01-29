@@ -48,27 +48,28 @@ This thesis is structured as follows. In Chapter \ref{ch:background}, relevant b
 \label{ch:background}
 %*****************************************
 
-In this section, an overview of the blockchain technology evolution along will be provided. It starts with the 1st blockchain generation related to cryptocurrencies, with Bitcoin as a leading representative. Then, the second or smart contracts generation will be investigated, where Ethereum extends the idea of money transfers, to any other application that can be writable as a piece of code.
+In this section, an overview of the blockchain technology evolution will be provided. It starts with the 1st blockchain generation related to cryptocurrencies, with Bitcoin as a leading representative. Then, the second or smart contracts generation will be investigated, where Ethereum extends the idea of money transfers, to any other application that can be writable as a piece of code.
 
-Afterwards, our scenario will be introduced, which focuses on network virtualization. In this environment, resource negotiation between customer and providers is crucial, which will be accomplished through a limited time auction. Thus, the pros and cons of different types of auctions will also be discussed.
+Afterwards, a scenario related to the network virtualization environment will be introduced, in which resource negotiation between customer and providers is crucial. Due to this importance, a well-known public negotiation mechanism will also be presented: the auctions.
 
 \section{Blockchain: A decentralized and distributed trustless ledger}
 
-What is a blockchain? A blockchain is a decentralized distributed ledger, which stores the entire history of transactions on the network. In other words, it is a simple database distributed among a network of computers, where each computer has an identical copy of this database. This contrasts with traditional (e.g. SQL) databases that are controlled by a single entity. Thus, in a blockchain, there is no central server or agent in the middle of the communication. In Figure \ref{fig:CentralizedvsDecentralized}, a money transaction using a centralized (traditional) and decentralized approach (blockchain) is compared. A good example application is in the healthcare environment. There, patient records are stored in multiple databases, which always leads to a costly exchange of information between them. In this scenario, the blockchain could improve the process, preserving patients confidentiality in a secure and decentralized manner.
+A blockchain is a decentralized distributed ledger, which stores the entire history of transactions on the network. In other words, it is a simple database distributed among a network of computers, where each computer has an identical copy of this database. This contrasts with traditional (e.g. SQL) databases that are controlled by a single entity. Thus, in a blockchain, there is no central server or agent in the middle of the communication. For example, imagine a user willing to transfer money to another one \ref{fig:CentralizedvsDecentralized}. In a centralized system, the transaction will go first to the bank, who will update its internal database and subsequently perform the operation. In contrast, by a decentralized system, each user is able to directly transfer the money, since it possesses an updated copy of the database. Another example to replace a centralize design could be in the healthcare environment. There, patient records are stored in multiple databases, which always leads to a costly exchange of information between them. In this scenario, the blockchain could improve the process, preserving patients confidentiality in a secure and decentralized manner.
 
 \begin{figure}[bth]
-	\includegraphics[width=1\linewidth]{gfx/cenVsDec}    
+	\centering
+	\includegraphics[width=0.8\linewidth]{gfx/cenVsDec}    
   	\caption{Traditional database vs blockchain approach}
   	\label{fig:CentralizedvsDecentralized}
 \end{figure}
 
-At the beginning, the terms Bitcoin and blockchain were sometimes interchanged, as these words were used to refer: (i) the technology, (ii) the protocol for making transactions and (iii) the cryptocurrency (money). Therefore, before starting there is one statement that needs to be clear: Bitcoin is a cryptocurrency that uses the blockchain technology. Hence, Bitcoin is just one of the multiple applications that use blockchain. 
+At the beginning, the terms Bitcoin and blockchain were sometimes interchanged, as these words were used to refer: (i) the technology, (ii) the protocol for making transactions and (iii) the cryptocurrency (money). Therefore, before continuing, one statement that needs to be clear: Bitcoin is a cryptocurrency that uses the blockchain technology. Hence, Bitcoin is just one of the multiple applications that use blockchain. 
 
-However, when a new technology appears, the first user's goal is normally to exploit its economic potential. Therefore, money transaction through cryptocurrencies was its first application. In the next subsection, we will understand what cryptocurrencies really are, followed by an explanation of the architectural design of the Bitcoin idea along with its implications.
+However, when a new technology appears, the first user's goal is normally to exploit its economic potential. For this reason, money transaction through cryptocurrencies was its first application. In the next subsection, we will understand what cryptocurrencies are, followed by an explanation of the Bitcoin's design architecture.
 
 \subsection{Blockchain 1.0: Cryptocurrencies}
 
-At of the end of January 2018, Coinmarketcap, a cryptocurrency market tracker, lists more than 1,400 cryptocurrencies with an aggregate value approaching USD 700bn.  But what are cryptocurrencies? Cryptocurrencies are a variety of digital currencies pretending to work as a medium of exchange, such as Euro or USD does. As the name suggests, apart from being a virtual currency, they use cryptography to secure and verify its transactions. The main difference with traditional currencies is that they do not have any physical equivalent in the real world. Nevertheless, they can be used to pay goods and service, with the advantage of not having any geographical or political borders. For example, GMO Internet, a Japanese company, will start paying parts of employees salaries in cryptocurrencies (Bitcoin).
+At of the end of January 2018, Coinmarketcap\footnote{https://coinmarketcap.com/}, a cryptocurrency market tracker, lists more than 1,400 cryptocurrencies with an aggregate value approaching USD 700bn.  But what are cryptocurrencies? Cryptocurrencies are a variety of digital currencies pretending to work as a medium of exchange, such as Euro or USD does. As the name suggests, apart from being a virtual currency, they use cryptography to secure and verify its transactions. The main difference with traditional currencies is that they do not have any physical equivalent in the real world. Nevertheless, they can be used to pay goods and service, with the advantage of not being constrained with geographical or political borders. For example, GMO Internet\footnote{https://www.gmo.jp/en/}, a Japanese company, will start paying parts of employees salaries in cryptocurrencies (Bitcoin).
 
 In this paper, we will set aside whether they can become true currencies or not, and also its political, social or economic impact. The only focus will be the technology behind it, as blockchain can be extended to much more than digital currencies. Thus, we will start from the genesis of the technology, with Bitcoin as its revolutionary innovator.
 
@@ -79,14 +80,14 @@ Bitcoin took the world by surprise in 2009, after Satoshi Nakotomo's white paper
 
 Furthermore, in Bitcoin, each user possesses a digital Wallet, which is a software program used for performing the transactions. Each of these users is identified by a single public address, composed of 26-35 alphanumeric characters, which is the hash of the user's public key. For example, if user A wants to send Bitcoins to user B, it needs B public address, e.g: 1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2. Then, user A creates a message (transaction), attaching receiver's public key with the transferred amount of Bitcoins. This message is signed by sender's private key and sent to the blockchain. Transactions examples can be found in \footnote{\url{https://blockexplorer.com/}}.
 
-From another point of view, the Bitcoin ledger can be interpreted as a state transition system, where there is an initial state, which after a transition function (money transfer), results in a new state. Imagine the last example where A wants to send X to B. The first state is A and B current balance and the transition function will take X from A and insert it to B's account, generating a new state. But what happens if A sends exactly the same payment to two different addresses (B and C) at the same time? This scenario is the so-called double spending attack and consequently, a transaction always needs to be verified by miners in the blockchain before being confirmed.
+From another point of view, the Bitcoin ledger can be interpreted as a state transition system, where there is an initial state, which after a transition function (money transfer), results in a new state. Imagine the last example where A wants to send X to B. The first state is A and B current balance and the transition function will take X from A and insert it to B's account, generating a new state. But what happens if A sends exactly the same payment to two different addresses (B and C) at the same time? This scenario is the so-called double spending attack and consequently, a transaction always needs to be verified by miners before being confirmed. Miners are specific blockchain users, responsible for monitoring and verifying all the transactions between users. If they are the first solvers, as it requires a high computational work, they are also economically rewarded. Additionally, if any transaction has a positive balance at the end, it is also destinated to the miner.
 
-And how all these miners cooperate efficiently? The answer to this question is one of the most remarkable Satoshi innovation key factors, which consists of the communication between nodes through a simple decentralized consensus protocol. This consensus protocol consists of multiple algorithms (e.g. Proof of Work), used by specific peers in the Bitcoin network. These peers, also called miners, are responsible for monitoring and verifying all the transactions between users.
+And how all these miners cooperate efficiently? The answer to this question is one of the most remarkable Satoshi innovation key factors, which consists of the communication between nodes through a simple decentralized consensus protocol. This consensus protocol consists of multiple algorithms (e.g. Proof of Work), used by the miners in the Bitcoin network.
 
 \paragraph{Mining}
 
-Bitcoin needs to combine the state transition system with a consensus protocol, to synchronize the order of all transactions among the users.
-New transactions are stored in the last block of the blockchain, and a new block is mined every ten minutes. Over time, this creates an ever-growing chain of blocks, which are constantly updated. Thus the name: blockchain. Additionally, a complete history of the transactions is kept, so everyone can verify the last money movements. For instance, a blockchain can be compared to an endless domino game, where all the pieces are placed in vertical one after the other. Each of these pieces references a block, and if one block is not placed correctly (block's error), all the subsequent ones will be affected. Therefore, miner's task is not simple and requires computational power. Figure \ref{fig:Blockchain mining} shows how transactions are bundle into blocks, where each block contains a:
+Bitcoin needs to combine the state transition system with a consensus protocol, in order to synchronize the order of all transactions among the users.
+New transactions are stored in the last block of the blockchain, and a new block is mined every ten minutes. Over time, this creates an ever-growing chain of blocks, which are constantly updated. Thus the name: blockchain. Additionally, a complete history of the transactions is kept, so everyone can verify the last money movements. For instance, a blockchain can be compared to an endless domino game, where all the pieces are placed in vertical one after the other. Each of these pieces references a block, and if one block is removed (e.g. block's error), all the subsequent ones will be affected. Therefore, miner's task is not simple and requires computational power. Figure \ref{fig:Blockchain mining} shows how transactions are bundle into blocks, where each block contains a:
 
 \begin{figure}[t]
   	\includegraphics[width=1\linewidth]{gfx/mining}    
@@ -96,9 +97,9 @@ New transactions are stored in the last block of the blockchain, and a new block
 
 \begin{itemize}
 	
-	\item Timestamp.
+	\item Timestamp, to identify when the event occurs.
 	\item Nonce used to avoid malicious nodes from flooding the blockchain.
-	\item Hash of its previous block. 
+	\item Hash of its previous block, to keep track of already added blocks. 
 	\item A list of all the transactions that have been created since the previous block. To save storage, this transaction list is typically stored in a a Merkle root \citep{merkle1987digital}.
 \end{itemize}
 
@@ -114,8 +115,6 @@ Thus, for a block being valid needs to satisfy the following requirements:
 \end{itemize}  
 
 In the third step of the block validation process, appears the term Proof-of-work. Bitcoin uses the Hashcash proof of work algorithm to prove that a block miner spent some computational time creating a block. In particular, the algorithm works with cryptographic hashes, such as SHA1 or SHA256. Proof-of-work is also used in other contexts, such as limiting email spam or denial-of-service attacks (DoS). This technique can lead to a low probability so that the only way to create a valid block is simply trial and error until a valid Proof-of-Work is generated.
-
-Nevertheless, as miners must perform a high computational work, they receive a reward for the mining process. Additionally, if any transaction has a positive balance at the end, it is also destinated to the miner.
 
 \paragraph{Key management}
 
@@ -140,6 +139,7 @@ In the end, smart contracts are basically Ethereum scripts that whenever they ar
 
 Therefore, smart contracts allow anyone to write their own functions, in just a few lines of code. Despite Bitcoin and Ethereum have similar features, such as decentralization or transaction-based, Ethereum makes use of smart contracts, which potentially opens up real-world use cases. Bitcoin and Ethereum can be comparable to a calculator (one application) and a smartphone (multiple applications)respectively.
 
+TABLE: Bitcoin and Ethereum comparison.
 
 Furthermore, Ethereum introduces a new concept called accounts, which are unique 20-byte addresses in the blockchain. Each of these accounts has an account balance controlled by ethers (ETHs), the digital currency used by Ethereum. In Ethereum, there are two types of accounts (Figure \ref{fig:EthereumAccounts}):
 
@@ -158,9 +158,7 @@ Furthermore, Ethereum introduces a new concept called accounts, which are unique
 
 However, what happens if a code results in an infinite loop? The node will get stuck the whole time executing this contract. Solution: Ethereum uses the term "gas". Gas is an amount of ether used for executing contracts in the Ethereum blockchain. For example, if an EOA calls a contract account, which is programmed to make a money transfer to another EOA, apart from the ether transferred, it will also spend an additional amount of ether (gas). Thus, the ether used for a transaction, or transaction fee is:
 
-\begin{description}
-	\item $Ether = gas price \times gas limit + value$
-\end{description}
+$$Ether = gas price \times gas limit + value$$
 
 Firstly, the gas limit is the maximum amount of gas that a sender is willing to spend on a transaction. Fortunately, all unused gas during a transaction (gas limit - real gas used), is refunded to the sender. Nevertheless, if a transaction gives an error, e.g: a fake transaction, this provided ether (gas limit) will never be refunded. Secondly, the gas price is its relation with real Ether, e.g: 40 Gwei (4e-8 ether). Thirdly, the value is the amount of ether transferred to the other EOA.
 
@@ -173,7 +171,7 @@ In the Ethereum white paper \cite{buterin2014next} dapps are split into three ty
 Despite the blockchain is a secure technology, its created applications are constantly compromised to multiple attacks. This is because the majority of smart contracts are insecure, due to its code being prone to bugs.
 For example, in June 2016, the DAO \footnote{https://ethereum.org/dao}, a distributed autonomous organization instantiated on the Ethereum blockchain, was hacked. The attack, which was a smart contract bug, had resulted in over 50 million dollars of cryptocurrency theft. Thus, smart contracts need to be protected against malicious attacks before being uploaded on the blockchain.
 
-In this paper, the blockchain technology, in particular, secure smart contracts on the Ethereum platform, will be used to approach a real-world scenario. A decentralized application (third category) that enhances supply chain performance, will be implemented. More precisely, network virtualization providers and customers will improve its communication, through the use of a web application (front-end) connected to the blockchain (back-end).
+In the following section, an example application or process currently performed by IT companies will be introduced.
 
 
 \section{Network Virtualization}
@@ -187,67 +185,57 @@ Network virtualization enables simulating hardware networks, in software (Figure
   \label{fig:networkvir}
 \end{figure}
 
-In a real scenario, there are three actors participating in the network virtualization process (Figure \ref{fig:multiprov}.a): 
+In a real scenario, there are two main actors (and one optional) participating in the network virtualization process (Figure \ref{fig:multiprov}.a): 
 
 \begin{itemize}
 	
 	\item \textbf{Infrastructure providers (InPs):} Infrastructure providers (e.g: Deutsche Telekom, Telefonica) deploy and manage the physical nodes, sharing its resources to the virtual network.  
-	\item \textbf{Virtual network providers: (VNPs)} Are the brokers, the intermediaries between the InPs and the service providers.
-	\item \textbf{Service Providers: (SPs)} Service providers lease virtual resources from infrastructure providers to create its own virtual network. 
+	\item \textbf{Service Providers: (SPs)} Service providers lease virtual resources from infrastructure providers to create its own virtual network.
+		\item \textbf{Virtual network providers: (VNPs)} Are the brokers, which can optionally serve as intermediaries between the InPs and the service providers. 
 \end{itemize}
 
-In this paper a specific example of network virtualization will be investigated, where SPs are willing to embed resources among one or multiple infrastructure providers.
-
+In this paper a specific example of network virtualization will be investigated, where SPs are willing to embed resources among one or multiple infrastructure providers, in a constrained scenario.
 
 \subsection{Multi-Provider Virtual Network Embedding}
 
-Multi-provider virtual network embedding consists of the allocation of virtual resources, in a constrained and limited scenario. As reported in \cite{dietrich2015multi}, the architecture suffers mainly from the limited information disclosure problem (LID), in which VNPs have a very limited knowledge of InPs internal architecture. The reason for such a problem is that the InPs are not willing to broadcast their resources information (e.g: nodes availability, cost) and network topology to the outside world. And if that was not enough, this information is crucial for the partitioning of resources in order to obtain a fair negotiation between the SPs and InPs. 
+To deploy wide-area networks, virtual network resources need to be embedded across different infrastructure providers instead of just one InP. As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process is composed of two main tasks: 
 
-In \cite{dietrich2015multi} the LID problem is approached regarding: (i) the \textit{virtual resources availability} and (ii) the \textit{network topology}. On the one hand, virtual resources examples are obtained from Amazon EC2 \cite{amazonEC2}, which announces the attributes of different instances types (CPU, memory, cost) to give the user facility in choosing the virtual resource that better fits in its application. On the other hand, most of network topology information is treated confidentially for the InPs. Nevertheless, there are certain aspects of the network which are not considered private, such as InPs peerings (including location) and its related link cost. Thus, in the mentioned research, InPs disclose the above information using a implemented VN embedding framework that relies on an intermediary, the VN providers.
+\begin{itemize}
+	\item \textbf{VN request partitioning}: Divide the virtual network into groups of virtual nodes in order to minimize the cost of the VN setup.
+	\item \textbf{VN segment mapping}: Map the virtual resources to the InPs physical nodes.
+\end{itemize}
 
-Moreover, in such scenario exists two types of communication:
+The last two functions are performed by the VNPs and InPs respectively. Furthermore, as reported by \cite{dietrich2015multi}, the partitioning suffers mainly from the limited information disclosure problem (LID), in which VNPs have a very limited knowledge of InPs internal architecture. The reason for such a problem is that the InPs are not willing to broadcast their resources information (e.g: nodes availability, cost) or their network topology to the outside world. And if that was not enough, this information is crucial for the partitioning of resources in order to obtain a fair negotiation between the SPs and InPs. Solving this issue will be one of the main focuses of our thesis.  
+
+On the other hand, in such scenarios exists two types of communication:
 \begin{itemize}
 	
 	\item \textbf{Horizontal communication} is the one established between infrastructure providers to guarantee the most efficient end-services. These relations stated in \citep{zaheer2010multi}, can be: \textit{public relations} established using a market mechanism (e.g: an auction), or \textit{private relations} already arranged. In both cases, the relation arises from the need to negotiate and cooperate to serve the SPs.
 	\item \textbf{Vertical communication} emerges from the negotiation between SPs and InPs, the former willing to lease some virtual resources from the latter. This communication is facilitated by a third party (VNP), an intermediary that forwards SPs request to the relevant InPs.
 \end{itemize}
 
-However, what if the SPs and InPs are not willing to trust a broker? What if they do not want to disclose any kind of information? The answer is simple: \textit{blockchain as a software connector} (Figure \ref{fig:multiprov}.b). Thanks to the blockchain, more precisely to Ethereum and smart contracts, the virtual network provider could be removed, allocating a secure and coordinated end-system. Hence, InPs disclosed information will be securely saved (public/private key cryptography) in the blockchain and just accessable for its desired users. In addition, in order to fulfill the public negotiation of virtual resources, an auction model system using smart contracts will be implemented.
-
-\begin{figure}
-	\includegraphics[width=1\linewidth]{gfx/multiprov.png}    
-  \caption{Virtual network request accross multiple InPs with and without 	VNP \citep{dietrich2015multi}}
-  \label{fig:multiprov}
-\end{figure}
+In addition, in order to fulfill this public services negotiation between the SPs and InPs, an open mechanism will also be presented: the auctions.
 
 \section{Auction Mechanisms}
 
-An auction is a public negotiation method involving buyers and sellers that enables resource trading between P2P users. Service negotation has already been investigated in \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms. While buyer's goal is to find the desired service at a low price, providers or seller's goal is to catch the attention of buyers able to pay the highest price for its offered service. Thus, an auction must provide fairness in terms of technical and economical efficiency, for both the buyer and the seller.
+An auction is a public negotiation method involving buyers and sellers that enables resource trading between P2P users. While buyer's goal is to find the desired service at the lowest price, providers or seller's goal is to catch the attention of buyers who are able to pay the highest price for its offered services. Thus, an auction must provide fairness in terms of technical and economic efficiency, for both the buyer and the seller.
 
 Firstly, auctions can be divided into (i) \textit{one-sided auctions} where only the buyers submit their bids (e.g: a painting auctioned in an art auction), or (ii) \textit{two-sided auctions} in which buyers and sellers submit their bids. Normally, when any of the two sides (buyer or seller) cannot perform a good estimation of the service, a one-side auction is preferred. Secondly, the auctions are (i) \textit{open cry} auctions, where the bids are broadcasted to all users (traditional type), or (ii) \textit{sealed-bid} auctions in which bidders first commit bid values in secret that are later revealed (e.g: physical envelopes).
 
-Accordingly, a \textit{sealed one-side auction} is the one which best meets our system specifications, since the InPs do not want to disclose their network topology or nodes information. Our auction procedure will start with the SP requesting a virtual network (a graph of virtual nodes) along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service. Despite it can be seen as a fair system, how can the SP ensure that the InPs are offering prices proportional to the current market costs?
-
 \subsection{Vickrey Auction Model}
 
-Many types of auction models exist, such as the English or Dutch auctions \cite{coppinger1980incentives}, however as previously discussed a fair-price system is extremely needed. The Vickrey auction model \cite{vickrey1961counterspeculation} matches these requirements, achieving a reasonable price for the buyer by motivating bidders to bid truthfully. One of the Vickrey auction model important aspects is that corresponds to a \textit{second-price} auction. In a second-price auction the bidder will offer a price for the service, and among all the bids, the higgest one will win the auction. Nevertheless, unlikely standard auctions, the service will be rendered at the second highest bid. For example, if the winning bidder bids 15 \euro and the second highest bid is 10 \euro, the winner pays only 10 \euro.
-
-It is important to note that in our scenario the \textbf{lowest auction} will win and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
-
-In addition, as previously introduced, the Vickrey auction has the particularity of being a second-price one. From the bidder point of view means that he can safely bid the true value, knowing that if he wins, he will earn more than his bid. Thus, no InP bidder ends up earning less than what they have committed. However, the second-price concept needs to be thoroughly investigated as long as a bidder can submit multiple bids. Imagine an scenario, where a single bidder A submits two bids: \{1 \euro,9 \euro\} for a service with a real cost 5 \euro. In this case, the buyer will end up paying 9 for the service. Therefore, the second-price auction model needs always to be compared between bidders and not between bids. Suppose the last example, with a second bidder B submitting \{5 \euro, 6 \euro\}. At the end user A, will win the bid but earning 5 \euro, risking that if he would have been the only user bidding, he will earn no more than 1 \euro.
-
-Ultimately, after judging the preceding analysis along with the pros and cons of each auction type and model, the \textbf{\textit{second-price sealed-bid}} or simply the \textbf{\textit{Vickrey auction}} fulfills the application requirements, providing the highest aggregate profit among sellers and buyers.
+Many types of auction models exist, such as the English or Dutch auctions \cite{coppinger1980incentives}, however as previously discussed a fair-price system is extremely needed. The Vickrey auction model \cite{vickrey1961counterspeculation} matches these requirements, achieving a reasonable price for the buyer by motivating bidders to bid truthfully. One of the Vickrey auction model important aspects is that corresponds to a \textit{second-price} auction. In a second-price auction the bidder will offer a price for the service, and among all the bids, the higgest one will win the auction. Nevertheless, unlikely standard auctions, the service will be rendered at the second highest bid. For example, if the winning bidder bids 15 \euro and the second highest bid is 10 \euro, the winner pays only 10 \euro. From the bidder point of view means that he can safely bid the true value, knowing that if he wins, he will pay less than his bid. However, the second-price concept needs to be thoroughly investigated as long as a bidder can submit multiple bids. Imagine an scenario, where a single bidder A submits two bids: \{1 \euro,9 \euro\} for a service with a real cost 5 \euro. In this case, this buyer will end up paying 1 for the service. Therefore, the second-price auction model needs always to be compared between bidders and not between bids. Suppose the last example, with a second bidder B submitting \{5 \euro, 6 \euro\}. At the end user A, will win the bid but paying 6 \euro, risking that if he would have been the only user bidding, he would have payed 9 \euro.
 
 \section{Summary}
 
-The blockchain is a transparent, secure and robust system where users are in charge of their own accounts and transactions. Beyond money transfer, which starting with Bitcoin, the blockchain technology can be used as a software connector in multiple scenarios. Due to smart contracts, any kind of application could be implemented, enabling developers using the BC concept in their own environment. During this paper, the Ethereum blockchain will be used to perform a service negotiation (Vickrey auction) and later to track its possession throughout the supply chain process. This will be exemplified by a web application implementation, focused on network slicing. Thus, blockchain strengths and weaknesses will be further investigated.
+The blockchain is a transparent, secure and robust system where users are in charge of their own accounts and transactions. Beyond money transfer, which starting with Bitcoin, the blockchain technology can be used as a software connector in multiple scenarios. Due to smart contracts, any kind of application could be implemented, enabling developers using the BC concept in their own environment. In the next chapters, the already presented network virtualization scenario, will be further investigated.
 
 %*****************************************
 \chapter{Related Work}
 \label{ch:relatedwork}
 %*****************************************
 
-In the following, we provide a comprehensive overview of supply chain management, in particular about a blockchain application, in order to demonstrate BC technology potential benefits. Then, we present related work on already implemented frameworks for embedding virtual networks across multiple InPs, along with the auctions mechanisms used. Finally, we will conduct an analysis of the prior VNE related work, arguing why blockchain could solve and improve the problem described.
+In the following, we provide a comprehensive overview of supply chain management, in particular about a blockchain application, in order to demonstrate BC technology potential benefits. Then, we present related work on already implemented frameworks for virtual network embbedding across multiple InPs, along with the auctions mechanisms used. Finally, we will conduct an analysis of the prior VNE related work, arguing why blockchain could solve and improve the problem described.
 
 \section{Blockchain in Supply Chain Management}
 
@@ -283,22 +271,45 @@ Through relevant examples in supply chain management, as the above presented, we
 	
 \end{itemize}
 
-Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will also be investigated during the implementation of our virtual network embedding case scenario.
+Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will be later investigated.
 
 \section{Multi-provider Virtual Network Embedding}
 
+In the last years, many investigations in VNE have been conducted by different authors \citep{houidi2011virtual}, \citep{zhu2008cabernet}, \citep{chowdhury2009virtual}. Among these, it is important to highlight topics such as the trade-offs between single \citep{chowdhury2009virtual}, \citep{houidi2008distributed} and multi-provider VNE \citep{dietrich2017multi}, or the different techniques used for achieving VN efficiency, which decompose VNE into two tasks: VN partitioning and VN segment mapping \citep{fischer2013virtual}. Each of these studies proposes new interesting aspects or features compared to the prior research. Nevertheless, in this paper, we will enter in the discussion of the different scenarios. The main goal of this work will be to explore existing solutions, in particular, frameworks for multi-provider VNE applications that suffer from LID \citep{dietrich2017multi}, \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}.
 
-Focus on VNP \citep{dietrich2015multi}
+\subsection{Centralized and Decentralized approaches}
+
+UNTIL HERE! 
+
+
+Multi-provider virtual network embedding consists of the allocation of virtual resources, in a constrained and limited scenario. However, as previously introduced in the background, InPs are not willing to cooperate or disclose internal information. In \cite{dietrich2015multi} the LID problem is approached regarding: 
+
+\begin{itemize}
+	\item \textbf{Virtual resources availability}: In this case, virtual resources examples are obtained from Amazon EC2 \cite{amazonEC2}, which announces the attributes of different instances types (CPU, memory, cost) to give the user facility in choosing the virtual resource that better fits in its application.
+	\item \textbf{Network topology}: Most of network topology information is treated confidentially for the InPs. Nevertheless, there are certain aspects of the network which are not considered private, such as InPs peerings (including location) and its related link cost.
+\end{itemize}
+
+\begin{figure}
+	\includegraphics[width=1\linewidth]{gfx/multiprov.png}    
+  \caption{Virtual network request accross multiple InPs with and without VNP \citep{dietrich2015multi}}
+  \label{fig:multiprov}
+\end{figure}
+
+Thus, in the mentioned research, VNPs use above information to perform the resource partitioning. Despite the results in embedding costs are not much higher than the ideal case scenario (InPs announcing all required information), they could be further improved enabling the InPs directly interacting in the process.
+
+However, what if the SPs and InPs are not willing to trust a centralized broker? Here, is when blockchain could play a crucial role (Figure \ref{fig:multiprov}.b). Thanks to the blockchain, more precisely to Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users. 
+
+VN embedding framework
+Linear programming formulation used is nice, but we have the problem of the LID suboptimality. How to solve it? Auctions mechanism maybe... VNE framework.
 
 \citep{dietrich2017multi} graph topology maybe...
 
 \citep{zaheer2010multi} VNE framework
 
-\citep{esposito2013general} super example with consensus protocol! GOOD images
+Service negotation has already been investigated in \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms.
 
-\subsection{Auction Mechanisms}
-
-P2P negotiation (?).
+the pros and cons of different types of auctions will also be presented.
+which could be accomplished through a limited time auction.
 
 The idea of using auctions for a distributed slice allocation has been
 floated before: in V-Mart [13], InPs submit their bids on
@@ -306,6 +317,18 @@ a subset of the slice to the auctioneer SP that repeats the
 auctions for a second round to a selected set of InPs. V-Mart
 ensures a fair market but does not guarantee performance.
 
+Accordingly, a \textit{sealed one-side auction} is the one which best meets our system specifications, since the InPs do not want to disclose their network topology or nodes information. Our auction procedure will start with the SP requesting a virtual network (a graph of virtual nodes) along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service. Despite it can be seen as a fair system, how can the SP ensure that the InPs are offering prices proportional to the current market costs?
+
+It is important to note that in our scenario the \textbf{lowest auction} will win and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
+
+Ultimately, after judging the preceding analysis along with the pros and cons of each auction type and model, the \textbf{\textit{second-price sealed-bid}} or simply the \textbf{\textit{Vickrey auction}} fulfills the application requirements, providing the highest aggregate profit among sellers and buyers.
+\citep{esposito2013general} super example with consensus protocol! GOOD images
+
+ During this paper, the Ethereum blockchain will be used to perform a service negotiation (Vickrey auction) and later to track its possession throughout the supply chain process. This will be exemplified by a web application implementation, focused on network slicing. Thus, blockchain strengths and weaknesses will be further investigated.
+ 
+In \citep{dietrich2017multi}, \citep{zaheer2010multi}, the actors rely on a central entity or server, called the virtual network provider. Therefore, we assume that this process could be enhanced by using a decentralized technology, e.g. blockchain. In addition, already deployed decentralized approaches regarding VN embedding \citep{esposito2013general}, \citep{chowdhury2010polyvine} will also be in our spotlight.
+ 
+\subsection{Auction Mechanisms}
 
 Several authors, notable Wellman and Wurman [11], have pointed out the difficulties of truly simulation open cry auctions in the unreliable and insecure environment of the internet.
 Study \citep{ausubel2006lovely} with equations and everything...
@@ -313,11 +336,34 @@ Study \citep{ausubel2006lovely} with equations and everything...
 
 \section{Analysis of Related Work}
 
-Table here 
+
+\begin{table}[htbp]
+	\myfloatalign \footnotesize
+	\begin{tabularx}{\textwidth}{p{4cm}p{4cm}p{4cm}p{4cm}}
+		\textbf{Reference} & \textbf{Description} & \textbf{Findings} & 		        \textbf{Limitations}  \\ 
+		\hline
+		A   &  ... &  ... &  ... \\ 
+		A   &  ... &  ... &  ... \\ 
+		A   &  ... &  ... &  ... \\ 
+		A   &  ... &  ... &  ... \\ 
+		A   &  ... &  ... &  ... \\ 
+		A   &  ... &  ... &  ... \\ 							
+		A   &  ... &  ... &  ... \\  
+		\hline
+	\end{tabularx}
+	\caption{Comparison of implemented approaches for VNE}
+	\label{tab:VNEComparison}
+\end{table}
+
+
+We do not claim that our approach is the best or the only way
+of performing VN embedding. On the contrary, it is more an add-on feature that can be merged with most of the existing solutions. In this scenario, the main goals are to remove the middleware or virtual network provider, by using a new prominent technology such blockchain. Thus, a new decentralized, automated and secure system will be created between the SPs and InPs, which benefits from the blockchain potentials. Furthermore, to the best of our knowledge, this is the first approach using blockchain in this scenario, and thanks to smart contract's flexibility, it can serve as a starting point for all upcoming investigations.
 
 \hint{This chapter should give a comprehensive overview on the related work done by other authors followed by an analysis why the existing related work is not capable of solving the problem described in the introduction.
 The chapter should have a length of about three to five pages!}
 
+
+The blockchain technology, in particular, secure smart contracts on the Ethereum platform, will be used to approach a real-world scenario. A decentralized application (third category) that enhances supply chain performance, will be implemented. More precisely, network virtualization providers and customers will improve its communication, through the use of a web application (front-end) connected to the blockchain (back-end). In the following section this concept will be further investigated.
 
 \section{Summary}
 
