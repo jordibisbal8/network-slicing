@@ -76,18 +76,16 @@ In this paper, we will set aside whether they can become true currencies or not,
 
 \subsubsection{Bitcoin}
 
-Bitcoin took the world by surprise in 2009, after Satoshi Nakotomo's white paper publication \cite{nakamoto2008bitcoin} and later its software release. Bitcoin is a cryptocurrency used for making secure transactions across a peer-to-peer (P2P) network. In addition, Bitcoin uses its own protocol that operates in an overlay network, the blockchain. An overlay network is a computer network build in the top of another network, in this case above Internet application's layer.
+Bitcoin took the world by surprise in 2008, after Satoshi Nakotomo's white paper publication \cite{nakamoto2008bitcoin} and later its software release. Bitcoin is a cryptocurrency used for making secure transactions across a peer-to-peer (P2P) network. In addition, Bitcoin uses its own protocol that operates in an overlay network, the blockchain. An overlay network is a computer network build in the top of another network, in this case above Internet application's layer, which is controlled by its users (no central authority).
 
-Furthermore, in Bitcoin, each user possesses a digital Wallet, which is a software program used for performing the transactions. Each of these users is identified by a single public address, composed of 26-35 alphanumeric characters, which is the hash of the user's public key. For example, if user A wants to send Bitcoins to user B, it needs B public address, e.g: 1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2. Then, user A creates a message (transaction), attaching receiver's public key with the transferred amount of Bitcoins. This message is signed by sender's private key and sent to the blockchain. Transactions examples can be found in \footnote{\url{https://blockexplorer.com/}}.
-
-From another point of view, the Bitcoin ledger can be interpreted as a state transition system, where there is an initial state, which after a transition function (money transfer), results in a new state. Imagine the last example where A wants to send X to B. The first state is A and B current balance and the transition function will take X from A and insert it to B's account, generating a new state. But what happens if A sends exactly the same payment to two different addresses (B and C) at the same time? This scenario is the so-called double spending attack and consequently, a transaction always needs to be verified by miners before being confirmed. Miners are specific blockchain users, responsible for monitoring and verifying all the transactions between users. If they are the first solvers, as it requires a high computational work, they are also economically rewarded. Additionally, if any transaction has a positive balance at the end, it is also destinated to the miner.
+From another point of view, the Bitcoin ledger can be interpreted as a state transition system, where there is an initial state, which after a transition function (money transfer), results in a new state. Imagine an where A wants to send X to B. The first state is A and B current balance and the transition function will take X from A and insert it to B's account, generating a new state. But what happens if A sends exactly the same payment to two different addresses (B and C) at the same time? This scenario is the so-called \textit{double spending attack} and consequently, a transaction always needs to be verified by miners before being confirmed (unconfirmed transaction). Miners are specific blockchain users, responsible for monitoring and verifying all the transactions between users. If they are the first solvers, as it requires a high computational work, they are also economically rewarded. Additionally, if any transaction has a positive balance at the end, it is also destinated to the miner.
 
 And how all these miners cooperate efficiently? The answer to this question is one of the most remarkable Satoshi innovation key factors, which consists of the communication between nodes through a simple decentralized consensus protocol. This consensus protocol consists of multiple algorithms (e.g. Proof of Work), used by the miners in the Bitcoin network.
 
 \paragraph{Mining}
 
-Bitcoin needs to combine the state transition system with a consensus protocol, in order to synchronize the order of all transactions among the users.
-New transactions are stored in the last block of the blockchain, and a new block is mined every ten minutes. Over time, this creates an ever-growing chain of blocks, which are constantly updated. Thus the name: blockchain. Additionally, a complete history of the transactions is kept, so everyone can verify the last money movements. For instance, a blockchain can be compared to an endless domino game, where all the pieces are placed in vertical one after the other. Each of these pieces references a block, and if one block is removed (e.g. block's error), all the subsequent ones will be affected. Therefore, miner's task is not simple and requires computational power. Figure \ref{fig:Blockchain mining} shows how transactions are bundle into blocks, where each block contains a:
+Bitcoin needs to combine the state transition system with a consensus protocol, in order to synchronize the order of all transactions among the users. 
+New transactions are stored in the last block of the blockchain, and a new block is mined every ten minutes. Over time, this creates an ever-growing chain of blocks, which are constantly updated. Thus the name: blockchain. Additionally, a complete history of the transactions is kept, so everyone can verify the last money movements. For instance, a blockchain can be compared to an endless domino game, where all the pieces are placed in vertical one after the other. Each of these pieces references a block, and if one block is removed (e.g. transaction error), all the subsequent ones will be affected. Therefore, miner's task is not simple and requires computational power. Figure \ref{fig:Blockchain mining} shows how transactions are bundle into blocks, where each block contains a:
 
 \begin{figure}[t]
   	\includegraphics[width=1\linewidth]{gfx/mining}    
@@ -103,7 +101,7 @@ New transactions are stored in the last block of the blockchain, and a new block
 	\item A list of all the transactions that have been created since the previous block. To save storage, this transaction list is typically stored in a a Merkle root \citep{merkle1987digital}.
 \end{itemize}
 
-Thus, for a block being valid needs to satisfy the following requirements:
+Furthermore, each block and transaction is restricted to a size of 1MB and 250-300bytes respectively, and for a block being valid it needs to satisfy the following requirements:
 
 \begin{itemize}
 	
@@ -114,11 +112,31 @@ Thus, for a block being valid needs to satisfy the following requirements:
 	\item If all previous steps confirmed, store state at the end of the block and return true.
 \end{itemize}  
 
-In the third step of the block validation process, appears the term Proof-of-work. Bitcoin uses the Hashcash proof of work algorithm to prove that a block miner spent some computational time creating a block. In particular, the algorithm works with cryptographic hashes, such as SHA1 or SHA256. Proof-of-work is also used in other contexts, such as limiting email spam or denial-of-service attacks (DoS). This technique can lead to a low probability so that the only way to create a valid block is simply trial and error until a valid Proof-of-Work is generated.
+In the third step of the block validation process, appears the term Proof-of-work. Bitcoin uses the Hashcash proof of work algorithm to prove that a block miner spent some computational time creating a block. In particular, Bitcoin protocol demands that miners find an input, which is a valid $block \, header$ formed by a random value ($c$) and nonce ($x$), whose cryptographic hash (e.g $SHA256$) is less than a determined value. This value is obtained from $d$, the blockchain difficulty. Then, the only way to create a valid block is simply trial and error until a valid Proof-of-Work is generated. Proof-of-work is also used in other contexts, such as for limiting email spam or denial-of-service attacks (DoS).
+
+$$ F_d( \, block \, header \,) = F_d( \,c,x \,) = SHA256( \, SHA256( \, c|x \,) \,)\, < \frac{2^{224}}{d}$$
 
 \paragraph{Key management}
 
-....
+In Bitcoin, each user is identified by a single public address. However, how is this Bitcoin public address generated? This process involves the following steps:
+
+\begin{enumerate}
+	
+	\item A random 256-bit private key is created. Since this key will be used to sign the transactions, it must be kept secret.
+	\item A 512-bit public key is generated from the private key, using the Elliptic Curve Digital Signature Algorithm (ECDSA)\footnote{\url{https://www.maximintegrated.com/en/app-notes/index.mvp/id/5767}}. This key is used for verifying private key signatures.
+	\item This public key is hashed to 160 bits using SHA-256/RIPEMD. Apart from size constraints, the reason for hashing the public key is that if there is a vulnerability in elliptic curves, user's money can still be safe, since only the hash is known.
+	\item Finally, the public key is encoded in ASCII using Base58Check. This output is the resulting Bitcoin address.
+	
+\end{enumerate}
+
+\begin{figure}[bth]
+  \centering
+  \includegraphics[width=0.9\linewidth]{gfx/bitkeys}    
+  \caption{Bitcoin keys and addresses relation \citep{BitcoinKey2018}}
+  \label{fig:EthereumAccounts}
+\end{figure}
+
+After that, users are able to send transactions using Bitcoin. For example, imagine that user A wants to send 2 BTC to user B. Firstly, the user creates a transaction willing to transfer 2 BTC to user address B. Secondly, he signs the transaction with his private key, attaching also his public key, and sends it to the blockchain. There, miners will verify the signature using A's public key and also that its hash matches user A address. If both, the signature and the hash, are correct, the transaction is accepted and added to the next block. Transactions examples can be found in \footnote{\url{https://blockexplorer.com/}}.
 
 \subsection{Blockchain 2.0: Smart contracts}
 
@@ -137,11 +155,16 @@ In the end, smart contracts are basically Ethereum scripts that whenever they ar
  	return coke
 \end{lstlisting}
 
-Therefore, smart contracts allow anyone to write their own functions, in just a few lines of code. Despite Bitcoin and Ethereum have similar features, such as decentralization or transaction-based, Ethereum makes use of smart contracts, which potentially opens up real-world use cases. Bitcoin and Ethereum can be comparable to a calculator (one application) and a smartphone (multiple applications)respectively.
+Therefore, smart contracts allow anyone to write their own functions, in just a few lines of code. Despite Bitcoin and Ethereum have similar features, such as decentralization or transaction-based, Ethereum makes use of smart contracts, which potentially opens up real-world use cases. Bitcoin and Ethereum can be comparable to a calculator (one application) and a smartphone (multiple applications) respectively. In addition to the differences already mentioned (and many more), there are three that need to be highlighted:
 
-TABLE: Bitcoin and Ethereum comparison.
+\begin{itemize}
+	
+	\item Ethereum's block time is shorter, specifically around 14s. Remember that Bitcoins mining time was around 10 minutes.
+	\item Bitcoin's blocks and transaction sizes are indicated in bytes, however, in Ethereum depends on the contract complexity. 
+	\item Ethereum is account-based and not transaction-based.
+\end{itemize}
 
-Furthermore, Ethereum introduces a new concept called accounts, which are unique 20-byte addresses in the blockchain. Each of these accounts has an account balance controlled by ethers (ETHs), the digital currency used by Ethereum. In Ethereum, there are two types of accounts (Figure \ref{fig:EthereumAccounts}):
+Therefore, Ethereum introduces a new concept called accounts, which are unique 20-byte addresses in the blockchain. Each of these accounts has an account balance controlled by ethers (ETHs), the digital currency used by Ethereum. In Ethereum, there are two types of accounts (Figure \ref{fig:EthereumAccounts}):
 
 \begin{itemize}
 	
@@ -253,7 +276,7 @@ In \citep{abeyratne2016blockchain}, an example is also presented to better expla
 
 \begin{figure}
 	\includegraphics[width=1\linewidth]{gfx/supplyChain}    
-  \caption{ PLM stages and cardbox blockchain application example. Adapted from \citep{stark2015product}}
+  \caption{ PLM stages and cardbox blockchain application example \citep{stark2015product}}
   \label{fig:supplyChain}
 \end{figure}
 
@@ -417,7 +440,8 @@ Assumption that intra-domain virtual links cost is almost 0. Having the virtual 
 \chapter{Implementation}
 
 1. How a contract is compiled in to the Ethereum BC.
-2. Technologies used (GETH vs ETH NW, web3, Solidity, truffle)
+2. Technologies used (GETH vs ETH NW, web3, Solidity, truffle).
+(The Genesis block is the first block in a blockchain. It is always hardcoded in the blockchain).
 3. Authentication 
 4. Component relations in the source code
 5. Code examples

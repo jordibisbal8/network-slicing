@@ -144,6 +144,11 @@ Elth Ogston and Stamatis Vassiliadis.
 \newblock In {\em Proceedings of the first international joint conference on
   Autonomous agents and multiagent systems: part 1}, pages 151--159. ACM, 2002.
 
+\bibitem[Shi14]{BitcoinKey2018}
+Ken Shirriff.
+\newblock Bitcoins the hard way: Using the raw bitcoin protocol, February 2014.
+\newblock accessed:2018-02-01.
+
 \bibitem[Sta15]{stark2015product}
 John Stark.
 \newblock Product lifecycle management.

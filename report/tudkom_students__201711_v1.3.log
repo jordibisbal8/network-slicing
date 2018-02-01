@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  29 JAN 2018 21:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  1 FEB 2018 14:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -989,31 +989,6 @@ Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
 \l@nswissgerman = a dialect from \language\l@ngerman 
 Package babel Info: Making " an active character on input line 88.
 )))
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count101
-\lst@gtempboxa=\box31
-\lst@token=\toks21
-\lst@length=\count102
-\lst@currlwidth=\dimen121
-\lst@column=\count103
-\lst@pos=\count104
-\lst@lostspace=\dimen122
-\lst@width=\dimen123
-\lst@newlines=\count105
-\lst@lineno=\count106
-\lst@maxwidth=\dimen124
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count107
-\lst@skipnumbers=\count108
-\lst@framebox=\box32
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2015/06/04 1.6 listings configuration
-))
-Package: listings 2015/06/04 1.6 (Carsten Heinz)
-
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
@@ -1027,55 +1002,80 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks22
-\ex@=\dimen125
+\@emptytoks=\toks21
+\ex@=\dimen121
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen126
+\pmbraise@=\dimen122
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count109
+\inf@bad=\count101
 LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count110
-\leftroot@=\count111
+\uproot@=\count102
+\leftroot@=\count103
 LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count112
-\DOTSCASE@=\count113
+\classnum@=\count104
+\DOTSCASE@=\count105
 LaTeX Info: Redefining \ldots on input line 394.
 LaTeX Info: Redefining \dots on input line 397.
 LaTeX Info: Redefining \cdots on input line 518.
-\Mathstrutbox@=\box33
-\strutbox@=\box34
-\big@size=\dimen127
+\Mathstrutbox@=\box31
+\strutbox@=\box32
+\big@size=\dimen123
 LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
-\macc@depth=\count114
-\c@MaxMatrixCols=\count115
+\macc@depth=\count106
+\c@MaxMatrixCols=\count107
 \dotsspace@=\muskip10
-\c@parentequation=\count116
-\dspbrk@lvl=\count117
-\tag@help=\toks23
-\row@=\count118
-\column@=\count119
-\maxfields@=\count120
-\andhelp@=\toks24
-\eqnshift@=\dimen128
-\alignsep@=\dimen129
-\tagshift@=\dimen130
-\tagwidth@=\dimen131
-\totwidth@=\dimen132
-\lineht@=\dimen133
-\@envbody=\toks25
+\c@parentequation=\count108
+\dspbrk@lvl=\count109
+\tag@help=\toks22
+\row@=\count110
+\column@=\count111
+\maxfields@=\count112
+\andhelp@=\toks23
+\eqnshift@=\dimen124
+\alignsep@=\dimen125
+\tagshift@=\dimen126
+\tagwidth@=\dimen127
+\totwidth@=\dimen128
+\lineht@=\dimen129
+\@envbody=\toks24
 \multlinegap=\skip102
 \multlinetaggap=\skip103
-\mathdisplay@stack=\toks26
+\mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2735.
 LaTeX Info: Redefining \] on input line 2736.
 )
-\c@dummy=\count121
+\c@dummy=\count113
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count114
+\lst@gtempboxa=\box33
+\lst@token=\toks26
+\lst@length=\count115
+\lst@currlwidth=\dimen130
+\lst@column=\count116
+\lst@pos=\count117
+\lst@lostspace=\dimen131
+\lst@width=\dimen132
+\lst@newlines=\count118
+\lst@lineno=\count119
+\lst@maxwidth=\dimen133
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count120
+\lst@skipnumbers=\count121
+\lst@framebox=\box34
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
 (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
@@ -1307,52 +1307,55 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip115
 )
-Package hyperref Info: Option `colorlinks' set `false' on input line 107.
-Package hyperref Info: Option `linktocpage' set `false' on input line 107.
-Package hyperref Info: Option `breaklinks' set `true' on input line 107.
-Package hyperref Info: Option `pageanchor' set `true' on input line 107.
-Package hyperref Info: Option `plainpages' set `false' on input line 107.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 107.
+Package hyperref Info: Option `colorlinks' set `false' on input line 143.
+Package hyperref Info: Option `linktocpage' set `false' on input line 143.
+Package hyperref Info: Option `breaklinks' set `true' on input line 143.
+Package hyperref Info: Option `pageanchor' set `true' on input line 143.
+Package hyperref Info: Option `plainpages' set `false' on input line 143.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 143.
 
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 107.
-Package hyperref Info: Option `hypertexnames' set `true' on input line 107.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 143.
+Package hyperref Info: Option `hypertexnames' set `true' on input line 143.
 
-(./tudkom_students__201711_v1.3.aux)
+(./tudkom_students__201711_v1.3.aux
+
+LaTeX Warning: Label `fig:EthereumAccounts' multiply defined.
+
+)
 \openout1 = `tudkom_students__201711_v1.3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 153.
-LaTeX Font Info:    Try loading font information for MDA+cmr on input line 153.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 189.
+LaTeX Font Info:    Try loading font information for MDA+cmr on input line 189.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdacmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdacmr.fd
 File: mdacmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 153.
-LaTeX Font Info:    Try loading font information for MDB+cmr on input line 153.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 189.
+LaTeX Font Info:    Try loading font information for MDB+cmr on input line 189.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbcmr.fd
 File: mdbcmr.fd 
 )
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Try loading font information for T1+5ch on input line 153.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 189.
+LaTeX Font Info:    ... okay on input line 189.
+LaTeX Font Info:    Try loading font information for T1+5ch on input line 189.
 
 (/usr/share/texmf/tex/latex/tex-tudfonts/softmake/charter/t15ch.fd
 File: t15ch.fd 2008/06/23 Fontinst v1.927 font definitions for T1/5ch.
@@ -1426,7 +1429,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 153.
+Package hyperref Info: Link coloring OFF on input line 189.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1435,9 +1438,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count155
 )
-LaTeX Info: Redefining \ref on input line 153.
-LaTeX Info: Redefining \pageref on input line 153.
-LaTeX Info: Redefining \nameref on input line 153.
+LaTeX Info: Redefining \ref on input line 189.
+LaTeX Info: Redefining \pageref on input line 189.
+LaTeX Info: Redefining \nameref on input line 189.
 
 (./tudkom_students__201711_v1.3.out) (./tudkom_students__201711_v1.3.out)
 \@outlinefile=\write3
@@ -1466,116 +1469,116 @@ LaTeX Info: Redefining \nameref on input line 153.
 \TUD@sponsorbox=\box42
 \TUD@tmp@height=\skip133
 \TUD@tmp@depth=\skip134
-LaTeX Font Info:    Try loading font information for T1+5fp on input line 164.
+LaTeX Font Info:    Try loading font information for T1+5fp on input line 200.
 
 (/usr/share/texmf/tex/latex/tex-tudfonts/softmake/frontpage/t15fp.fd
 File: t15fp.fd 2009/08/06 Fontinst v1.927 font definitions for T1/5fp.
 )
-LaTeX Font Info:    Try loading font information for OT1+mdbch on input line 16
-4.
+LaTeX Font Info:    Try loading font information for OT1+mdbch on input line 20
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/ot1mdbch.fd
 File: ot1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OT1/mdbch.
 )
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 11.04007pt on input line 164.
+(Font)              scaled to size 11.04007pt on input line 200.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 164.
+(Font)              scaled to size 7.68005pt on input line 200.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.62404pt on input line 164.
-LaTeX Font Info:    Try loading font information for OML+mdbch on input line 16
-4.
+(Font)              scaled to size 6.62404pt on input line 200.
+LaTeX Font Info:    Try loading font information for OML+mdbch on input line 20
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/omlmdbch.fd
 File: omlmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OML/mdbch.
 )
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 11.04007pt on input line 164.
+(Font)              scaled to size 11.04007pt on input line 200.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 7.68005pt on input line 164.
+(Font)              scaled to size 7.68005pt on input line 200.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.62404pt on input line 164.
-LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 16
-4.
+(Font)              scaled to size 6.62404pt on input line 200.
+LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 20
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/omsmdbch.fd
 File: omsmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMS/mdbch.
 )
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 11.04007pt on input line 164.
+(Font)              scaled to size 11.04007pt on input line 200.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 164.
+(Font)              scaled to size 7.68005pt on input line 200.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.62404pt on input line 164.
-LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 16
-4.
+(Font)              scaled to size 6.62404pt on input line 200.
+LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 20
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
 File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 11.04007pt on input line 164.
+(Font)              scaled to size 11.04007pt on input line 200.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 164.
+(Font)              scaled to size 7.68005pt on input line 200.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.62404pt on input line 164.
+(Font)              scaled to size 6.62404pt on input line 200.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 11.04007pt on input line 164.
+(Font)              scaled to size 11.04007pt on input line 200.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 164.
+(Font)              scaled to size 7.68005pt on input line 200.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.62404pt on input line 164.
-LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 16
-4.
+(Font)              scaled to size 6.62404pt on input line 200.
+LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 20
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
 File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 11.04007pt on input line 164.
+(Font)              scaled to size 11.04007pt on input line 200.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 164.
+(Font)              scaled to size 7.68005pt on input line 200.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.62404pt on input line 164.
-LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 16
-4.
+(Font)              scaled to size 6.62404pt on input line 200.
+LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 20
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdbch/mdbmdbch.fd
 File: mdbmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDB/mdbch.
 )
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 11.04007pt on input line 164.
+(Font)              scaled to size 11.04007pt on input line 200.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 164.
+(Font)              scaled to size 7.68005pt on input line 200.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.62404pt on input line 164.
-LaTeX Font Info:    Try loading font information for OML+mdput on input line 16
-4.
+(Font)              scaled to size 6.62404pt on input line 200.
+LaTeX Font Info:    Try loading font information for OML+mdput on input line 20
+0.
 
 (/usr/share/texlive/texmf-dist/tex/latex/mathdesign/mdput/omlmdput.fd
 File: omlmdput.fd 2013/08/29 Fontinst v1.933 font definitions for OML/mdput.
 )
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 10.81003pt on input line 164.
+(Font)              scaled to size 10.81003pt on input line 200.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 7.52002pt on input line 164.
+(Font)              scaled to size 7.52002pt on input line 200.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 6.48601pt on input line 164.
+(Font)              scaled to size 6.48601pt on input line 200.
 \@TUD@titlelines=\count156
 
 
-Package  Warning: Title has more then 3 lines. Fontsize reduced on input line 1
-64.
+Package  Warning: Title has more then 3 lines. Fontsize reduced on input line 2
+00.
 
 <tud_logo.pdf, id=180, 157.58875pt x 63.23625pt>
 File: tud_logo.pdf Graphic file (type pdf)
  <use tud_logo.pdf>
-Package pdftex.def Info: tud_logo.pdf used on input line 164.
+Package pdftex.def Info: tud_logo.pdf used on input line 200.
 (pdftex.def)             Requested size: 134.92238pt x 62.59605pt.
 File: tud_logo.pdf Graphic file (type pdf)
 
 <use tud_logo.pdf>
-Package pdftex.def Info: tud_logo.pdf used on input line 164.
+Package pdftex.def Info: tud_logo.pdf used on input line 200.
 (pdftex.def)             Requested size: 134.92238pt x 62.59605pt.
 \@TUD@logolines=\count157
  [-1
@@ -1584,7 +1587,7 @@ Non-PDF special ignored!
 
 Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </u
 sr/share/texmf/tex/latex/tuddesign/logo/tud_logo.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 164--164
+Underfull \hbox (badness 10000) in paragraph at lines 200--200
 
  []
 
@@ -1592,16 +1595,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.164 
+l.200 
        [0
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 171--174
+Underfull \hbox (badness 10000) in paragraph at lines 207--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--177
+Underfull \hbox (badness 10000) in paragraph at lines 211--213
 
  []
 
@@ -1704,59 +1707,68 @@ Package pdftex.def Info: gfx/cenVsDec.png used on input line 61.
 [5
 
 
- <./gfx/cenVsDec.png>] [6] <gfx/mining.png, id=332, 632.3625pt x 257.0403pt>
+ <./gfx/cenVsDec.png>] <gfx/mining.png, id=321, 632.3625pt x 257.0403pt>
 File: gfx/mining.png Graphic file (type png)
 
 <use gfx/mining.png>
-Package pdftex.def Info: gfx/mining.png used on input line 93.
+Package pdftex.def Info: gfx/mining.png used on input line 91.
 (pdftex.def)             Requested size: 497.92325pt x 202.39677pt.
-LaTeX Font Info:    Try loading font information for TS1+5ch on input line 100.
-
+LaTeX Font Info:    Try loading font information for TS1+5ch on input line 98.
 
 (/usr/share/texmf/tex/latex/tex-tudfonts/softmake/charter/ts15ch.fd
 File: ts15ch.fd 2008/06/23 Fontinst v1.927 font definitions for TS1/5ch.
-) [7 <./gfx/mining.png>] <gfx/ethereumAccounts.png, id=345, 460.8417pt x 322.08
-33pt>
+) [6]
+[7 <./gfx/mining.png>] <gfx/bitkeys.png, id=349, 614.295pt x 180.675pt>
+File: gfx/bitkeys.png Graphic file (type png)
+
+<use gfx/bitkeys.png>
+Package pdftex.def Info: gfx/bitkeys.png used on input line 134.
+(pdftex.def)             Requested size: 448.12788pt x 131.80342pt.
+ [8 <./gfx/bitkeys.png>]
+LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <9.2> not available
+(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 154.
+
+<gfx/ethereumAccounts.png, id=372, 460.8417pt x 322.0833pt>
 File: gfx/ethereumAccounts.png Graphic file (type png)
 
 <use gfx/ethereumAccounts.png>
-Package pdftex.def Info: gfx/ethereumAccounts.png used on input line 154.
+Package pdftex.def Info: gfx/ethereumAccounts.png used on input line 177.
 (pdftex.def)             Requested size: 368.67386pt x 257.66698pt.
- [8] [9 <./gfx/ethereumAccounts.png>]
-<gfx/networkvir.png, id=374, 662.7159pt x 262.0992pt>
+ [9 <./gfx/ethereumAccounts.png>]
+<gfx/networkvir.png, id=387, 662.7159pt x 262.0992pt>
 File: gfx/networkvir.png Graphic file (type png)
  <use gfx/networkvir.png>
-Package pdftex.def Info: gfx/networkvir.png used on input line 183.
+Package pdftex.def Info: gfx/networkvir.png used on input line 206.
 (pdftex.def)             Requested size: 497.92325pt x 196.92984pt.
 
-[10 <./gfx/networkvir.png>] [11] [12]
+[10] [11 <./gfx/networkvir.png>] [12]
 chapter 3.
-<gfx/supplyChain.png, id=413, 745.3446pt x 393.8715pt>
+<gfx/supplyChain.png, id=429, 745.3446pt x 393.8715pt>
 File: gfx/supplyChain.png Graphic file (type png)
 
 <use gfx/supplyChain.png>
-Package pdftex.def Info: gfx/supplyChain.png used on input line 255.
+Package pdftex.def Info: gfx/supplyChain.png used on input line 278.
 (pdftex.def)             Requested size: 497.92325pt x 263.12926pt.
  [13
 
 
 ] [14 <./gfx/supplyChain.png>]
-<gfx/multiprov.png, id=450, 655.0071pt x 359.9046pt>
+<gfx/multiprov.png, id=467, 655.0071pt x 359.9046pt>
 File: gfx/multiprov.png Graphic file (type png)
  <use gfx/multiprov.png>
-Package pdftex.def Info: gfx/multiprov.png used on input line 293.
+Package pdftex.def Info: gfx/multiprov.png used on input line 316.
 (pdftex.def)             Requested size: 497.92325pt x 273.59074pt.
 
 [15 <./gfx/multiprov.png>]
 LaTeX Font Info:    Font shape `T1/5ch/b/it' in size <11> not available
-(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 324.
+(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 347.
  [16]
-Overfull \hbox (5.32083pt too wide) in alignment at lines 353--353
+Overfull \hbox (5.32083pt too wide) in alignment at lines 376--376
 [][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--363
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
 
  []
 
@@ -1766,30 +1778,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 363--363
 ]
 chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 377--377
+Underfull \hbox (badness 10000) in paragraph at lines 400--400
 
  []
 
 [19] [20]
 chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--436
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
 
  []
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 436--436
+Underfull \hbox (badness 1515) in paragraph at lines 460--460
 \T1/5ch/m/n/11 This chap-ter should de-scribe the de-tails of the im-ple-men-ta
 -tion ad-dress-ing the fol-low-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--436
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--436
+Underfull \hbox (badness 10000) in paragraph at lines 460--460
 
  []
 
@@ -1802,17 +1814,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 436--436
 ]
 chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--458
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--458
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 458--458
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
 
  []
 
@@ -1822,7 +1834,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 458--458
 ]
 chapter 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--477
+Underfull \hbox (badness 10000) in paragraph at lines 501--501
 
  []
 
@@ -1830,42 +1842,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 477--477
 
 
 ] [27])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 225.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 261.
  [28]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 225.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 261.
 
 (./tudkom_students__201711_v1.3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 225.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 225.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 261.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 261.
 Package rerunfilecheck Info: File `tudkom_students__201711_v1.3.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: 2283AE85731C7A22B3502711DD3F59AA;3051.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 225.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 261.
  ) 
 Here is how much of TeX's memory you used:
- 16792 strings out of 494860
- 255417 string characters out of 6177601
- 415347 words of memory out of 5000000
- 19592 multiletter control sequences out of 15000+600000
- 135681 words of font info for 118 fonts, out of 8000000 for 9000
+ 16872 strings out of 494860
+ 256444 string characters out of 6177601
+ 417341 words of memory out of 5000000
+ 19661 multiletter control sequences out of 15000+600000
+ 136720 words of font info for 121 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 59i,13n,100p,1663b,997s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,13n,100p,1663b,1144s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}</usr/share/texmf/fonts/type1/sof
 tmake/charter/5chb8a.pfb></usr/share/texmf/fonts/type1/softmake/charter/5chb8a.
 pfb></usr/share/texmf/fonts/type1/softmake/charter/5chr8a.pfb></usr/share/texmf
 /fonts/type1/softmake/charter/5chri8a.pfb></usr/share/texmf/fonts/type1/softmak
 e/frontpage/5fpm8a.pfb></usr/share/texmf/fonts/type1/softmake/frontpage/5fpr8a.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7t.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7y.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chrma.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb>
-Output written on tudkom_students__201711_v1.3.pdf (34 pages, 1911140 bytes).
+pfb></usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7t.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7y.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chri7m.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chrma.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/txfonts/t1xtt.pfb>
+Output written on tudkom_students__201711_v1.3.pdf (34 pages, 1953326 bytes).
 PDF statistics:
- 615 PDF objects out of 1000 (max. 8388607)
- 543 compressed objects within 6 object streams
- 140 named destinations out of 1000 (max. 500000)
- 400 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 642 PDF objects out of 1000 (max. 8388607)
+ 564 compressed objects within 6 object streams
+ 147 named destinations out of 1000 (max. 500000)
+ 405 words of extra memory for PDF output out of 10000 (max. 10000000)
 
