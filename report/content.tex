@@ -123,7 +123,7 @@ In Bitcoin, each user is identified by a single public address. However, how is 
 \begin{enumerate}
 	
 	\item A random 256-bit private key is created. Since this key will be used to sign the transactions, it must be kept secret.
-	\item A 512-bit public key is generated from the private key, using the Elliptic Curve Digital Signature Algorithm (ECDSA)\footnote{\url{https://www.maximintegrated.com/en/app-notes/index.mvp/id/5767}}. This key is used for verifying private key signatures.
+	\item A 512-bit public key is generated from the private key, using the Elliptic Curve Digital Signature Algorithm (ECDSA\footnote{\url{https://www.maximintegrated.com/en/app-notes/index.mvp/id/5767}}). This key is used for verifying private key signatures.
 	\item This public key is hashed to 160 bits using SHA-256/RIPEMD. Apart from size constraints, the reason for hashing the public key is that if there is a vulnerability in elliptic curves, user's money can still be safe, since only the hash is known.
 	\item Finally, the public key is encoded in ASCII using Base58Check. This output is the resulting Bitcoin address.
 	
@@ -208,7 +208,7 @@ Network virtualization enables simulating hardware networks, in software (Figure
   \label{fig:networkvir}
 \end{figure}
 
-In a real scenario, there are two main actors (and one optional) participating in the network virtualization process (Figure \ref{fig:multiprov}.a): 
+In a real scenario, there are two main actors (and one optional) participating in the network virtualization process.
 
 \begin{itemize}
 	
@@ -258,19 +258,21 @@ The blockchain is a transparent, secure and robust system where users are in cha
 \label{ch:relatedwork}
 %*****************************************
 
-In the following, we provide a comprehensive overview of supply chain management, in particular about a blockchain application, in order to demonstrate BC technology potential benefits. Then, we present related work on already implemented frameworks for virtual network embbedding across multiple InPs, along with the auctions mechanisms used. Finally, we will conduct an analysis of the prior VNE related work, arguing why blockchain could solve and improve the problem described.
+In the following, we provide a comprehensive overview of supply chain management (SCM), in particular about a blockchain application, in order to demonstrate BC technology potential benefits. Then, we present related work on already implemented frameworks for virtual network embedding across multiple InPs, along with the auctions mechanisms used. Finally, we will first analyze in which use cases blockchain is more suitable than a centralized database, and secondly, we will argue why blockchain could solve and improve the prior VNE related work.
 
 \section{Blockchain in Supply Chain Management}
 
-In the last years, managing the information during the lifecycle of a product represents a major challenge for all companies (\citep{karkkainen2003product}, \citep{tuttle2002you}, \citep{karkkainen2002wireless}). This product information has to be most of the time accessible and alterable among the parties of a supply chain. Thus, a shared platform supplying data distribution and storage is extremely needed.
+In the last years, managing the information during the lifecycle of a product represents a major challenge for all companies \citep{karkkainen2003product}, \citep{tuttle2002you}. This product information is constantly changing and in addition, it has to be accessible by different entities. As a consequence, this problem results in high costs for companies. 
 
-However, normally most companies store and maintain its data into their company-specific or public infrastructures (AWS\footnote{https://aws.amazon.com/}). Accordingly, each enterprise creates its own copy of the product data, using their own protocols and procedures.  As a consequence, lots of information asymmetries are found, which ends up destroying the benefits of knowledge or data sharing. In \citep{lee1992managing}, \citep{fiala2005information},\citep{li2008confidentiality} inadequate definition of customer services, poor coordination or organizational barriers are named to be some of the pitfalls that customer and providers suffer from.
+Typically, companies approach the problem: (i) storing and maintaining its data into their company-specific infrastructures, which is then communicated to the other supply chain partners, or (ii) sharing this data in a centralized database. In the former, each enterprise creates its own copy of the product data, using their own protocols and procedures.  As a consequence, lots of information asymmetries are found, which ends up destroying the benefits of knowledge or data sharing. In \citep{lee1992managing} and \citep{fiala2005information} inadequate definition of customer services, poor coordination or organizational barriers are named to be some of the pitfalls that these users suffer from. On the other hand, the latter is a great solution as long as the companies trust the party who is maintaining the database. However, what if they are not willing to place this intermediary on their operations? Here, we foresee that blockchain could improve the process supplying data distribution and storage among these companies.
 
-The following section explores an example scenarios using blockchain technology. Firstly, a blockchain application in the supply chain for a manufacturing system will be presented. Afterwards, we will enumerate the lessons learned from the prior use case.
+Apart from the supply chain, \citep{heikkila2002supply} states another relationship between suppliers and customers, the Demand Chain Management (DCM), where we predict that blockchain could also play a significant role. In a DCM, the aim is to provide a customer service at the least cost. Hence, the suppliers need a real-time visibility of customer situations and needs. The main difference is that in SCM, the stakeholders wait to receive the order to fabricate a product (push), whereas in DCM the suppliers observe and immediately produce user's petition (pull) \citep{wust2017you}. Currently, companies such as Everledger or Skuchain\footnote{\url{http://www.skuchain.com/}}, offer blockchain services to manage and improve the supply chain performance.
+ 
+In the following section, a blockchain application for a manufacturing supply chain system will be presented. Afterwards, we will enumerate the main observed blockchain benefits.
 
 \subsection{Blockchain Ready Manufacturing Supply Chain}
 
-In this part, the blockchain example \citep{abeyratne2016blockchain} will be discussed, which stores and distributes specific product information during its lifecycle. This task also named Product Lifecycle Management (PLM \citep{stark2015product}), involves different stages in which multiple parties modify the product data. In Figure \ref{fig:supplyChain}.b shows the typical stages on the cycle. In this scenario, each actor interacts with a user interface, which is connected to the product's data from the blockchain. Each product is created in form of rules (smart contract) so that only specific users can access or modify this information. To access or insert data into the contract, parties must authenticate themselves signing the request with their private keys. During the lifecycle management, a product is owned by an entity (e.g. distributors). Moreover, when a product goes to another actor (e.g. from distributors to a consumer), both parties will sign a contract that updates product's ownership. Thus, the system guarantees that only the granted user can modify the contract in each phase.
+In this part, the blockchain example \citep{abeyratne2016blockchain} will be discussed, which stores and distributes specific product information during its lifecycle. This task also named Product Lifecycle Management (PLM \citep{stark2015product}), involves different stages in which multiple parties modify the product data. Figure \ref{fig:supplyChain}.a shows the typical stages on the cycle. In this scenario, each actor interacts with a user interface, which is connected to the product's data from the blockchain. Each product is created in form of rules (smart contract) so that only specific users can access or modify this information. To access or insert data into the contract, parties must authenticate themselves signing the request with their private keys. During the lifecycle management, a product is owned by an entity (e.g. distributors). Moreover, when a product goes to another actor (e.g. from distributors to a consumer), both parties will sign a contract that updates product's ownership. Thus, the system guarantees that only the granted user can modify the contract in each phase.
 
 In \citep{abeyratne2016blockchain}, an example is also presented to better explain the mentioned approach. The application consists of the product lifecycle of a cardboard box, starting from the trees cut down until the box is recycled, in which the involved parties are previously registered to the system. In Figure \ref{fig:supplyChain}.b an overview of the implemented design is presented. In this business process, different actors are entailed. For instance, the box manufacturer first receives the physical object and then signs a contract to gain the product's access. Afterwards, he will be allowed to alter the product data through the software application (e.g. box quality). In the end, he will transfer the package (signed) to the next actor, in particular, the product filler.
 
@@ -280,17 +282,17 @@ In \citep{abeyratne2016blockchain}, an example is also presented to better expla
   \label{fig:supplyChain}
 \end{figure}
 
-\subsection{Lessons Learned}
+\subsection{Blockchain benefits}
 
-Through relevant examples in supply chain management, as the above presented, we can observe the extraordinary potential of blockchain in multiple areas. Despite the last paper does not include detailed specifications, such as the blockchain's type or mining strategy, a useful system design has been provided, which help us in defining our possible architecture. In addition, some of the main benefits compared to centralized technologies are observed:
+Through relevant examples in supply chain management, as the above presented, we can observe the extraordinary potential of blockchain in areas, where entities are not willing to trust a third party. Despite the last paper does not include detailed specifications, such as the blockchain's type or mining strategy, a useful system design has been provided, which help us in defining our possible architecture. In addition, some of the main benefits compared to centralized technologies are observed:
 
 \begin{itemize}
-	\item \textbf{No trusted third-party:} By using the blockchain, all the significant costs of involving a middle-party are suppressed\citep{mainelli2015sharing}. Intermediaries are not required for realizing transactions or simply reaching an agreement. For instance, in the last example, users were able to transfer ownership, by signing the product's contract and without the need of a third party.
+	\item \textbf{No trusted third-party:} All the significant costs of involving a middle-party are suppressed\citep{mainelli2015sharing}. Intermediaries are not required for realizing transactions or simply reaching an agreement. For instance, in the last example, users were able to transfer ownership, by signing the product's contract and without the need of a third party.
 	\item \textbf{Autonomy:} After an owner deploys a smart contract on the BC, it is then maintained by all the participating users, and not only by its creator.
-	\item \textbf{Data management:} Blockchain helps us in coordinating, validating and storing the distributed data in a decentralized manner.
+	\item \textbf{Data management and redundancy} Blockchain helps us in coordinating, validating and storing the distributed data in a decentralized manner. It also provides redundancy since users own the same data, e.g. databases backup in centralized systems. 
 	\item \textbf{Technology possibilities} As actors can define and establish their own rules (smart contracts), new business models open up.
 	\item \textbf{Privacy:} Thanks to cryptography, users can interact with unknown partners. For example, in the above example, all actors can coordinate its services through the PLM process, without knowing the next actor involved. 
-    \item \textbf{Transparency and immutability:} All the changes that are made to the contract data are directly visible to the other users. In addition, once a transaction is executed, it cannot be altered or deleted.
+    \item \textbf{Transparency and integrity:} All the changes that are made to the contract data are directly visible to the other users. In addition, once a transaction is executed, its immutable since it cannot be altered or deleted.
 	
 \end{itemize}
 
@@ -298,7 +300,7 @@ Nevertheless, the technology still faces lots of challenges, such as scalability
 
 \section{Multi-provider Virtual Network Embedding}
 
-In the last years, many investigations in VNE have been conducted by different authors \citep{houidi2011virtual}, \citep{zhu2008cabernet}, \citep{chowdhury2009virtual}. Among these, it is important to highlight topics such as the trade-offs between single \citep{chowdhury2009virtual}, \citep{houidi2008distributed} and multi-provider VNE \citep{dietrich2017multi}, or the different techniques used for achieving VN efficiency, which decompose VNE into two tasks: VN partitioning and VN segment mapping \citep{fischer2013virtual}. Each of these studies proposes new interesting aspects or features compared to the prior research. Nevertheless, in this paper, we will enter in the discussion of the different scenarios. The main goal of this work will be to explore existing solutions, in particular, frameworks for multi-provider VNE applications that suffer from LID \citep{dietrich2017multi}, \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}.
+In the last years, many investigations in network virtualization, and specifically in VNE have been conducted by different authors \citep{houidi2011virtual}, \citep{zhu2008cabernet}, \citep{chowdhury2009virtual}. Among these, it is important to highlight topics such as the trade-offs between single \citep{chowdhury2009virtual}, \citep{houidi2008distributed} and multi-provider VNE \citep{dietrich2017multi}, or the different techniques used for achieving VN efficiency, which decompose VNE into two tasks: VN partitioning and VN segment mapping \citep{fischer2013virtual}. Each of these studies proposes new interesting aspects or features compared to the prior research. Nevertheless, in this paper, we will not enter in the different scenarios discussion. The main goal of this work will be to explore existing solutions, in particular, frameworks for multi-provider VNE applications that suffer from LID \citep{dietrich2017multi}, \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}.
 
 \subsection{Centralized and Decentralized approaches}
 
@@ -350,6 +352,10 @@ Ultimately, after judging the preceding analysis along with the pros and cons of
  During this paper, the Ethereum blockchain will be used to perform a service negotiation (Vickrey auction) and later to track its possession throughout the supply chain process. This will be exemplified by a web application implementation, focused on network slicing. Thus, blockchain strengths and weaknesses will be further investigated.
  
 In \citep{dietrich2017multi}, \citep{zaheer2010multi}, the actors rely on a central entity or server, called the virtual network provider. Therefore, we assume that this process could be enhanced by using a decentralized technology, e.g. blockchain. In addition, already deployed decentralized approaches regarding VN embedding \citep{esposito2013general}, \citep{chowdhury2010polyvine} will also be in our spotlight.
+
+PROBLEMS: 1. The participants of a SCM vary greatly across different supply
+chains and the same peers might take different roles across different supply chains. 2. This reasoning leaves us with the question whether all writers
+can be trusted. 
  
 \subsection{Auction Mechanisms}
 
@@ -359,6 +365,9 @@ Study \citep{ausubel2006lovely} with equations and everything...
 
 \section{Analysis of Related Work}
 
+BLOCKCHAIN VS CENTRALIZED DATABASE GRAPH.
+
+RELATED WORK TABLE
 
 \begin{table}[htbp]
 	\myfloatalign \footnotesize
@@ -399,7 +408,7 @@ The blockchain technology, in particular, secure smart contracts on the Ethereum
 
 \hint{This chapter should describe the design of the own approach on a conceptional level without mentioning the implementation details. The section should have a length of about five pages.}
 
-1. Types of blockchain and BC decision (graphs: Why private and not traditional? economical reasons: cost, maintenance, computing power...
+1. Types of blockchain (permissionless and permissioned) economical reasons: cost, maintenance, computing power...
 2. Scenario, architecture
 3. Notification system (P/S)
 4. Mining

@@ -81,6 +81,12 @@ Petr Fiala.
 \newblock Information sharing in supply chains.
 \newblock {\em Omega}, 33(5):419--423, 2005.
 
+\bibitem[Hei02]{heikkila2002supply}
+Jussi Heikkil{\"a}.
+\newblock From supply to demand chain management: efficiency and customer
+  satisfaction.
+\newblock {\em Journal of operations management}, 20(6):747--767, 2002.
+
 \bibitem[HLAZ11]{houidi2011virtual}
 Ines Houidi, Wajdi Louati, Walid~Ben Ameur, and Djamal Zeghlache.
 \newblock Virtual network provisioning across multiple substrate networks.
@@ -105,22 +111,10 @@ Mikko K{\"a}rkk{\"a}inen, Timo Ala-Risku, and Kary Fr{\"a}mling.
   information management problems?
 \newblock {\em Computers in Industry}, 52(2):147--159, 2003.
 
-\bibitem[KH02]{karkkainen2002wireless}
-Mikko K{\"a}rkk{\"a}inen and Jan Holmstr{\"o}m.
-\newblock Wireless product identification: enabler for handling efficiency,
-  customisation and information sharing.
-\newblock {\em Supply chain management: an International journal},
-  7(4):242--252, 2002.
-
 \bibitem[LB92]{lee1992managing}
 Hau~L Lee and Corey Billington.
 \newblock Managing supply chain inventory: pitfalls and opportunities.
 \newblock {\em Sloan management review}, 33(3):65, 1992.
-
-\bibitem[LZ08]{li2008confidentiality}
-Lode Li and Hongtao Zhang.
-\newblock Confidentiality and information sharing in supply chain coordination.
-\newblock {\em Management science}, 54(8):1467--1481, 2008.
 
 \bibitem[Mer87]{merkle1987digital}
 Ralph~C Merkle.
@@ -175,6 +169,11 @@ A~Tuttle.
 William Vickrey.
 \newblock Counterspeculation, auctions, and competitive sealed tenders.
 \newblock {\em The Journal of finance}, 16(1):8--37, 1961.
+
+\bibitem[WG17]{wust2017you}
+Karl W{\"u}st and Arthur Gervais.
+\newblock Do you need a blockchain?
+\newblock {\em IACR Cryptology ePrint Archive}, 2017:375, 2017.
 
 \bibitem[ZXB10]{zaheer2010multi}
 Fida-E Zaheer, Jin Xiao, and Raouf Boutaba.

@@ -8,24 +8,24 @@ Warning--empty journal in abeyratne2016blockchain
 Warning--empty journal in mainelli2015sharing
 You've used 33 entries,
             2543 wiz_defined-function locations,
-            754 strings with 10007 characters,
-and the built_in function-call counts, 13998 in all, are:
-= -- 1450
-> -- 616
-< -- 21
-+ -- 215
-- -- 208
-* -- 959
-:= -- 2210
+            751 strings with 9871 characters,
+and the built_in function-call counts, 13868 in all, are:
+= -- 1434
+> -- 605
+< -- 22
++ -- 211
+- -- 204
+* -- 943
+:= -- 2191
 add.period$ -- 109
 call.type$ -- 33
-change.case$ -- 201
+change.case$ -- 200
 chr.to.int$ -- 33
 cite$ -- 37
-duplicate$ -- 575
-empty$ -- 1052
-format.name$ -- 246
-if$ -- 2947
+duplicate$ -- 576
+empty$ -- 1045
+format.name$ -- 243
+if$ -- 2921
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 31
@@ -33,18 +33,18 @@ newline$ -- 168
 num.names$ -- 96
 pop$ -- 222
 preamble$ -- 1
-purify$ -- 236
+purify$ -- 235
 quote$ -- 0
-skip$ -- 495
+skip$ -- 493
 stack$ -- 0
-substring$ -- 812
+substring$ -- 790
 swap$ -- 129
-text.length$ -- 21
-text.prefix$ -- 9
+text.length$ -- 22
+text.prefix$ -- 10
 top$ -- 0
 type$ -- 256
 warning$ -- 3
-while$ -- 142
+while$ -- 140
 width$ -- 34
 write$ -- 430
 (There were 3 warnings)
