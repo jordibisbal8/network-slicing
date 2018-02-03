@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  3 FEB 2018 11:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  3 FEB 2018 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1751,36 +1751,36 @@ chapter 3.
 [13
 
 
-] <gfx/supplyChain.png, id=433, 745.3446pt x 393.8715pt>
+] <gfx/supplyChain.png, id=434, 745.3446pt x 393.8715pt>
 File: gfx/supplyChain.png Graphic file (type png)
 
 <use gfx/supplyChain.png>
 Package pdftex.def Info: gfx/supplyChain.png used on input line 273.
 (pdftex.def)             Requested size: 497.92325pt x 263.12926pt.
  [14 <./gfx/supplyChain.png>]
-<gfx/multiprov.png, id=456, 655.0071pt x 359.9046pt>
+<gfx/multiprov.png, id=460, 659.5842pt x 359.9046pt>
 File: gfx/multiprov.png Graphic file (type png)
  <use gfx/multiprov.png>
-Package pdftex.def Info: gfx/multiprov.png used on input line 308.
-(pdftex.def)             Requested size: 497.92325pt x 273.59074pt.
+Package pdftex.def Info: gfx/multiprov.png used on input line 310.
+(pdftex.def)             Requested size: 497.92325pt x 271.7016pt.
 
 [15] [16 <./gfx/multiprov.png>]
 LaTeX Font Info:    Font shape `T1/5ch/b/it' in size <11> not available
-(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 340.
+(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 339.
 
-Overfull \hbox (5.32083pt too wide) in alignment at lines 378--378
+Overfull \hbox (5.32083pt too wide) in alignment at lines 362--362
 [][][][] 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+Underfull \hbox (badness 10000) in paragraph at lines 377--377
 
  []
 
 [18]
 chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 402--402
+Underfull \hbox (badness 10000) in paragraph at lines 393--393
 
  []
 
@@ -1790,23 +1790,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 402--402
 ] [20]
 chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--462
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 
  []
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 462--462
+Underfull \hbox (badness 1515) in paragraph at lines 453--453
 \T1/5ch/m/n/11 This chap-ter should de-scribe the de-tails of the im-ple-men-ta
 -tion ad-dress-ing the fol-low-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--462
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 462--462
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 
  []
 
@@ -1819,17 +1819,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 462--462
 ]
 chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--484
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--484
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--484
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
 
  []
 
@@ -1839,7 +1839,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 484--484
 ]
 chapter 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 503--503
+Underfull \hbox (badness 10000) in paragraph at lines 494--494
 
  []
 
@@ -1864,10 +1864,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 294.
  ) 
 Here is how much of TeX's memory you used:
- 16875 strings out of 494860
- 256429 string characters out of 6177601
- 421508 words of memory out of 5000000
- 19664 multiletter control sequences out of 15000+600000
+ 16876 strings out of 494860
+ 256452 string characters out of 6177601
+ 421649 words of memory out of 5000000
+ 19665 multiletter control sequences out of 15000+600000
  136720 words of font info for 121 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  59i,13n,100p,1663b,1151s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1886,10 +1886,10 @@ hare/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chrma.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/txfonts/t1xtt.pfb>
-Output written on tudkom_students__201711_v1.3.pdf (34 pages, 1955130 bytes).
+Output written on tudkom_students__201711_v1.3.pdf (34 pages, 1886478 bytes).
 PDF statistics:
- 638 PDF objects out of 1000 (max. 8388607)
- 560 compressed objects within 6 object streams
+ 639 PDF objects out of 1000 (max. 8388607)
+ 561 compressed objects within 6 object streams
  147 named destinations out of 1000 (max. 500000)
  397 words of extra memory for PDF output out of 10000 (max. 10000000)
 
