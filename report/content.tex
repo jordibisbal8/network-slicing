@@ -149,7 +149,7 @@ In 2013 Vitalik Buterin, a Russian-Canadian programmer released the Ethereum whi
 Furthermore, it is built on a Turing-complete contract system. As previously explained, a Turing-complete system allows the developer to perform any computation, which runs on the so-called \textbf{smart contracts}. These smarts contracts are executed by the Ethereum nodes, each using its Ethereum Virtual Machine (EVM), or in other words, a blockchain with a built-in programming language.
 
 In the end, smart contracts are basically Ethereum scripts that whenever they are executed, runs the function programmed inside of it. A smart contract can also be seen as the logic inside a vending machine. For instance, a buyer wants a Coke bottle that costs 2 \euro.. Once this buyer inserts 2 \euro and presses the button, a small program (contract) runs inside the vending machine and supplies the user with its Coke. This function can be seen as a smart contract, being for example:
-
+\newline
 \begin{lstlisting}
  if (button_pressed == 'Coke' && rcv_money == '2')
  	return coke
@@ -174,7 +174,7 @@ Therefore, Ethereum introduces a new concept called accounts, which are unique 2
 
 \begin{figure}[bth]
   \centering
-  \includegraphics[scale=0.8]{gfx/ethereumAccounts}    
+  \includegraphics[width=0.6\linewidth]{gfx/ethereumAccounts}    
   \caption{Ethereum accounts: Externally owned accounts and contract 			accounts}
   \label{fig:EthereumAccounts}
 \end{figure}
@@ -192,7 +192,7 @@ In conclusion, a smart contact is just an account containing code, which lives o
 In the Ethereum white paper \cite{buterin2014next} dapps are split into three types. The first group includes financial applications, where users exchange ether in an efficient and distributed manner. The second group is formed by semi-financial applications, in which money is involved but it is mixed with data from the real world, for example with weather feed. And finally, in the third category, there are non-financial applications. For instance, an online voting platform providing a better transparency into elections, without compromising voter confidentiality.
 
 Despite the blockchain is a secure technology, its created applications are constantly compromised to multiple attacks. This is because the majority of smart contracts are insecure, due to its code being prone to bugs.
-For example, in June 2016, the DAO \footnote{https://ethereum.org/dao}, a distributed autonomous organization instantiated on the Ethereum blockchain, was hacked. The attack, which was a smart contract bug, had resulted in over 50 million dollars of cryptocurrency theft. Thus, smart contracts need to be protected against malicious attacks before being uploaded on the blockchain.
+For example, in June 2016, the DAO\footnote{https://ethereum.org/dao}, a distributed autonomous organization instantiated on the Ethereum blockchain, was hacked. The attack, which was a smart contract bug, had resulted in over 50 million dollars of cryptocurrency theft. Thus, smart contracts need to be protected against malicious attacks before being uploaded on the blockchain.
 
 In the following section, an example application or process currently performed by IT companies will be introduced.
 
@@ -200,7 +200,6 @@ In the following section, an example application or process currently performed 
 \section{Network Virtualization}
 
 Network virtualization enables simulating hardware networks, in software (Figure \ref{fig:networkvir}.a). These software networks are called virtual networks, which provide flexibility, high manageability, and a low cost. Network virtualization handles two main concepts: node virtualization and link virtualization. The former implies sharing the node's physical resources located in the substrate network (e.g: CPU, storage, memory) to multiple virtual nodes from the virtual networks. The latter enables the transport of multiple virtual links in a single and shared physical link. The mentioned layers and elements involved in network virtualization, are shown in Figure \ref{fig:networkvir}.b.
-
 
 \begin{figure}[bth]
   \includegraphics[width=1\linewidth]{gfx/networkvir}    
@@ -217,37 +216,31 @@ In a real scenario, there are two main actors (and one optional) participating i
 		\item \textbf{Virtual network providers: (VNPs)} Are the brokers, which can optionally serve as intermediaries between the InPs and the service providers. 
 \end{itemize}
 
-In this paper a specific example of network virtualization will be investigated, where SPs are willing to embed resources among one or multiple infrastructure providers, in a constrained scenario.
+Finally, a specific example of network virtualization will be investigated, where SPs are willing to embed resources among one or multiple infrastructure providers.
 
 \subsection{Multi-Provider Virtual Network Embedding}
 
-To deploy wide-area networks, virtual network resources need to be embedded across different infrastructure providers instead of just one InP. As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process is composed of two main tasks: 
+To deploy wide-area networks, virtual network resources need to be embedded across different infrastructure providers. As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process is composed of two main tasks: 
 
 \begin{itemize}
 	\item \textbf{VN request partitioning}: Divide the virtual network into groups of virtual nodes in order to minimize the cost of the VN setup.
 	\item \textbf{VN segment mapping}: Map the virtual resources to the InPs physical nodes.
 \end{itemize}
 
-The last two functions are performed by the VNPs and InPs respectively. Furthermore, as reported by \cite{dietrich2015multi}, the partitioning suffers mainly from the limited information disclosure problem (LID), in which VNPs have a very limited knowledge of InPs internal architecture. The reason for such a problem is that the InPs are not willing to broadcast their resources information (e.g: nodes availability, cost) or their network topology to the outside world. And if that was not enough, this information is crucial for the partitioning of resources in order to obtain a fair negotiation between the SPs and InPs. Solving this issue will be one of the main focuses of our thesis.  
+Furthemore, in such scenarios exists two types of communication:
 
-On the other hand, in such scenarios exists two types of communication:
-\begin{itemize}
-	
+\begin{itemize}	
 	\item \textbf{Horizontal communication} is the one established between infrastructure providers to guarantee the most efficient end-services. These relations stated in \citep{zaheer2010multi}, can be: \textit{public relations} established using a market mechanism (e.g: an auction), or \textit{private relations} already arranged. In both cases, the relation arises from the need to negotiate and cooperate to serve the SPs.
 	\item \textbf{Vertical communication} emerges from the negotiation between SPs and InPs, the former willing to lease some virtual resources from the latter. This communication is facilitated by a third party (VNP), an intermediary that forwards SPs request to the relevant InPs.
 \end{itemize}
 
 In addition, in order to fulfill this public services negotiation between the SPs and InPs, an open mechanism will also be presented: the auctions.
 
-\section{Auction Mechanisms}
+\subsubsection{Auction Mechanisms}
 
 An auction is a public negotiation method involving buyers and sellers that enables resource trading between P2P users. While buyer's goal is to find the desired service at the lowest price, providers or seller's goal is to catch the attention of buyers who are able to pay the highest price for its offered services. Thus, an auction must provide fairness in terms of technical and economic efficiency, for both the buyer and the seller.
 
 Firstly, auctions can be divided into (i) \textit{one-sided auctions} where only the buyers submit their bids (e.g: a painting auctioned in an art auction), or (ii) \textit{two-sided auctions} in which buyers and sellers submit their bids. Normally, when any of the two sides (buyer or seller) cannot perform a good estimation of the service, a one-side auction is preferred. Secondly, the auctions are (i) \textit{open cry} auctions, where the bids are broadcasted to all users (traditional type), or (ii) \textit{sealed-bid} auctions in which bidders first commit bid values in secret that are later revealed (e.g: physical envelopes).
-
-\subsection{Vickrey Auction Model}
-
-Many types of auction models exist, such as the English or Dutch auctions \cite{coppinger1980incentives}, however as previously discussed a fair-price system is extremely needed. The Vickrey auction model \cite{vickrey1961counterspeculation} matches these requirements, achieving a reasonable price for the buyer by motivating bidders to bid truthfully. One of the Vickrey auction model important aspects is that corresponds to a \textit{second-price} auction. In a second-price auction the bidder will offer a price for the service, and among all the bids, the higgest one will win the auction. Nevertheless, unlikely standard auctions, the service will be rendered at the second highest bid. For example, if the winning bidder bids 15 \euro and the second highest bid is 10 \euro, the winner pays only 10 \euro. From the bidder point of view means that he can safely bid the true value, knowing that if he wins, he will pay less than his bid. However, the second-price concept needs to be thoroughly investigated as long as a bidder can submit multiple bids. Imagine an scenario, where a single bidder A submits two bids: \{1 \euro,9 \euro\} for a service with a real cost 5 \euro. In this case, this buyer will end up paying 1 for the service. Therefore, the second-price auction model needs always to be compared between bidders and not between bids. Suppose the last example, with a second bidder B submitting \{5 \euro, 6 \euro\}. At the end user A, will win the bid but paying 6 \euro, risking that if he would have been the only user bidding, he would have payed 9 \euro.
 
 \section{Summary}
 
@@ -258,7 +251,7 @@ The blockchain is a transparent, secure and robust system where users are in cha
 \label{ch:relatedwork}
 %*****************************************
 
-In the following, we provide a comprehensive overview of supply chain management (SCM), in particular about a blockchain application, in order to demonstrate BC technology potential benefits. Then, we present related work on already implemented frameworks for virtual network embedding across multiple InPs, along with the auctions mechanisms used. Finally, we will first analyze in which use cases blockchain is more suitable than a centralized database, and secondly, we will argue why blockchain could solve and improve the prior VNE related work.
+In the following, we describe some of the current challenges in supply chain management (SCM), exemplified by a blockchain application in manufacturing, to demonstrate how this technology could improve SCM efficiency. Henceforth, we focus on a particular supply chain management example: virtual network embedding across multiple InPs. A comprehensive overview of related work on already implemented frameworks will be presented. Finally, we will first analyze in which use cases blockchain is more suitable than a centralized database, and secondly, we will argue why blockchain could solve and improve the prior VNE related work.
 
 \section{Blockchain in Supply Chain Management}
 
@@ -266,13 +259,13 @@ In the last years, managing the information during the lifecycle of a product re
 
 Typically, companies approach the problem: (i) storing and maintaining its data into their company-specific infrastructures, which is then communicated to the other supply chain partners, or (ii) sharing this data in a centralized database. In the former, each enterprise creates its own copy of the product data, using their own protocols and procedures.  As a consequence, lots of information asymmetries are found, which ends up destroying the benefits of knowledge or data sharing. In \citep{lee1992managing} and \citep{fiala2005information} inadequate definition of customer services, poor coordination or organizational barriers are named to be some of the pitfalls that these users suffer from. On the other hand, the latter is a great solution as long as the companies trust the party who is maintaining the database. However, what if they are not willing to place this intermediary on their operations? Here, we foresee that blockchain could improve the process supplying data distribution and storage among these companies.
 
-Apart from the supply chain, \citep{heikkila2002supply} states another relationship between suppliers and customers, the Demand Chain Management (DCM), where we predict that blockchain could also play a significant role. In a DCM, the aim is to provide a customer service at the least cost. Hence, the suppliers need a real-time visibility of customer situations and needs. The main difference is that in SCM, the stakeholders wait to receive the order to fabricate a product (push), whereas in DCM the suppliers observe and immediately produce user's petition (pull) \citep{wust2017you}. Currently, companies such as Everledger or Skuchain\footnote{\url{http://www.skuchain.com/}}, offer blockchain services to manage and improve the supply chain performance.
+Apart from the supply chain, \citep{heikkila2002supply} states another relationship between suppliers and customers, the Demand Chain Management (DCM), where we predict that blockchain could also play a significant role. In a DCM, the aim is to provide a customer service at the least cost. Hence, the suppliers need a real-time visibility of customer situations and needs. The main difference is that in SCM, the stakeholders wait to receive the order for proceeding with a product (push), whereas in DCM the suppliers observe and immediately operate in user's petition (pull) \citep{wust2017you}. Currently, companies such as Everledger or Skuchain\footnote{\url{http://www.skuchain.com/}}, offer blockchain services to manage and improve the supply chain performance.
  
-In the following section, a blockchain application for a manufacturing supply chain system will be presented. Afterwards, we will enumerate the main observed blockchain benefits.
+In the following section, a blockchain application for a manufacturing supply chain system will be presented. Afterwards, we will enumerate the main blockchain benefits observed.
 
 \subsection{Blockchain Ready Manufacturing Supply Chain}
 
-In this part, the blockchain example \citep{abeyratne2016blockchain} will be discussed, which stores and distributes specific product information during its lifecycle. This task also named Product Lifecycle Management (PLM \citep{stark2015product}), involves different stages in which multiple parties modify the product data. Figure \ref{fig:supplyChain}.a shows the typical stages on the cycle. In this scenario, each actor interacts with a user interface, which is connected to the product's data from the blockchain. Each product is created in form of rules (smart contract) so that only specific users can access or modify this information. To access or insert data into the contract, parties must authenticate themselves signing the request with their private keys. During the lifecycle management, a product is owned by an entity (e.g. distributors). Moreover, when a product goes to another actor (e.g. from distributors to a consumer), both parties will sign a contract that updates product's ownership. Thus, the system guarantees that only the granted user can modify the contract in each phase.
+In this part, a blockchain example \citep{abeyratne2016blockchain}, which stores and distributes specific product information during its lifecycle, will be discussed. This task also named product lifecycle management (PLM \citep{stark2015product}), involves different stages in which multiple parties modify the product data. Figure \ref{fig:supplyChain}.a shows the typical stages on this cycle. In this scenario, each actor interacts with a user interface, which is connected to the product's data from the blockchain. Each product is created in form of rules (smart contract) so that only specific users can access or modify this information. To access or insert data into the contract, parties must authenticate themselves signing the request with their private keys. During the lifecycle management, a product is owned by an entity (e.g. distributors). Moreover, when a product goes to another actor (e.g. from distributors to a consumer), both parties will sign a contract that updates product's ownership. Thus, the system guarantees that only the granted user can modify the contract in each phase.
 
 In \citep{abeyratne2016blockchain}, an example is also presented to better explain the mentioned approach. The application consists of the product lifecycle of a cardboard box, starting from the trees cut down until the box is recycled, in which the involved parties are previously registered to the system. In Figure \ref{fig:supplyChain}.b an overview of the implemented design is presented. In this business process, different actors are entailed. For instance, the box manufacturer first receives the physical object and then signs a contract to gain the product's access. Afterwards, he will be allowed to alter the product data through the software application (e.g. box quality). In the end, he will transfer the package (signed) to the next actor, in particular, the product filler.
 
@@ -287,25 +280,24 @@ In \citep{abeyratne2016blockchain}, an example is also presented to better expla
 Through relevant examples in supply chain management, as the above presented, we can observe the extraordinary potential of blockchain in areas, where entities are not willing to trust a third party. Despite the last paper does not include detailed specifications, such as the blockchain's type or mining strategy, a useful system design has been provided, which help us in defining our possible architecture. In addition, some of the main benefits compared to centralized technologies are observed:
 
 \begin{itemize}
-	\item \textbf{No trusted third-party:} All the significant costs of involving a middle-party are suppressed\citep{mainelli2015sharing}. Intermediaries are not required for realizing transactions or simply reaching an agreement. For instance, in the last example, users were able to transfer ownership, by signing the product's contract and without the need of a third party.
+	\item \textbf{No trusted third-party:} All the significant costs of involving a middle-party are suppressed\citep{mainelli2015sharing}. Intermediaries are not required for realizing transactions or simply reaching an agreement. For instance, in the last example, users were able to transfer ownership, by signing the product's contract, without the need of a third party.
 	\item \textbf{Autonomy:} After an owner deploys a smart contract on the BC, it is then maintained by all the participating users, and not only by its creator.
 	\item \textbf{Data management and redundancy} Blockchain helps us in coordinating, validating and storing the distributed data in a decentralized manner. It also provides redundancy since users own the same data, e.g. databases backup in centralized systems. 
-	\item \textbf{Technology possibilities} As actors can define and establish their own rules (smart contracts), new business models open up.
+	\item \textbf{Unconstrained technology} As actors can define and establish their own rules (smart contracts), new business models open up.
 	\item \textbf{Privacy:} Thanks to cryptography, users can interact with unknown partners. For example, in the above example, all actors can coordinate its services through the PLM process, without knowing the next actor involved. 
     \item \textbf{Transparency and integrity:} All the changes that are made to the contract data are directly visible to the other users. In addition, once a transaction is executed, its immutable since it cannot be altered or deleted.
 	
 \end{itemize}
 
-Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will be later investigated.
+Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will be later further investigated.
 
-\section{Multi-provider Virtual Network Embedding}
+\section{Virtual Network Embedding}
 
-In the last years, many investigations in network virtualization, and specifically in VNE have been conducted by different authors \citep{houidi2011virtual}, \citep{zhu2008cabernet}, \citep{chowdhury2009virtual}. Among these, it is important to highlight topics such as the trade-offs between single \citep{chowdhury2009virtual}, \citep{houidi2008distributed} and multi-provider VNE \citep{dietrich2017multi}, or the different techniques used for achieving VN efficiency, which decompose VNE into two tasks: VN partitioning and VN segment mapping \citep{fischer2013virtual}. Each of these studies proposes new interesting aspects or features compared to the prior research. Nevertheless, in this paper, we will not enter in the different scenarios discussion. The main goal of this work will be to explore existing solutions, in particular, frameworks for multi-provider VNE applications that suffer from LID \citep{dietrich2017multi}, \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}.
+In the last years, many investigations in network virtualization, and specifically in VNE, have been conducted by different authors \citep{houidi2011virtual}, \citep{zhu2008cabernet}, \citep{chowdhury2009virtual}. Among these, it is important to highlight topics such as the trade-offs between single \citep{chowdhury2009virtual}, \citep{houidi2008distributed} and multi-provider VNE \citep{dietrich2017multi}, or the different techniques used for achieving VN efficiency, which decompose VNE into two tasks: VN partitioning and VN segment mapping \citep{fischer2013virtual}. Each of these studies proposes new interesting aspects or features compared to the prior research. Nevertheless, in this paper, we will not contrast the different architectures. The main goal of this work will be to explore an existing scenario, in particular, frameworks for multi-provider VNE applications that suffer from LID \citep{dietrich2017multi}, \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}.
 
-\subsection{Centralized and Decentralized approaches}
+\subsection{Multi-provider Virtual Network Embedding with Limited Information Disclosure}
 
 UNTIL HERE! 
-
 
 Multi-provider virtual network embedding consists of the allocation of virtual resources, in a constrained and limited scenario. However, as previously introduced in the background, InPs are not willing to cooperate or disclose internal information. In \cite{dietrich2015multi} the LID problem is approached regarding: 
 
@@ -320,6 +312,7 @@ Multi-provider virtual network embedding consists of the allocation of virtual r
   \label{fig:multiprov}
 \end{figure}
 
+The last two functions are performed by the VNPs and InPs respectively. Furthermore, as reported by \cite{dietrich2015multi}, the partitioning suffers mainly from the limited information disclosure problem (LID), in which VNPs have a very limited knowledge of InPs internal architecture. The reason for such a problem is that the InPs are not willing to broadcast their resources information (e.g: nodes availability, cost) or their network topology to the outside world. And if that was not enough, this information is crucial for the partitioning of resources in order to obtain a fair negotiation between the SPs and InPs. Solving this issue will be one of the main focuses of our thesis.  
 Thus, in the mentioned research, VNPs use above information to perform the resource partitioning. Despite the results in embedding costs are not much higher than the ideal case scenario (InPs announcing all required information), they could be further improved enabling the InPs directly interacting in the process.
 
 However, what if the SPs and InPs are not willing to trust a centralized broker? Here, is when blockchain could play a crucial role (Figure \ref{fig:multiprov}.b). Thanks to the blockchain, more precisely to Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users. 
@@ -361,7 +354,9 @@ can be trusted.
 
 Several authors, notable Wellman and Wurman [11], have pointed out the difficulties of truly simulation open cry auctions in the unreliable and insecure environment of the internet.
 Study \citep{ausubel2006lovely} with equations and everything...
+\subsection{Vickrey Auction Model}
 
+Many types of auction models exist, such as the English or Dutch auctions \cite{coppinger1980incentives}, however as previously discussed a fair-price system is extremely needed. The Vickrey auction model \cite{vickrey1961counterspeculation} matches these requirements, achieving a reasonable price for the buyer by motivating bidders to bid truthfully. One of the Vickrey auction model important aspects is that corresponds to a \textit{second-price} auction. In a second-price auction the bidder will offer a price for the service, and among all the bids, the higgest one will win the auction. Nevertheless, unlikely standard auctions, the service will be rendered at the second highest bid. For example, if the winning bidder bids 15 \euro and the second highest bid is 10 \euro, the winner pays only 10 \euro. From the bidder point of view means that he can safely bid the true value, knowing that if he wins, he will pay less than his bid. However, the second-price concept needs to be thoroughly investigated as long as a bidder can submit multiple bids. Imagine an scenario, where a single bidder A submits two bids: \{1 \euro,9 \euro\} for a service with a real cost 5 \euro. In this case, this buyer will end up paying 1 for the service. Therefore, the second-price auction model needs always to be compared between bidders and not between bids. Suppose the last example, with a second bidder B submitting \{5 \euro, 6 \euro\}. At the end user A, will win the bid but paying 6 \euro, risking that if he would have been the only user bidding, he would have payed 9 \euro.
 
 \section{Analysis of Related Work}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  1 FEB 2018 20:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  3 FEB 2018 11:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1570,7 +1570,7 @@ LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
 Package  Warning: Title has more then 3 lines. Fontsize reduced on input line 2
 33.
 
-<tud_logo.pdf, id=180, 157.58875pt x 63.23625pt>
+<tud_logo.pdf, id=176, 157.58875pt x 63.23625pt>
 File: tud_logo.pdf Graphic file (type pdf)
  <use tud_logo.pdf>
 Package pdftex.def Info: tud_logo.pdf used on input line 233.
@@ -1698,7 +1698,7 @@ LaTeX Font Info:    Try loading font information for T1+txtt on input line 18.
 File: t1txtt.fd 2000/12/15 v3.1
 ) [3] [4]
 chapter 2.
-<gfx/cenVsDec.png, id=308, 659.1024pt x 247.6452pt>
+<gfx/cenVsDec.png, id=303, 659.1024pt x 247.6452pt>
 File: gfx/cenVsDec.png Graphic file (type png)
  <use gfx/cenVsDec.png>
 Package pdftex.def Info: gfx/cenVsDec.png used on input line 61.
@@ -1707,7 +1707,7 @@ Package pdftex.def Info: gfx/cenVsDec.png used on input line 61.
 [5
 
 
- <./gfx/cenVsDec.png>] <gfx/mining.png, id=321, 632.3625pt x 257.0403pt>
+ <./gfx/cenVsDec.png>] <gfx/mining.png, id=315, 632.3625pt x 257.0403pt>
 File: gfx/mining.png Graphic file (type png)
 
 <use gfx/mining.png>
@@ -1718,27 +1718,32 @@ LaTeX Font Info:    Try loading font information for TS1+5ch on input line 98.
 (/usr/share/texmf/tex/latex/tex-tudfonts/softmake/charter/ts15ch.fd
 File: ts15ch.fd 2008/06/23 Fontinst v1.927 font definitions for TS1/5ch.
 ) [6]
-[7 <./gfx/mining.png>] <gfx/bitkeys.png, id=349, 614.295pt x 180.675pt>
+[7 <./gfx/mining.png>] <gfx/bitkeys.png, id=344, 614.295pt x 180.675pt>
 File: gfx/bitkeys.png Graphic file (type png)
 
 <use gfx/bitkeys.png>
 Package pdftex.def Info: gfx/bitkeys.png used on input line 134.
 (pdftex.def)             Requested size: 448.12788pt x 131.80342pt.
- [8 <./gfx/bitkeys.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--153
+
+ []
+
+[8 <./gfx/bitkeys.png>]
 LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <9.2> not available
 (Font)              Font shape `T1/txtt/bx/n' tried instead on input line 154.
 
-<gfx/ethereumAccounts.png, id=372, 460.8417pt x 322.0833pt>
+<gfx/ethereumAccounts.png, id=367, 460.8417pt x 322.0833pt>
 File: gfx/ethereumAccounts.png Graphic file (type png)
 
 <use gfx/ethereumAccounts.png>
 Package pdftex.def Info: gfx/ethereumAccounts.png used on input line 177.
-(pdftex.def)             Requested size: 368.67386pt x 257.66698pt.
+(pdftex.def)             Requested size: 298.75697pt x 208.81105pt.
  [9 <./gfx/ethereumAccounts.png>]
-<gfx/networkvir.png, id=387, 662.7159pt x 262.0992pt>
+<gfx/networkvir.png, id=382, 662.7159pt x 262.0992pt>
 File: gfx/networkvir.png Graphic file (type png)
  <use gfx/networkvir.png>
-Package pdftex.def Info: gfx/networkvir.png used on input line 206.
+Package pdftex.def Info: gfx/networkvir.png used on input line 205.
 (pdftex.def)             Requested size: 497.92325pt x 196.92984pt.
 
 [10] [11 <./gfx/networkvir.png>] [12]
@@ -1746,36 +1751,36 @@ chapter 3.
 [13
 
 
-] <gfx/supplyChain.png, id=442, 745.3446pt x 393.8715pt>
+] <gfx/supplyChain.png, id=433, 745.3446pt x 393.8715pt>
 File: gfx/supplyChain.png Graphic file (type png)
 
 <use gfx/supplyChain.png>
-Package pdftex.def Info: gfx/supplyChain.png used on input line 280.
+Package pdftex.def Info: gfx/supplyChain.png used on input line 273.
 (pdftex.def)             Requested size: 497.92325pt x 263.12926pt.
  [14 <./gfx/supplyChain.png>]
-<gfx/multiprov.png, id=465, 655.0071pt x 359.9046pt>
+<gfx/multiprov.png, id=456, 655.0071pt x 359.9046pt>
 File: gfx/multiprov.png Graphic file (type png)
  <use gfx/multiprov.png>
-Package pdftex.def Info: gfx/multiprov.png used on input line 318.
+Package pdftex.def Info: gfx/multiprov.png used on input line 308.
 (pdftex.def)             Requested size: 497.92325pt x 273.59074pt.
 
-[15]
+[15] [16 <./gfx/multiprov.png>]
 LaTeX Font Info:    Font shape `T1/5ch/b/it' in size <11> not available
-(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 349.
- [16 <./gfx/multiprov.png>]
-Overfull \hbox (5.32083pt too wide) in alignment at lines 385--385
+(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 340.
+
+Overfull \hbox (5.32083pt too wide) in alignment at lines 378--378
 [][][][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 395--395
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 388--388
 
  []
 
-[17] [18]
+[18]
 chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--409
+Underfull \hbox (badness 10000) in paragraph at lines 402--402
 
  []
 
@@ -1785,23 +1790,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 409--409
 ] [20]
 chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 462--462
 
  []
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 469--469
+Underfull \hbox (badness 1515) in paragraph at lines 462--462
 \T1/5ch/m/n/11 This chap-ter should de-scribe the de-tails of the im-ple-men-ta
 -tion ad-dress-ing the fol-low-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 462--462
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 462--462
 
  []
 
@@ -1814,17 +1819,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 469--469
 ]
 chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 491--491
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 491--491
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 491--491
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
 
  []
 
@@ -1834,7 +1839,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 491--491
 ]
 chapter 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--510
+Underfull \hbox (badness 10000) in paragraph at lines 503--503
 
  []
 
@@ -1851,7 +1856,7 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 294.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 294.
 Package rerunfilecheck Info: File `tudkom_students__201711_v1.3.out' has not ch
 anged.
-(rerunfilecheck)             Checksum: FD93DAAE45DA1DDB70554624A557D601;3055.
+(rerunfilecheck)             Checksum: E089E97939193ACEC3D3DE27731D8EF5;3007.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1859,13 +1864,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 294.
  ) 
 Here is how much of TeX's memory you used:
- 16876 strings out of 494860
- 256436 string characters out of 6177601
+ 16875 strings out of 494860
+ 256429 string characters out of 6177601
  421508 words of memory out of 5000000
- 19665 multiletter control sequences out of 15000+600000
+ 19664 multiletter control sequences out of 15000+600000
  136720 words of font info for 121 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 59i,13n,100p,1663b,1153s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,13n,100p,1663b,1151s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}</usr/share/texmf/fonts/type1/sof
 tmake/charter/5chb8a.pfb></usr/share/texmf/fonts/type1/softmake/charter/5chb8a.
@@ -1881,10 +1886,10 @@ hare/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chrma.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/txfonts/t1xtt.pfb>
-Output written on tudkom_students__201711_v1.3.pdf (34 pages, 1955016 bytes).
+Output written on tudkom_students__201711_v1.3.pdf (34 pages, 1955130 bytes).
 PDF statistics:
- 642 PDF objects out of 1000 (max. 8388607)
- 564 compressed objects within 6 object streams
+ 638 PDF objects out of 1000 (max. 8388607)
+ 560 compressed objects within 6 object streams
  147 named destinations out of 1000 (max. 500000)
- 405 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 397 words of extra memory for PDF output out of 10000 (max. 10000000)
 
