@@ -112,7 +112,7 @@ Furthermore, each block and transaction is restricted to a size of 1MB and 250-3
 	\item If all previous steps confirmed, store state at the end of the block and return true.
 \end{itemize}  
 
-In the third step of the block validation process, appears the term Proof-of-work. Bitcoin uses the Hashcash proof of work algorithm to prove that a block miner spent some computational time creating a block. In particular, Bitcoin protocol demands that miners find an input, which is a valid $block \, header$ formed by a random value ($c$) and nonce ($x$), whose cryptographic hash (e.g $SHA256$) is less than a determined value. This value is obtained from $d$, the blockchain difficulty. Then, the only way to create a valid block is simply trial and error until a valid Proof-of-Work is generated. Proof-of-work is also used in other contexts, such as for limiting email spam or denial-of-service attacks (DoS).
+In the third step of the block validation process, appears the term Proof-of-work. Bitcoin uses the Hashcash proof of work algorithm to prove that a block miner spent some computational time creating a block. More precisely, Bitcoin protocol demands that miners find an input, which is a valid $block \, header$ formed by a random value ($c$) and nonce ($x$), whose cryptographic hash (e.g $SHA256$) is less than a determined value. This value is obtained from $d$, the blockchain difficulty. Then, the only way to create a valid block is simply trial and error until a valid Proof-of-Work is generated. Proof-of-work is also used in other contexts, such as for limiting email spam or denial-of-service attacks (DoS).
 
 $$ F_d( \, block \, header \,) = F_d( \,c,x \,) = SHA256( \, SHA256( \, c|x \,) \,)\, < \frac{2^{224}}{d}$$
 
@@ -199,7 +199,9 @@ In the following section, an example application or process currently performed 
 
 \section{Network Virtualization} \label{networkvirtualization}
 
-Network virtualization enables simulating hardware networks, in software (Figure \ref{fig:networkvir}.a). These software networks are called virtual networks, and in contrast to physical networks, they provide flexibility, manageability and a low cost. Network virtualization handles two main concepts: node virtualization and link virtualization. The former implies sharing the node's physical resources located in the substrate network (e.g: CPU, storage, memory) to multiple virtual nodes from the virtual networks. The latter enables the transport of multiple virtual links in a single and shared physical link. The mentioned layers and elements involved in network virtualization, are shown in Figure \ref{fig:networkvir}.b.
+In the last few years, network virtualization has started to grow in popularity since it enables simulating hardware networks, in software. These software networks are called virtual networks, and in contrast to physical networks, they provide flexibility, manageability and a low cost. 
+
+Network virtualization handles two main concepts: node virtualization and link virtualization. The former implies sharing the node's physical resources located in the substrate network (e.g: CPU, storage, memory) to multiple virtual nodes in the virtual networks, such as physical node A in Figure \ref{fig:networkvir}.a. The latter enables the transport of multiple virtual links in a single and shared physical link (Figure \ref{fig:networkvir}.b).
 
 \begin{figure}[bth]
   \includegraphics[width=1\linewidth]{gfx/networkvir}    
@@ -212,11 +214,13 @@ In a real scenario, there are two main actors (and one optional) participating i
 \begin{itemize}
 	
 	\item \textbf{Infrastructure providers (InPs):} Infrastructure providers (e.g: Deutsche Telekom or Telefonica) deploy and manage the physical nodes, sharing efficiently its resources to the virtual network. For InPs, this results in a significant decrease in operational and technology investment costs \citep{dietrich2015multi}.
-	\item \textbf{Service Providers: (SPs)} Service providers lease virtual resources from infrastructure providers to create its customized virtual network. All this without the need to purchase physical network equipment.
-		\item \textbf{Virtual network providers: (VNPs)} Are the brokers, which can optionally serve as intermediaries between the infrastructure and service providers.
+	\item \textbf{Service Providers (SPs):} Service providers lease virtual resources from infrastructure providers to create its customized virtual network. All this without the need to purchase physical network equipment.
+		\item \textbf{Virtual network providers (VNPs):} Are the brokers, which can optionally serve as intermediaries between the infrastructure and service providers.
 \end{itemize}
 
-Typically, the network slicing process starts with the VNP obtaining the necessary information from the InPs to perform the embedding. After that, he receives a VN request from the SPs, which is optimized in terms of cost (using prior data). Finally, this request is transmitted to the multiple InPs, who are in charge of allocating the virtual nodes from the request in their physical resources. Nevertheless, there are other approaches which do not rely on a central entity or VNP. In these, they use a consensus mechanism between the SPs and InPs to perform the virtual network trading. Thus, in the following, we will investigate an open negotiation technique: the auctions.
+The network slicing process with the presence of a broker typically starts with the VNP obtaining the necessary information from the InPs. This data will be used to divide the virtual network into groups of nodes (subgraphs). Thus, once the SP sends a VN request, this is immediately optimized (in terms of cost) by the VNP. Afterwards, the modified request is transmitted to the multiple InPs, who are in charge of allocating the virtual nodes from the request in their physical resources. 
+
+The presented process is coordinated by an actor, the VNP, who stores all the information to successfully allocate the incoming resources. However, there are other approaches which do not rely on a central entity. Conversely, they use a consensus mechanism between the SPs and InPs to perform the virtual resources trading. Thus, in the following, we will briefly investigate an open negotiation technique: the auctions.
 
 \subsection{Auction Mechanisms}
 
@@ -277,17 +281,18 @@ Through relevant examples in supply chain management, as the above presented, we
 
 Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will be later further investigated.
 
-\section{Virtual Network Embedding}
+\section{Network virtualization}
 
-In the last years, many investigations in network virtualization, and specifically in virtual network embedding (VNE), have been conducted by different authors \citep{houidi2011virtual}, \citep{zhu2008cabernet}, \citep{chowdhury2009virtual}. Among these, it is important to highlight topics such as the trade-offs between single \citep{chowdhury2009virtual}, \citep{houidi2008distributed} and multi-provider VNE \citep{dietrich2017multi}, or the different techniques and algorithms used for achieving VN efficiency, which decompose VNE into two tasks: VN partitioning and VN segment mapping \citep{fischer2013virtual}. Each of these studies proposes new interesting aspects or features compared to the prior research. Nevertheless, in this paper, we will not contrast the different architectures (e.g. between a single or multiple InPs) or discuss the various VN partitioning and mapping algorithms. The main goal of this work will be to explore an existing network virtualization scenario, in particular, multi-provider VNE applications suffering from the limited information disclosure problem (LID) \citep{dietrich2017multi}, \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}.
+In the last years, many investigations in network virtualization have been conducted by different authors \citep{houidi2011virtual}, \citep{zhu2008cabernet}, \citep{chowdhury2009virtual}. Among these, it is important to highlight topics such as the trade-offs between single \citep{chowdhury2009virtual}, \citep{houidi2008distributed} and multi-provider VNE \citep{dietrich2017multi}, or the different techniques and algorithms used for achieving VN efficiency, which decompose VNE into two tasks: VN partitioning and VN segment mapping \citep{fischer2013virtual}. Each of these studies proposes new interesting features and improves VNE efficiency compared to the prior research. Nevertheless, in this paper, we will not contrast the different architectures (e.g. between a single or multiple InPs) or discuss the various VN partitioning and mapping algorithms. The main goal of this work will be to explore an existing network virtualization scenario, in particular, multi-provider VNE applications suffering from the limited information disclosure problem (LID) \citep{dietrich2017multi}, \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}.
 
 \subsection{Multi-Provider Virtual Network Embedding with Limited Information Disclosure}
 
-To deploy wide-area networks, SPs are willing to embed resources across different infrastructure providers (section \ref{networkvirtualization}). As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process is composed of two main tasks: 
+To deploy wide-area networks, service providers are willing to embed resources across heteregeneous domains belonging to different infrastructure providers (section \ref{networkvirtualization}). As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process, also named inter-domain VNE \footnote{inter-domain is between multiple InPs and intra-domain is inside a single InP }, is descomposed in three main tasks \citep{chowdhury2010polyvine}:
 
 \begin{itemize}
-	\item \textbf{VN request partitioning}: Divide the virtual network into groups of virtual nodes, such that virtual node and link requirements are satisfied, minimizing at the same time the cost of the virtual network setup.
-	\item \textbf{VN segment mapping}: Map the virtual resources to the InPs physical nodes.
+	\item \textbf{VN request partitioning}: Divide the virtual network into groups of virtual nodes (subgraphs), such that virtual node and link requirements are satisfied, minimizing at the same time the cost of the virtual network setup.
+		\item \textbf{Inter-connection between subgraphs}: Establish paths between the previously created subgraphs.
+	\item \textbf{VN segment mapping}: Map the virtual resources (subgraphs) to the InPs physical nodes.
 \end{itemize}
 
 Furthemore, in such scenarios exists two types of communication:
@@ -297,7 +302,7 @@ Furthemore, in such scenarios exists two types of communication:
 	\item \textbf{Vertical communication} emerges from the negotiation between SPs and InPs, the former willing to lease some virtual resources from the latter. This communication is facilitated by a third party (VNP), an intermediary that forwards SPs request to the relevant InPs.
 \end{itemize}
 
-On the other hand, multi-provider virtual network embedding (Figure \ref{fig:multiprov}.a), performed by a service provider, a third-party or VNP and multiple InPs, consists of the allocation of virtual resources in a constrained and limited scenario. The main cause of this problem is that InPs are not willing to broadcast their resources information (e.g: nodes availability, cost) or their network topology to the outside world \citep{dietrich2015multi}. And if that was not enough, this information is crucial so that VNPs can perform the partitioning of resources, in order to obtain a fair negotiation between the SPs and InPs.
+On the other hand, multi-provider VN embedding (Figure \ref{fig:multiprov}.a), performed by a service provider, a third-party or VNP (optional) and multiple InPs, consists of the allocation of virtual resources in a constrained and limited scenario. The main cause of this problem is that InPs are not willing to broadcast their resources information (e.g: nodes availability, cost) or their network topology to the outside world \citep{dietrich2015multi}. And if that was not enough, this information is crucial so that VNPs can perform the partitioning of resources, in order to obtain a fair negotiation between the SPs and InPs.
 
 \subsubsection{Centralized Slice Embedding}
 
@@ -320,24 +325,27 @@ Therefore, other approaches where the actors benefit from a more scalable and di
 
 \subsubsection{Distributed Slice Embedding}
 
-Many existing solutions \citep{houidi2011virtual}, \citep{dietrich2015multi}, \citep{dietrich2017multi} rely on a centralized party (VNP) that stores the InPs disclosed information and then performs the partition of the virtual network request. However, what if the SPs and InPs are not willing to trust a centralized broker? In that case, this central actor could be removed enabling a direct communication between SPs and InPs, which provides a better system scalability. Distributed network slice embedding has already been investigated in \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}. 
+Many existing solutions \citep{houidi2011virtual}, \citep{dietrich2015multi}, \citep{dietrich2017multi} rely on a centralized party (VNP) that stores the InPs disclosed information and then performs the partition of the virtual network request. However, what if the SPs and InPs are not willing to trust a centralized broker? In that case, this central actor could be removed enabling a direct communication between SPs and InPs, which provides a better system scalability. Distributed network slice embedding has already been investigated: in \citep{esposito2013general}. 
 
-UNTIL HERE!
+\begin{itemize}
+	\item In \citep{esposito2013general}, a \textbf{consensus-based auction for distributed slice embedding (CAD)} is proposed. In particular, the physical nodes, which are owned by a single or different InPs, bid on virtual nodes. This value is subsequently stored in a vector $b_i$, where $i$ is the physical node. Afterwards, once the bidding phase concludes, each physical node exchange the bids with its neighbors to reach an agreement for the auctioned virtual nodes. The mentioned bidding can be for a single slice (2 virtual nodes and 1 link) or on the entire slice (multiple virtual nodes and links). In the former, there is a limit on the number of biddable nodes, which although it has a great performance, it provokes multiple iterations (excessive time). Despite in a multi-provider VNE scenario, the latter is more suitable, the InPs willingness to disclose their internal information will hamper the performance. Hence, this approach provides better scalability (decentralization), but it is not proper for our scenario that suffers from LID.
+	\item \citep{chowdhury2010polyvine} As a result, existing embedding algorithms that assume complete knowledge of the substrate network are not applicable in this scenario. Each InP will have to embed a particular segment of the VN request without any knowl- edge of how the rest of the VN request has already been mapped or will be mapped.
+	\item \citep{zaheer2010multi} 
+\end{itemize}
+	
+SUMMARY AND INTRODUCE AUCTION MODELS
+the pros and cons of different types of auctions will also be presented.
+which could be accomplished through a limited time auction.
+
 
 \subsubsection{Auction Models}
 
 Service negotation has already been examined in \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms. Auctions as a negotiation mechanism has been used in multiple use cases, such as in the public construction sector. In our context, the idea of using auctions for network slicing was also explored in V-Mart \citep{zaheer2010multi}. The V-Mart framework deploys an auction model where InPs submit their VN bids based on SPs requests. In particular, 
 V-Mart ensures a fair market but does not guarantee performance.
 
-Thanks to the blockchain, more precisely to Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users. 
-
-the pros and cons of different types of auctions will also be presented.
-which could be accomplished through a limited time auction.
-
 Accordingly, a \textit{sealed one-side auction} is the one which best meets our system specifications, since the InPs do not want to disclose their network topology or nodes information. Our auction procedure will start with the SP requesting a virtual network (a graph of virtual nodes) along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service. Despite it can be seen as a fair system, how can the SP ensure that the InPs are offering prices proportional to the current market costs?
 
 It is important to note that in our scenario the \textbf{lowest auction} will win and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
-
 
 Ultimately, after judging the preceding analysis along with the pros and cons of each auction type and model, the \textbf{\textit{second-price sealed-bid}} or simply the \textbf{\textit{Vickrey auction}} fulfills the application requirements, providing the highest aggregate profit among sellers and buyers.
 
@@ -351,16 +359,16 @@ RELATED WORK TABLE
 
 \begin{table}[htbp]
 	\myfloatalign \footnotesize
-	\begin{tabularx}{\textwidth}{p{4cm}p{4cm}p{4cm}p{4cm}}
-		\textbf{Reference} & \textbf{Description} & \textbf{Findings} & 		        \textbf{Limitations}  \\ 
+	\begin{tabularx}{\textwidth}{p{2cm}p{2cm}p{2cm}p{2cm}p{4cm}p{4cm}}
+		\textbf{Reference} & \textbf{Description} & \textbf{Architecture} & \textbf{System} & \textbf{Findings} & \textbf{Limitations}  \\ 
 		\hline
-		A   &  ... &  ... &  ... \\ 
-		A   &  ... &  ... &  ... \\ 
-		A   &  ... &  ... &  ... \\ 
-		A   &  ... &  ... &  ... \\ 
-		A   &  ... &  ... &  ... \\ 
-		A   &  ... &  ... &  ... \\ 							
-		A   &  ... &  ... &  ... \\  
+		\citep{dietrich2015multi}   &  ... & Centralized & Synchronous &  ... &  ... \\ 
+		\citep{esposito2013general}   &  ... &  ... &  ... &  ... &  ... \\ 
+		\citep{chowdhury2010polyvine}   &  ... &  ... &  ... &  ... &  ... \\ 
+		\citep{zaheer2010multi}   &  ... &  ... &  ... &  ... &  ... \\ 
+		A   &  ... &  ... &  ... &  ... &  ... \\ 
+		A   &  ... &  ... &  ... &  ... &  ... \\ 							
+		A   &  ... &  ... &  ... &  ... &  ... \\  
 		\hline
 	\end{tabularx}
 	\caption{Comparison of implemented approaches for VNE}
@@ -370,6 +378,8 @@ RELATED WORK TABLE
 PROBLEMS: 1. The participants of a SCM vary greatly across different supply
 chains and the same peers might take different roles across different supply chains. 2. This reasoning leaves us with the question whether all writers
 can be trusted. 
+
+Thanks to the blockchain, more precisely to Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users. 
 
 During this paper, the Ethereum blockchain will be used to perform a service negotiation (Vickrey auction) and later to track its possession throughout the supply chain process. This will be exemplified by a web application implementation, focused on network slicing. Thus, blockchain strengths and weaknesses will be further investigated.
  
