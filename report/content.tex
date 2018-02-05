@@ -222,15 +222,21 @@ The network slicing process with the presence of a broker typically starts with 
 
 The presented process is coordinated by an actor, the VNP, who stores all the information to successfully allocate the incoming resources. However, there are other approaches which do not rely on a central entity. Conversely, they use a consensus mechanism between the SPs and InPs to perform the virtual resources trading. Thus, in the following, we will briefly investigate an open negotiation technique: the auctions.
 
-\subsection{Auction Mechanisms}
+\subsection{Auction Mechanisms} 
 
 An auction is a public negotiation method involving buyers and sellers that enables resource trading between P2P users. While buyer's goal is to find the desired service at the lowest price, providers or seller's goal is to catch the attention of buyers who are able to pay the highest price for its offered services. Thus, an auction must provide fairness in terms of technical and economic efficiency, for both the buyer and the seller.
 
-Firstly, auctions can be divided into (i) \textit{one-sided auctions} where only the buyers submit their bids (e.g: a painting auctioned in an art auction), or (ii) \textit{two-sided auctions} in which buyers and sellers submit their bids. Normally, when any of the two sides (buyer or seller) cannot perform a good estimation of the service, a one-side auction is preferred. Secondly, the auctions are (i) \textit{open cry} auctions, where the bids are broadcasted to all users (traditional type), or (ii) \textit{sealed-bid} auctions in which bidders first commit bid values in secret that are later revealed (e.g: physical envelopes).
+Firstly, auctions can be divided into (i) \textit{one-sided auctions} where only the buyers submit their bids (e.g: a painting auctioned in an art auction), or (ii) \textit{two-sided auctions} in which buyers and sellers submit their bids. Normally, when any of the two sides (buyer or seller) cannot perform a good estimation of the service, a one-side auction is preferred. This is the case in network virtualization, where the SPs are not aware of the InPs physical nodes availability or complexity. Secondly, the auctions are (i) \textit{open cry} auctions, where the bids are broadcasted to all users (traditional type), or (ii) \textit{sealed-bid} auctions in which bidders first commit bid values in secret that are later revealed (e.g: physical envelopes). In our scenario, the InPs should bid in a confidential manner, because they do not want to disclose internal data. 
 
-\subsubsection{Vickrey Auction Model}
+Therefore, according to the above-mentioned auction types, a \textit{sealed one-side auction} is the most suitable in network virtualization.
 
-Many types of auction models exist, such as the English or Dutch auctions \cite{coppinger1980incentives}, however, we will focus on a particular one: the Vickrey auction model \cite{vickrey1961counterspeculation}. The Vickrey auction model is considered a fair-price system since it provides a reasonable price to the buyer by motivating bidders to bid truthfully. One of the Vickrey auction model important aspects is that corresponds to a \textit{second-price} auction. In a second-price auction the bidder will offer a price for the service, and among all the bids, the highest one will win the auction. Nevertheless, unlikely standard auctions, the service will be rendered at the second highest bid. For example, if the winning bidder bids 15 \euro and the second highest bid is 10 \euro, the winner pays only 10 \euro. From the bidder point of view means that he can safely bid the true value, knowing that if he wins, he will pay less than his bid. However, the second-price concept needs to be thoroughly investigated as long as a bidder can submit multiple bids. Imagine an scenario, where a single bidder A submits two bids: \{1 \euro,9 \euro\} for a service with a real cost 5 \euro. In this case, this buyer will end up paying 1 for the service. Therefore, the second-price auction model needs always to be compared between bidders and not between bids. Suppose the last example, with a second bidder B submitting \{5 \euro, 6 \euro\}. At the end user A, will win the bid but paying 6 \euro, risking that if he would have been the only user bidding, he would have payed 9 \euro.
+\subsubsection{Vickrey Auction Model} \label{vickrey}
+
+Many types of auction models exist, such as the English or Dutch auctions \cite{coppinger1980incentives}, however, as we need a sealed-bid our focus will be on a particular one: the Vickrey auction model \cite{vickrey1961counterspeculation}. The Vickrey auction model is considered a fair-price system since it provides a reasonable price to the buyer by motivating bidders to bid truthfully. One of the Vickrey auction model important aspects is that corresponds to a \textit{second-price} auction. In a second-price auction the bidder will offer a price for the service, and among all the bids, the highest one will win the auction. Nevertheless, unlikely standard auctions, the service will be rendered at the second highest bid. For example, if the winning bidder bids 15 \euro and the second highest bid is 10 \euro, the winner pays only 10 \euro. From the bidder point of view means that he can safely bid the true value, knowing that if he wins, he will pay less than his bid. 
+
+However, the second-price concept needs to be thoroughly investigated as long as a bidder can submit multiple bids. Imagine an scenario, where a single bidder A submits two bids: \{1 \euro,9 \euro\} for a service with a real cost 5 \euro. In this case, this buyer will end up paying 1 for the service. Therefore, the second-price auction model needs always to be compared between bidders and not between bids. Suppose the last example, with a second bidder B submitting \{5 \euro, 6 \euro\}. At the end user A, will win the bid but paying 6 \euro, risking that if he would have been the only user bidding, he would have payed 9 \euro.
+
+Ultimately, after judging the preceding analysis of each auction type and model, the \textbf{\textit{second-price sealed-bid}} or simply the \textbf{\textit{Vickrey auction}} fulfills the network virtualization requirements, providing the highest aggregate profit among sellers and buyers.
 
 \section{Summary}
 
@@ -241,7 +247,7 @@ The blockchain is a transparent, secure and robust system where users are in cha
 \label{ch:relatedwork}
 %*****************************************
 
-In the following, we describe some of the current challenges in supply chain management (SCM), exemplified by a blockchain application in manufacturing, to demonstrate how this technology could improve SCM efficiency. Henceforth, we focus on a particular supply chain management example: virtual network embedding across multiple InPs. A comprehensive overview of related work on already implemented frameworks will be presented. Finally, we will first analyze in which use cases blockchain is more suitable than a centralized database, and secondly, we will argue why blockchain could solve and improve the prior VNE related work.
+In the following, we describe some of the current challenges in supply chain management (SCM), exemplified by a blockchain application in manufacturing, to demonstrate how this technology could improve SCM efficiency. Henceforth, we focus on a particular supply chain management example: virtual network embedding across multiple InPs. A comprehensive overview of related work on already implemented centralized and decentralized frameworks will be presented. Finally, we will first analyze in which use cases blockchain is more suitable than a centralized database, and secondly, we will argue why blockchain could solve and improve the prior VNE related work.
 
 \section{Blockchain in Supply Chain Management}
 
@@ -260,7 +266,8 @@ In this part, a blockchain example \citep{abeyratne2016blockchain}, which stores
 In \citep{abeyratne2016blockchain}, an example is also presented to better explain the mentioned approach. The application consists of the product lifecycle of a cardboard box, starting from the trees cut down until the box is recycled, in which the involved parties are previously registered to the system. In Figure \ref{fig:supplyChain}.b an overview of the implemented design is presented. In this business process, different actors are entailed. For instance, the box manufacturer first receives the physical object and then signs a contract to gain the product's access. Afterwards, he will be allowed to alter the product data through the software application (e.g. box quality). In the end, he will transfer the package (signed) to the next actor, in particular, the product filler.
 
 \begin{figure}
-	\includegraphics[width=1\linewidth]{gfx/supplyChain}    
+	\centering
+	\includegraphics[width=0.9\linewidth]{gfx/supplyChain}    
   \caption{ PLM stages and cardbox blockchain application example \citep{stark2015product}}
   \label{fig:supplyChain}
 \end{figure}
@@ -283,11 +290,13 @@ Nevertheless, the technology still faces lots of challenges, such as scalability
 
 \section{Network virtualization}
 
-In the last years, many investigations in network virtualization have been conducted by different authors \citep{houidi2011virtual}, \citep{zhu2008cabernet}, \citep{chowdhury2009virtual}. Among these, it is important to highlight topics such as the trade-offs between single \citep{chowdhury2009virtual}, \citep{houidi2008distributed} and multi-provider VNE \citep{dietrich2017multi}, or the different techniques and algorithms used for achieving VN efficiency, which decompose VNE into two tasks: VN partitioning and VN segment mapping \citep{fischer2013virtual}. Each of these studies proposes new interesting features and improves VNE efficiency compared to the prior research. Nevertheless, in this paper, we will not contrast the different architectures (e.g. between a single or multiple InPs) or discuss the various VN partitioning and mapping algorithms. The main goal of this work will be to explore an existing network virtualization scenario, in particular, multi-provider VNE applications suffering from the limited information disclosure problem (LID) \citep{dietrich2017multi}, \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}.
+In the last years, many investigations in network virtualization have been conducted by different authors \citep{houidi2011virtual}, \citep{zhu2008cabernet}, \citep{chowdhury2009virtual}. Among these, it is important to highlight topics such as the trade-offs between single \citep{chowdhury2009virtual}, \citep{houidi2008distributed} and multi-provider VNE \citep{dietrich2017multi}, or the different techniques and algorithms used for achieving VN efficiency. Typically, they decompose the VNE into two tasks: VN partitioning and VN segment mapping \citep{fischer2013virtual}. 
+
+Each of these studies proposes new interesting features compared to the prior research. Nevertheless, in this paper, we will not contrast the different architectures (e.g. between a single or multiple InPs) or discuss the various VN partitioning and mapping algorithms. The main goal of this work will be to explore an existing network virtualization scenario, in particular, multi-provider VNE applications suffering from the limited information disclosure problem or LID \citep{dietrich2017multi}, \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}.
 
 \subsection{Multi-Provider Virtual Network Embedding with Limited Information Disclosure}
 
-To deploy wide-area networks, service providers are willing to embed resources across heteregeneous domains belonging to different infrastructure providers (section \ref{networkvirtualization}). As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process, also named inter-domain VNE \footnote{inter-domain is between multiple InPs and intra-domain is inside a single InP }, is descomposed in three main tasks \citep{chowdhury2010polyvine}:
+To deploy wide-area networks, service providers are willing to embed virtual resources across heteregeneous domains belonging to different infrastructure providers (Figure \ref{fig:multi}.a). As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process, also named inter-domain VNE \footnote{inter-domain is between multiple InPs and intra-domain is inside a single InP.}, is descomposed in three main tasks \citep{chowdhury2010polyvine}:
 
 \begin{itemize}
 	\item \textbf{VN request partitioning}: Divide the virtual network into groups of virtual nodes (subgraphs), such that virtual node and link requirements are satisfied, minimizing at the same time the cost of the virtual network setup.
@@ -302,11 +311,11 @@ Furthemore, in such scenarios exists two types of communication:
 	\item \textbf{Vertical communication} emerges from the negotiation between SPs and InPs, the former willing to lease some virtual resources from the latter. This communication is facilitated by a third party (VNP), an intermediary that forwards SPs request to the relevant InPs.
 \end{itemize}
 
-On the other hand, multi-provider VN embedding (Figure \ref{fig:multiprov}.a), performed by a service provider, a third-party or VNP (optional) and multiple InPs, consists of the allocation of virtual resources in a constrained and limited scenario. The main cause of this problem is that InPs are not willing to broadcast their resources information (e.g: nodes availability, cost) or their network topology to the outside world \citep{dietrich2015multi}. And if that was not enough, this information is crucial so that VNPs can perform the partitioning of resources, in order to obtain a fair negotiation between the SPs and InPs.
+One of the main challenges of inter-domain VNE, is that InPs are not willing to broadcast their resources information (e.g: nodes availability, cost) or their network topology to the outside world \citep{dietrich2015multi}. Thus, the virtual resources need to be allocated in a constrained and limited scenario (LID). And if that was not enough, this InP's data is crucial to perform the partitioning of resources, in order to obtain a fair negotiation between the SPs and InPs.
 
 \subsubsection{Centralized Slice Embedding}
 
-In \citep{dietrich2015multi}, a centralized VNE framework (with VNP) is implemented. There, the mentioned LID partitioning problem is approached accessing public information that is not considered confidential by the InPs:
+In \citep{dietrich2015multi}, a centralized VNE framework is implemented (Figure \ref{fig:multiprov}). There, the mentioned LID partitioning problem is approached through a VPN, who accesses public information that is not considered confidential by the InPs:
 
 \begin{itemize}
 	\item \textbf{Virtual resources availability}: In this case, virtual resources examples are obtained from Amazon EC2 \cite{amazonEC2}, which announces the attributes (CPU, memory, cost) of different instances types to give the user facility in choosing the virtual resource that better fits in its application.
@@ -314,42 +323,48 @@ In \citep{dietrich2015multi}, a centralized VNE framework (with VNP) is implemen
 \end{itemize}
 
 \begin{figure}
-	\includegraphics[width=1\linewidth]{gfx/multiprov.png}    
-  \caption{Virtual network embedding scenario. (a) Virtual network request across multiple InPs using a VN Provider. (b) VNP's view on the substrate network topologies. \citep{dietrich2015multi}}
+	\centering
+	\includegraphics[width=0.9\linewidth]{gfx/multiprov.png}    
+  \caption{(a) Virtual network request across multiple InPs using a VN Provider. (b) VNP's view on the substrate network topologies. \citep{dietrich2015multi}}
   \label{fig:multiprov}
 \end{figure}
 
-Furthermore, in \citep{dietrich2015multi}, the slice embedding is achieved by subsquently perfoming the following tasks: Firstly, the above-mentioned resource information is sent from the InPs to the VNPs, who registers and stores it. Secondly, the VNP matches the service provider request with this collected data. Finally, the corresponding partitioning and mapping algorithms are applied (not discussed in this paper). In addition, the results prove that this centralized VNE approach provides embedding costs not much higher than in an ideal case scenario (InPs announcing all required information) and a high ratio between the number of slices requested and later allocated. Despite the positive findings, this scenario suffers mainly from scalability, since everything relies on a single centralized authority: the virtual network provider. In addition, it assumes that InPs (if they do so) will be constantly advertising their updated data to the VNP, which can lead to undesired costs.
+Furthermore, in \citep{dietrich2015multi}, the slice embedding is achieved by subsequently perfoming the following tasks: Firstly, the above-mentioned resource information is sent from the InPs to the VNP, who registers and stores it. Secondly, the VNP matches the service provider request with this collected data. Thirdly, the corresponding partitioning and mapping algorithms are applied (not discussed in this paper). 
+
+In addition, the results prove that this centralized VNE approach provides embedding costs not much higher than in an ideal case scenario (InPs announcing all required information) and a high ratio between the number of slices requested and later allocated. Despite the positive findings, this scenario suffers mainly from scalability, since everything relies on a single centralized authority: the virtual network provider. In addition, it assumes that InPs (if they do so) will be constantly advertising their updated data to the VNP, which can lead to undesired costs.
 
 Therefore, other approaches where the actors benefit from a more scalable and distributed slice embedding need to be further investigated.
 
 \subsubsection{Distributed Slice Embedding}
 
-Many existing solutions \citep{houidi2011virtual}, \citep{dietrich2015multi}, \citep{dietrich2017multi} rely on a centralized party (VNP) that stores the InPs disclosed information and then performs the partition of the virtual network request. However, what if the SPs and InPs are not willing to trust a centralized broker? In that case, this central actor could be removed enabling a direct communication between SPs and InPs, which provides a better system scalability. Distributed network slice embedding has already been investigated: in \citep{esposito2013general}. 
+Many existing solutions \citep{houidi2011virtual}, \citep{dietrich2015multi}, \citep{dietrich2017multi} rely on a centralized party (VNP) that stores the InPs disclosed information and then performs the partition of the virtual network request. However, what if the SPs and InPs are not willing to trust a centralized broker? In that case, this central actor could be removed enabling a direct communication between SPs and InPs, which provides a better system scalability. Distributed network slice embedding has already been investigated:
 
 \begin{itemize}
-	\item In \citep{esposito2013general}, a \textbf{consensus-based auction for distributed slice embedding (CAD)} is proposed. In particular, the physical nodes, which are owned by a single or different InPs, bid on virtual nodes. This value is subsequently stored in a vector $b_i$, where $i$ is the physical node. Afterwards, once the bidding phase concludes, each physical node exchange the bids with its neighbors to reach an agreement for the auctioned virtual nodes. The mentioned bidding can be for a single slice (2 virtual nodes and 1 link) or on the entire slice (multiple virtual nodes and links). In the former, there is a limit on the number of biddable nodes, which although it has a great performance, it provokes multiple iterations (excessive time). Despite in a multi-provider VNE scenario, the latter is more suitable, the InPs willingness to disclose their internal information will hamper the performance. Hence, this approach provides better scalability (decentralization), but it is not proper for our scenario that suffers from LID.
-	\item \citep{chowdhury2010polyvine} As a result, existing embedding algorithms that assume complete knowledge of the substrate network are not applicable in this scenario. Each InP will have to embed a particular segment of the VN request without any knowl- edge of how the rest of the VN request has already been mapped or will be mapped.
-	\item \citep{zaheer2010multi} 
-\end{itemize}
+	\item In \citep{esposito2013general}, a \textbf{consensus-based auction for distributed slice embedding (CAD)} is proposed. In particular, the physical nodes, which are owned by a single or different InPs, bid on virtual nodes. This value is subsequently stored in a vector $b_i$, where $i$ is the physical node. Afterwards, once the bidding phase concludes, each physical node exchange the bids with its neighbors to reach an agreement for the auctioned virtual nodes. The mentioned bidding can be for a single slice (2 virtual nodes and 1 link) or on the entire slice (multiple virtual nodes and links). In the former, there is a limit on the number of biddable nodes, which although it has a great performance, it provokes multiple iterations (excessive time). Despite in a multi-provider VNE scenario, the latter is more suitable, the InPs willingness to disclose their internal information will hamper the performance. Hence, this approach provides better scalability (decentralization), but it is not proper for our scenario since it does not solve our LID problem.
+	\item In \citep{chowdhury2010polyvine}, a \textbf{policy-based inter-domain VN embedding framework (PolyViNE)} is presented. In PolyViNE, each InP embeds part of the VN request under its internal policies, while they cooperate with other InPs in a decentralized manner. In addition, forward decisions are location-based. For example, in Figure \ref{fig:multi} each virtual node (A,B,C,D), has a prefered geolocation. Then, the matched InPs will receive a notification for embedding the specific virtual node (e.g. InP3 with virtual node D). The whole process starts with the SP sending its VN request to multiple trusted InPs who reply back with the related embedding and its prices (bidding). Then, the SP will choose the most economical embedding. However, since there is no central broker, to ensure performance each SP must know $k^{SP} \geq 1$ InPs and each InP $k^{InP} \geq 1$ InPs. Also, most of the time a complete VN is not mappable by a single InP. In this case, the InP embeds its part and forwards the other to a known InP. Despite, PolyViNE introduces a decentralized approach dealing with LID and uses the interesting location-assisted embedding, it has some drawbacks that need to be covered. Firstly, each InP has an extra overhead in communicating the rest of the request when the VN is not fully mapped. Secondly, the bidding to provide a competitive market is a good idea, but in this scenario, the InPs can be publicly known by other InPs. Thus, a better bidding process preventing InPs from revealing its confidential data is needed. Finally, the requirement that SPs and InPs must know at least 1 InPs can lead to an application poor performance.
 	
-SUMMARY AND INTRODUCE AUCTION MODELS
-the pros and cons of different types of auctions will also be presented.
-which could be accomplished through a limited time auction.
+\item In \citep{zaheer2010multi}, an \textbf{automated service negotiation framework (V-Mart)} is implemented. The V-Mart is also decentralized and based on an auction mechanism, the Vickrey auction Model.
+Though this approach ensures a fair market, it does not guarantee performance. The VNE task can lead to a high-demanding task since it is a second-stage auction where all the InPs need to interact during the VN embedding. In addition, V-Mart does not solve the LID problem, since it does not enforce inter-domain policies, and the bids and the bidders are at the end known. This discloses information that InPs may prefer to keep as confidential. Also, it proposes that the sealed-bid is done by a trusted 3rd party, returning again to the centralization problem.
 
+\end{itemize}
+
+\begin{figure}[bth]
+	\centering
+	\includegraphics[width=0.6\linewidth]{gfx/multi.png}    
+  	\caption{Multi-provider virtual network embedding \citep{chowdhury2010polyvine}}
+  	\label{fig:multi}
+\end{figure}
+	
+All the above related work on decentralized VNE, uses a bidding mechanism to reach an agreement between the InPs. Therefore, in the next section we will further investigated the fair-price Vickrey auction model, through adapting it to our multi-domain VNE with LID.
 
 \subsubsection{Auction Models}
 
-Service negotation has already been examined in \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms. Auctions as a negotiation mechanism has been used in multiple use cases, such as in the public construction sector. In our context, the idea of using auctions for network slicing was also explored in V-Mart \citep{zaheer2010multi}. The V-Mart framework deploys an auction model where InPs submit their VN bids based on SPs requests. In particular, 
-V-Mart ensures a fair market but does not guarantee performance.
+Service negotation has already been examined in \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms.
+According to \ref{vickrey}, the Vickrey auction model is the most suitable for our VNE enviroment. In this case, our auction procedure will start with the SP requesting a virtual network (a graph of virtual nodes) along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service. Despite it can be seen as a fair system, how can the SP ensure that the InPs are offering prices proportional to the current market costs?
 
-Accordingly, a \textit{sealed one-side auction} is the one which best meets our system specifications, since the InPs do not want to disclose their network topology or nodes information. Our auction procedure will start with the SP requesting a virtual network (a graph of virtual nodes) along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service. Despite it can be seen as a fair system, how can the SP ensure that the InPs are offering prices proportional to the current market costs?
+It is important to note that in our scenario, similar to \citep{zaheer2010multi}, the \textbf{lowest auction} will win and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
 
-It is important to note that in our scenario the \textbf{lowest auction} will win and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
-
-Ultimately, after judging the preceding analysis along with the pros and cons of each auction type and model, the \textbf{\textit{second-price sealed-bid}} or simply the \textbf{\textit{Vickrey auction}} fulfills the application requirements, providing the highest aggregate profit among sellers and buyers.
-
-Study \citep{ausubel2006lovely} with equations and everything...
+Study \citep{ausubel2006lovely} with equations and everything?
 
 \section{Analysis of Related Work}
 
@@ -360,7 +375,7 @@ RELATED WORK TABLE
 \begin{table}[htbp]
 	\myfloatalign \footnotesize
 	\begin{tabularx}{\textwidth}{p{2cm}p{2cm}p{2cm}p{2cm}p{4cm}p{4cm}}
-		\textbf{Reference} & \textbf{Description} & \textbf{Architecture} & \textbf{System} & \textbf{Findings} & \textbf{Limitations}  \\ 
+		\textbf{Reference} & \textbf{Description} & \textbf{Structure} & \textbf{System} & \textbf{Findings} & \textbf{Limitations}  \\ 
 		\hline
 		\citep{dietrich2015multi}   &  ... & Centralized & Synchronous &  ... &  ... \\ 
 		\citep{esposito2013general}   &  ... &  ... &  ... &  ... &  ... \\ 
@@ -378,6 +393,8 @@ RELATED WORK TABLE
 PROBLEMS: 1. The participants of a SCM vary greatly across different supply
 chains and the same peers might take different roles across different supply chains. 2. This reasoning leaves us with the question whether all writers
 can be trusted. 
+
+which could be accomplished through a limited time auction.
 
 Thanks to the blockchain, more precisely to Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users. 
 

@@ -27,7 +27,7 @@
 \contentsline {subsection}{\numberline {3.2.1}Multi-Provider Virtual Network Embedding with Limited Information Disclosure}{15}{subsection.3.2.1}
 \contentsline {subsubsection}{Centralized Slice Embedding}{16}{subsubsection*.22}
 \contentsline {subsubsection}{Distributed Slice Embedding}{17}{subsubsection*.24}
-\contentsline {subsubsection}{Auction Models}{17}{subsubsection*.25}
+\contentsline {subsubsection}{Auction Models}{18}{subsubsection*.26}
 \contentsline {section}{\numberline {3.3}Analysis of Related Work}{18}{section.3.3}
 \contentsline {section}{\numberline {3.4}Summary}{19}{section.3.4}
 \contentsline {chapter}{\numberline {4}Design}{21}{chapter.4}

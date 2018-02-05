@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  5 FEB 2018 12:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  5 FEB 2018 19:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1746,67 +1746,73 @@ File: gfx/networkvir.png Graphic file (type png)
 Package pdftex.def Info: gfx/networkvir.png used on input line 207.
 (pdftex.def)             Requested size: 497.92325pt x 230.43834pt.
 
-[10] [11 <./gfx/networkvir.png>] [12]
+[10] [11 <./gfx/networkvir.png>]
+LaTeX Font Info:    Font shape `T1/5ch/b/it' in size <11> not available
+(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 239.
+ [12]
 chapter 3.
 [13
 
 
-] <gfx/supplyChain.png, id=426, 745.3446pt x 393.8715pt>
+] <gfx/supplyChain.png, id=427, 745.3446pt x 393.8715pt>
 File: gfx/supplyChain.png Graphic file (type png)
 
 <use gfx/supplyChain.png>
-Package pdftex.def Info: gfx/supplyChain.png used on input line 263.
-(pdftex.def)             Requested size: 497.92325pt x 263.12926pt.
+Package pdftex.def Info: gfx/supplyChain.png used on input line 270.
+(pdftex.def)             Requested size: 448.12788pt x 236.81754pt.
  [14 <./gfx/supplyChain.png>] [15]
-<gfx/multiprov.png, id=471, 659.5842pt x 359.9046pt>
+<gfx/multiprov.png, id=473, 659.5842pt x 359.9046pt>
 File: gfx/multiprov.png Graphic file (type png)
  <use gfx/multiprov.png>
-Package pdftex.def Info: gfx/multiprov.png used on input line 317.
-(pdftex.def)             Requested size: 497.92325pt x 271.7016pt.
+Package pdftex.def Info: gfx/multiprov.png used on input line 327.
+(pdftex.def)             Requested size: 448.12788pt x 244.52869pt.
 
-[16 <./gfx/multiprov.png>] [17]
-LaTeX Font Info:    Font shape `T1/5ch/b/it' in size <11> not available
-(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 350.
+[16 <./gfx/multiprov.png>] <gfx/multi.png, id=492, 319.4334pt x 244.0317pt>
+File: gfx/multi.png Graphic file (type png)
 
-Overfull \hbox (29.3208pt too wide) in alignment at lines 373--373
+<use gfx/multi.png>
+Package pdftex.def Info: gfx/multi.png used on input line 353.
+(pdftex.def)             Requested size: 298.75697pt x 228.25412pt.
+ [17]
+Overfull \hbox (29.3208pt too wide) in alignment at lines 388--388
 [][][][][][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 390--390
+[18 <./gfx/multi.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
 
  []
 
-[18] [19] [20
+[19] [20
 
 
 ]
 chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--406
+Underfull \hbox (badness 10000) in paragraph at lines 423--423
 
  []
 
 [21] [22]
 chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
+Underfull \hbox (badness 10000) in paragraph at lines 483--483
 
  []
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 466--466
+Underfull \hbox (badness 1515) in paragraph at lines 483--483
 \T1/5ch/m/n/11 This chap-ter should de-scribe the de-tails of the im-ple-men-ta
 -tion ad-dress-ing the fol-low-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
+Underfull \hbox (badness 10000) in paragraph at lines 483--483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 466--466
+Underfull \hbox (badness 10000) in paragraph at lines 483--483
 
  []
 
@@ -1819,17 +1825,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 466--466
 ]
 chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--488
+Underfull \hbox (badness 10000) in paragraph at lines 505--505
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--488
+Underfull \hbox (badness 10000) in paragraph at lines 505--505
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 488--488
+Underfull \hbox (badness 10000) in paragraph at lines 505--505
 
  []
 
@@ -1839,7 +1845,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 488--488
 ]
 chapter 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--507
+Underfull \hbox (badness 10000) in paragraph at lines 524--524
 
  []
 
@@ -1864,13 +1870,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 294.
  ) 
 Here is how much of TeX's memory you used:
- 16878 strings out of 494860
- 256460 string characters out of 6177601
- 421649 words of memory out of 5000000
- 19663 multiletter control sequences out of 15000+600000
+ 16886 strings out of 494860
+ 256577 string characters out of 6177601
+ 421770 words of memory out of 5000000
+ 19669 multiletter control sequences out of 15000+600000
  136720 words of font info for 121 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 59i,13n,100p,1674b,1151s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,13n,100p,1746b,1151s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}</usr/share/texmf/fonts/type1/sof
 tmake/charter/5chb8a.pfb></usr/share/texmf/fonts/type1/softmake/charter/5chb8a.
@@ -1886,10 +1892,10 @@ hare/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chrma.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/txfonts/t1xtt.pfb>
-Output written on tudkom_students__201711_v1.3.pdf (36 pages, 821600 bytes).
+Output written on tudkom_students__201711_v1.3.pdf (36 pages, 980090 bytes).
 PDF statistics:
- 660 PDF objects out of 1000 (max. 8388607)
- 572 compressed objects within 6 object streams
- 151 named destinations out of 1000 (max. 500000)
- 381 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 665 PDF objects out of 1000 (max. 8388607)
+ 575 compressed objects within 6 object streams
+ 152 named destinations out of 1000 (max. 500000)
+ 386 words of extra memory for PDF output out of 10000 (max. 10000000)
 
