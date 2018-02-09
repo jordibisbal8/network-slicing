@@ -10,7 +10,7 @@
 \contentsline {section}{\numberline {2.1}Blockchain: A decentralized and distributed trustless ledger}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Blockchain 1.0: Cryptocurrencies}{6}{subsection.2.1.1}
 \contentsline {subsubsection}{Bitcoin}{6}{subsubsection*.11}
-\contentsline {paragraph}{Mining}{6}{paragraph*.12}
+\contentsline {paragraph}{Mining and Transactions}{6}{paragraph*.12}
 \contentsline {paragraph}{Key management}{7}{paragraph*.14}
 \contentsline {subsection}{\numberline {2.1.2}Blockchain 2.0: Smart contracts}{8}{subsection.2.1.2}
 \contentsline {subsubsection}{Ethereum}{8}{subsubsection*.16}

@@ -138,6 +138,12 @@ Elth Ogston and Stamatis Vassiliadis.
 \newblock In {\em Proceedings of the first international joint conference on
   Autonomous agents and multiagent systems: part 1}, pages 151--159. ACM, 2002.
 
+\bibitem[Ros17]{proofOfStake}
+Ameer Rosic.
+\newblock What is ethereum casper protocol? crash course.
+\newblock \url{https://blockgeeks.com/guides/ethereum-casper/}, November 2017.
+\newblock Accessed: 2018-02-09.
+
 \bibitem[Shi14]{BitcoinKey2018}
 Ken Shirriff.
 \newblock Bitcoins the hard way: Using the raw bitcoin protocol, February 2014.

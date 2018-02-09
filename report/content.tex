@@ -15,14 +15,14 @@ The revolution started in 2008, with a whitepaper publication by Satoshi Nakamot
 
 In 2009, a deployed software version based on the paper was launched. Bitcoin uses an alternative virtual currency, to make trusted transactions between different peers. This system relies on a kind of distributed database allocated on the Internet, the blockchain. Blockchain uses a peer-to-peer architecture model combined with secure algorithms, such as public key cryptography, which intentionally removes the presence of middle-parties or intermediaries. Thus, in the case of Bitcoin, it eliminates the agent responsible for transactions: central banks.
 
-At the beginning, the blockchain architecture was restricted to only one application: online payments. However, after observing its advantages and possible use cases, an improvement of Bitcoin emerged: Ethereum \footnote{\url{https://www.ethereum.org/}}. By contrast, Ethereum extends the power of decentralized transactions with a Turing-complete contract system. A Turing-complete system can perform any computation, with just writing a few lines of code, in order to create Ethereum scripts: smart contracts. A smart contract can be generated with non-restrictive and user-friendly programming languages, allowing developers to easily learn and benefit from them. Therefore, it brings to the user the opportunity to develop their own applications. Smart contracts are used to implement decentralized apps, which unlike normal web apps, they may not be allocated in a central server. In other words, they use blockchain technology to retrieve and store data instead of a database.
+At the beginning, the blockchain architecture was restricted to only one application: online payments. However, after observing its advantages and possible use cases, an improvement of Bitcoin emerged: Ethereum\footnote{\url{https://www.ethereum.org/}}. By contrast, Ethereum extends the power of decentralized transactions with a Turing-complete contract system. A Turing-complete system can perform any computation, with just writing a few lines of code, in order to create Ethereum scripts: smart contracts. A smart contract can be generated with non-restrictive and user-friendly programming languages, allowing developers to easily learn and benefit from them. Therefore, it brings to the user the opportunity to develop their own applications. Smart contracts are used to implement decentralized apps, which unlike normal web apps, they may not be allocated in a central server. In other words, they use blockchain technology to retrieve and store data instead of a database.
 
 
 \section{Motivation}
 
 Nowadays, blockchain is becoming a trending topic in the business world. Thousands of articles, research papers and books, such as: How the technology behind bitcoin is changing money, business and the world \cite{tapscott2016blockchain} or Blockchain: Blue print for a new economy \cite{swan2015blockchain}, are catching the public eye. Nevertheless, as it is an emerging technology, a necessity to look towards new horizons exists. Through the use of the above mentioned Ethereum smart contracts new possibilities to approach existing problems are opened up. Hence, blockchain technology can be used in many applications beyond currency.
 
-Many scenarios are currently investigated from a blockchain perspective, e.g: candidate's voting or asset tracking \cite{abeyratne2016blockchain}. In the former, voters send signed and encrypted ballots to the blockchain contract, who immediately verifies them. Simultaneously, it also preserves confidentiality, since the ballot can only be emitted from its owner. In the latter, each physical asset could be encoded in the blockchain enabling a fast and transparent tracking. For example, Everledger \footnote{\url{https://www.everledger.ioafa}}, a startup company from London, tracks diamonds storing each diamond's digital identity on the BC. Thus, diamond theft could be effectively prevented.
+Many scenarios are currently investigated from a blockchain perspective, e.g: candidate's voting or asset tracking \cite{abeyratne2016blockchain}. In the former, voters send signed and encrypted ballots to the blockchain contract, who immediately verifies them. Simultaneously, it also preserves confidentiality, since the ballot can only be emitted from its owner. In the latter, each physical asset could be encoded in the blockchain enabling a fast and transparent tracking. For example, Everledger\footnote{\url{https://www.everledger.ioafa}}, a startup company from London, tracks diamonds storing each diamond's digital identity on the BC. Thus, diamond theft could be effectively prevented.
 
 After investigating the implementation of blockchain in real scenarios, one top-level application is clear: it can be used as a software connector. Blockchain contributes to face security, storage's problem, communication and coordination between users. In this paper, we will focus on enterprises or organizations, suffering from such problem, referenced from now on as supply chain challenges.
 
@@ -63,29 +63,30 @@ A blockchain is a decentralized distributed ledger, which stores the entire hist
   	\label{fig:CentralizedvsDecentralized}
 \end{figure}
 
-At the beginning, the terms Bitcoin and blockchain were sometimes interchanged, as these words were used to refer: (i) the technology, (ii) the protocol for making transactions and (iii) the cryptocurrency (money). Therefore, before continuing, one statement that needs to be clear: Bitcoin is a cryptocurrency that uses the blockchain technology. Hence, Bitcoin is just one of the multiple applications that use blockchain. 
+At the beginning, the terms Bitcoin and blockchain were sometimes interchanged, as these words were used to refer: (i) the technology, (ii) the protocol for making transactions and (iii) the cryptocurrency (money). Therefore, before continuing, one statement needs to be clear: Bitcoin is a cryptocurrency that uses the blockchain technology. Hence, Bitcoin is just one of the multiple applications that use blockchain. 
 
 However, when a new technology appears, the first user's goal is normally to exploit its economic potential. For this reason, money transaction through cryptocurrencies was its first application. In the next subsection, we will understand what cryptocurrencies are, followed by an explanation of the Bitcoin's design architecture.
 
 \subsection{Blockchain 1.0: Cryptocurrencies}
 
-At of the end of January 2018, Coinmarketcap\footnote{https://coinmarketcap.com/}, a cryptocurrency market tracker, lists more than 1,400 cryptocurrencies with an aggregate value approaching USD 700bn.  But what are cryptocurrencies? Cryptocurrencies are a variety of digital currencies pretending to work as a medium of exchange, such as Euro or USD does. As the name suggests, apart from being a virtual currency, they use cryptography to secure and verify its transactions. The main difference with traditional currencies is that they do not have any physical equivalent in the real world. Nevertheless, they can be used to pay goods and service, with the advantage of not being constrained with geographical or political borders. For example, GMO Internet\footnote{https://www.gmo.jp/en/}, a Japanese company, will start paying parts of employees salaries in cryptocurrencies (Bitcoin).
+At of the end of January 2018, Coinmarketcap\footnote{https://coinmarketcap.com/}, a cryptocurrency market tracker, lists more than 1,400 cryptocurrencies with an aggregate value approaching USD 700bn. But what are cryptocurrencies? Cryptocurrencies are a variety of digital currencies pretending to work as a medium of exchange, such as Euro or USD does. As the name suggests, apart from being a virtual currency, they use cryptography to secure and verify its transactions. The main difference with traditional currencies is that they do not have any physical equivalent in the real world. Nevertheless, they can be used to pay goods and service, with the advantage of not being constrained with geographical or political borders. For example, GMO Internet\footnote{https://www.gmo.jp/en/}, a Japanese company, will start paying parts of employees salaries in cryptocurrencies (Bitcoin).
 
 In this paper, we will set aside whether they can become true currencies or not, and also its political, social or economic impact. The only focus will be the technology behind it, as blockchain can be extended to much more than digital currencies. Thus, we will start from the genesis of the technology, with Bitcoin as its revolutionary innovator.
 
 
 \subsubsection{Bitcoin}
 
-Bitcoin took the world by surprise in 2008, after Satoshi Nakotomo's white paper publication \cite{nakamoto2008bitcoin} and later its software release. Bitcoin is a cryptocurrency used for making secure transactions across a peer-to-peer (P2P) network. In addition, Bitcoin uses its own protocol that operates in an overlay network, the blockchain. An overlay network is a computer network build in the top of another network, in this case above Internet application's layer, which is controlled by its users (no central authority).
+Bitcoin took the world by surprise in 2008, after Satoshi Nakotomo's white paper publication \cite{nakamoto2008bitcoin} and later its software release. Bitcoin (BTC) is a cryptocurrency used for making secure transactions across a peer-to-peer (P2P) network. In addition, Bitcoin uses its own protocol that operates in an overlay network, the blockchain. An overlay network is a computer network build in the top of another network, in this case above Internet application's layer, which is controlled by its users (no central authority).
 
-From another point of view, the Bitcoin ledger can be interpreted as a state transition system, where there is an initial state, which after a transition function (money transfer), results in a new state. Imagine an where A wants to send X to B. The first state is A and B current balance and the transition function will take X from A and insert it to B's account, generating a new state. But what happens if A sends exactly the same payment to two different addresses (B and C) at the same time? This scenario is the so-called \textit{double spending attack} and consequently, a transaction always needs to be verified by miners before being confirmed (unconfirmed transaction). Miners are specific blockchain users, responsible for monitoring and verifying all the transactions between users. If they are the first solvers, as it requires a high computational work, they are also economically rewarded. Additionally, if any transaction has a positive balance at the end, it is also destinated to the miner.
+From another point of view, the Bitcoin ledger can be interpreted as a state transition system, where there is an initial state, which after a transition function (money transfer), results in a new state. Imagine an scenario where user A wants to send 10 BTC to user B. The first state is A and B current balance and the transition function will take 10 BTC from A and insert it to B's account, generating a new state. But what happens if A sends exactly the same payment to two different addresses (B and C) at the same time? This scenario is the so-called \textit{double spending attack} and consequently, a transaction always needs to be verified by miners before being confirmed. 
 
-And how all these miners cooperate efficiently? The answer to this question is one of the most remarkable Satoshi innovation key factors, which consists of the communication between nodes through a simple decentralized consensus protocol. This consensus protocol consists of multiple algorithms (e.g. Proof of Work), used by the miners in the Bitcoin network.
+\paragraph{Mining and Transactions}
 
-\paragraph{Mining}
+Miners are specific blockchain users, responsible for monitoring and verifying all the transactions between users. And how all these miners cooperate efficiently? The answer to this question is one of the most remarkable Satoshi innovation key factors, which consists of the communication between nodes through a simple decentralized consensus protocol. This consensus protocol consists of multiple algorithms (e.g. Proof of Work), used by the miners in the Bitcoin network.
 
-Bitcoin needs to combine the state transition system with a consensus protocol, in order to synchronize the order of all transactions among the users. 
-New transactions are stored in the last block of the blockchain, and a new block is mined every ten minutes. Over time, this creates an ever-growing chain of blocks, which are constantly updated. Thus the name: blockchain. Additionally, a complete history of the transactions is kept, so everyone can verify the last money movements. For instance, a blockchain can be compared to an endless domino game, where all the pieces are placed in vertical one after the other. Each of these pieces references a block, and if one block is removed (e.g. transaction error), all the subsequent ones will be affected. Therefore, miner's task is not simple and requires computational power. Figure \ref{fig:Blockchain mining} shows how transactions are bundle into blocks, where each block contains a:
+Therefore, Bitcoin needs to combine the state transition system with a consensus protocol, in order to synchronize the order of all transactions among the users. There, new transactions are stored in the last block of the blockchain, and a new block is mined every ten minutes. Over time, this creates an ever-growing chain of blocks, which are constantly updated. Thus the name: blockchain. Additionally, a complete history of the transactions is kept, so everyone can verify the last money movements. For instance, a blockchain can be compared to an endless domino game, where all the pieces are placed in vertical one after the other. Each of these pieces references a block, and if one block is removed (e.g. transaction error), all the subsequent ones will be affected. Hence, as miner's task is not simple and requires computational power, if they are the first block solvers, they are also economically rewarded. Additionally, if any transaction has a positive balance at the end, it is also destinated to the miner.
+
+Figure \ref{fig:Blockchain mining} shows how transactions are bundle into blocks, where each block contains a:
 
 \begin{figure}[t]
   	\includegraphics[width=1\linewidth]{gfx/mining}    
@@ -98,10 +99,10 @@ New transactions are stored in the last block of the blockchain, and a new block
 	\item Timestamp, to identify when the event occurs.
 	\item Nonce used to avoid malicious nodes from flooding the blockchain.
 	\item Hash of its previous block, to keep track of already added blocks. 
-	\item A list of all the transactions that have been created since the previous block. To save storage, this transaction list is typically stored in a a Merkle root \citep{merkle1987digital}.
+	\item A list of all the transactions that have been created since the previous block. To save storage, this transaction list is typically stored in a a Merkle tree \citep{merkle1987digital}.
 \end{itemize}
 
-Furthermore, each block and transaction is restricted to a size of 1MB and 250-300bytes respectively, and for a block being valid it needs to satisfy the following requirements:
+Furthermore, in Bitcoin, each block and transaction is restricted to a size of 1MB and 250-300bytes respectively, and for a block being valid it needs to satisfy the following requirements:
 
 \begin{itemize}
 	
@@ -112,13 +113,13 @@ Furthermore, each block and transaction is restricted to a size of 1MB and 250-3
 	\item If all previous steps confirmed, store state at the end of the block and return true.
 \end{itemize}  
 
-In the third step of the block validation process, appears the term Proof-of-work. Bitcoin uses the Hashcash proof of work algorithm to prove that a block miner spent some computational time creating a block. More precisely, Bitcoin protocol demands that miners find an input, which is a valid $block \, header$ formed by a random value ($c$) and nonce ($x$), whose cryptographic hash (e.g $SHA256$) is less than a determined value. This value is obtained from $d$, the blockchain difficulty. Then, the only way to create a valid block is simply trial and error until a valid Proof-of-Work is generated. Proof-of-work is also used in other contexts, such as for limiting email spam or denial-of-service attacks (DoS).
+In the third step of the block validation process, appears the term \textit{Proof-of-work}. Bitcoin uses the Hashcash proof of work algorithm to prove that a block miner spent some computational time creating a block. More precisely, Bitcoin protocol demands that miners find an input, which is a valid $block \, header$ formed by a random value ($c$) and nonce ($x$), whose cryptographic hash (e.g $SHA256$) is less than a determined value. This value is obtained from $d$, the blockchain difficulty. Then, the only way to create a valid block is simply trial and error until a valid Proof-of-Work is generated. Proof-of-work is also used in other contexts, such as for limiting email spam or denial-of-service attacks (DoS).
 
 $$ F_d( \, block \, header \,) = F_d( \,c,x \,) = SHA256( \, SHA256( \, c|x \,) \,)\, < \frac{2^{224}}{d}$$
 
 \paragraph{Key management}
 
-In Bitcoin, each user is identified by a single public address. However, how is this Bitcoin public address generated? This process involves the following steps:
+In Bitcoin, each user is identified by a single public address. However, how is this Bitcoin address generated? This process involves the following steps:
 
 \begin{enumerate}
 	
@@ -136,7 +137,7 @@ In Bitcoin, each user is identified by a single public address. However, how is 
   \label{fig:EthereumAccounts}
 \end{figure}
 
-After that, users are able to send transactions using Bitcoin. For example, imagine that user A wants to send 2 BTC to user B. Firstly, the user creates a transaction willing to transfer 2 BTC to user address B. Secondly, he signs the transaction with his private key, attaching also his public key, and sends it to the blockchain. There, miners will verify the signature using A's public key and also that its hash matches user A address. If both, the signature and the hash, are correct, the transaction is accepted and added to the next block. Transactions examples can be found in \footnote{\url{https://blockexplorer.com/}}.
+After that, users are able to send transactions using Bitcoin. For example, imagine the last example where user A wants to send 10 BTC to user B. Firstly, the user creates a transaction willing to transfer 10 BTC to user address B. Secondly, he signs the transaction with his private key, attaching also his public key, and sends it to the blockchain. There, miners will verify the signature using A's public key and also that its hash matches user A address. If both, the signature and the hash, are correct, the transaction is accepted and added to the next block. Transactions examples can be found in Block Explorer\footnote{\url{https://blockexplorer.com/}}.
 
 \subsection{Blockchain 2.0: Smart contracts}
 
@@ -144,27 +145,30 @@ The Blockchain 1.0 had numerous limitations since essentially it only approaches
 
 \subsubsection{Ethereum}
 
-In 2013 Vitalik Buterin, a Russian-Canadian programmer released the Ethereum white paper \cite{buterin2014next}, where he describes an alternative platform running in a blockchain that allows building any kind of decentralized application. In 2014 Ethereum started as a crowdfunding project, which collects small amounts of money from a large number of users.  Ethereum is currently a running project and the second most valuable cryptocurrency.
+In 2013 Vitalik Buterin, a Russian-Canadian programmer released the Ethereum white paper \cite{buterin2014next}, where he describes an alternative platform running in a blockchain that allows building any kind of decentralized application. In 2014, Ethereum started as a crowdfunding project, which collects small amounts of money from a large number of users. Currently, Ethereum is a running project and the second most valuable cryptocurrency.
 
 Furthermore, it is built on a Turing-complete contract system. As previously explained, a Turing-complete system allows the developer to perform any computation, which runs on the so-called \textbf{smart contracts}. These smarts contracts are executed by the Ethereum nodes, each using its Ethereum Virtual Machine (EVM), or in other words, a blockchain with a built-in programming language.
 
-In the end, smart contracts are basically Ethereum scripts that whenever they are executed, runs the function programmed inside of it. A smart contract can also be seen as the logic inside a vending machine. For instance, a buyer wants a Coke bottle that costs 2 \euro.. Once this buyer inserts 2 \euro and presses the button, a small program (contract) runs inside the vending machine and supplies the user with its Coke. This function can be seen as a smart contract, being for example:
+In the end, smart contracts are basically Ethereum scripts that whenever they are called, the function programmed inside of it is executed. A smart contract can also be seen as the logic inside a vending machine. For instance, a buyer wants a Coke bottle that costs 2 \euro.. Once this buyer inserts 2 \euro and presses the button, a small program (contract) runs inside the vending machine and supplies the user with its Coke. This function, in the smart contract context can be seen as:
 \newline
 \begin{lstlisting}
  if (button_pressed == 'Coke' && rcv_money == '2')
  	return coke
 \end{lstlisting}
 
-Therefore, smart contracts allow anyone to write their own functions, in just a few lines of code. Despite Bitcoin and Ethereum have similar features, such as decentralization or transaction-based, Ethereum makes use of smart contracts, which potentially opens up real-world use cases. Bitcoin and Ethereum can be comparable to a calculator (one application) and a smartphone (multiple applications) respectively. In addition to the differences already mentioned (and many more), there are three that need to be highlighted:
+Therefore, smart contracts allow anyone to write their own functions, in just a few lines of code. Despite Bitcoin and Ethereum have similar features, such as decentralization or transaction-based, Ethereum makes use of smart contracts, which potentially opens up real-world use cases. Bitcoin and Ethereum can be comparable to a calculator (one application) and a smartphone (multiple applications) respectively. In addition to the already mentioned, there are several differences that need to be highlighted:
 
 \begin{itemize}
 	
-	\item Ethereum's block time is shorter, specifically around 14s. Remember that Bitcoins mining time was around 10 minutes.
-	\item Bitcoin's blocks and transaction sizes are indicated in bytes, however, in Ethereum depends on the contract complexity. 
+	\item Ethereum's block time is shorter, specifically around 14s. Remember that Bitcoins mining time was around 10 minutes. Hence, as a consequence, Ethereum needs to handle extremely large amounts of transactions in seconds, which means that the network can easily get stuck with different subchains. To solve this scalability issues, Casper, a new consensus strategy has been recently deployed \cite{proofOfStake}.
+
+	\item Bitcoin's blocks and transaction sizes are indicated in bytes, however, in Ethereum, it depends on the contract complexity. This complexity is expressed in terms of gas, which is the amount of ether \footnote{ether or ETH is the digital currency used by Ethereum}, used for executing contracts in the Ethereum blockchain. 
+	\item Ethereum moves from the Proof-of-Work to the Proof-of-Stake (PoS) concept. In contrast to PoW, where the miners that first solve a mathematical problem are rewarded, in PoS, the block's creator is selected in a deterministic way (wealth depending or stake). Also, a miner does not receive a block reward, but instead he earns all gas used for executing the smart contract.
+	\item Ethereum transactions compared to the mentioned Bitcoin fields consists of (i) the transaction value in Ether, (ii) recipient address, (iii) data arguments and (iv) execution cost.
 	\item Ethereum is account-based and not transaction-based.
 \end{itemize}
 
-Therefore, Ethereum introduces a new concept called accounts, which are unique 20-byte addresses in the blockchain. Each of these accounts has an account balance controlled by ethers (ETHs), the digital currency used by Ethereum. In Ethereum, there are two types of accounts (Figure \ref{fig:EthereumAccounts}):
+In the last point, we observe that Ethereum introduces a new concept called accounts. These accounts are unique 20-byte addresses in the blockchain, each of them having a balance controlled by ethers (ETHs). In Ethereum, there are two types of accounts (Figure \ref{fig:EthereumAccounts}):
 
 \begin{itemize}
 	
@@ -179,11 +183,12 @@ Therefore, Ethereum introduces a new concept called accounts, which are unique 2
   \label{fig:EthereumAccounts}
 \end{figure}
 
-However, what happens if a code results in an infinite loop? The node will get stuck the whole time executing this contract. Solution: Ethereum uses the term "gas". Gas is an amount of ether used for executing contracts in the Ethereum blockchain. For example, if an EOA calls a contract account, which is programmed to make a money transfer to another EOA, apart from the ether transferred, it will also spend an additional amount of ether (gas). Thus, the ether used for a transaction, or transaction fee is:
+However, what happens if this contract code results in an infinite loop? The node will get stuck the whole time executing this contract. Thus, Ethereum uses the above-mentioned term: gas. For example, suppose an EOA calling a contract account for money transfer. Apart from the ether transferred, it will also spend an additional amount of ether (gas). Thus, the ether used for a transaction, or transaction fee is:
 
-$$Ether = gas price \times gas limit + value$$
+$$Transaction\ fee = gas price \times gas limit + value - unused gas$$
 
-Firstly, the gas limit is the maximum amount of gas that a sender is willing to spend on a transaction. Fortunately, all unused gas during a transaction (gas limit - real gas used), is refunded to the sender. Nevertheless, if a transaction gives an error, e.g: a fake transaction, this provided ether (gas limit) will never be refunded. Secondly, the gas price is its relation with real Ether, e.g: 40 Gwei (4e-8 ether). Thirdly, the value is the amount of ether transferred to the other EOA.
+Firstly, the $gas limit$ is the maximum amount of gas that a sender is willing to spend on a transaction. By default 21000 is the minimum gas limit for all
+transactions. Fortunately, all $unused gas$ during a transaction ($gas limit - real gas used$), is refunded to the sender. Nevertheless, if a transaction gives an error, e.g: a fake transaction, this provided ether (gas limit) will never be refunded. Secondly, the $gas price$ is its relation with real Ether, e.g: 40 Gwei (4e-8 ether). Thirdly, the $value$ is the amount of ether transferred to the other EOA.
 
 In conclusion, a smart contact is just an account containing code, which lives on the blockchain and allows developers to create their own decentralized applications. 
 
@@ -296,7 +301,7 @@ Each of these studies proposes new interesting features compared to the prior re
 
 \subsection{Multi-Provider Virtual Network Embedding with Limited Information Disclosure}
 
-To deploy wide-area networks, service providers are willing to embed virtual resources across heteregeneous domains belonging to different infrastructure providers (Figure \ref{fig:multi}.a). As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process, also named inter-domain VNE \footnote{inter-domain is between multiple InPs and intra-domain is inside a single InP.}, is descomposed in three main tasks \citep{chowdhury2010polyvine}:
+To deploy wide-area networks, service providers are willing to embed virtual resources across heteregeneous domains belonging to different infrastructure providers (Figure \ref{fig:multi}.a). As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process, also named inter-domain VNE\footnote{inter-domain is between multiple InPs and intra-domain is inside a single InP.}, is descomposed in three main tasks \citep{chowdhury2010polyvine}:
 
 \begin{itemize}
 	\item \textbf{VN request partitioning}: Divide the virtual network into groups of virtual nodes (subgraphs), such that virtual node and link requirements are satisfied, minimizing at the same time the cost of the virtual network setup.
@@ -359,13 +364,14 @@ All the above related work on decentralized VNE, uses a bidding mechanism to rea
 
 \subsubsection{Auction Models}
 
+UNTIL HERE!
 Service negotation has already been examined in \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms.
 According to \ref{vickrey}, the Vickrey auction model is the most suitable for our VNE enviroment. In this case, our auction procedure will start with the SP requesting a virtual network (a graph of virtual nodes) along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service. Despite it can be seen as a fair system, how can the SP ensure that the InPs are offering prices proportional to the current market costs?
 
 It is important to note that in our scenario, similar to \citep{zaheer2010multi}, the \textbf{lowest auction} will win and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
 
 Study \citep{ausubel2006lovely} with equations and everything?
-
+Explain that an auction could use a multi-dimensional process (more parameters).
 \section{Analysis of Related Work}
 
 BLOCKCHAIN VS CENTRALIZED DATABASE GRAPH.

@@ -6,45 +6,45 @@ Database file #1: bibliography.bib
 Warning--to sort, need author or key in amazonEC2
 Warning--empty journal in abeyratne2016blockchain
 Warning--empty journal in mainelli2015sharing
-You've used 33 entries,
+You've used 34 entries,
             2543 wiz_defined-function locations,
-            751 strings with 9871 characters,
-and the built_in function-call counts, 13868 in all, are:
-= -- 1434
-> -- 605
-< -- 22
-+ -- 211
-- -- 204
-* -- 943
-:= -- 2191
-add.period$ -- 109
-call.type$ -- 33
-change.case$ -- 200
-chr.to.int$ -- 33
-cite$ -- 37
-duplicate$ -- 576
-empty$ -- 1045
-format.name$ -- 243
-if$ -- 2921
+            758 strings with 10035 characters,
+and the built_in function-call counts, 14146 in all, are:
+= -- 1462
+> -- 613
+< -- 23
++ -- 213
+- -- 206
+* -- 956
+:= -- 2235
+add.period$ -- 113
+call.type$ -- 34
+change.case$ -- 205
+chr.to.int$ -- 34
+cite$ -- 38
+duplicate$ -- 587
+empty$ -- 1070
+format.name$ -- 247
+if$ -- 2980
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 31
-newline$ -- 168
-num.names$ -- 96
-pop$ -- 222
+newline$ -- 174
+num.names$ -- 99
+pop$ -- 231
 preamble$ -- 1
-purify$ -- 235
+purify$ -- 241
 quote$ -- 0
-skip$ -- 493
+skip$ -- 503
 stack$ -- 0
-substring$ -- 790
-swap$ -- 129
-text.length$ -- 22
-text.prefix$ -- 10
+substring$ -- 797
+swap$ -- 130
+text.length$ -- 23
+text.prefix$ -- 11
 top$ -- 0
-type$ -- 256
+type$ -- 264
 warning$ -- 3
-while$ -- 140
-width$ -- 34
-write$ -- 430
+while$ -- 142
+width$ -- 35
+write$ -- 444
 (There were 3 warnings)
