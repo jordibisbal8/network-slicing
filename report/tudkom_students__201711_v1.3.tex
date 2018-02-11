@@ -123,8 +123,12 @@ captionpos=b
 % Package loading for example contents (content.tex)
 %======================================================
 \usepackage{tabularx} % better tables
+\usepackage{multirow}
+\usepackage{xparse}
+\NewDocumentCommand{\rot}{O{45} O{1em} m}{\makebox[#2][l]{\rotatebox{#1}{#3}}}
 \setlength{\extrarowheight}{3pt} % increase table row height
 \usepackage{booktabs}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
 \usepackage{caption}
 \captionsetup{format=hang,font=small}
 \usepackage[square,numbers]{natbib}
@@ -132,6 +136,9 @@ captionpos=b
 \usepackage[stable,bottom]{footmisc}
 \usepackage{framed}
 \usepackage{color}
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 
 %======================================================
 % Flags

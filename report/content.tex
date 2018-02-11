@@ -241,18 +241,18 @@ Many types of auction models exist, such as the English or Dutch auctions \cite{
 
 However, the second-price concept needs to be thoroughly investigated as long as a bidder can submit multiple bids. Imagine an scenario, where a single bidder A submits two bids: \{1 \euro,9 \euro\} for a service with a real cost 5 \euro. In this case, this buyer will end up paying 1 for the service. Therefore, the second-price auction model needs always to be compared between bidders and not between bids. Suppose the last example, with a second bidder B submitting \{5 \euro, 6 \euro\}. At the end user A, will win the bid but paying 6 \euro, risking that if he would have been the only user bidding, he would have payed 9 \euro.
 
-Ultimately, after judging the preceding analysis of each auction type and model, the \textbf{\textit{second-price sealed-bid}} or simply the \textbf{\textit{Vickrey auction}} fulfills the network virtualization requirements, providing the highest aggregate profit among sellers and buyers.
+Ultimately, after judging the preceding analysis of each auction type and model, the \textbf{\textit{second-price sealed-bid}} or simply the \textbf{\textit{Vickrey auction}} fulfills the network virtualization requirements, providing confidentiality and the highest aggregate profit among sellers and buyers.
 
 \section{Summary}
 
-The blockchain is a transparent, secure and robust system where users are in charge of their own accounts and transactions. Beyond money transfer, which starting with Bitcoin, the blockchain technology can be used as a software connector in multiple scenarios. Due to smart contracts, any kind of application could be implemented, enabling developers using the BC concept in their own environment. In the next chapters, the already presented network virtualization scenario, will be further investigated.
+The blockchain is a transparent, secure and robust system where users are in charge of their own accounts and transactions. Beyond money transfer, which starts with Bitcoin, the blockchain technology can be used as a software connector in multiple scenarios. Due to smart contracts, any kind of application could be implemented, enabling developers using the BC concept in their own environment. In the next chapters, the already presented network virtualization scenario will be further investigated.
 
 %*****************************************
 \chapter{Related Work}
 \label{ch:relatedwork}
 %*****************************************
 
-In the following, we describe some of the current challenges in supply chain management (SCM), exemplified by a blockchain application in manufacturing, to demonstrate how this technology could improve SCM efficiency. Henceforth, we focus on a particular supply chain management example: virtual network embedding across multiple InPs. A comprehensive overview of related work on already implemented centralized and decentralized frameworks will be presented. Finally, we will first analyze in which use cases blockchain is more suitable than a centralized database, and secondly, we will argue why blockchain could solve and improve the prior VNE related work.
+In the following, we explore some of the noted challenges that organizations encounter during their supply chain management (SCM) process, and how they currently approach these issues. Then, we will introduce a recent application in manufacturing, to demonstrate how blockchain could improve SCM efficiency. Henceforth, we focus on a particular supply chain management example: virtual network embedding across multiple InPs. A comprehensive overview of related work on already implemented centralized and decentralized frameworks will be presented. Finally, we will first enumerate the main blockchain benefits observed from the SCM manufacturing application, and secondly, we will analyze the pros and cons of the existing VNE related work, in order to observe the main problems and limitations that need to be addressed in our thesis.
 
 \section{Blockchain in Supply Chain Management}
 
@@ -262,9 +262,9 @@ Typically, companies approach the problem: (i) storing and maintaining its data 
 
 Apart from the supply chain, \citep{heikkila2002supply} states another relationship between suppliers and customers, the Demand Chain Management (DCM), where we predict that blockchain could also play a significant role. In a DCM, the aim is to provide a customer service at the least cost. Hence, the suppliers need a real-time visibility of customer situations and needs. The main difference is that in SCM, the stakeholders wait to receive the order for proceeding with a product (push), whereas in DCM the suppliers observe and immediately operate in user's petition (pull) \citep{wust2017you}. Currently, companies such as Everledger or Skuchain\footnote{\url{http://www.skuchain.com/}}, offer blockchain services to manage and improve the supply chain performance.
  
-In the following section, a blockchain application for a manufacturing supply chain system will be presented. Afterwards, we will enumerate the main blockchain benefits observed.
+In the following section, a blockchain application for a manufacturing supply chain system will be presented.
 
-\subsection{Blockchain Ready Manufacturing Supply Chain}
+\subsection{Blockchain Ready Manufacturing Supply Chain} \label{manufacturing}
 
 In this part, a blockchain example \citep{abeyratne2016blockchain}, which stores and distributes specific product information during its lifecycle, will be discussed. This task also named product lifecycle management (PLM \citep{stark2015product}), involves different stages in which multiple parties modify the product data. Figure \ref{fig:supplyChain}.a shows the typical stages on this cycle. In this scenario, each actor interacts with a user interface, which is connected to the product's data from the blockchain. Each product is created in form of rules (smart contract) so that only specific users can access or modify this information. To access or insert data into the contract, parties must authenticate themselves signing the request with their private keys. During the lifecycle management, a product is owned by an entity (e.g. distributors). Moreover, when a product goes to another actor (e.g. from distributors to a consumer), both parties will sign a contract that updates product's ownership. Thus, the system guarantees that only the granted user can modify the contract in each phase.
 
@@ -277,22 +277,6 @@ In \citep{abeyratne2016blockchain}, an example is also presented to better expla
   \label{fig:supplyChain}
 \end{figure}
 
-\subsection{Blockchain benefits}
-
-Through relevant examples in supply chain management, as the above presented, we can observe the extraordinary potential of blockchain in areas, where entities are not willing to trust a third party. Despite the last paper does not include detailed specifications, such as the blockchain's type or mining strategy, a useful system design has been provided, which help us in defining our possible architecture. In addition, some of the main benefits compared to centralized technologies are observed:
-
-\begin{itemize}
-	\item \textbf{No trusted third-party:} All the significant costs of involving a middle-party are suppressed\citep{mainelli2015sharing}. Intermediaries are not required for realizing transactions or simply reaching an agreement. For instance, in the last example, users were able to transfer ownership, by signing the product's contract, without the need of a third party.
-	\item \textbf{Autonomy:} After an owner deploys a smart contract on the BC, it is then maintained by all the participating users, and not only by its creator.
-	\item \textbf{Data management and redundancy} Blockchain helps us in coordinating, validating and storing the distributed data in a decentralized manner. It also provides redundancy since users own the same data, e.g. databases backup in centralized systems. 
-	\item \textbf{Unconstrained technology} As actors can define and establish their own rules (smart contracts), new business models open up.
-	\item \textbf{Privacy:} Thanks to cryptography, users can interact with unknown partners. For example, in the above example, all actors can coordinate its services through the PLM process, without knowing the next actor involved. 
-    \item \textbf{Transparency and integrity:} All the changes that are made to the contract data are directly visible to the other users. In addition, once a transaction is executed, its immutable since it cannot be altered or deleted.
-	
-\end{itemize}
-
-Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will be later further investigated.
-
 \section{Network virtualization}
 
 In the last years, many investigations in network virtualization have been conducted by different authors \citep{houidi2011virtual}, \citep{zhu2008cabernet}, \citep{chowdhury2009virtual}. Among these, it is important to highlight topics such as the trade-offs between single \citep{chowdhury2009virtual}, \citep{houidi2008distributed} and multi-provider VNE \citep{dietrich2017multi}, or the different techniques and algorithms used for achieving VN efficiency. Typically, they decompose the VNE into two tasks: VN partitioning and VN segment mapping \citep{fischer2013virtual}. 
@@ -301,7 +285,7 @@ Each of these studies proposes new interesting features compared to the prior re
 
 \subsection{Multi-Provider Virtual Network Embedding with Limited Information Disclosure}
 
-To deploy wide-area networks, service providers are willing to embed virtual resources across heteregeneous domains belonging to different infrastructure providers (Figure \ref{fig:multi}.a). As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process, also named inter-domain VNE\footnote{inter-domain is between multiple InPs and intra-domain is inside a single InP.}, is descomposed in three main tasks \citep{chowdhury2010polyvine}:
+To deploy wide-area networks, service providers are willing to embed virtual resources across heteregeneous domains belonging to different infrastructure providers (Figure \ref{fig:multi}). As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process, also named inter-domain VNE\footnote{inter-domain is between multiple InPs and intra-domain is inside a single InP.}, is descomposed in three main tasks \citep{chowdhury2010polyvine}:
 
 \begin{itemize}
 	\item \textbf{VN request partitioning}: Divide the virtual network into groups of virtual nodes (subgraphs), such that virtual node and link requirements are satisfied, minimizing at the same time the cost of the virtual network setup.
@@ -320,7 +304,7 @@ One of the main challenges of inter-domain VNE, is that InPs are not willing to 
 
 \subsubsection{Centralized Slice Embedding}
 
-In \citep{dietrich2015multi}, a centralized VNE framework is implemented (Figure \ref{fig:multiprov}). There, the mentioned LID partitioning problem is approached through a VPN, who accesses public information that is not considered confidential by the InPs:
+In \citep{dietrich2015multi}, a centralized VNE framework is implemented (Figure \ref{fig:multiprov}.a). There, the mentioned LID partitioning problem is approached through a VPN, who accesses public information that is not considered confidential by the InPs:
 
 \begin{itemize}
 	\item \textbf{Virtual resources availability}: In this case, virtual resources examples are obtained from Amazon EC2 \cite{amazonEC2}, which announces the attributes (CPU, memory, cost) of different instances types to give the user facility in choosing the virtual resource that better fits in its application.
@@ -342,84 +326,85 @@ Therefore, other approaches where the actors benefit from a more scalable and di
 
 \subsubsection{Distributed Slice Embedding}
 
-Many existing solutions \citep{houidi2011virtual}, \citep{dietrich2015multi}, \citep{dietrich2017multi} rely on a centralized party (VNP) that stores the InPs disclosed information and then performs the partition of the virtual network request. However, what if the SPs and InPs are not willing to trust a centralized broker? In that case, this central actor could be removed enabling a direct communication between SPs and InPs, which provides a better system scalability. Distributed network slice embedding has already been investigated:
+Many existing solutions \citep{houidi2011virtual}, \citep{dietrich2015multi}, \citep{dietrich2017multi} rely on a centralized party (VNP) that stores the InPs disclosed information and then performs the partition of the virtual network request. However, what if the SPs and InPs are not willing to trust a centralized broker? In that case, this central actor could be removed enabling a direct communication between SPs and InPs, which provides a better system scalability. Distributed network slice embedding has already been investigated in:
 
 \begin{itemize}
 	\item In \citep{esposito2013general}, a \textbf{consensus-based auction for distributed slice embedding (CAD)} is proposed. In particular, the physical nodes, which are owned by a single or different InPs, bid on virtual nodes. This value is subsequently stored in a vector $b_i$, where $i$ is the physical node. Afterwards, once the bidding phase concludes, each physical node exchange the bids with its neighbors to reach an agreement for the auctioned virtual nodes. The mentioned bidding can be for a single slice (2 virtual nodes and 1 link) or on the entire slice (multiple virtual nodes and links). In the former, there is a limit on the number of biddable nodes, which although it has a great performance, it provokes multiple iterations (excessive time). Despite in a multi-provider VNE scenario, the latter is more suitable, the InPs willingness to disclose their internal information will hamper the performance. Hence, this approach provides better scalability (decentralization), but it is not proper for our scenario since it does not solve our LID problem.
-	\item In \citep{chowdhury2010polyvine}, a \textbf{policy-based inter-domain VN embedding framework (PolyViNE)} is presented. In PolyViNE, each InP embeds part of the VN request under its internal policies, while they cooperate with other InPs in a decentralized manner. In addition, forward decisions are location-based. For example, in Figure \ref{fig:multi} each virtual node (A,B,C,D), has a prefered geolocation. Then, the matched InPs will receive a notification for embedding the specific virtual node (e.g. InP3 with virtual node D). The whole process starts with the SP sending its VN request to multiple trusted InPs who reply back with the related embedding and its prices (bidding). Then, the SP will choose the most economical embedding. However, since there is no central broker, to ensure performance each SP must know $k^{SP} \geq 1$ InPs and each InP $k^{InP} \geq 1$ InPs. Also, most of the time a complete VN is not mappable by a single InP. In this case, the InP embeds its part and forwards the other to a known InP. Despite, PolyViNE introduces a decentralized approach dealing with LID and uses the interesting location-assisted embedding, it has some drawbacks that need to be covered. Firstly, each InP has an extra overhead in communicating the rest of the request when the VN is not fully mapped. Secondly, the bidding to provide a competitive market is a good idea, but in this scenario, the InPs can be publicly known by other InPs. Thus, a better bidding process preventing InPs from revealing its confidential data is needed. Finally, the requirement that SPs and InPs must know at least 1 InPs can lead to an application poor performance.
+	\item In \citep{chowdhury2010polyvine}, a \textbf{policy-based inter-domain VN embedding framework (PolyViNE)} is presented. In PolyViNE, each InP embeds part of the VN request under its internal policies, while they cooperate with other InPs in a decentralized manner. In addition, forward decisions are location-based. For example, in Figure \ref{fig:multi} each virtual node (A,B,C,D), has a prefered geolocation. After that, the matched InPs will receive a notification for embedding the specific virtual node (e.g. InP3 with virtual node D). This whole process starts with the SP sending its VN request to multiple trusted InPs who reply back with the related embedding and its prices (bidding). Then, the SP will choose the most economical embedding. However, since there is no central broker, to ensure performance each SP must know $k^{SP} \geq 1$ InPs and each InP $k^{InP} \geq 1$ InPs. Also, most of the time a complete VN is not mappable by a single InP. In this case, the InP embeds its part and forwards the other to a known InP. \newline
+Despite, PolyViNE introduces a decentralized approach dealing with LID and uses the interesting location-assisted embedding, it has some drawbacks that need to be covered. Firstly, each InP has an extra overhead in communicating the rest of the request when the VN is not fully mapped. Secondly, the bidding to provide a competitive market is a good idea, but in this scenario, the bids can be publicly known by other InPs. Thus, a better bidding process preventing InPs from revealing its confidential data is needed. Finally, the requirement that SPs and InPs must know at least 1 InPs can lead to an application poor performance.
 	
-\item In \citep{zaheer2010multi}, an \textbf{automated service negotiation framework (V-Mart)} is implemented. The V-Mart is also decentralized and based on an auction mechanism, the Vickrey auction Model.
-Though this approach ensures a fair market, it does not guarantee performance. The VNE task can lead to a high-demanding task since it is a second-stage auction where all the InPs need to interact during the VN embedding. In addition, V-Mart does not solve the LID problem, since it does not enforce inter-domain policies, and the bids and the bidders are at the end known. This discloses information that InPs may prefer to keep as confidential. Also, it proposes that the sealed-bid is done by a trusted 3rd party, returning again to the centralization problem.
-
-\end{itemize}
-
 \begin{figure}[bth]
 	\centering
 	\includegraphics[width=0.6\linewidth]{gfx/multi.png}    
   	\caption{Multi-provider virtual network embedding \citep{chowdhury2010polyvine}}
   	\label{fig:multi}
 \end{figure}
+
+\item Finally, in \citep{zaheer2010multi}, an \textbf{automated service negotiation framework (V-Mart)} is implemented. The V-Mart is also decentralized and based on an auction mechanism, the Vickrey auction model.
+Though this approach ensures a fair market, thanks to the Vickrey auction model, it does not guarantee performance. The reason is that the VNE process deployed is a second-stage auction where explicitly all the InPs need to interact during the VN embedding. Thus, the VNE results in a high-demanding task. In addition, the sealed-bid is proposed to be done by a trusted 3rd party, which will cause that our application suffers again from centralization issues. Nevertheless, the main V-Mart shortcoming is that it does not solve the LID problem, since it does not enforce inter-domain policies, and the bids and the bidders are at the end known. This disclose once more information that InPs may prefer to keep as confidential.
+
+\end{itemize}
 	
-All the above related work on decentralized VNE, uses a bidding mechanism to reach an agreement between the InPs. Therefore, in the next section we will further investigated the fair-price Vickrey auction model, through adapting it to our multi-domain VNE with LID.
+All the above related work on decentralized VNE, uses a bidding mechanism to reach an agreement between the SPs and InPs. Therefore, in the next section we will further investigated the fair-price Vickrey auction model, through adapting it to our multi-domain VNE with LID.
 
-\subsubsection{Auction Models}
+\subsubsection{Vickrey Auction Model}
 
-UNTIL HERE!
-Service negotation has already been examined in \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms.
-According to \ref{vickrey}, the Vickrey auction model is the most suitable for our VNE enviroment. In this case, our auction procedure will start with the SP requesting a virtual network (a graph of virtual nodes) along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service. Despite it can be seen as a fair system, how can the SP ensure that the InPs are offering prices proportional to the current market costs?
-
-It is important to note that in our scenario, similar to \citep{zaheer2010multi}, the \textbf{lowest auction} will win and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
-
+(ASK: SHOULD I MOVE BACKGROUND TO HERE? OR EXPLAIN EVERYTHING IN BACKGROUND?) 
 Study \citep{ausubel2006lovely} with equations and everything?
-Explain that an auction could use a multi-dimensional process (more parameters).
+Service negotation has already been examined in \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms. However, as discussed in the background \ref{vickrey}, the Vickrey auction model is the most suitable for our VNE environment.
+
 \section{Analysis of Related Work}
 
-BLOCKCHAIN VS CENTRALIZED DATABASE GRAPH.
+Through relevant examples in supply chain management, as the presented in section \ref{manufacturing}, we can observe the extraordinary potential of blockchain in areas, where entities are willing to exchange data without trusting a third party. Despite the research does not include detailed specifications, such as the blockchain's type or mining strategy, a useful system design has been provided. In addition, some of the main benefits compared to centralized technologies are observed:
 
-RELATED WORK TABLE
+\begin{itemize}
+	\item \textbf{Disintermediation:} Thanks to the consensus mechanisms, blockchain runs without a central administrator. Thus, intermediaries are not required for realizing transactions which suppresses all the significant costs of involving middle-parties \citep{mainelli2015sharing}. For instance, in the last example, users were able to transfer ownership, by signing the product's contract, without the need of a third party.
+	\item \textbf{Autonomy:} After an owner deploys a smart contract on the BC, it is then maintained by all the participating users, and not only by its creator.
+	\item \textbf{Data management and redundancy:} Blockchain helps us in coordinating, validating and storing the distributed data in a decentralized manner. It also provides redundancy since users own the same data, e.g. databases backup in centralized systems. 
+	\item \textbf{Unconstrained technology:} As actors can define and establish their own rules (smart contracts), new business models open up.
+	\item \textbf{Privacy:} Thanks to cryptography, users can interact with untrusted partners. For example, in the above example, all actors can coordinate its services through the PLM process, which before would have been impossible as they do not trust each other.
+    \item \textbf{Transparency and integrity:} All the changes that are made to the contract data are directly visible to the other users. In addition, once a transaction is executed, its immutable since it cannot be altered or deleted.
+	
+\end{itemize}
 
-\begin{table}[htbp]
+On the other hand, in the second part of this chapter, we have investigated related work on multi-provider VNE suffering from LID. Table \ref{tab:Comparison} provides a comparison for each of the approaches presented before. 
+
+\begin{table}[bth]
 	\myfloatalign \footnotesize
-	\begin{tabularx}{\textwidth}{p{2cm}p{2cm}p{2cm}p{2cm}p{4cm}p{4cm}}
-		\textbf{Reference} & \textbf{Description} & \textbf{Structure} & \textbf{System} & \textbf{Findings} & \textbf{Limitations}  \\ 
+	%18 columns
+	\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{1cm}p{0.65cm}p{0.65cm}p{0.65cm}p{0.65cm}p{0.65cm}p{0.65cm}p{0.65cm}p{0.65cm}p{0.65cm}p{0.65cm}p{0.65cm}}
+	\textbf{Approach} & \textbf{System} & \rot{\textbf{Scalability}}  & \rot{\textbf{Trusted third party (TTP)}} & \rot{\textbf{Sealed bidding}} & \rot{\textbf{Bid exchange between InPs}} & \rot{\textbf{LID problem solved}} & \rot{\textbf{Location-assisted VNE}} & \rot{\textbf{User notified}} & \rot{\textbf{S-performance}} & \rot{\textbf{L-performance}} & \rot{\textbf{Low VNE cost}} & \rot{\textbf{Low cost (\euro)}}\\ 
 		\hline
-		\citep{dietrich2015multi}   &  ... & Centralized & Synchronous &  ... &  ... \\ 
-		\citep{esposito2013general}   &  ... &  ... &  ... &  ... &  ... \\ 
-		\citep{chowdhury2010polyvine}   &  ... &  ... &  ... &  ... &  ... \\ 
-		\citep{zaheer2010multi}   &  ... &  ... &  ... &  ... &  ... \\ 
-		A   &  ... &  ... &  ... &  ... &  ... \\ 
-		A   &  ... &  ... &  ... &  ... &  ... \\ 							
-		A   &  ... &  ... &  ... &  ... &  ... \\  
+		Multi-provider VNE framework with VNP \citep{dietrich2015multi} & C & \xmark & \cmark & \xmark & \xmark & \cmark & \cmark & \xmark & \cmark & \xmark & \cmark & \xmark \\ \hline
+		CAD - Consensus-based auction for distributed slice embedding \citep{esposito2013general}   &  D & \cmark & \xmark & \xmark & \cmark &  \xmark & \xmark & \xmark & \xmark & \cmark & \xmark & \cmark \\ \hline
+		PolyViNE - Policy-based inter-domain VN embedding framework \citep{chowdhury2010polyvine}   &  D & \cmark & \xmark & \xmark & \cmark &  \cmark & \cmark & \cmark & \xmark & \cmark & \cmark & \cmark \\ \hline
+		V-mart - Automated service negotiation framework \citep{zaheer2010multi}   &  D & \cmark & * & \cmark & \xmark & \xmark & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
 		\hline
 	\end{tabularx}
-	\caption{Comparison of implemented approaches for VNE}
-	\label{tab:VNEComparison}
+		\caption{Comparison of virtual network embedding approaches - Overview for system features implemented as \textit{yes} (\cmark), \textit{no} (\xmark), \textit{to some extent} (*). Abbreviations: \textit{D} = decentralized, \textit{C} = centralized, \textit{L-performance} = large scenario performance and \textit{S-performance} = small scenario performance.}
+	\label{tab:Comparison}
 \end{table}
 
-PROBLEMS: 1. The participants of a SCM vary greatly across different supply
-chains and the same peers might take different roles across different supply chains. 2. This reasoning leaves us with the question whether all writers
-can be trusted. 
+First of all, we can observe that decentralized systems provide obviously a better scalability because the application does not rely on a single point. In centralized systems, this central entity has to be trusted since it stores and manages all the information. Despite being a decentralized system, \cite{zaheer2010multi} uses to some extent a trusted third party (TTP). This is because, it is the only approach that offers sealed-bidding between users, although using a central entity or TTP. We also notice that in \cite{esposito2013general}, \cite{chowdhury2010polyvine} the bids are exchanged between InPs to cooperate in the VN embedding, which results in undesired computational costs. In contrast, centralized systems \citep{dietrich2015multi}, perform the service negotiation without using auctions, since they trust a middle-party managing these operations.
 
-which could be accomplished through a limited time auction.
+Moreover, one of our main challenges in the multi-provider VNE scenario is to solve the limited information disclosure issues. We notice that \citep{dietrich2015multi}, \citep{chowdhury2010polyvine} deal with the problem, accessing public information not considered confidential and performing the VNE under its internal policies respectively. In addition, they provide location-assisted VNE, which facilitate the VN request partitioning across different InPs. The last, it also introduces a notification system, where the InPs gets notified upon VN request, which avoids time spending in request synchronization. 
 
-Thanks to the blockchain, more precisely to Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users. 
+In general, centralized systems provide a better throughout in small scenarios since all the information is managed by a central entity. Hence, data sharing or user's cooperation is not needed before performing any operation. Conversely, decentralized systems benefit from large scenarios. Firstly, because the more users participating in an auction, the more competitive the market is. Secondly, all the activities are diversified, and thus, the decision-making is more efficient. 
 
-During this paper, the Ethereum blockchain will be used to perform a service negotiation (Vickrey auction) and later to track its possession throughout the supply chain process. This will be exemplified by a web application implementation, focused on network slicing. Thus, blockchain strengths and weaknesses will be further investigated.
- 
-We do not claim that our approach is the best or the only way
-of performing VN embedding. On the contrary, it is more an add-on feature that can be merged with most of the existing solutions. In this scenario, the main goals are to remove the middleware or virtual network provider, by using a new prominent technology such blockchain. Thus, a new decentralized, automated and secure system will be created between the SPs and InPs, which benefits from the blockchain potentials. Furthermore, to the best of our knowledge, this is the first approach using blockchain in this scenario, and thanks to smart contract's flexibility, it can serve as a starting point for all upcoming investigations.
-
-\hint{This chapter should give a comprehensive overview on the related work done by other authors followed by an analysis why the existing related work is not capable of solving the problem described in the introduction.
-The chapter should have a length of about three to five pages!}
-
-
-The blockchain technology, in particular, secure smart contracts on the Ethereum platform, will be used to approach a real-world scenario. A decentralized application (third category) that enhances supply chain performance, will be implemented. More precisely, network virtualization providers and customers will improve its communication, through the use of a web application (front-end) connected to the blockchain (back-end). In the following section this concept will be further investigated.
-
-Package pricing or volume discount?
+Finally, we classified costs into virtual network embedding and economic ones. Overall, we observe that VNE costs are lower when using a centralized system \citep{dietrich2015multi}, although when the parties are efficiently coordinated in a decentralized scenario, the costs are also extremely reduced \citep{chowdhury2010polyvine}. Concerning economic costs, they are obviously higher when a centralized system is used, as the application performance depends only on a central entity, which needs to be financed for their computational and maintaining costs.
 
 \section{Summary}
 
+After comparing the different VNE approaches exposed throughout this chapter, we find out that each of them introduces innovate features to deal with network virtualization. However, there is no single solution that satisfies at the same time the following requirements:
 
+\begin{itemize}
+	\item Scalability.
+	\item LID problem approached with data confidentiality.
+	\item L-performance.
+	\item Computational and economic low costs.
+\end{itemize}
+
+Therefore, after spotting the main benefits of integrating blockchain in real-scenarios, we predict that blockchain could fulfill the above-mentioned VNE demands, by giving rise to a new decentralized, automated and secure system between the SPs and InPs.
 
 %*****************************************
 \chapter{Design}
@@ -433,8 +418,23 @@ Package pricing or volume discount?
 3. Notification system (P/S)
 4. Mining
 5. Authentication system
+6. Vickrey auction model
 
 1. Invite People to the private BC. Users fixed amount of Ether ( Proof of Stake). Garzik, J. 2015. "Public Versus Private Blockchains.
+1. Since it is a disruptive technology, apparently it seems that blockchain could improve many existing systems. However, is it suddenly blockchain the only way of approaching scalability, security or data handling between organizations? Or why is a blockchain better than a traditional database? The truth of it is that there is not a single solution or better technology than the others, it just depends on user's requirements. Thus, it is important to understand when blockchain could replace existing infrastructures. For this purpose, in \ref{fig:bcFlowchart} we present a flowchart, which pretends to guide users in determining whether blockchain is the appropriate solution to resolve their problems.
+
+EXPLAIN FIGURE! ALSO TABLE COMPARING TYPES OF BC.
+Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will be later further investigated.
+\begin{figure}[bth]
+	\centering
+	\includegraphics[width=1\linewidth]{gfx/bcFlowchart}    
+  	\caption{Flow-chart to determine whether blockchain is the suitable solution \citep{wust2017you}}
+  	\label{fig:bcFlowchart}
+\end{figure}
+
+1. PROBLEMS: -  The participants of a SCM vary greatly across different supply
+chains and the same peers might take different roles across different supply chains. - This reasoning leaves us with the question whether all writers
+can be trusted. 
 
 2.A DApp has its backend code running on a decentralized peer-to-peer network. Contrast this with an app where the backend code is running on centralized servers. A DApp can have frontend code and user interfaces written in any language (just like an app) that can make calls to its backend. Furthermore, its frontend can be hosted on decentralized storage such as Swarm or IPFS.
 
@@ -442,15 +442,21 @@ What can be externally extracted from a contract? Since value transfers cannot b
 
 4. Mining from users or supernode? Start with supernodes (like in Bitcoin at the beginning), when more users maybe a user say he want to become a miner (gets the privileges and anonimity increased)
 
-And why is a blockchain better than a traditional database? The truth of it is that there is no better technology than the others, it just depends on user's requirements. However, blockchain provide multiple advantages such as:
-\begin{itemize}
-	
-	\item \textbf{Disintermediation:} Running without a central administrator. This is possible because it uses its own consensus mechanisms, such as the Proof-of-Work (later explained).  
-	\item \textbf{Privacy:} Data is encrypted and stored on the blockchain, and it also requires user authentication.
-	\item \textbf{Robustness:} Different databases do not need to be synchronized across different boundaries. All the information is stored in a single blockchain.
-	\item \textbf{Transparency:} All the transactions are logged on the system.
-\end{itemize}
+6. In this case, our auction procedure will start with the SP requesting a virtual network (a graph of virtual nodes) along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service.
 
+It is important to note that in our scenario, similar to \citep{zaheer2010multi}, the \textbf{lowest auction} will win and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
+Explain that an auction could use a multi-dimensional process (more parameters).
+
+6. Package pricing or volume discount?
+
+Thanks to the blockchain, more precisely to Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users. which could be accomplished through a limited time auction.
+
+During this paper, the Ethereum blockchain will be used to perform a service negotiation (Vickrey auction) and later to track its possession throughout the supply chain process. This will be exemplified by a web application implementation, focused on network slicing. Thus, blockchain strengths and weaknesses will be further investigated.
+
+The blockchain technology, in particular, secure smart contracts on the Ethereum platform, will be used to approach a real-world scenario. A decentralized application (third category) that enhances supply chain performance, will be implemented. More precisely, network virtualization providers and customers will improve its communication, through the use of a web application (front-end) connected to the blockchain (back-end).
+
+We do not claim that our approach is the best or the only way
+of performing VN embedding. On the contrary, it is more an add-on feature that can be merged with most of the existing solutions. In this scenario, the main goals are to remove the middleware or virtual network provider, by using a new prominent technology such as blockchain. Thus, a new decentralized, automated and secure system between the SPs and InPs will be created, which benefits from the blockchain potentials. Furthermore, to the best of our knowledge, this is the first approach using blockchain in the network virtualization context, and thanks to smart contract's flexibility, it can serve as a starting point for upcoming investigations.
 
 \section{Requirements and Assumptions}
 
@@ -536,6 +542,7 @@ The section should have a length of about three pages.}
 \section{Future Work}
 
 IOTA-TANGLE
+BigchainDB
 The Front-end application could be hosted in a decentralized storage such as IPFS or SWARM.
 BC storing chunks of data
 
