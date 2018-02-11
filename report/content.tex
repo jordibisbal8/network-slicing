@@ -347,13 +347,13 @@ Though this approach ensures a fair market, thanks to the Vickrey auction model,
 	
 All the above related work on decentralized VNE, uses a bidding mechanism to reach an agreement between the SPs and InPs. Therefore, in the next section we will further investigated the fair-price Vickrey auction model, through adapting it to our multi-domain VNE with LID.
 
-\subsubsection{Vickrey Auction Model}
+\subsubsection{Auction Models}
 
-(ASK: SHOULD I MOVE BACKGROUND TO HERE? OR EXPLAIN EVERYTHING IN BACKGROUND?) 
+(ASK: SHOULD I MOVE BACKGROUND TO HERE? OR EXPLAIN EVERYTHING IN BACKGROUND?OR IN THE DESIGN PART?) 
 Study \citep{ausubel2006lovely} with equations and everything?
 Service negotation has already been examined in \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms. However, as discussed in the background \ref{vickrey}, the Vickrey auction model is the most suitable for our VNE environment.
 
-\section{Analysis of Related Work}
+\section{Analysis of Related Work} \label{analysisOfRelatedWork}
 
 Through relevant examples in supply chain management, as the presented in section \ref{manufacturing}, we can observe the extraordinary potential of blockchain in areas, where entities are willing to exchange data without trusting a third party. Despite the research does not include detailed specifications, such as the blockchain's type or mining strategy, a useful system design has been provided. In addition, some of the main benefits compared to centralized technologies are observed:
 
@@ -395,7 +395,7 @@ Finally, we classified costs into virtual network embedding and economic ones. O
 
 \section{Summary}
 
-After comparing the different VNE approaches exposed throughout this chapter, we find out that each of them introduces innovate features to deal with network virtualization. However, there is no single solution that satisfies at the same time the following requirements:
+After comparing the different multi-provider VNE approaches exposed throughout this chapter, we find out that each of them introduces innovate features to deal with network virtualization. However, there is no single solution that satisfies at the same time the following requirements:
 
 \begin{itemize}
 	\item Scalability.
@@ -404,26 +404,25 @@ After comparing the different VNE approaches exposed throughout this chapter, we
 	\item Computational and economic low costs.
 \end{itemize}
 
-Therefore, after spotting the main benefits of integrating blockchain in real-scenarios, we predict that blockchain could fulfill the above-mentioned VNE demands, by giving rise to a new decentralized, automated and secure system between the SPs and InPs.
+Therefore, the main focus on this thesis will be to investigate and later implement an approach which fulfills the above-mentioned virtual network embedding demands.
+
 
 %*****************************************
 \chapter{Design}
 \label{ch:design}
 %*****************************************
 
-\hint{This chapter should describe the design of the own approach on a conceptional level without mentioning the implementation details. The section should have a length of about five pages.}
+Based on the challenges highlighted in the previous chapter, a conceptional design of a multi-provider virtual network embedding approach using blockchain is now introduced. First, we define the requirements and assumptions used for the design process. Afterwards, we will present the fundamental goals expected from the system, followed by a general overview of the architecture system. In addition, important features for our application will be discussed, such as the blockchain type, mining strategy, authentication and notification system, and the auction model used.
 
-1. Types of blockchain (permissionless and permissioned) economical reasons: cost, maintenance, computing power...
-2. Scenario, architecture
-3. Notification system (P/S)
-4. Mining
-5. Authentication system
-6. Vickrey auction model
+\section{Requirements and Assumptions}
 
-1. Invite People to the private BC. Users fixed amount of Ether ( Proof of Stake). Garzik, J. 2015. "Public Versus Private Blockchains.
-1. Since it is a disruptive technology, apparently it seems that blockchain could improve many existing systems. However, is it suddenly blockchain the only way of approaching scalability, security or data handling between organizations? Or why is a blockchain better than a traditional database? The truth of it is that there is not a single solution or better technology than the others, it just depends on user's requirements. Thus, it is important to understand when blockchain could replace existing infrastructures. For this purpose, in \ref{fig:bcFlowchart} we present a flowchart, which pretends to guide users in determining whether blockchain is the appropriate solution to resolve their problems.
+In section \ref{analysisOfRelatedWork}, after spotting the main benefits of integrating blockchain in real-scenarios , we predict that blockchain could fulfill the above-mentioned VNE demands, by giving rise to a new decentralized, automated and secure system between the SPs and InPs.
 
-EXPLAIN FIGURE! ALSO TABLE COMPARING TYPES OF BC.
+When use BC and not centralized systems? 
+
+Since it is a disruptive technology, apparently it seems that blockchain could improve many existing systems. However, is it suddenly blockchain the only way of approaching scalability, security or data handling between organizations? Or why is a blockchain better than a traditional database? The truth of it is that there is not a single solution or better technology than the others, it just depends on user's requirements. Thus, it is important to understand when blockchain could replace existing infrastructures. For this purpose, in \ref{fig:bcFlowchart} we present a flowchart, which pretends to guide users in determining whether blockchain is the appropriate solution to resolve their problems.
+
+EXPLAIN FIGURE!
 Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will be later further investigated.
 \begin{figure}[bth]
 	\centering
@@ -432,22 +431,57 @@ Nevertheless, the technology still faces lots of challenges, such as scalability
   	\label{fig:bcFlowchart}
 \end{figure}
 
-1. PROBLEMS: -  The participants of a SCM vary greatly across different supply
+e.g: Flexibility, fair price negotiation, trustworthy, transparent ... And explain each point
+Assumption that intra-domain virtual links cost is almost 0. Having the virtual link cost from EC2 Amazon and the BW we could determine it...
+
+PROBLEMS: -  The participants of a SCM vary greatly across different supply
 chains and the same peers might take different roles across different supply chains. - This reasoning leaves us with the question whether all writers
 can be trusted. 
 
-2.A DApp has its backend code running on a decentralized peer-to-peer network. Contrast this with an app where the backend code is running on centralized servers. A DApp can have frontend code and user interfaces written in any language (just like an app) that can make calls to its backend. Furthermore, its frontend can be hosted on decentralized storage such as Swarm or IPFS.
+\section{System Overview}
+
+\subsection{Fundamental Goals}
+
+\subsection{Architecture}
+
+A DApp has its backend code running on a decentralized peer-to-peer network. Contrast this with an app where the backend code is running on centralized servers. A DApp can have frontend code and user interfaces written in any language (just like an app) that can make calls to its backend. Furthermore, its frontend can be hosted on decentralized storage such as Swarm or IPFS.
+
+\begin{figure}[bth]
+	\centering
+	\includegraphics[width=1\linewidth]{gfx/designWorkflow}    
+  	\caption{Design system architecture}
+  	\label{fig:designWorkflow}
+\end{figure}
+
+Explain that scalability need to be tested. multiple ETH nodes, etc...
+
+\subsection{Blockchain Types}
+
+Types of blockchain (permissionless and permissioned) economic reasons: cost, maintenance, computing power...  TABLE COMPARING TYPES OF BC.
+
+\subsection{Mining}
+
+Mining from users or supernode? Start with supernodes (like in Bitcoin at the beginning), when more users maybe a user say he want to become a miner (gets the privileges and anonimity increased)
+
+\subsection{Authentication System}
 
 What can be externally extracted from a contract? Since value transfers cannot be blinded in Ethereum, anyone can see the value and therefore the highestBid. Sol: We can just see the address. That's a problem if there are just a few users. Do research on amount of users needed to solve the problem.
 
-4. Mining from users or supernode? Start with supernodes (like in Bitcoin at the beginning), when more users maybe a user say he want to become a miner (gets the privileges and anonimity increased)
+Invite People to the private BC. Users fixed amount of Ether ( Proof of Stake). Garzik, J. 2015. "Public Versus Private Blockchains.
 
-6. In this case, our auction procedure will start with the SP requesting a virtual network (a graph of virtual nodes) along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service.
+\subsection{Notification System}
+
+
+\subsection{Vickrey Auction Model}
+
+In this case, our auction procedure will start with the SP requesting a virtual network (a graph of virtual nodes) along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service.
 
 It is important to note that in our scenario, similar to \citep{zaheer2010multi}, the \textbf{lowest auction} will win and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
 Explain that an auction could use a multi-dimensional process (more parameters).
 
-6. Package pricing or volume discount?
+Package pricing or volume discount?
+
+\section{Summary}
 
 Thanks to the blockchain, more precisely to Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users. which could be accomplished through a limited time auction.
 
@@ -458,18 +492,7 @@ The blockchain technology, in particular, secure smart contracts on the Ethereum
 We do not claim that our approach is the best or the only way
 of performing VN embedding. On the contrary, it is more an add-on feature that can be merged with most of the existing solutions. In this scenario, the main goals are to remove the middleware or virtual network provider, by using a new prominent technology such as blockchain. Thus, a new decentralized, automated and secure system between the SPs and InPs will be created, which benefits from the blockchain potentials. Furthermore, to the best of our knowledge, this is the first approach using blockchain in the network virtualization context, and thanks to smart contract's flexibility, it can serve as a starting point for upcoming investigations.
 
-\section{Requirements and Assumptions}
-
-e.g: Flexibility, fair price negotiation, trustworthy, transparent ... And explain each point
-Assumption that intra-domain virtual links cost is almost 0. Having the virtual link cost from EC2 Amazon and the BW we could determine it...
-
-\section{System Overview}
-
-\subsection{Component 1}
-
-\subsection{Component 2}
-
-\section{Summary}
+\hint{This chapter should describe the design of the own approach on a conceptional level without mentioning the implementation details. The section should have a length of about five pages.}
 
 %*****************************************
 \chapter{Implementation}

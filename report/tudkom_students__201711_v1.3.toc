@@ -26,14 +26,19 @@
 \contentsline {subsection}{\numberline {3.2.1}Multi-Provider Virtual Network Embedding with Limited Information Disclosure}{15}{subsection.3.2.1}
 \contentsline {subsubsection}{Centralized Slice Embedding}{15}{subsubsection*.22}
 \contentsline {subsubsection}{Distributed Slice Embedding}{16}{subsubsection*.24}
-\contentsline {subsubsection}{Vickrey Auction Model}{18}{subsubsection*.26}
+\contentsline {subsubsection}{Auction Models}{17}{subsubsection*.26}
 \contentsline {section}{\numberline {3.3}Analysis of Related Work}{18}{section.3.3}
 \contentsline {section}{\numberline {3.4}Summary}{19}{section.3.4}
 \contentsline {chapter}{\numberline {4}Design}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}Requirements and Assumptions}{23}{section.4.1}
-\contentsline {section}{\numberline {4.2}System Overview}{23}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Component 1}{23}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Component 2}{23}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.1}Requirements and Assumptions}{21}{section.4.1}
+\contentsline {section}{\numberline {4.2}System Overview}{22}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Fundamental Goals}{22}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Architecture}{22}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Blockchain Types}{22}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Mining}{22}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Authentication System}{22}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Notification System}{23}{subsection.4.2.6}
+\contentsline {subsection}{\numberline {4.2.7}Vickrey Auction Model}{23}{subsection.4.2.7}
 \contentsline {section}{\numberline {4.3}Summary}{23}{section.4.3}
 \contentsline {chapter}{\numberline {5}Implementation}{25}{chapter.5}
 \contentsline {section}{\numberline {5.1}Design Decisions}{25}{section.5.1}
