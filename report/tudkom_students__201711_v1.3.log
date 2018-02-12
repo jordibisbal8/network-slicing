@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  11 FEB 2018 14:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  12 FEB 2018 11:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1841,55 +1841,70 @@ LaTeX Font Info:    Try loading font information for T1+txtt on input line 18.
 File: t1txtt.fd 2000/12/15 v3.1
 ) [3] [4]
 chapter 2.
-<gfx/cenVsDec.png, id=313, 659.1024pt x 247.6452pt>
-File: gfx/cenVsDec.png Graphic file (type png)
- <use gfx/cenVsDec.png>
-Package pdftex.def Info: gfx/cenVsDec.png used on input line 61.
-(pdftex.def)             Requested size: 398.3401pt x 149.66898pt.
+
+
+pdfTeX warning: pdflatex (file ./gfx/cenVsDec.pdf): PDF inclusion: found PDF ve
+rsion <1.7>, but at most version <1.5> allowed
+<gfx/cenVsDec.pdf, id=313, 678.535pt x 252.945pt>
+File: gfx/cenVsDec.pdf Graphic file (type pdf)
+ <use gfx/cenVsDec.pdf>
+Package pdftex.def Info: gfx/cenVsDec.pdf used on input line 61.
+(pdftex.def)             Requested size: 497.92325pt x 185.61322pt.
 
 [5
 
 
- <./gfx/cenVsDec.png>] <gfx/mining.png, id=326, 632.3625pt x 257.0403pt>
-File: gfx/mining.png Graphic file (type png)
+ <./gfx/cenVsDec.pdf>] [6]
 
-<use gfx/mining.png>
-Package pdftex.def Info: gfx/mining.png used on input line 92.
-(pdftex.def)             Requested size: 497.92325pt x 202.39677pt.
+pdfTeX warning: pdflatex (file ./gfx/mining.pdf): PDF inclusion: found PDF vers
+ion <1.7>, but at most version <1.5> allowed
+<gfx/mining.pdf, id=339, 796.9775pt x 318.18875pt>
+File: gfx/mining.pdf Graphic file (type pdf)
+ <use gfx/mining.pdf>
+Package pdftex.def Info: gfx/mining.pdf used on input line 92.
+(pdftex.def)             Requested size: 497.92325pt x 198.79463pt.
 LaTeX Font Info:    Try loading font information for TS1+5ch on input line 99.
 
 (/usr/share/texmf/tex/latex/tex-tudfonts/softmake/charter/ts15ch.fd
 File: ts15ch.fd 2008/06/23 Fontinst v1.927 font definitions for TS1/5ch.
-) [6]
-[7 <./gfx/mining.png>] <gfx/bitkeys.png, id=354, 614.295pt x 180.675pt>
-File: gfx/bitkeys.png Graphic file (type png)
+) [7 <./gfx/mining.pdf>]
 
-<use gfx/bitkeys.png>
-Package pdftex.def Info: gfx/bitkeys.png used on input line 135.
-(pdftex.def)             Requested size: 448.12788pt x 131.80342pt.
+pdfTeX warning: pdflatex (file ./gfx/bitkeys.pdf): PDF inclusion: found PDF ver
+sion <1.7>, but at most version <1.5> allowed
+<gfx/bitkeys.pdf, id=375, 798.985pt x 246.9225pt>
+File: gfx/bitkeys.pdf Graphic file (type pdf)
+ <use gfx/bitkeys.pdf>
+Package pdftex.def Info: gfx/bitkeys.pdf used on input line 135.
+(pdftex.def)             Requested size: 448.12788pt x 138.49417pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 152--154
 
  []
 
-[8 <./gfx/bitkeys.png>]
+[8 <./gfx/bitkeys.pdf>]
 LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <9.2> not available
 (Font)              Font shape `T1/txtt/bx/n' tried instead on input line 155.
 
-<gfx/ethereumAccounts.png, id=379, 460.8417pt x 322.0833pt>
-File: gfx/ethereumAccounts.png Graphic file (type png)
 
-<use gfx/ethereumAccounts.png>
-Package pdftex.def Info: gfx/ethereumAccounts.png used on input line 181.
-(pdftex.def)             Requested size: 298.75697pt x 208.81105pt.
- [9] [10 <./gfx/ethereumAccounts.png>]
-<gfx/networkvir.png, id=403, 692.8284pt x 320.6379pt>
-File: gfx/networkvir.png Graphic file (type png)
- <use gfx/networkvir.png>
-Package pdftex.def Info: gfx/networkvir.png used on input line 212.
-(pdftex.def)             Requested size: 497.92325pt x 230.43834pt.
+pdfTeX warning: pdflatex (file ./gfx/ethereumAccounts.pdf): PDF inclusion: foun
+d PDF version <1.7>, but at most version <1.5> allowed
+<gfx/ethereumAccounts.pdf, id=405, 483.8075pt x 368.37625pt>
+File: gfx/ethereumAccounts.pdf Graphic file (type pdf)
 
-[11 <./gfx/networkvir.png>]
+<use gfx/ethereumAccounts.pdf>
+Package pdftex.def Info: gfx/ethereumAccounts.pdf used on input line 181.
+(pdftex.def)             Requested size: 298.75697pt x 227.48593pt.
+ [9] [10 <./gfx/ethereumAccounts.pdf>]
+
+pdfTeX warning: pdflatex (file ./gfx/networkvir.pdf): PDF inclusion: found PDF 
+version <1.7>, but at most version <1.5> allowed
+<gfx/networkvir.pdf, id=441, 678.535pt x 296.10625pt>
+File: gfx/networkvir.pdf Graphic file (type pdf)
+ <use gfx/networkvir.pdf>
+Package pdftex.def Info: gfx/networkvir.pdf used on input line 212.
+(pdftex.def)             Requested size: 497.92325pt x 217.28531pt.
+
+[11 <./gfx/networkvir.pdf>]
 LaTeX Font Info:    Font shape `T1/5ch/b/it' in size <11> not available
 (Font)              Font shape `T1/5ch/b/sl' tried instead on input line 244.
  [12]
@@ -1897,32 +1912,42 @@ chapter 3.
 [13
 
 
-] <gfx/supplyChain.png, id=451, 745.3446pt x 393.8715pt>
-File: gfx/supplyChain.png Graphic file (type png)
+]
 
-<use gfx/supplyChain.png>
-Package pdftex.def Info: gfx/supplyChain.png used on input line 275.
-(pdftex.def)             Requested size: 448.12788pt x 236.81754pt.
- [14 <./gfx/supplyChain.png>]
-<gfx/multiprov.png, id=489, 659.5842pt x 359.9046pt>
-File: gfx/multiprov.png Graphic file (type png)
- <use gfx/multiprov.png>
-Package pdftex.def Info: gfx/multiprov.png used on input line 316.
-(pdftex.def)             Requested size: 448.12788pt x 244.52869pt.
+pdfTeX warning: pdflatex (file ./gfx/supplyChain.pdf): PDF inclusion: found PDF
+ version <1.7>, but at most version <1.5> allowed
+<gfx/supplyChain.pdf, id=530, 794.97pt x 389.455pt>
+File: gfx/supplyChain.pdf Graphic file (type pdf)
+ <use gfx/supplyChain.pdf>
+Package pdftex.def Info: gfx/supplyChain.pdf used on input line 275.
+(pdftex.def)             Requested size: 448.12788pt x 219.5433pt.
 
-[15] [16 <./gfx/multiprov.png>]
-<gfx/multi.png, id=514, 316.5426pt x 207.8967pt>
-File: gfx/multi.png Graphic file (type png)
- <use gfx/multi.png>
-Package pdftex.def Info: gfx/multi.png used on input line 338.
-(pdftex.def)             Requested size: 298.75697pt x 196.21915pt.
- [17 <./gfx/multi.png>]
-Overfull \hbox (1.94398pt too wide) in paragraph at lines 383--383
+[14 <./gfx/supplyChain.pdf>]
+
+pdfTeX warning: pdflatex (file ./gfx/multiprov.pdf): PDF inclusion: found PDF v
+ersion <1.7>, but at most version <1.5> allowed
+<gfx/multiprov.pdf, id=579, 635.37375pt x 339.2675pt>
+File: gfx/multiprov.pdf Graphic file (type pdf)
+ <use gfx/multiprov.pdf>
+Package pdftex.def Info: gfx/multiprov.pdf used on input line 316.
+(pdftex.def)             Requested size: 448.12788pt x 239.29233pt.
+
+[15] [16 <./gfx/multiprov.pdf>]
+
+pdfTeX warning: pdflatex (file ./gfx/multi.pdf): PDF inclusion: found PDF versi
+on <1.7>, but at most version <1.5> allowed
+<gfx/multi.pdf, id=609, 281.05pt x 172.645pt>
+File: gfx/multi.pdf Graphic file (type pdf)
+ <use gfx/multi.pdf>
+Package pdftex.def Info: gfx/multi.pdf used on input line 338.
+(pdftex.def)             Requested size: 298.75697pt x 183.5323pt.
+ [17 <./gfx/multi.pdf>]
+Overfull \hbox (1.94398pt too wide) in paragraph at lines 385--385
 []|\T1/5ch/b/n/9.2 System|  
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 383--383
+Underfull \hbox (badness 10000) in alignment at lines 385--385
 [][][][][][][][][][][][][] 
  []
 
@@ -1931,25 +1956,32 @@ Underfull \hbox (badness 10000) in alignment at lines 383--383
 
 ]
 chapter 4.
-<gfx/bcFlowchart.png, id=567, 782.4432pt x 395.7987pt>
-File: gfx/bcFlowchart.png Graphic file (type png)
 
-<use gfx/bcFlowchart.png>
-Package pdftex.def Info: gfx/bcFlowchart.png used on input line 429.
-(pdftex.def)             Requested size: 497.92325pt x 251.87292pt.
- [21 <./gfx/bcFlowchart.png>]
-<gfx/designWorkflow.png, id=576, 663.1977pt x 252.4632pt>
-File: gfx/designWorkflow.png Graphic file (type png)
 
-<use gfx/designWorkflow.png>
-Package pdftex.def Info: gfx/designWorkflow.png used on input line 451.
-(pdftex.def)             Requested size: 497.92325pt x 189.54724pt.
- [22 <./gfx/designWorkflow.png>]
+pdfTeX warning: pdflatex (file ./gfx/bcFlowchart.pdf): PDF inclusion: found PDF
+ version <1.7>, but at most version <1.5> allowed
+<gfx/bcFlowchart.pdf, id=668, 765.86125pt x 361.35pt>
+File: gfx/bcFlowchart.pdf Graphic file (type pdf)
+
+<use gfx/bcFlowchart.pdf>
+Package pdftex.def Info: gfx/bcFlowchart.pdf used on input line 429.
+(pdftex.def)             Requested size: 497.92325pt x 234.93536pt.
+ [21 <./gfx/bcFlowchart.pdf>]
+
+pdfTeX warning: pdflatex (file ./gfx/designWorkflow.pdf): PDF inclusion: found 
+PDF version <1.7>, but at most version <1.5> allowed
+<gfx/designWorkflow.pdf, id=685, 671.50874pt x 303.1325pt>
+File: gfx/designWorkflow.pdf Graphic file (type pdf)
+
+<use gfx/designWorkflow.pdf>
+Package pdftex.def Info: gfx/designWorkflow.pdf used on input line 451.
+(pdftex.def)             Requested size: 497.92325pt x 224.77245pt.
+ [22 <./gfx/designWorkflow.pdf>] [23]
 Underfull \hbox (badness 10000) in paragraph at lines 495--495
 
  []
 
-[23] [24]
+[24]
 chapter 5.
 
 Underfull \hbox (badness 10000) in paragraph at lines 518--518
@@ -2028,7 +2060,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 301.
 Here is how much of TeX's memory you used:
  23894 strings out of 494860
  399695 string characters out of 6177601
- 532728 words of memory out of 5000000
+ 532734 words of memory out of 5000000
  26628 multiletter control sequences out of 15000+600000
  142280 words of font info for 129 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
@@ -2049,10 +2081,10 @@ share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/zapfding/uzdr.pfb>
-Output written on tudkom_students__201711_v1.3.pdf (38 pages, 1126800 bytes).
+Output written on tudkom_students__201711_v1.3.pdf (38 pages, 599445 bytes).
 PDF statistics:
- 724 PDF objects out of 1000 (max. 8388607)
- 629 compressed objects within 7 object streams
+ 844 PDF objects out of 1000 (max. 8388607)
+ 743 compressed objects within 8 object streams
  162 named destinations out of 1000 (max. 500000)
  428 words of extra memory for PDF output out of 10000 (max. 10000000)
 

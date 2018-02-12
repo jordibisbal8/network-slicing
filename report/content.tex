@@ -58,7 +58,7 @@ A blockchain is a decentralized distributed ledger, which stores the entire hist
 
 \begin{figure}[bth]
 	\centering
-	\includegraphics[width=0.8\linewidth]{gfx/cenVsDec}    
+	\includegraphics[width=1\linewidth]{gfx/cenVsDec}    
   	\caption{Traditional database vs blockchain approach}
   	\label{fig:CentralizedvsDecentralized}
 \end{figure}
@@ -90,7 +90,7 @@ Figure \ref{fig:Blockchain mining} shows how transactions are bundle into blocks
 
 \begin{figure}[t]
   	\includegraphics[width=1\linewidth]{gfx/mining}    
-  	\caption{Blockchain Mining}
+  	\caption{Blockchain transactions}
   	\label{fig:Blockchain mining}
 \end{figure}
 
@@ -133,7 +133,7 @@ In Bitcoin, each user is identified by a single public address. However, how is 
 \begin{figure}[bth]
   \centering
   \includegraphics[width=0.9\linewidth]{gfx/bitkeys}    
-  \caption{Bitcoin keys and addresses relation \citep{BitcoinKey2018}}
+  \caption{Bitcoin keys and addresses generation \citep{BitcoinKey2018}}
   \label{fig:EthereumAccounts}
 \end{figure}
 
@@ -313,7 +313,7 @@ In \citep{dietrich2015multi}, a centralized VNE framework is implemented (Figure
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\linewidth]{gfx/multiprov.png}    
+	\includegraphics[width=0.9\linewidth]{gfx/multiprov}    
   \caption{(a) Virtual network request across multiple InPs using a VN Provider. (b) VNP's view on the substrate network topologies. \citep{dietrich2015multi}}
   \label{fig:multiprov}
 \end{figure}
@@ -335,7 +335,7 @@ Despite, PolyViNE introduces a decentralized approach dealing with LID and uses 
 	
 \begin{figure}[bth]
 	\centering
-	\includegraphics[width=0.6\linewidth]{gfx/multi.png}    
+	\includegraphics[width=0.6\linewidth]{gfx/multi}    
   	\caption{Multi-provider virtual network embedding \citep{chowdhury2010polyvine}}
   	\label{fig:multi}
 \end{figure}
@@ -369,6 +369,8 @@ Through relevant examples in supply chain management, as the presented in sectio
 
 On the other hand, in the second part of this chapter, we have investigated related work on multi-provider VNE suffering from LID. Table \ref{tab:Comparison} provides a comparison for each of the approaches presented before. 
 
+First of all, we can observe that decentralized systems provide obviously a better scalability because the application does not rely on a single point. In centralized systems, this central entity has to be trusted since it stores and manages all the information. Despite being a decentralized system, \cite{zaheer2010multi} uses to some extent a trusted third party (TTP). This is because, it is the only approach that offers sealed-bidding between users, although using a central entity or TTP. We also notice that in \cite{esposito2013general}, \cite{chowdhury2010polyvine} the bids are exchanged between InPs to cooperate in the VN embedding, which results in undesired computational costs. In contrast, centralized systems \citep{dietrich2015multi}, perform the service negotiation without using auctions, since they trust a middle-party managing these operations.
+
 \begin{table}[bth]
 	\myfloatalign \footnotesize
 	%18 columns
@@ -384,8 +386,6 @@ On the other hand, in the second part of this chapter, we have investigated rela
 		\caption{Comparison of virtual network embedding approaches - Overview for system features implemented as \textit{yes} (\cmark), \textit{no} (\xmark), \textit{to some extent} (*). Abbreviations: \textit{D} = decentralized, \textit{C} = centralized, \textit{L-performance} = large scenario performance and \textit{S-performance} = small scenario performance.}
 	\label{tab:Comparison}
 \end{table}
-
-First of all, we can observe that decentralized systems provide obviously a better scalability because the application does not rely on a single point. In centralized systems, this central entity has to be trusted since it stores and manages all the information. Despite being a decentralized system, \cite{zaheer2010multi} uses to some extent a trusted third party (TTP). This is because, it is the only approach that offers sealed-bidding between users, although using a central entity or TTP. We also notice that in \cite{esposito2013general}, \cite{chowdhury2010polyvine} the bids are exchanged between InPs to cooperate in the VN embedding, which results in undesired computational costs. In contrast, centralized systems \citep{dietrich2015multi}, perform the service negotiation without using auctions, since they trust a middle-party managing these operations.
 
 Moreover, one of our main challenges in the multi-provider VNE scenario is to solve the limited information disclosure issues. We notice that \citep{dietrich2015multi}, \citep{chowdhury2010polyvine} deal with the problem, accessing public information not considered confidential and performing the VNE under its internal policies respectively. In addition, they provide location-assisted VNE, which facilitate the VN request partitioning across different InPs. The last, it also introduces a notification system, where the InPs gets notified upon VN request, which avoids time spending in request synchronization. 
 
