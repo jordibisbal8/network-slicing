@@ -58,7 +58,7 @@ A blockchain is a decentralized distributed ledger, which stores the entire hist
 
 \begin{figure}[bth]
 	\centering
-	\includegraphics[width=1\linewidth]{gfx/cenVsDec}    
+	\includegraphics[width=0.8\linewidth]{gfx/cenVsDec}    
   	\caption{Traditional database vs blockchain approach}
   	\label{fig:CentralizedvsDecentralized}
 \end{figure}
@@ -272,7 +272,7 @@ In \citep{abeyratne2016blockchain}, an example is also presented to better expla
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\linewidth]{gfx/supplyChain}    
+	\includegraphics[width=1\linewidth]{gfx/supplyChain}    
   \caption{ PLM stages and cardbox blockchain application example \citep{stark2015product}}
   \label{fig:supplyChain}
 \end{figure}
@@ -412,32 +412,79 @@ Therefore, the main focus on this thesis will be to investigate and later implem
 \label{ch:design}
 %*****************************************
 
-Based on the challenges highlighted in the previous chapter, a conceptional design of a multi-provider virtual network embedding approach using blockchain is now introduced. First, we define the requirements and assumptions used for the design process. Afterwards, we will present the fundamental goals expected from the system, followed by a general overview of the architecture system. In addition, important features for our application will be discussed, such as the blockchain type, mining strategy, authentication and notification system, and the auction model used.
+Based on the challenges highlighted in the previous chapter, a conceptional design of a multi-provider virtual network embedding approach using blockchain is now introduced. First, we define the requirements and assumptions used for the design process. Afterwards, we will present the fundamental goals expected from the system, followed by a general overview of the architecture. In addition, important features for our application will be discussed, such as the blockchain type, mining strategy, authentication and notification system, and the auction model used.
 
 \section{Requirements and Assumptions}
 
-In section \ref{analysisOfRelatedWork}, after spotting the main benefits of integrating blockchain in real-scenarios , we predict that blockchain could fulfill the above-mentioned VNE demands, by giving rise to a new decentralized, automated and secure system between the SPs and InPs.
+In section \ref{analysisOfRelatedWork}, we have spotted the main benefits of integrating blockchain in real-scenarios. Since it is a disruptive technology, apparently it seems that blockchain could improve many existing systems. However, is it suddenly blockchain the only way of approaching scalability, security or data handling between organizations? Or why not to use a traditional database rather than a blockchain? The truth of it is that there is not a single solution or better technology than the others, it just depends on user's requirements. Thus, it is important to understand in which scenarios blockchain could replace existing infrastructures. For this purpose, in Figure \ref{fig:bcFlowchart} we present a flowchart, which pretends to guide users in determining whether blockchain is the appropriate solution to resolve their problems. We will also use the diagram to decide if it could fulfill the defined VNE scenario demands. 
 
-When use BC and not centralized systems? 
-
-Since it is a disruptive technology, apparently it seems that blockchain could improve many existing systems. However, is it suddenly blockchain the only way of approaching scalability, security or data handling between organizations? Or why is a blockchain better than a traditional database? The truth of it is that there is not a single solution or better technology than the others, it just depends on user's requirements. Thus, it is important to understand when blockchain could replace existing infrastructures. For this purpose, in \ref{fig:bcFlowchart} we present a flowchart, which pretends to guide users in determining whether blockchain is the appropriate solution to resolve their problems.
-
-EXPLAIN FIGURE!
-Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will be later further investigated.
 \begin{figure}[bth]
 	\centering
 	\includegraphics[width=1\linewidth]{gfx/bcFlowchart}    
-  	\caption{Flow-chart to determine whether blockchain is the suitable solution \citep{wust2017you}}
+  	\caption{Flowchart to determine whether blockchain is the suitable solution. Adapted from \citep{wust2017you}}
   	\label{fig:bcFlowchart}
 \end{figure}
 
-e.g: Flexibility, fair price negotiation, trustworthy, transparent ... And explain each point
+Before starting with the flowchart, one statement needs to be clear: if the user does not need to store data, no blockchain or database is required. The discussion arises when multiple writers want to exchange data without relying on a trusted third party (TTP). If this is not the case, a traditional or centralized database will always provide a better throughput. However, if such is the case, then the user should first consider if all the writers are known and trusted. In this context, a writer is a user that performs the four basic functions of persistent storage: create, read, update and delete data (CRUD). If so, again a typical database (e.g. SQL) will be more adequate. If all the mentioned requirements are satisfied, or in other words, multiple untrusted writers are willing to update the state of a system without trusting a middle actor, it is then that using a blockchain is reasonable.
+
+Before proceeding, in Figure \ref{fig:bcFlowchart} we first classify blockchains into two groups: \textit{permissionless} and \textit{permissioned} blockchains. To decide between these two approaches, the user should consider if he is willing to control his custome blockchain, creating his own speficications. For example, Bitcoin or Ethereum are permissionless blockchains, where users are added in the network and thus, restricted to its policies. In Table \ref{tab:blockchainTypes} the main characteristics of each blockchain type are summarized.
+
+\begin{table}[bth]
+	\myfloatalign \footnotesize
+	%18 columns
+	\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{6cm}>{\raggedright\arraybackslash}p{6cm}}
+	\textbf{Features} & \textbf{Permissionless} & \textbf{Permissioned}\\ 
+		\hline
+		Control functionality & Fully decentralized & One or a small group of pre-selected entities \\
+		Access control & Open access & Authorized access \\ 
+		Number of users & High & Low \\
+		Number of untrusted users & High & Low \\
+		Writers & Any user participating & Permissioned group of people, e.g. bank customers \\
+		Centrally managed & No & Yes (*) \\
+		Security & Consensus algorithms (e.g PoW or PoS) & Byzantine Fault Tolerant (BFT) protocols \\
+		Transaction fee & Yes & No \\
+		Speed & Low & Fast \\
+		Latency & Slow & Medium \\
+		Types & Public & Public, private and hybrid blockchain \\
+		Use cases & Cryptocurrencies (e.g. Bitcoin) & Transactions in business networks \\ \hline
+	\end{tabularx}
+		\caption{Types of blockchain: permissionless vs permissioned. Adapted from \citep{wust2017you}. (*) states for depending on permissioned blockchain type.}
+	\label{tab:blockchainTypes}
+\end{table}
+
+Furthermore, under permissioned blockchains, a second division is performed:
+
+UNTIL HERE!
+\begin{itemize}
+	\item \textbf{Public permissioned blockchain:} Decentralized, all the participating users are allowed to read the system's state (transactions can be publicly verified).
+	\item \textbf{Private blockchain:} Centralized to one organization, access and writing permissions are restricted to a set of users.
+	\item \textbf{Hybrid/Consortium blockchain:} Party decentralized, the blockchain management is controlled by a pre-selected set of nodes. For example, 5 banks deploy a common blockchain.
+\end{itemize}
+
+Compare to normal DB again due to permissioned private chain similarity.
+Adapt it to our scenario
+Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will be further investigated during the thesis.
+
+Enumerate system requirements: e.g: Flexibility, fair price negotiation, trustworthy, transparent ... And explain each point
+
 Assumption that intra-domain virtual links cost is almost 0. Having the virtual link cost from EC2 Amazon and the BW we could determine it...
 
 PROBLEMS: -  The participants of a SCM vary greatly across different supply
 chains and the same peers might take different roles across different supply chains. - This reasoning leaves us with the question whether all writers
 can be trusted. 
 
+Private blockchains mimic the security process utilized by public blockchains like Bitcoin, but do not involve mathematical guarantees at the validation level or with respect to irreversibility. 
+
+However, they still make use of cryptography and data structures like Merkle trees to ensure non-valid transactions aren’t added to the blockchain. 
+
+At the end of the day, private blockchains provide higher levels of error checking and transaction validity than regular shared databases. 
+
+Even though they don’t use proof of work, blocks of transactions are validated using some other forms of consensus mechanism. This can still be chosen to be Byzantine Fault Tolerant (BFT).e.g. Raft and Juno.
+
+adv privchains vs DB: cryptography to prevent malicious users attacking DB, higher-levels of error checking and transaction validity, data integrity.
+my: cost,transparency.
+Given all of this, it may seem like private blockchains are unquestionably a better choice for institutions
+Sol: hybrid is a partially decentralized solution!
 \section{System Overview}
 
 \subsection{Fundamental Goals}
@@ -480,6 +527,7 @@ It is important to note that in our scenario, similar to \citep{zaheer2010multi}
 Explain that an auction could use a multi-dimensional process (more parameters).
 
 Package pricing or volume discount?
+
 
 \section{Summary}
 
@@ -566,6 +614,7 @@ The section should have a length of about three pages.}
 
 IOTA-TANGLE
 BigchainDB
+Hyperledger?
 The Front-end application could be hosted in a decentralized storage such as IPFS or SWARM.
 BC storing chunks of data
 

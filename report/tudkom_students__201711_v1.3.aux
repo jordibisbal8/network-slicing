@@ -122,7 +122,6 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  PLM stages and cardbox blockchain application example \citep  {stark2015product}\relax }}{14}{figure.caption.21}}
 \newlabel{fig:supplyChain}{{3.1}{14}{PLM stages and cardbox blockchain application example \citep {stark2015product}\relax }{figure.caption.21}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Network virtualization}{14}{section.3.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Multi-Provider Virtual Network Embedding with Limited Information Disclosure}{14}{subsection.3.2.1}}
 \citation{zaheer2010multi}
 \citation{dietrich2015multi}
 \citation{dietrich2015multi}
@@ -130,10 +129,11 @@
 \citation{dietrich2015multi}
 \citation{dietrich2015multi}
 \citation{dietrich2015multi}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Multi-Provider Virtual Network Embedding with Limited Information Disclosure}{15}{subsection.3.2.1}}
+\@writefile{toc}{\contentsline {subsubsection}{Centralized Slice Embedding}{15}{subsubsection*.22}}
 \citation{houidi2011virtual}
 \citation{dietrich2015multi}
 \citation{dietrich2017multi}
-\@writefile{toc}{\contentsline {subsubsection}{Centralized Slice Embedding}{15}{subsubsection*.22}}
 \citation{esposito2013general}
 \citation{chowdhury2010polyvine}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces (a) Virtual network request across multiple InPs using a VN Provider. (b) VNP's view on the substrate network topologies. \citep  {dietrich2015multi}\relax }}{16}{figure.caption.23}}
@@ -148,8 +148,6 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Multi-provider virtual network embedding \citep  {chowdhury2010polyvine}\relax }}{17}{figure.caption.25}}
 \newlabel{fig:multi}{{3.3}{17}{Multi-provider virtual network embedding \citep {chowdhury2010polyvine}\relax }{figure.caption.25}{}}
 \@writefile{toc}{\contentsline {subsubsection}{Auction Models}{17}{subsubsection*.26}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Analysis of Related Work}{17}{section.3.3}}
-\newlabel{analysisOfRelatedWork}{{3.3}{17}{Analysis of Related Work}{section.3.3}{}}
 \citation{mainelli2015sharing}
 \citation{zaheer2010multi}
 \citation{esposito2013general}
@@ -161,6 +159,8 @@
 \citation{zaheer2010multi}
 \citation{dietrich2015multi}
 \citation{chowdhury2010polyvine}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Analysis of Related Work}{18}{section.3.3}}
+\newlabel{analysisOfRelatedWork}{{3.3}{18}{Analysis of Related Work}{section.3.3}{}}
 \citation{dietrich2015multi}
 \citation{chowdhury2010polyvine}
 \@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Comparison of virtual network embedding approaches - Overview for system features implemented as \textit  {yes} ({\fontfamily  {pzd}\fontencoding  {U}\fontseries  {m}\fontshape  {n}\selectfont  \char 51}), \textit  {no} ({\fontfamily  {pzd}\fontencoding  {U}\fontseries  {m}\fontshape  {n}\selectfont  \char 55}), \textit  {to some extent} (*). Abbreviations: \textit  {D} = decentralized, \textit  {C} = centralized, \textit  {L-performance} = large scenario performance and \textit  {S-performance} = small scenario performance.\relax }}{19}{table.caption.27}}
@@ -174,50 +174,54 @@
 \@writefile{lol}{\addvspace {10\p@ }}
 \newlabel{ch:design}{{4}{21}{Design}{chapter.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Requirements and Assumptions}{21}{section.4.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Flow-chart to determine whether blockchain is the suitable solution \citep  {wust2017you}\relax }}{21}{figure.caption.28}}
-\newlabel{fig:bcFlowchart}{{4.1}{21}{Flow-chart to determine whether blockchain is the suitable solution \citep {wust2017you}\relax }{figure.caption.28}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}System Overview}{22}{section.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Fundamental Goals}{22}{subsection.4.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Architecture}{22}{subsection.4.2.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Design system architecture\relax }}{22}{figure.caption.29}}
-\newlabel{fig:designWorkflow}{{4.2}{22}{Design system architecture\relax }{figure.caption.29}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Blockchain Types}{22}{subsection.4.2.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Mining}{22}{subsection.4.2.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Flowchart to determine whether blockchain is the suitable solution. Adapted from \citep  {wust2017you}\relax }}{21}{figure.caption.28}}
+\newlabel{fig:bcFlowchart}{{4.1}{21}{Flowchart to determine whether blockchain is the suitable solution. Adapted from \citep {wust2017you}\relax }{figure.caption.28}{}}
+\citation{wust2017you}
+\citation{wust2017you}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Types of blockchain: permissionless vs permissioned. Adapted from \citep  {wust2017you}. (*) states for depending on permissioned blockchain type.\relax }}{22}{table.caption.29}}
+\newlabel{tab:blockchainTypes}{{4.1}{22}{Types of blockchain: permissionless vs permissioned. Adapted from \citep {wust2017you}. (*) states for depending on permissioned blockchain type.\relax }{table.caption.29}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}System Overview}{23}{section.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Fundamental Goals}{23}{subsection.4.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Architecture}{23}{subsection.4.2.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Design system architecture\relax }}{23}{figure.caption.30}}
+\newlabel{fig:designWorkflow}{{4.2}{23}{Design system architecture\relax }{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Blockchain Types}{23}{subsection.4.2.3}}
 \citation{zaheer2010multi}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Authentication System}{23}{subsection.4.2.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Notification System}{23}{subsection.4.2.6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.7}Vickrey Auction Model}{23}{subsection.4.2.7}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Summary}{23}{section.4.3}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementation}{25}{chapter.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Mining}{24}{subsection.4.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Authentication System}{24}{subsection.4.2.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Notification System}{24}{subsection.4.2.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.7}Vickrey Auction Model}{24}{subsection.4.2.7}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Summary}{24}{section.4.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementation}{27}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{ch:implementation}{{5}{25}{Implementation}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Design Decisions}{25}{section.5.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Architecture}{25}{section.5.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Interaction of Components}{25}{section.5.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Summary}{25}{section.5.4}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Evaluation}{27}{chapter.6}}
+\newlabel{ch:implementation}{{5}{27}{Implementation}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Design Decisions}{27}{section.5.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Architecture}{27}{section.5.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Interaction of Components}{27}{section.5.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Summary}{27}{section.5.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Evaluation}{29}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{ch:evaluation}{{6}{27}{Evaluation}{chapter.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Goal and Methodology}{27}{section.6.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Evaluation Setup}{27}{section.6.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Evaluation Results}{27}{section.6.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Analysis of Results}{27}{section.6.4}}
+\newlabel{ch:evaluation}{{6}{29}{Evaluation}{chapter.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Goal and Methodology}{29}{section.6.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Evaluation Setup}{29}{section.6.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Evaluation Results}{29}{section.6.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Analysis of Results}{29}{section.6.4}}
 \bibstyle{alpha}
 \bibdata{bibliography}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusions}{29}{chapter.7}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusions}{31}{chapter.7}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{ch:closure}{{7}{29}{Conclusions}{chapter.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}Summary}{29}{section.7.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Contributions}{29}{section.7.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}Future Work}{29}{section.7.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.4}Final Remarks}{29}{section.7.4}}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{29}{dummy.1}}
+\newlabel{ch:closure}{{7}{31}{Conclusions}{chapter.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Summary}{31}{section.7.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Contributions}{31}{section.7.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Future Work}{31}{section.7.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.4}Final Remarks}{31}{section.7.4}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{31}{dummy.1}}
 \bibcite{ausubel2006lovely}{{AM{$^{+}$}06}{}{{}}{{}}}
 \bibcite{abeyratne2016blockchain}{{AM16}{}{{}}{{}}}
 \bibcite{amazonEC2}{{ama}{}{{}}{{}}}
