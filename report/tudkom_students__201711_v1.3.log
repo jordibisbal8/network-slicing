@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  12 FEB 2018 19:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  15 FEB 2018 21:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1907,7 +1907,7 @@ Package pdftex.def Info: gfx/networkvir.pdf used on input line 212.
 
 [11 <./gfx/networkvir.pdf>]
 LaTeX Font Info:    Font shape `T1/5ch/b/it' in size <11> not available
-(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 244.
+(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 242.
  [12]
 chapter 3.
 [13
@@ -1917,38 +1917,38 @@ chapter 3.
 
 pdfTeX warning: pdflatex (file ./gfx/supplyChain.pdf): PDF inclusion: found PDF
  version <1.7>, but at most version <1.5> allowed
-<gfx/supplyChain.pdf, id=530, 794.97pt x 389.455pt>
+<gfx/supplyChain.pdf, id=534, 794.97pt x 389.455pt>
 File: gfx/supplyChain.pdf Graphic file (type pdf)
  <use gfx/supplyChain.pdf>
-Package pdftex.def Info: gfx/supplyChain.pdf used on input line 275.
+Package pdftex.def Info: gfx/supplyChain.pdf used on input line 273.
 (pdftex.def)             Requested size: 497.92325pt x 243.93765pt.
 
 [14 <./gfx/supplyChain.pdf>]
 
 pdfTeX warning: pdflatex (file ./gfx/multiprov.pdf): PDF inclusion: found PDF v
 ersion <1.7>, but at most version <1.5> allowed
-<gfx/multiprov.pdf, id=577, 635.37375pt x 339.2675pt>
+<gfx/multiprov.pdf, id=582, 635.37375pt x 339.2675pt>
 File: gfx/multiprov.pdf Graphic file (type pdf)
  <use gfx/multiprov.pdf>
-Package pdftex.def Info: gfx/multiprov.pdf used on input line 316.
+Package pdftex.def Info: gfx/multiprov.pdf used on input line 314.
 (pdftex.def)             Requested size: 448.12788pt x 239.29233pt.
 
 [15] [16 <./gfx/multiprov.pdf>]
 
 pdfTeX warning: pdflatex (file ./gfx/multi.pdf): PDF inclusion: found PDF versi
 on <1.7>, but at most version <1.5> allowed
-<gfx/multi.pdf, id=609, 281.05pt x 172.645pt>
+<gfx/multi.pdf, id=613, 281.05pt x 172.645pt>
 File: gfx/multi.pdf Graphic file (type pdf)
  <use gfx/multi.pdf>
-Package pdftex.def Info: gfx/multi.pdf used on input line 338.
+Package pdftex.def Info: gfx/multi.pdf used on input line 336.
 (pdftex.def)             Requested size: 298.75697pt x 183.5323pt.
  [17 <./gfx/multi.pdf>]
-Overfull \hbox (1.94398pt too wide) in paragraph at lines 385--385
+Overfull \hbox (1.94398pt too wide) in paragraph at lines 377--377
 []|\T1/5ch/b/n/9.2 System|  
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 385--385
+Underfull \hbox (badness 10000) in alignment at lines 377--377
 [][][][][][][][][][][][][] 
  []
 
@@ -1961,14 +1961,14 @@ chapter 4.
 
 pdfTeX warning: pdflatex (file ./gfx/bcFlowchart.pdf): PDF inclusion: found PDF
  version <1.7>, but at most version <1.5> allowed
-<gfx/bcFlowchart.pdf, id=668, 722.7pt x 368.37625pt>
+<gfx/bcFlowchart.pdf, id=664, 722.7pt x 368.37625pt>
 File: gfx/bcFlowchart.pdf Graphic file (type pdf)
  <use gfx/bcFlowchart.pdf>
-Package pdftex.def Info: gfx/bcFlowchart.pdf used on input line 423.
+Package pdftex.def Info: gfx/bcFlowchart.pdf used on input line 415.
 (pdftex.def)             Requested size: 497.92325pt x 253.80327pt.
 
 [21 <./gfx/bcFlowchart.pdf>]
-Underfull \hbox (badness 10000) in alignment at lines 450--450
+Underfull \hbox (badness 10000) in alignment at lines 442--442
 [][][] 
  []
 
@@ -1976,14 +1976,14 @@ Underfull \hbox (badness 10000) in alignment at lines 450--450
 
 pdfTeX warning: pdflatex (file ./gfx/designWorkflow.pdf): PDF inclusion: found 
 PDF version <1.7>, but at most version <1.5> allowed
-<gfx/designWorkflow.pdf, id=694, 671.50874pt x 303.1325pt>
+<gfx/designWorkflow.pdf, id=690, 671.50874pt x 303.1325pt>
 File: gfx/designWorkflow.pdf Graphic file (type pdf)
 
 <use gfx/designWorkflow.pdf>
-Package pdftex.def Info: gfx/designWorkflow.pdf used on input line 498.
+Package pdftex.def Info: gfx/designWorkflow.pdf used on input line 490.
 (pdftex.def)             Requested size: 497.92325pt x 224.77245pt.
  [23 <./gfx/designWorkflow.pdf>] [24]
-Underfull \hbox (badness 10000) in paragraph at lines 543--543
+Underfull \hbox (badness 10000) in paragraph at lines 539--539
 
  []
 
@@ -1993,23 +1993,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 543--543
 ]
 chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 562--562
 
  []
 
 
-Underfull \hbox (badness 1515) in paragraph at lines 566--566
+Underfull \hbox (badness 1515) in paragraph at lines 562--562
 \T1/5ch/m/n/11 This chap-ter should de-scribe the de-tails of the im-ple-men-ta
 -tion ad-dress-ing the fol-low-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 562--562
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 562--562
 
  []
 
@@ -2019,17 +2019,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 566--566
 ]
 chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 588--588
+Underfull \hbox (badness 10000) in paragraph at lines 584--584
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 588--588
+Underfull \hbox (badness 10000) in paragraph at lines 584--584
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 588--588
+Underfull \hbox (badness 10000) in paragraph at lines 584--584
 
  []
 
@@ -2039,7 +2039,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 588--588
 ]
 chapter 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 607--607
+Underfull \hbox (badness 10000) in paragraph at lines 603--603
 
  []
 
@@ -2064,10 +2064,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 301.
  ) 
 Here is how much of TeX's memory you used:
- 23898 strings out of 494860
- 399746 string characters out of 6177601
- 533920 words of memory out of 5000000
- 26629 multiletter control sequences out of 15000+600000
+ 23895 strings out of 494860
+ 399703 string characters out of 6177601
+ 532903 words of memory out of 5000000
+ 26628 multiletter control sequences out of 15000+600000
  142280 words of font info for 129 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  59i,14n,100p,10457b,1151s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2087,10 +2087,10 @@ share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/zapfding/uzdr.pfb>
-Output written on tudkom_students__201711_v1.3.pdf (40 pages, 608743 bytes).
+Output written on tudkom_students__201711_v1.3.pdf (40 pages, 608976 bytes).
 PDF statistics:
- 857 PDF objects out of 1000 (max. 8388607)
- 753 compressed objects within 8 object streams
- 165 named destinations out of 1000 (max. 500000)
+ 856 PDF objects out of 1000 (max. 8388607)
+ 752 compressed objects within 8 object streams
+ 163 named destinations out of 1000 (max. 500000)
  428 words of extra memory for PDF output out of 10000 (max. 10000000)
 

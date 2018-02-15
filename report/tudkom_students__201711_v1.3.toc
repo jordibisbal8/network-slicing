@@ -17,24 +17,22 @@
 \contentsline {subsubsection}{Decentralized applications}{10}{subsubsection*.18}
 \contentsline {section}{\numberline {2.2}Network Virtualization}{11}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Auction Mechanisms}{12}{subsection.2.2.1}
-\contentsline {subsubsection}{Vickrey Auction Model}{12}{subsubsection*.20}
 \contentsline {section}{\numberline {2.3}Summary}{12}{section.2.3}
 \contentsline {chapter}{\numberline {3}Related Work}{13}{chapter.3}
 \contentsline {section}{\numberline {3.1}Blockchain in Supply Chain Management}{13}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Blockchain Ready Manufacturing Supply Chain}{13}{subsection.3.1.1}
 \contentsline {section}{\numberline {3.2}Network virtualization}{14}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Multi-Provider Virtual Network Embedding with Limited Information Disclosure}{15}{subsection.3.2.1}
-\contentsline {subsubsection}{Centralized Slice Embedding}{15}{subsubsection*.22}
-\contentsline {subsubsection}{Distributed Slice Embedding}{16}{subsubsection*.24}
-\contentsline {subsubsection}{Auction Models}{17}{subsubsection*.26}
-\contentsline {section}{\numberline {3.3}Analysis of Related Work}{18}{section.3.3}
+\contentsline {subsubsection}{Centralized Slice Embedding}{15}{subsubsection*.21}
+\contentsline {subsubsection}{Distributed Slice Embedding}{16}{subsubsection*.23}
+\contentsline {section}{\numberline {3.3}Analysis of Related Work}{17}{section.3.3}
 \contentsline {section}{\numberline {3.4}Summary}{19}{section.3.4}
 \contentsline {chapter}{\numberline {4}Design}{21}{chapter.4}
 \contentsline {section}{\numberline {4.1}Requirements and Assumptions}{21}{section.4.1}
 \contentsline {section}{\numberline {4.2}System Overview}{23}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Fundamental Goals}{23}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Architecture}{23}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Blockchain Types}{23}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.3}Blockchain Types}{24}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}Mining}{24}{subsection.4.2.4}
 \contentsline {subsection}{\numberline {4.2.5}Authentication System}{24}{subsection.4.2.5}
 \contentsline {subsection}{\numberline {4.2.6}Notification System}{24}{subsection.4.2.6}
