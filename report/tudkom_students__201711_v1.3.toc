@@ -17,40 +17,42 @@
 \contentsline {subsubsection}{Decentralized applications}{10}{subsubsection*.18}
 \contentsline {section}{\numberline {2.2}Network Virtualization}{11}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Auction Mechanisms}{12}{subsection.2.2.1}
-\contentsline {section}{\numberline {2.3}Summary}{12}{section.2.3}
-\contentsline {chapter}{\numberline {3}Related Work}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Blockchain in Supply Chain Management}{13}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Blockchain Ready Manufacturing Supply Chain}{13}{subsection.3.1.1}
-\contentsline {section}{\numberline {3.2}Network virtualization}{14}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Multi-Provider Virtual Network Embedding with Limited Information Disclosure}{15}{subsection.3.2.1}
-\contentsline {subsubsection}{Centralized Slice Embedding}{15}{subsubsection*.21}
-\contentsline {subsubsection}{Distributed Slice Embedding}{16}{subsubsection*.23}
-\contentsline {section}{\numberline {3.3}Analysis of Related Work}{17}{section.3.3}
-\contentsline {section}{\numberline {3.4}Summary}{19}{section.3.4}
-\contentsline {chapter}{\numberline {4}Design}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}Requirements and Assumptions}{21}{section.4.1}
-\contentsline {section}{\numberline {4.2}System Overview}{23}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Fundamental Goals}{23}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Architecture}{23}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Blockchain Types}{24}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Mining}{24}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Authentication System}{24}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}Notification System}{24}{subsection.4.2.6}
-\contentsline {subsection}{\numberline {4.2.7}Vickrey Auction Model}{24}{subsection.4.2.7}
-\contentsline {section}{\numberline {4.3}Summary}{24}{section.4.3}
-\contentsline {chapter}{\numberline {5}Implementation}{27}{chapter.5}
-\contentsline {section}{\numberline {5.1}Design Decisions}{27}{section.5.1}
-\contentsline {section}{\numberline {5.2}Architecture}{27}{section.5.2}
-\contentsline {section}{\numberline {5.3}Interaction of Components}{27}{section.5.3}
-\contentsline {section}{\numberline {5.4}Summary}{27}{section.5.4}
-\contentsline {chapter}{\numberline {6}Evaluation}{29}{chapter.6}
-\contentsline {section}{\numberline {6.1}Goal and Methodology}{29}{section.6.1}
-\contentsline {section}{\numberline {6.2}Evaluation Setup}{29}{section.6.2}
-\contentsline {section}{\numberline {6.3}Evaluation Results}{29}{section.6.3}
-\contentsline {section}{\numberline {6.4}Analysis of Results}{29}{section.6.4}
-\contentsline {chapter}{\numberline {7}Conclusions}{31}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary}{31}{section.7.1}
-\contentsline {section}{\numberline {7.2}Contributions}{31}{section.7.2}
-\contentsline {section}{\numberline {7.3}Future Work}{31}{section.7.3}
-\contentsline {section}{\numberline {7.4}Final Remarks}{31}{section.7.4}
-\contentsline {chapter}{Bibliography}{31}{dummy.1}
+\contentsline {section}{\numberline {2.3}Summary}{13}{section.2.3}
+\contentsline {chapter}{\numberline {3}Related Work}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Blockchain in Supply Chain Management}{15}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Blockchain Ready Manufacturing Supply Chain}{15}{subsection.3.1.1}
+\contentsline {section}{\numberline {3.2}Network virtualization}{16}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Multi-Provider Virtual Network Embedding with Limited Information Disclosure}{17}{subsection.3.2.1}
+\contentsline {subsubsection}{Centralized Slice Embedding}{17}{subsubsection*.21}
+\contentsline {subsubsection}{Distributed Slice Embedding}{18}{subsubsection*.23}
+\contentsline {section}{\numberline {3.3}Analysis of Related Work}{19}{section.3.3}
+\contentsline {section}{\numberline {3.4}Summary}{21}{section.3.4}
+\contentsline {chapter}{\numberline {4}Design}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}Requirements and Assumptions}{23}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Virtual Network Embedding with LID scenario}{25}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Ethereum and Smart Contracts}{25}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}System Overview}{26}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Fundamental Goals}{26}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Architecture}{26}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Blockchain Types}{26}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Mining}{26}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Authentication System}{27}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Notification System}{27}{subsection.4.2.6}
+\contentsline {subsection}{\numberline {4.2.7}Vickrey Auction Model}{27}{subsection.4.2.7}
+\contentsline {section}{\numberline {4.3}Summary}{27}{section.4.3}
+\contentsline {chapter}{\numberline {5}Implementation}{29}{chapter.5}
+\contentsline {section}{\numberline {5.1}Design Decisions}{29}{section.5.1}
+\contentsline {section}{\numberline {5.2}Architecture}{29}{section.5.2}
+\contentsline {section}{\numberline {5.3}Interaction of Components}{29}{section.5.3}
+\contentsline {section}{\numberline {5.4}Summary}{29}{section.5.4}
+\contentsline {chapter}{\numberline {6}Evaluation}{31}{chapter.6}
+\contentsline {section}{\numberline {6.1}Goal and Methodology}{31}{section.6.1}
+\contentsline {section}{\numberline {6.2}Evaluation Setup}{31}{section.6.2}
+\contentsline {section}{\numberline {6.3}Evaluation Results}{31}{section.6.3}
+\contentsline {section}{\numberline {6.4}Analysis of Results}{31}{section.6.4}
+\contentsline {chapter}{\numberline {7}Conclusions}{33}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{33}{section.7.1}
+\contentsline {section}{\numberline {7.2}Contributions}{33}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future Work}{33}{section.7.3}
+\contentsline {section}{\numberline {7.4}Final Remarks}{33}{section.7.4}
+\contentsline {chapter}{Bibliography}{33}{dummy.1}

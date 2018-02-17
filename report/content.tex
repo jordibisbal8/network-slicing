@@ -90,7 +90,7 @@ Figure \ref{fig:Blockchain mining} shows how transactions are bundle into blocks
 
 \begin{figure}[t]
   	\includegraphics[width=1\linewidth]{gfx/mining}    
-  	\caption{Blockchain transactions}
+  	\caption{Blockchain transactions. Adapted from \citep{hans2017blockchain}}
   	\label{fig:Blockchain mining}
 \end{figure}
 
@@ -196,7 +196,7 @@ In conclusion, a smart contact is just an account containing code, which lives o
 
 In the Ethereum white paper \cite{buterin2014next} dapps are split into three types. The first group includes financial applications, where users exchange ether in an efficient and distributed manner. The second group is formed by semi-financial applications, in which money is involved but it is mixed with data from the real world, for example with weather feed. And finally, in the third category, there are non-financial applications. For instance, an online voting platform providing a better transparency into elections, without compromising voter confidentiality.
 
-Despite the blockchain is a secure technology, its created applications are constantly compromised to multiple attacks. This is because the majority of smart contracts are insecure, due to its code being prone to bugs.
+Despite the blockchain is a secure technology, the created applications are constantly compromised to multiple attacks. This is because the majority of smart contracts are insecure, due to its code being prone to bugs.
 For example, in June 2016, the DAO\footnote{https://ethereum.org/dao}, a distributed autonomous organization instantiated on the Ethereum blockchain, was hacked. The attack, which was a smart contract bug, had resulted in over 50 million dollars of cryptocurrency theft. Thus, smart contracts need to be protected against malicious attacks before being uploaded on the blockchain.
 
 In the following section, an example application or process currently performed by IT companies will be introduced.
@@ -229,17 +229,18 @@ The presented process is coordinated by an actor, the VNP, who stores all the in
 
 \subsection{Auction Mechanisms} 
 
-Service negotiation has already been examined in many researchs, such as \citep{hausheer2005peermart}, \cite{ogston2002peer}, who have worked with diverse auctions platforms. An auction is a public negotiation method involving buyers and sellers that enables resource trading between P2P users. While buyer's goal is to find the desired service at the lowest price, providers or seller's goal is to catch the attention of buyers who are able to pay the highest price for its offered services. Thus, an auction must provide fairness in terms of technical and economic efficiency, for both the buyer and the seller.
+Service negotiation has already been examined in many researchs, such as \citep{hausheer2005peermart}, \cite{ogston2002peer}, which have worked with diverse auctions platforms. An auction is a public negotiation method involving buyers and sellers that enables resource trading between peer-to-peer users. While buyer's goal is to find the desired service at the lowest price, providers or seller's goal is to catch the attention of buyers who are able to pay the highest price for its offered services. Thus, an auction must provide fairness in terms of technical and economic efficiency, for both the buyer and the seller.
 
 Firstly, auctions can be divided into (i) \textit{one-sided auctions} where only the buyers submit their bids (e.g: a painting auctioned in an art exhibition), or (ii) \textit{two-sided auctions} in which buyers and sellers submit their bids. Normally, when any of the two sides (buyer or seller) cannot perform a good estimation of the service, a one-side auction is preferred. This is the case in network virtualization, where the SPs are not aware of the InPs physical nodes availability or complexity. Secondly, the auctions are (i) \textit{open-cry} auctions, where the bids are broadcasted to all users, or (ii) \textit{sealed-bid} auctions in which bidders first commit bid values in secret that are later revealed (e.g: physical envelopes). In our scenario, the InPs should bid in a confidential manner, because they do not want to disclose internal data. In addition, concerning auction types, our focus will be on the most common \cite{coppinger1980incentives}: 
 
 \begin{itemize}
-	\item \textbf{English auctions}, also called \textit{open-cry ascending-price} auction, is the classic bidding mechanism where the seller first sets a minimum starting value (reserve price), which buyers should overcome. Then, these buyers start to offer higher prices until nobody wants to offer a greater one. However, due to the competition, this auction model can result in a long process (e.g. low reserve price) where users pay huge amounts.
-	\item \textbf{Dutch auctions}, in contrast to the English auction, is a \textit{open-cry descending-price} auction. In this model, seller fixes a maximum value which is reduced slightly over time. Once a buyer accepts a price, the auction will finish. Nevertheless, to prevent ending with low prices for the sellers, they also establish the mentioned reserve price, which will be the minimum accepted amount. Dutch auctions are faster than the English ones, but buyers will also end up paying more to ensure that they win.
-	\item \textbf{Vickrey auctions} \cite{vickrey1961counterspeculation} has the particularity of corresponding to a \textit{sealed-bid second-price} auction. In a second-price auction the bidder will offer a price for the service, and among all the bids, the highest one will win the auction. Nevertheless, unlikely standard auctions, the service will be rendered at the second highest bid. For example, if the winning bidder bids 15 \euro and the second highest bid is 10 \euro, the winner pays only 10 \euro. From the bidder point of view means that he can safely bid the true value, knowing that if he wins, he will pay less than his bid. Thus, a Vickrey auction compared to English and Dutch auctions, is considered a fair-price system since it provides a reasonable price to the buyer by motivating bidders to bid truthfully. 		
+	\item \textbf{English auctions}, also called \textit{open-cry ascending-price} auction, is the classic bidding mechanism where the seller first sets a minimum starting value (reserve price), which buyers should overcome. Then, these buyers start to offer higher prices until nobody wants to offer a greater one. However, due to the competition, this auction model can result in a long process (e.g. low reserve price compared to real value) where users pay huge amounts.
+	\item \textbf{Dutch auctions} are similar to the English auctions, but on the contrary, they are \textit{open-cry descending-price} auctions. In this model, seller fixes a maximum value which is reduced slightly over time. Once a buyer accepts a price, the auction will finish. Nevertheless, to prevent ending with low prices for the sellers, they also establish the mentioned reserve price, which will be the minimum accepted amount. Dutch auctions are faster than the English ones, but buyers will also end up paying more to ensure that they win.
+	\item \textbf{Vickrey auctions} \cite{vickrey1961counterspeculation} has the particularity of corresponding to a \textit{sealed-bid second-price} auction. Since it is sealed, during the bidding time buyers do not know other bids and eventually, how the auction is evolving. In addition, the Vickrey auction corresponds to a second-price tender. This means that like standard auctions, the bidders will offer a price for the service, and the highest bid will win. Nevertheless, this service will be rendered at the second highest value. For example, if the winner bids 15 \euro and the second highest bid is 10 \euro, he ends-up paying only 10 \euro. From the bidder point of view means that he can safely bid the true value, knowing that if he wins, he will pay less than his bid. Thus, a Vickrey auction compared to English and Dutch auctions, is considered a fair-price system since it provides a reasonable price to the buyer by motivating bidders to bid truthfully.
+	\item \textbf{Reverse auctions} as the name states, buyers and sellers roles are switched. In contrast to ordinary auctions, where buyers compete to obtain an asset, in reverse auctions, sellers compete to gain a business. In other words, the seller bids for his own provided services, which in the end, will be given to the supplier offering the lowest price. For example, in the network virtualization process, InPs will bid for the lease of their physical nodes, and afterwards, the SP will rent the most economical ones.
 \end{itemize}
 
-Ultimately, after judging the preceding analysis regarding auction types, a \textbf{\textit{sealed one-side Vickrey}} auction seems to be the most suitable in network virtualization, since it provides confidentiality and the highest aggregate profit among sellers and buyers. This will be later investigated in section \ref{ch:design}.
+Ultimately, after judging the preceding analysis regarding auction types, a \textbf{\textit{one-side reverse Vickrey}} auction seems to be the most suitable for network virtualization since it provides confidentiality and the biggest aggregate profit among sellers and buyers. This will be later investigated in section \ref{ch:design}.
 
 \section{Summary}
 
@@ -333,7 +334,7 @@ Despite, PolyViNE introduces a decentralized approach dealing with LID and uses 
 	
 \begin{figure}[bth]
 	\centering
-	\includegraphics[width=0.6\linewidth]{gfx/multi}    
+	\includegraphics[width=0.5\linewidth]{gfx/multi}    
   	\caption{Multi-provider virtual network embedding \citep{chowdhury2010polyvine}}
   	\label{fig:multi}
 \end{figure}
@@ -404,11 +405,11 @@ Therefore, the main focus on this thesis will be to investigate and later implem
 \label{ch:design}
 %*****************************************
 
-Based on the challenges highlighted in the previous chapter, a conceptional design of a multi-provider virtual network embedding approach using blockchain is now introduced. First, we define the requirements and assumptions used for the design process. Afterwards, we will present the fundamental goals expected from the system, followed by a general overview of the architecture. In addition, important features for our application will be discussed, such as the blockchain type, mining strategy, authentication and notification system, and the auction model used.
+Based on the challenges highlighted in the previous chapter, a conceptional design of a multi-provider virtual network embedding approach using blockchain will be now introduced. First, we define the requirements and assumptions used for the design process. Afterwards, we will present the fundamental goals expected from the system, followed by a general overview of the architecture along with its functionality. In addition, important features for our application will be discussed, such as the blockchain type, mining strategy, authentication and notification system, and the auction model used.
 
 \section{Requirements and Assumptions}
 
-In section \ref{analysisOfRelatedWork}, we have spotted the main benefits of integrating blockchain in real-scenarios. Since it is a disruptive technology, apparently it seems that blockchain could improve many existing systems. However, is it suddenly blockchain the only way of approaching scalability, security or data handling between organizations? Or why not to use a traditional database rather than a blockchain? The truth of it is that there is not a single solution or better technology than the others, it just depends on user's requirements. Thus, it is important to understand in which scenarios blockchain could replace existing infrastructures. For this purpose, in Figure \ref{fig:bcFlowchart} we present a flowchart, which pretends to guide users in determining whether blockchain is the appropriate solution to resolve their problems. We will also use the diagram to decide if it could fulfill the defined VNE scenario demands. 
+Since blockchain is a disruptive technology, apparently it seems that it could improve many existing systems. However, is it suddenly blockchain the only way of approaching scalability, security or data handling between organizations? Or why not to use a traditional database rather than a blockchain? The truth of it is that there is not a single solution or better technology than the others, it just depends on user's requirements. Thus, it is important to understand in which scenarios blockchain could replace existing infrastructures. For this purpose, in Figure \ref{fig:bcFlowchart} we present a flowchart \citep{wust2017you}, which pretends to guide users in determining whether blockchain is the appropriate solution to resolve their problems, and if yes, its suitable blockchain type. We will also follow the diagram to decide if our defined VNE scenario demands match the blockchain use case.
 
 \begin{figure}[bth]
 	\centering
@@ -417,7 +418,7 @@ In section \ref{analysisOfRelatedWork}, we have spotted the main benefits of int
   	\label{fig:bcFlowchart}
 \end{figure}
 
-Before starting with the flowchart, one statement needs to be clear: if the user does not need to store data, no blockchain or database is required. The discussion arises when multiple writers want to exchange data without relying on a trusted third party (TTP). If this is not the case, a traditional or centralized database will always provide a better throughput. However, if such is the case, then the user should first consider if all the writers are known and trusted. In this context, a writer is a user that performs the four basic functions of persistent storage: create, read, update and delete data (CRUD). If so, again a typical database (e.g. SQL) will be more adequate. If all the mentioned requirements are satisfied, or in other words, multiple untrusted writers are willing to update the state of a system without trusting a middle actor, it is then that using a blockchain is reasonable.
+Before starting with the flowchart, one statement needs to be clear: if the user does not need to store data, no blockchain or database is required. The discussion arises when multiple writers want to exchange data without relying on a trusted third party (TTP). In this context, a writer is a user that performs the four basic functions of persistent storage: create, read, update and delete data (CRUD). If they do not want to trust a TTP, a traditional or centralized database will always provide a better throughput. However, if such is the case, then the user should first consider if all the writers are known and trusted. If so, again a typical database (e.g. SQL) will be more adequate. If all the last requirements are satisfied, or in other words, multiple untrusted writers are willing to update the state of a system without trusting a middle actor, it is then that using a blockchain is a reasonable solution.
 
 Before proceeding, in Figure \ref{fig:bcFlowchart} we first classify blockchains into two groups: \textit{permissionless} and \textit{permissioned} blockchains. To decide between these two approaches, the user should consider if he is willing to control his customized blockchain, creating his own specifications. For example, Bitcoin or Ethereum are permissionless blockchains, where users are added to the network and thus, restricted to its policies. In Table \ref{tab:blockchainTypes} the main characteristics of each blockchain type are summarized. Note that some features depend on the blockchain design decisions since permissioned blockchains capabilities are easily modifiable. For example, if consensus algorithms are used, the interaction between users should have a cost in order to ensure performance, i.e miners need to be rewarded with transaction fees.
 
@@ -452,12 +453,26 @@ Furthermore, as stated in Figure \ref{fig:bcFlowchart}, permissioned blockchains
 	\item \textbf{Hybrid/Consortium blockchain:} Partly decentralized, the blockchain management is controlled by a pre-established set of entities (inter-firm). In this model, each of the firms typically possesses a blockchain node to coordinate and ensure the system's functionality. Note that compared to the private blockchain, multiple firms maintain and serve the infrastructure rather than a single one. Thus, a consensus between these parties is also extremely needed. For example, currently, several banks deploy common blockchains to manage their shared data. In this case, each bank will control a node, resulting in a better throughput in terms of scalability.
 \end{itemize}
 
+After presenting the blockchain use cases and types, we observe some similarities between a traditional shared database and a permissioned private chain, since they are both managed by a group of users, which simultaneously maintain the same confidential data. Despite private blockchains could be seen as only another term used to name shared databases, the truth is that each technology has its trade-offs, without mentioning scalability or cost issues. On one hand, centralized databases will always have better throughputs since, in addition to the basic transaction steps, blockchains need to perform cryptographic verifications, and ensure a consensus between the other participating nodes. On the other hand, private blockchains are less prone to malicious attacks, inasmuch as they spend a longer period in checking errors or validating transactions, than regular databases. Therefore, as already noted, if users trust each other and a high-performance is desired, using a blockchain will not be the suitable solution.
+
+\subsection{Virtual Network Embedding with LID scenario}
+
+In section \ref{analysisOfRelatedWork}, we have concluded that although excellent research in network virtualization have been conducted, to the best of our knowledge, there is still not an approach solving the LID problem in terms of scalability, confidentiality, and low-cost performance at the same time. Thus, after having spotted the main benefits of integrating blockchain in real-scenarios, among which disintermediation and privacy need to be highlighted, we assume that this technology could improve the VNE business process. Nevertheless, first, we should investigate whether our scenario could be adapted in a blockchain.
+
+In network virtualization, we mainly encounter users with two different roles: Infrastructure Providers and Service Providers. Moreover, as the VNE is typically performed by the same parties across the countries, e.g. Deutsche Telekom, Vodafone or O2 in Germany, the scenario is restricted to a limited amount of users that barely changes. Therefore, we are facing an application where multiple known users but probably not trusted, want to reach a virtual network agreement, without trusting a third party. The decision of not including a TTP or VNP is mainly to avoid exchanging InPs internal data to an intermediate actor.
+
+Contemplating once again the flowchart in Figure \ref{fig:bcFlowchart} and observing the last mentioned requirements, we foresee that blockchain could be a suitable solution for our VNE with LID scenario. However, the non-trivial choice between the blockchain type still needs to be discussed. Obviously, the service negotiation between InPs and SPs is performed in a private environment, which automatically removes the permissionless and permissioned public blockchain options. Hence, the decision should be taken between a private or a hybrid blockchain.
+
+One of the main requirements noticed from the previous related work is that our approach must not suffer from scalability issues. Accordingly, using a private blockchain, which is a centralized system managed by a single firm, will provoke that users rely again on a central point or trusted party, converting it to an unfeasible workaround. Thereby, the \textbf{partly decentralized hybrid blockchain} seems to be the most suitable solution. In this scenario, a firm corresponds to each interested InP or SP willing to possess and control a blockchain node, in order to ensure the network virtualization functionality.
+
+
+\subsection{Ethereum and Smart Contracts}
+
 UNTIL HERE!
-Compare to normal DB again due to permissioned private chain similarity.
-Adapt it to our scenario
+
 Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will be further investigated during the thesis.
 
-Enumerate system requirements: e.g: Flexibility, fair price negotiation, trustworthy, transparent ... And explain each point
+Enumerate system requirements: e.g: Flexibility, fair price negotiation, trustworthy... And explain each point
 
 Assumption that intra-domain virtual links cost is almost 0. Having the virtual link cost from EC2 Amazon and the BW we could determine it...
 
@@ -465,18 +480,9 @@ PROBLEMS: -  The participants of a SCM vary greatly across different supply
 chains and the same peers might take different roles across different supply chains. - This reasoning leaves us with the question whether all writers
 can be trusted. 
 
-Private blockchains mimic the security process utilized by public blockchains like Bitcoin, but do not involve mathematical guarantees at the validation level or with respect to irreversibility. 
+Thanks to the blockchain, more precisely to Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users. which could be accomplished through a limited time auction.
 
-However, they still make use of cryptography and data structures like Merkle trees to ensure non-valid transactions aren’t added to the blockchain. 
 
-At the end of the day, private blockchains provide higher levels of error checking and transaction validity than regular shared databases. 
-
-Even though they don’t use proof of work, blocks of transactions are validated using some other forms of consensus mechanism. This can still be chosen to be Byzantine Fault Tolerant (BFT).e.g. Raft and Juno.
-
-adv privchains vs DB: cryptography to prevent malicious users attacking DB, higher-levels of error checking and transaction validity, data integrity.
-my: cost,transparency.
-Given all of this, it may seem like private blockchains are unquestionably a better choice for institutions
-Sol: hybrid is a partially decentralized solution!
 \section{System Overview}
 
 \subsection{Fundamental Goals}
@@ -527,7 +533,7 @@ Package pricing or volume discount?
 
 \section{Summary}
 
-Thanks to the blockchain, more precisely to Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users. which could be accomplished through a limited time auction.
+
 
 During this paper, the Ethereum blockchain will be used to perform a service negotiation (Vickrey auction) and later to track its possession throughout the supply chain process. This will be exemplified by a web application implementation, focused on network slicing. Thus, blockchain strengths and weaknesses will be further investigated.
 
