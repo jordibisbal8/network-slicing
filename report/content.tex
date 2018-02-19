@@ -139,7 +139,7 @@ In Bitcoin, each user is identified by a single public address. However, how is 
 
 After that, users are able to send transactions using Bitcoin. For example, imagine the last example where user A wants to send 10 BTC to user B. Firstly, the user creates a transaction willing to transfer 10 BTC to user address B. Secondly, he signs the transaction with his private key, attaching also his public key, and sends it to the blockchain. There, miners will verify the signature using A's public key and also that its hash matches user A address. If both, the signature and the hash, are correct, the transaction is accepted and added to the next block. Transactions examples can be found in Block Explorer\footnote{\url{https://blockexplorer.com/}}.
 
-\subsection{Blockchain 2.0: Smart contracts}
+\subsection{Blockchain 2.0: Smart contracts} \label{smartContracts}
 
 The Blockchain 1.0 had numerous limitations since essentially it only approaches the decentralization of money and payments. However, the architecture implemented by Bitcoin is extensible beyond financial uses cases.
 
@@ -150,10 +150,15 @@ In 2013 Vitalik Buterin, a Russian-Canadian programmer released the Ethereum whi
 Furthermore, it is built on a Turing-complete contract system. As previously explained, a Turing-complete system allows the developer to perform any computation, which runs on the so-called \textbf{smart contracts}. These smarts contracts are executed by the Ethereum nodes, each using its Ethereum Virtual Machine (EVM), or in other words, a blockchain with a built-in programming language.
 
 In the end, smart contracts are basically Ethereum scripts that whenever they are called, the function programmed inside of it is executed. A smart contract can also be seen as the logic inside a vending machine. For instance, a buyer wants a Coke bottle that costs 2 \euro.. Once this buyer inserts 2 \euro and presses the button, a small program (contract) runs inside the vending machine and supplies the user with its Coke. This function, in the smart contract context can be seen as:
-\newline
+
 \begin{lstlisting}
- if (button_pressed == 'Coke' && rcv_money == '2')
- 	return coke
+contract Products {
+
+	function getItem(bytes32 buttonPressed, uint amount) returns(bytes32 item) {
+		if (buttonPressed == 'coke' && amount == 2) return coke;
+ 		return null;
+	}
+}
 \end{lstlisting}
 
 Therefore, smart contracts allow anyone to write their own functions, in just a few lines of code. Despite Bitcoin and Ethereum have similar features, such as decentralization or transaction-based, Ethereum makes use of smart contracts, which potentially opens up real-world use cases. Bitcoin and Ethereum can be comparable to a calculator (one application) and a smartphone (multiple applications) respectively. In addition to the already mentioned, there are several differences that need to be highlighted:
@@ -418,9 +423,9 @@ Since blockchain is a disruptive technology, apparently it seems that it could i
   	\label{fig:bcFlowchart}
 \end{figure}
 
-Before starting with the flowchart, one statement needs to be clear: if the user does not need to store data, no blockchain or database is required. The discussion arises when multiple writers want to exchange data without relying on a trusted third party (TTP). In this context, a writer is a user that performs the four basic functions of persistent storage: create, read, update and delete data (CRUD). If they do not want to trust a TTP, a traditional or centralized database will always provide a better throughput. However, if such is the case, then the user should first consider if all the writers are known and trusted. If so, again a typical database (e.g. SQL) will be more adequate. If all the last requirements are satisfied, or in other words, multiple untrusted writers are willing to update the state of a system without trusting a middle actor, it is then that using a blockchain is a reasonable solution.
+Before starting with the flowchart, one statement needs to be clear: if the user does not need to store data, no blockchain or database is required. The discussion arises when multiple writers want to exchange data without relying on a trusted third party (TTP). In this context, a writer is a user that performs the four basic functions of persistent storage: create, read, update and delete data (CRUD). If they trust a TTP, a traditional or centralized database will always provide a better throughput. However, if this is not the case, then the user should first consider if all the writers are known and trusted. If so, again a typical database (e.g. SQL) will be more adequate. If all the last requirements are satisfied, or in other words, multiple untrusted writers are willing to update the state of a system without trusting a middle actor, it is then that using a blockchain is a reasonable solution.
 
-Before proceeding, in Figure \ref{fig:bcFlowchart} we first classify blockchains into two groups: \textit{permissionless} and \textit{permissioned} blockchains. To decide between these two approaches, the user should consider if he is willing to control his customized blockchain, creating his own specifications. For example, Bitcoin or Ethereum are permissionless blockchains, where users are added to the network and thus, restricted to its policies. In Table \ref{tab:blockchainTypes} the main characteristics of each blockchain type are summarized. Note that some features depend on the blockchain design decisions since permissioned blockchains capabilities are easily modifiable. For example, if consensus algorithms are used, the interaction between users should have a cost in order to ensure performance, i.e miners need to be rewarded with transaction fees.
+Before proceeding, in Figure \ref{fig:bcFlowchart} we first classify blockchains into two groups: \textit{permissionless} and \textit{permissioned} blockchains. To decide between these two approaches, the user should consider if he is willing to control his customized blockchain, creating his own specifications. For example, Bitcoin or Ethereum are permissionless blockchains, where users are added to the network and thus, restricted to its policies. In Table \ref{tab:blockchainTypes} the main characteristics of each blockchain type are summarized. Scalability is an important topic in the blockchain domain, where we distinguish: node scalability and performance scalability. The former is the capacity to add new participants in the blockchain without losing performance, and the latter is the number of transactions executed per second while suffering from latency. In addition, note that some features depend on the blockchain design decisions since permissioned blockchains capabilities are easily modifiable. For example, if consensus algorithms are used, the interaction between users should have a cost in order to ensure performance, i.e miners need to be rewarded with transaction fees.
 
 \begin{table}[bth]
 	\myfloatalign \footnotesize
@@ -428,20 +433,21 @@ Before proceeding, in Figure \ref{fig:bcFlowchart} we first classify blockchains
 	\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{6cm}>{\raggedright\arraybackslash}p{6cm}}
 	\textbf{Features} & \textbf{Permissionless} & \textbf{Permissioned}\\ 
 		\hline
-		Control functionality & Fully decentralized & One or a small group of pre-selected entities \\
+		Type & Public & Public, private and hybrid blockchain \\
+		Control functionality/ Transaction processing & Fully decentralized & One or a small group of pre-selected entities \\
 		Access control & Open access & Authorized access \\ 
 		Number of users & High & Low \\
 		Number of untrusted users & High & Low \\
-		Writers & Any user participating & Permissioned group of people, e.g. bank customers \\
-		Centrally managed & No & Yes/no (*) \\
-		Security & Consensus algorithms (e.g PoW or PoS) & Byzantine Fault Tolerant (BFT) protocols (-) \\
-		Transaction fee & Yes & No (-) \\
-		Speed & Low & Fast \\
-		Latency & Slow & Medium \\
-		Types & Public & Public, private and hybrid blockchain \\
-		Use cases & Cryptocurrencies (e.g. Bitcoin) & Transactions in business networks \\ \hline
+		Writers & Any user participating & Permissioned group of people, e.g. bank customers\\
+		Centrally managed & No & (*) \\
+		Security & Consensus algorithms (e.g PoW) & (*) \\
+		Transaction fee & Yes & No (*) \\
+		Trusted & No & Yes \\
+		Node scalability & High & Low \\
+		Performance scalability & Low & High \\
+		Use cases & Cryptocurrencies (e.g. Bitcoin) & Transactions in business networks (Hyperledger Fabric) \\ \hline
 	\end{tabularx}
-		\caption{Types of blockchain: permissionless vs permissioned. Adapted from \citep{wust2017you}. (*) states for depending on permissioned blockchain type and (-) for blockchain design decisions.}
+		\caption{Types of blockchain: permissionless vs permissioned. Adapted from \citep{wust2017you}. (*) states for depending on blockchain design decisions.}
 	\label{tab:blockchainTypes}
 \end{table}
 
@@ -450,42 +456,70 @@ Furthermore, as stated in Figure \ref{fig:bcFlowchart}, permissioned blockchains
 \begin{itemize}
 	\item \textbf{Public permissioned blockchain:} Decentralized, all the participating users are allowed to read the system's state (transactions can be publicly verified), but just some of them have writing privileges.
 	\item \textbf{Private blockchain:} Centralized, with access and writing permissions restricted to a set of users. Note that in the flowchart this corresponds to an intra-firm consensus since it is only managed by a single organization. We understand by firm a traditional company or a pre-selected group of users.
-	\item \textbf{Hybrid/Consortium blockchain:} Partly decentralized, the blockchain management is controlled by a pre-established set of entities (inter-firm). In this model, each of the firms typically possesses a blockchain node to coordinate and ensure the system's functionality. Note that compared to the private blockchain, multiple firms maintain and serve the infrastructure rather than a single one. Thus, a consensus between these parties is also extremely needed. For example, currently, several banks deploy common blockchains to manage their shared data. In this case, each bank will control a node, resulting in a better throughput in terms of scalability.
+	\item \textbf{Hybrid/Consortium blockchain:} Partly decentralized, the blockchain management is controlled by a pre-established set of entities (inter-firm). In this model, each of the firms typically possesses a blockchain node to coordinate and ensure the system's functionality. Note that compared to the private blockchain, multiple firms maintain and serve the infrastructure rather than a single one. Thus, a consensus between these parties is also extremely needed. For example, currently, several banks deploy common blockchains to manage their shared data and reduce intermediaries costs. In this case, each bank will control a node, resulting in a better throughput in terms of scalability.
 \end{itemize}
 
-After presenting the blockchain use cases and types, we observe some similarities between a traditional shared database and a permissioned private chain, since they are both managed by a group of users, which simultaneously maintain the same confidential data. Despite private blockchains could be seen as only another term used to name shared databases, the truth is that each technology has its trade-offs, without mentioning scalability or cost issues. On one hand, centralized databases will always have better throughputs since, in addition to the basic transaction steps, blockchains need to perform cryptographic verifications, and ensure a consensus between the other participating nodes. On the other hand, private blockchains are less prone to malicious attacks, inasmuch as they spend a longer period in checking errors or validating transactions, than regular databases. Therefore, as already noted, if users trust each other and a high-performance is desired, using a blockchain will not be the suitable solution.
+After presenting the blockchain use cases and types, we observe some similarities between a traditional shared database and a permissioned private chain, since they are both managed by a group of users, which simultaneously maintain the same confidential data. Despite private blockchains could be seen only as another term used to name shared databases, the truth of it is that each technology has its trade-offs, without mentioning scalability or cost issues. On one hand, centralized databases will always have better throughputs since, in addition to the basic transaction operations, blockchains need to perform cryptographic verifications, and ensure a consensus between the other participating nodes. On the other hand, private blockchains are less prone to malicious attacks, inasmuch as they spend a longer period in checking errors or validating transactions, than regular databases. Therefore, as already noted, if users trust each other and a high-performance is desired, using a blockchain will not be the suitable solution.
 
 \subsection{Virtual Network Embedding with LID scenario}
 
-In section \ref{analysisOfRelatedWork}, we have concluded that although excellent research in network virtualization have been conducted, to the best of our knowledge, there is still not an approach solving the LID problem in terms of scalability, confidentiality, and low-cost performance at the same time. Thus, after having spotted the main benefits of integrating blockchain in real-scenarios, among which disintermediation and privacy need to be highlighted, we assume that this technology could improve the VNE business process. Nevertheless, first, we should investigate whether our scenario could be adapted in a blockchain.
+In section \ref{analysisOfRelatedWork}, we have concluded that although excellent research in network virtualization have been conducted, to the best of our knowledge, there is still not an approach solving the LID problem in terms of scalability, confidentiality, and low-cost performance. Thus, after having spotted the main benefits of integrating blockchain in real-scenarios, among which disintermediation, privacy  and transparency need to be highlighted, we assume that this technology could improve the VNE business process. Nevertheless, first, we should investigate whether our scenario could be integrated in a blockchain.
 
-In network virtualization, we mainly encounter users with two different roles: Infrastructure Providers and Service Providers. Moreover, as the VNE is typically performed by the same parties across the countries, e.g. Deutsche Telekom, Vodafone or O2 in Germany, the scenario is restricted to a limited amount of users that barely changes. Therefore, we are facing an application where multiple known users but probably not trusted, want to reach a virtual network agreement, without trusting a third party. The decision of not including a TTP or VNP is mainly to avoid exchanging InPs internal data to an intermediate actor.
+In network virtualization, we mainly encounter users with two different roles: Infrastructure Providers and Service Providers. Moreover, as the VNE is typically performed by the same parties across the countries, e.g. Deutsche Telekom, Vodafone or O2 in Germany, the scenario is restricted to a limited amount of users that barely changes. Therefore, we are facing an application where multiple known users but probably not trusted, want to reach a virtual network agreement, without relying on a third party. The decision of not including a TTP or VNP is mainly to avoid exchanging the InPs internal data to an intermediate actor.
 
-Contemplating once again the flowchart in Figure \ref{fig:bcFlowchart} and observing the last mentioned requirements, we foresee that blockchain could be a suitable solution for our VNE with LID scenario. However, the non-trivial choice between the blockchain type still needs to be discussed. Obviously, the service negotiation between InPs and SPs is performed in a private environment, which automatically removes the permissionless and permissioned public blockchain options. Hence, the decision should be taken between a private or a hybrid blockchain.
+Contemplating once again the flowchart in Figure \ref{fig:bcFlowchart} and observing the last mentioned requirements, we foresee that blockchain could be a suitable solution for our VNE scenario suffering from LID. However, the significant choice between blockchain types still needs to be argued. Obviously, the service negotiation between InPs and SPs is performed in a private environment, which automatically removes the permissionless and permissioned public blockchain options. Hence, the decision should be taken between a private or a hybrid blockchain.
 
 One of the main requirements noticed from the previous related work is that our approach must not suffer from scalability issues. Accordingly, using a private blockchain, which is a centralized system managed by a single firm, will provoke that users rely again on a central point or trusted party, converting it to an unfeasible workaround. Thereby, the \textbf{partly decentralized hybrid blockchain} seems to be the most suitable solution. In this scenario, a firm corresponds to each interested InP or SP willing to possess and control a blockchain node, in order to ensure the network virtualization functionality.
 
 
-\subsection{Ethereum and Smart Contracts}
+\subsection{Smart Contracts and Ethereum}
 
-UNTIL HERE!
+After having spotted the most suitable blockchain type for our VNE environment, the non-trivial decision of selecting a blockchain needs to be taken. Prior to this, we need to consider whether our scenario could profit from the potential of smart contracts. Despite in subsection \ref{smartContracts}, it has been discussed what smart contracts are, it is also required to notice when they can be used. Thereupon, due to its extended dimension, a market study regarding smart contracts and its application fields will not be conducted. Nonetheless, we will enumerate the main usage examples of smart contracts in business to business processes \citep{blockchainBerkeley}:
 
-Nevertheless, the technology still faces lots of challenges, such as scalability or incorporating external information, which will be further investigated during the thesis.
+\begin{itemize}
+	\item \textbf{Non-confidential money transactions:} As blockchains are composed by multiple participating nodes, these can learn the values transferred. Though smart contracts allow restricting reading and writing functionalities, this information is still stored in the blockchain nodes, who can obtain it, e.g. accessing the disk or memory. Thus, trust on the blockchain nodes is also required.
+	\item \textbf{Settlement agreement:} Since smart contracts can be personalized, it enables that participants reach an agreement without involving third-parties costs.
+	\item \textbf{Frequently executed tasks:} Users regularly performing the same operations, can accelerate this process by depicting them on a smart contract code.
+	\item \textbf{Self-operating databases:} Thanks to the blockchain, secured shared databases with low-costs are easily deployed. In addition, smart contracts can automate the interaction with this stored data, providing speed, real-time transparency and at the same time, opening new business models. 
+\end{itemize}
 
-Enumerate system requirements: e.g: Flexibility, fair price negotiation, trustworthy... And explain each point
+In the presented network virtualization example, as the users negotiate the lease of virtual nodes over and over to reach an agreement, this task could be perfectly reflected in a contract code. Apart from dealing with smart contracts, as a prototype for the VNE scenario will be implemented, the blockchain platform needs to fulfill the following requirements \citep{macdonald2017}: 
 
-Assumption that intra-domain virtual links cost is almost 0. Having the virtual link cost from EC2 Amazon and the BW we could determine it...
+\begin{itemize}
+    \item \textbf{Easy to use and learn:} A low effort in setting the platform is essential. Furthemore the smart contracts should be written or derived from common languages in the world of programming.
+    \item \textbf{Support and documentation:} A consolidated platform that is not in its early stages and has achieved a high-maturity level, is extremely needed. An active community of developers behind the project is also fundamental, e.g. with a considerable number of Github stars and forks.
+    \item \textbf{Blockhain type:} Though it could be desirable that the main network is permissioned and hybrid or private, currently, in open source code platforms, the blockchain types can be modified.
+\end{itemize}
 
-PROBLEMS: -  The participants of a SCM vary greatly across different supply
-chains and the same peers might take different roles across different supply chains. - This reasoning leaves us with the question whether all writers
-can be trusted. 
+\begin{table}[bth]
+	\myfloatalign \footnotesize
+	%18 columns
+	\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{2.5cm}}
+		\textbf{Characteristics} & \textbf{Bitcoin} & \textbf{Ripple} & \textbf{Ethereum} & \textbf{Hyperledger Fabric} & \textbf{R3 Corda}\\ 
+		\hline
+		\textbf{Application} & Payments & Payments & General purpose & General purpose & Financial services \\
+		\textbf{Governance} & Bitcoin developers & Ripple Labs & Ethereum developers & Linux Foundation & R3 \\
+		\textbf{Main network} & Permissionless, public & Permissioned, public & Permissionless, public and private & Permissioned, private and hybrid & Permissioned, private and hybrid \\
+		\textbf{Data model} & UTXO-based & UTXO-based & Account-based & Account-based & UTXO-based \\
+		\textbf{Configuration effort} & Low & Low & Low & High & High \\
+		\textbf{Support and Documentation} & High & Medium & High & Medium & Low \\
+		\textbf{Smart contract language} & - & - & Solidity (JS), Serpent (Python) and LLL & Go, Java & Kotlin, Java \\
+		\textbf{Currency} & BTC & XRP & ETH & None & None \\
+	\hline
+	\end{tabularx}
+		\caption{Comparison of different blockchains platforms. UTXO stands for Unspent Transaction Outputs.}
+	\label{tab:blockchainComparison}
+\end{table}
 
-Thanks to the blockchain, more precisely to Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users. which could be accomplished through a limited time auction.
+In table \ref{tab:blockchainComparison}, a comparison of the most common blockchain platforms, at time of writing, is depicted. Since a scripting language with smart contracts is recommendable, Bitcoin and Ripple are not considered solutions. Thus, following the above requirements, Ethereum seems to be a mature project with a large number of developers behind, which facilitates the creation of new business models. In contrast, Hyperledger Fabric and R3 Corda are customized blockchains which need a longer configuration time, since its specifications need to be carefully discussed. FINISH TO EXPLAIN IT (programming-languages, build and use technology, private nw need to be done, EVM).
 
+On balance, thanks to the blockchain, more precisely Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. In this scenario, the reliance will now be distributed among multiple blockchain nodes rather than just on a costly single entity. However, challenges, such as the scalability or the service negotiation performance, will have to be thoroughly investigated along the thesis.
 
 \section{System Overview}
 
 \subsection{Fundamental Goals}
+
+Enumerate system requirements: e.g: Flexibility, fair price negotiation, trustworthy... And explain each point
 
 \subsection{Architecture}
 
@@ -499,6 +533,8 @@ A DApp has its backend code running on a decentralized peer-to-peer network. Con
 \end{figure}
 
 Explain that scalability need to be tested. multiple ETH nodes, etc...
+which could be accomplished through a limited time auction.
+Hence, InPs disclosed information will be kept confidential (public/private key cryptography) in the blockchain and just accessible for its desired users.
 
 \subsection{Blockchain Types}
 
@@ -519,7 +555,10 @@ Invite People to the private BC. Users fixed amount of Ether ( Proof of Stake). 
 
 \subsection{Vickrey Auction Model}
 
+ 
 Study \citep{ausubel2006lovely} with equations and everything?
+
+Assumption that intra-domain virtual links cost is almost 0. Having the virtual link cost from EC2 Amazon and the BW we could determine it...
 
 However, the second-price concept needs to be thoroughly investigated as long as a bidder can submit multiple bids. Imagine an scenario, where a single bidder A submits two bids: \{1 \euro,9 \euro\} for a service with a real cost 5 \euro. In this case, this buyer will end up paying 1 for the service. Therefore, the second-price auction model needs always to be compared between bidders and not between bids. Suppose the last example, with a second bidder B submitting \{5 \euro, 6 \euro\}. At the end user A, will win the bid but paying 6 \euro, risking that if he would have been the only user bidding, he would have payed 9 \euro.
 
@@ -555,6 +594,27 @@ of performing VN embedding. On the contrary, it is more an add-on feature that c
 5. Code examples
 
 3.Investigate web3.eth.sign(web3.eth.accounts[0], address), the address should be unlocked. How this is possible?
+Smart contracts step by step code
+\begin{lstlisting}
+contract Coin {
+
+		// Declares a state variable that stores the balances for each possible address.
+    mapping (address => uint) balances;
+	
+		// Constructor whose code is run only when the contract is created.
+    function Coin() public {
+    }
+		// Function that sends 'amount' to the receiver address.
+    function send(address receiver, uint amount) returns(bool isSent) {
+        if (balances[msg.sender] < amount) return false;
+        balances[msg.sender] -= amount;
+        balances[receiver] += amount;
+        return true;
+    }
+}
+\end{lstlisting}
+
+In the following code extracted from \footnote{\url{https://solidity.readthedocs.io/en/develop/introduction-to-smart-contracts.html}}.
 
 \label{ch:implementation}
 %*****************************************

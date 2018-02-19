@@ -30,29 +30,29 @@
 \contentsline {chapter}{\numberline {4}Design}{23}{chapter.4}
 \contentsline {section}{\numberline {4.1}Requirements and Assumptions}{23}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Virtual Network Embedding with LID scenario}{25}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Ethereum and Smart Contracts}{25}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}System Overview}{26}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Fundamental Goals}{26}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Architecture}{26}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Blockchain Types}{26}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Mining}{26}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Authentication System}{27}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}Notification System}{27}{subsection.4.2.6}
-\contentsline {subsection}{\numberline {4.2.7}Vickrey Auction Model}{27}{subsection.4.2.7}
-\contentsline {section}{\numberline {4.3}Summary}{27}{section.4.3}
-\contentsline {chapter}{\numberline {5}Implementation}{29}{chapter.5}
-\contentsline {section}{\numberline {5.1}Design Decisions}{29}{section.5.1}
-\contentsline {section}{\numberline {5.2}Architecture}{29}{section.5.2}
-\contentsline {section}{\numberline {5.3}Interaction of Components}{29}{section.5.3}
-\contentsline {section}{\numberline {5.4}Summary}{29}{section.5.4}
-\contentsline {chapter}{\numberline {6}Evaluation}{31}{chapter.6}
-\contentsline {section}{\numberline {6.1}Goal and Methodology}{31}{section.6.1}
-\contentsline {section}{\numberline {6.2}Evaluation Setup}{31}{section.6.2}
-\contentsline {section}{\numberline {6.3}Evaluation Results}{31}{section.6.3}
-\contentsline {section}{\numberline {6.4}Analysis of Results}{31}{section.6.4}
-\contentsline {chapter}{\numberline {7}Conclusions}{33}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary}{33}{section.7.1}
-\contentsline {section}{\numberline {7.2}Contributions}{33}{section.7.2}
-\contentsline {section}{\numberline {7.3}Future Work}{33}{section.7.3}
-\contentsline {section}{\numberline {7.4}Final Remarks}{33}{section.7.4}
-\contentsline {chapter}{Bibliography}{33}{dummy.1}
+\contentsline {subsection}{\numberline {4.1.2}Smart Contracts and Ethereum}{25}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}System Overview}{27}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Fundamental Goals}{27}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Architecture}{27}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Blockchain Types}{27}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Mining}{28}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Authentication System}{28}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Notification System}{28}{subsection.4.2.6}
+\contentsline {subsection}{\numberline {4.2.7}Vickrey Auction Model}{28}{subsection.4.2.7}
+\contentsline {section}{\numberline {4.3}Summary}{28}{section.4.3}
+\contentsline {chapter}{\numberline {5}Implementation}{31}{chapter.5}
+\contentsline {section}{\numberline {5.1}Design Decisions}{31}{section.5.1}
+\contentsline {section}{\numberline {5.2}Architecture}{31}{section.5.2}
+\contentsline {section}{\numberline {5.3}Interaction of Components}{32}{section.5.3}
+\contentsline {section}{\numberline {5.4}Summary}{32}{section.5.4}
+\contentsline {chapter}{\numberline {6}Evaluation}{33}{chapter.6}
+\contentsline {section}{\numberline {6.1}Goal and Methodology}{33}{section.6.1}
+\contentsline {section}{\numberline {6.2}Evaluation Setup}{33}{section.6.2}
+\contentsline {section}{\numberline {6.3}Evaluation Results}{33}{section.6.3}
+\contentsline {section}{\numberline {6.4}Analysis of Results}{33}{section.6.4}
+\contentsline {chapter}{\numberline {7}Conclusions}{35}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{35}{section.7.1}
+\contentsline {section}{\numberline {7.2}Contributions}{35}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future Work}{35}{section.7.3}
+\contentsline {section}{\numberline {7.4}Final Remarks}{35}{section.7.4}
+\contentsline {chapter}{Bibliography}{35}{dummy.1}

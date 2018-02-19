@@ -128,6 +128,12 @@ Ralph~C Merkle.
 \newblock In {\em Conference on the Theory and Application of Cryptographic
   Techniques}, pages 369--378. Springer, 1987.
 
+\bibitem[MLTJ17]{macdonald2017}
+M~Macdonald, Lisa Liu-Thorrold, and R~Julien.
+\newblock The blockchain: A comparison of platforms and their uses beyond
+  bitcoin.
+\newblock {\em Working Paper}, (February), 2017.
+
 \bibitem[MS15]{mainelli2015sharing}
 Michael Mainelli and Mike Smith.
 \newblock Sharing ledgers for sharing economies: an exploration of mutual
@@ -165,6 +171,12 @@ John Stark.
 Melanie Swan.
 \newblock {\em Blockchain: Blueprint for a new economy}.
 \newblock " O'Reilly Media, Inc.", 2015.
+
+\bibitem[Tea]{blockchainBerkeley}
+Roster Team.
+\newblock Blockchain at berkeley.
+\newblock \url{https://blockchain.berkeley.edu}.
+\newblock Accessed: 2018-02-18.
 
 \bibitem[TT16]{tapscott2016blockchain}
 Don Tapscott and Alex Tapscott.
