@@ -22,6 +22,11 @@ Vitalik Buterin et~al.
   platform.
 \newblock {\em white paper}, 2014.
 
+\bibitem[BM00]{boyd2000security}
+Colin Boyd and Wenbo Mao.
+\newblock {\em Security issues for electronic auctions}.
+\newblock Hewlett-Packard Laboratories Bristol (UK), 2000.
+
 \bibitem[CJ09]{carapinha2009network}
 Jorge Carapinha and Javier Jim{\'e}nez.
 \newblock Network virtualization: a view from the bottom.

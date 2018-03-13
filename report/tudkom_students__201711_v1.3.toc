@@ -7,11 +7,11 @@
 \contentsline {section}{\numberline {1.2}Problem Statement and Contribution}{4}{section.1.2}
 \contentsline {section}{\numberline {1.3}Outline}{4}{section.1.3}
 \contentsline {chapter}{\numberline {2}Background}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Blockchain: A decentralized and distributed trustless ledger}{5}{section.2.1}
+\contentsline {section}{\numberline {2.1}Blockchain: A decentralized and distributed ledger}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Blockchain 1.0: Cryptocurrencies}{6}{subsection.2.1.1}
 \contentsline {subsubsection}{Bitcoin}{6}{subsubsection*.11}
 \contentsline {paragraph}{Mining and Transactions}{6}{paragraph*.12}
-\contentsline {paragraph}{Key management}{7}{paragraph*.14}
+\contentsline {paragraph}{Key management}{8}{paragraph*.14}
 \contentsline {subsection}{\numberline {2.1.2}Blockchain 2.0: Smart contracts}{8}{subsection.2.1.2}
 \contentsline {subsubsection}{Ethereum}{8}{subsubsection*.16}
 \contentsline {subsubsection}{Decentralized applications}{10}{subsubsection*.18}
@@ -31,28 +31,26 @@
 \contentsline {section}{\numberline {4.1}Requirements and Assumptions}{23}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Virtual Network Embedding with LID scenario}{25}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Smart Contracts and Ethereum}{25}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}System Overview}{27}{section.4.2}
+\contentsline {section}{\numberline {4.2}System Design}{27}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Fundamental Goals}{27}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Architecture}{27}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Blockchain Types}{27}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Mining}{28}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Authentication System}{28}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}Notification System}{28}{subsection.4.2.6}
-\contentsline {subsection}{\numberline {4.2.7}Vickrey Auction Model}{28}{subsection.4.2.7}
-\contentsline {section}{\numberline {4.3}Summary}{28}{section.4.3}
-\contentsline {chapter}{\numberline {5}Implementation}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}Design Decisions}{31}{section.5.1}
-\contentsline {section}{\numberline {5.2}Architecture}{31}{section.5.2}
-\contentsline {section}{\numberline {5.3}Interaction of Components}{32}{section.5.3}
-\contentsline {section}{\numberline {5.4}Summary}{32}{section.5.4}
-\contentsline {chapter}{\numberline {6}Evaluation}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}Goal and Methodology}{33}{section.6.1}
-\contentsline {section}{\numberline {6.2}Evaluation Setup}{33}{section.6.2}
-\contentsline {section}{\numberline {6.3}Evaluation Results}{33}{section.6.3}
-\contentsline {section}{\numberline {6.4}Analysis of Results}{33}{section.6.4}
-\contentsline {chapter}{\numberline {7}Conclusions}{35}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary}{35}{section.7.1}
-\contentsline {section}{\numberline {7.2}Contributions}{35}{section.7.2}
-\contentsline {section}{\numberline {7.3}Future Work}{35}{section.7.3}
-\contentsline {section}{\numberline {7.4}Final Remarks}{35}{section.7.4}
-\contentsline {chapter}{Bibliography}{35}{dummy.1}
+\contentsline {subsection}{\numberline {4.2.2}System Architecture}{28}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Blockchain Type and Mining Strategy}{30}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Authentication System}{30}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}The Vickrey Auction Model}{31}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}Summary}{33}{section.4.3}
+\contentsline {chapter}{\numberline {5}Implementation}{35}{chapter.5}
+\contentsline {section}{\numberline {5.1}Design Decisions}{35}{section.5.1}
+\contentsline {section}{\numberline {5.2}Architecture}{36}{section.5.2}
+\contentsline {section}{\numberline {5.3}Interaction of Components}{36}{section.5.3}
+\contentsline {section}{\numberline {5.4}Summary}{36}{section.5.4}
+\contentsline {chapter}{\numberline {6}Evaluation}{37}{chapter.6}
+\contentsline {section}{\numberline {6.1}Goal and Methodology}{37}{section.6.1}
+\contentsline {section}{\numberline {6.2}Evaluation Setup}{37}{section.6.2}
+\contentsline {section}{\numberline {6.3}Evaluation Results}{37}{section.6.3}
+\contentsline {section}{\numberline {6.4}Analysis of Results}{37}{section.6.4}
+\contentsline {chapter}{\numberline {7}Conclusions}{39}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{39}{section.7.1}
+\contentsline {section}{\numberline {7.2}Contributions}{39}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future Work}{39}{section.7.3}
+\contentsline {section}{\numberline {7.4}Final Remarks}{39}{section.7.4}
+\contentsline {chapter}{Bibliography}{39}{dummy.1}
