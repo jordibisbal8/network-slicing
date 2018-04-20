@@ -6,7 +6,7 @@
     <div class="col-xs-8">
       <div class="row">
         <div class="col-xs-12">
-          <h3 style="font-size:14pt">TEST NAME</h3>
+          <h3 style="font-size:14pt">...</h3>
         </div>
       </div>
       <div class="row">
@@ -16,7 +16,7 @@
             <i class="fa fa-comment"></i> {{3}}
           </span>
           <md-card-subtitle style="margin-top:1px">
-            Jordi Bisbal, on 15/12/17
+            End time: {{auction.endTime | date: 'medium'}}
           </md-card-subtitle>
         </div>
       </div>
@@ -29,7 +29,9 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <span style="font-size:14px">No description yet.</span>
+      <span *ngIf="auction.isOpened && !auction.ended" style="font-size:14px">Open</span>
+      <span *ngIf="!auction.isOpened" style="font-size:14px">Closed</span>
+      <span *ngIf="auction.ended" style="font-size:14px">Ended</span>
     </div>
   </div>
 </md-card>

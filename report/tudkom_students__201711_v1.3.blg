@@ -4,49 +4,51 @@ The top-level auxiliary file: tudkom_students__201711_v1.3.aux
 The style file: alpha.bst
 Database file #1: bibliography.bib
 Warning--to sort, need author or key in amazonEC2
+Warning--to sort, need author or key in bitcoin
+Warning--to sort, need author or key in hyperledger
 Warning--empty journal in abeyratne2016blockchain
 Warning--empty journal in hans2017blockchain
 Warning--there's a number but no volume in macdonald2017
 Warning--empty journal in mainelli2015sharing
-You've used 38 entries,
+You've used 40 entries,
             2543 wiz_defined-function locations,
-            776 strings with 10595 characters,
-and the built_in function-call counts, 15518 in all, are:
-= -- 1591
-> -- 696
+            784 strings with 10817 characters,
+and the built_in function-call counts, 15970 in all, are:
+= -- 1641
+> -- 698
 < -- 24
 + -- 243
 - -- 235
-* -- 1045
-:= -- 2475
-add.period$ -- 126
-call.type$ -- 38
-change.case$ -- 230
-chr.to.int$ -- 38
-cite$ -- 44
-duplicate$ -- 639
-empty$ -- 1161
+* -- 1069
+:= -- 2527
+add.period$ -- 132
+call.type$ -- 40
+change.case$ -- 238
+chr.to.int$ -- 40
+cite$ -- 50
+duplicate$ -- 659
+empty$ -- 1215
 format.name$ -- 281
-if$ -- 3249
+if$ -- 3357
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 35
-newline$ -- 195
+newline$ -- 205
 num.names$ -- 111
-pop$ -- 267
+pop$ -- 275
 preamble$ -- 1
-purify$ -- 271
+purify$ -- 281
 quote$ -- 0
-skip$ -- 545
+skip$ -- 571
 stack$ -- 0
-substring$ -- 826
-swap$ -- 133
+substring$ -- 842
+swap$ -- 135
 text.length$ -- 24
 text.prefix$ -- 12
 top$ -- 0
-type$ -- 292
-warning$ -- 5
+type$ -- 308
+warning$ -- 7
 while$ -- 153
-width$ -- 39
-write$ -- 493
-(There were 5 warnings)
+width$ -- 41
+write$ -- 519
+(There were 7 warnings)

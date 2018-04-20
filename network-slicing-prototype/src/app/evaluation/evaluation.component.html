@@ -1,0 +1,29 @@
+<project-header [title]="'Evaluation'" [icon]="'fa fa-flask'" [color]="'#00838F'"></project-header>
+
+<div class="container">
+  <md-card class="example-card">
+    <md-card-content>
+      <h3>
+        Randomly create the virtual network request
+      </h3>
+      <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
+      <div class="row" style="margin-top:20px">
+        <div class="col-xs-12">
+          <div #mynetwork style="
+            width:100%;
+            height:700px;
+            border:1px solid lightgray">
+          </div>
+        </div>
+      </div>
+      <button md-raised-button class="pull-right" (click)="partitioning()" style="background-color: #009688;color: white;margin-top:10px">
+        Compute VN partitioning
+      </button>
+      <button md-raised-button class="pull-right" (click)="enterInPsPeeringNodes()" style="background-color: #009688;color: white;margin-top:10px;margin-right:300px;">
+        Enter InPs peering nodes
+      </button>
+      <br><br>
+    </md-card-content>
+  </md-card>
+
+</div>

@@ -1,0 +1,41 @@
+<project-header [title]="'Substrate Network'" [icon]="'fa fa-sitemap'" [color]="'#ad1457'"></project-header>
+
+<div class="container">
+
+  <md-card class="example-card">
+    <md-card-content>
+      <h3>
+        1) Create/edit your substrate network <span [mdTooltip]="'Click on Edit to start adding virtual nodes'" class="fa fa-question-circle" style="color: #ad1457"></span>
+      </h3>
+      <p style="margin-top:10px"><i>Double click on a peering node to show its content</i></p>
+      <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
+      <div class="row" style="margin-top:20px">
+        <div class="col-xs-12">
+          <div #mynetwork style="
+            width:100%;
+            height:700px;
+            border:1px solid lightgray">
+          </div>
+          <button md-raised-button (click)="save()"
+                  [disabled]="isDisabled()"
+                  style="background-color: #ad1457;color: white; float: right; margin-top:20px">
+            Save
+          </button>
+        </div>
+      </div>
+      <button (click)="test1()" style="width:50%">
+        INP1
+      </button>
+      <button (click)="test2()" style="width:50%">
+        INP2
+      </button>
+      <button (click)="test3()" style="width:50%">
+        INP3
+      </button>
+      <button (click)="test4()" style="width:50%">
+        INP4
+      </button>
+    </md-card-content>
+  </md-card>
+
+</div>

@@ -6,26 +6,59 @@
 <div md-dialog-content>
   <div class="row">
     <div class="col-xs-12">
-      <md-select *ngIf="!editMode" [(ngModel)]="inputResource" placeholder="Resource" style="width:100%;">
-        <md-option value="Computing">Computing</md-option>
-        <md-option value="Storage">Storage</md-option>
-        <md-option value="Cloud">Cloud</md-option>
+      <md-select *ngIf="addMode" [(ngModel)]="inputType" placeholder="Resource Type" style="width:100%;">
+        <md-option value="A">A</md-option>
+        <md-option value="B">B</md-option>
+        <md-option value="C">C</md-option>
+        <md-option value="D">D</md-option>
+        <md-option value="E">E</md-option>
+        <md-option value="F">F</md-option>
       </md-select>
-      <md-select *ngIf="editMode" [(ngModel)]="inputNode.resource" placeholder="Resource" style="width:100%;">
-        <md-option value="Computing">Computing</md-option>
-        <md-option value="Storage">Storage</md-option>
-        <md-option value="Cloud">Cloud</md-option>
+      <div *ngIf="!addMode">
+        <b>Resource type:</b> {{virtualNode.label}}
+      </div>
+      <md-select *ngIf="addMode"
+                 [(ngModel)]="inputLocation"
+                 placeholder="Physical Location"
+                 style="width:100%;margin-top: 20px;">
+        <md-option *ngFor="let location of locations" value="{{location.value}}">{{location.country}}</md-option>
       </md-select>
-      <br><br>
-      <md-input *ngIf="!editMode" placeholder="Physical location (from preffered PoP)" [(ngModel)]="inputLocation" style="width: 100%"></md-input>
-      <md-input *ngIf="editMode" placeholder="Physical location (from preffered PoP)" [(ngModel)]="inputNode.location" style="width: 100%"></md-input>
-      <!--<br><br>
-      <md-input *ngIf="!editMode" placeholder="Other comments: e.g. minimum CPU or memory capacity" [(ngModel)]="inputComment" style="width: 100%"></md-input>
-      <md-input *ngIf="editMode" placeholder="Physical location (from preffered PoP)" [(ngModel)]="inputNode.comment" style="width: 100%"></md-input>-->
+      <div *ngIf="!addMode">
+        <b>Location:</b> {{virtualNode.country}}
+      </div>
+
+      <md-input *ngIf="addMode" type="number" min="1" placeholder="Upper bound cost (in ETH)"
+                [(ngModel)]="inputUpperBoundCost" style="width: 100%;margin-top: 10px;">
+      </md-input>
+      <div *ngIf="!addMode">
+        <b>Upper bound cost:</b> {{virtualNode.upperBoundCost}}
+      </div>
+      <md-input *ngIf="biddingMode"
+                (change)="isBigger()"
+                type="number"
+                [min] ="1"
+                [max]="virtualNode.upperBoundCost"
+                [placeholder]="'Bidding value (in ETH)'"
+                [(ngModel)]="virtualNode.bid"
+                style="width: 100%;margin-top: 10px;">
+      </md-input>
     </div>
   </div>
 </div>
 <div md-dialog-actions style="float:right">
-  <button md-raised-button (click)="save()" style="background-color: #009688;color: white"> Create</button>
-  <button md-button (click)="dialogRef.close()">Cancel</button>
+  <button md-raised-button *ngIf="addMode"
+          (click)="save()"
+          style="background-color: #009688;color: white"
+          [disabled]="isDisabled()">
+    Save
+  </button>
+  <button md-raised-button *ngIf="biddingMode"
+          (click)="saveBid()"
+          style="background-color: #009688;color: white"
+          [disabled]="!virtualNode.bid">
+    Save
+  </button>
+  <button md-button *ngIf="addMode || biddingMode" (click)="dialogRef.close()">Cancel</button>
+  <button md-button *ngIf="!addMode &&  !biddingMode" (click)="dialogRef.close()">Close</button>
+
 </div>

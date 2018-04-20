@@ -86,16 +86,22 @@
               <span style="margin-left:20px">Virtual networks</span>
             </a>
           </li>
-          <li class="link" [routerLinkActive]="['active']" style="width:100%">
+          <!--<li class="link" [routerLinkActive]="['active']" style="width:100%">
             <a [routerLinkActive]="['active']" [routerLink]="['auction']" style=";font-weight: bold;color:black">
               <i class="fa fa-money" aria-hidden="true" style="font-size: 20px;color: dimgray;"></i>
-              <span style="margin-left:20px">Auctions</span>
+              <span style="margin-left:20px">Open auctions (InP)</span>
+            </a>
+          </li>-->
+          <li class="link" [routerLinkActive]="['active']" style="width:100%">
+            <a [routerLinkActive]="['active']" [routerLink]="['substrate-network']" style=";font-weight: bold;color:black">
+              <i class="fa fa-sitemap" aria-hidden="true" style="font-size: 20px;color: dimgray;"></i>
+              <span style="margin-left:20px">Substrate network (InP)</span>
             </a>
           </li>
           <li class="link" [routerLinkActive]="['active']" style="width:100%">
-            <a [routerLink]="['contact']" style="color:black;font-weight: bold">
-              <i class="fa fa-users" aria-hidden="true" style="font-size: 22px;color: dimgray;"></i>
-              <span style="margin-left:20px">Contacts</span>
+            <a [routerLinkActive]="['active']" [routerLink]="['evaluation']" style=";font-weight: bold;color:black">
+              <i class="fa fa-flask" aria-hidden="true" style="font-size: 20px;color: dimgray;"></i>
+              <span style="margin-left:20px">Evaluation </span>
             </a>
           </li>
         </ul>
@@ -107,6 +113,12 @@
             <a [routerLink]="['settings']" style="color:black;font-weight: bold">
               <i class="fa fa-cog" aria-hidden="true" style="font-size: 22px;color: dimgray;"></i>
               <span style="margin-left:20px">Settings</span>
+            </a>
+          </li>
+          <li class="link" [routerLinkActive]="['active']" style="width:100%">
+            <a [routerLink]="['contact']" style="color:black;font-weight: bold">
+              <i class="fa fa-users" aria-hidden="true" style="font-size: 22px;color: dimgray;"></i>
+              <span style="margin-left:20px">Contacts</span>
             </a>
           </li>
           <li class="link" [routerLinkActive]="['active']" style="width:100%">

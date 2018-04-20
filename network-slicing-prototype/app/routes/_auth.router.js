@@ -1,9 +1,16 @@
 import jwt from 'jsonwebtoken'; // used to create, sign, and verify tokens
 import ethUtil from 'ethereumjs-util';
 import config from '../../config/config'
-import User from '../contracts/user_contract';
 
 export default (app, router, auth) => {
+
+  router.route('/isAuthenticated')
+
+    // Set expiration time 1h later
+    .get(auth, (req,res) => {
+      let token = jwt.sign({user: req.user}, config.secret,  {expiresIn: '1h' });
+      res.json({token});
+    });
 
   router.route('/authenticate')
 
@@ -27,7 +34,7 @@ export default (app, router, auth) => {
         // JSON web token for the owner that expires in 1h
         let token = jwt.sign({user: req.body.address}, config.secret,  {expiresIn: '1h' });
         res.json({token: token});
-        /*User.deployed().then(contractInstance => {
+        /*Users.deployed().then(contractInstance => {
           contractInstance.isUserRegistered.call(req.body.address).then(isRegistered => {
             console.log("-- isRegistered", isRegistered);
             if (isRegistered) {
@@ -45,5 +52,5 @@ export default (app, router, auth) => {
         console.log('signature check FAILED');
         res.send(500, { err: 'Signature did not match.'});
       }
-    });
+    })
 }

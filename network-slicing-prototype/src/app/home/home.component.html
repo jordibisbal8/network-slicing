@@ -12,11 +12,15 @@
     <md-card-content>
       <div> Welcome to the official home page for the network slicing project </div>
       <br>
+      <div *ngIf="!user">
       <div> You are not logged in</div>
-      <div>
         <a [routerLink]="['/login']">Login</a>
         <a [routerLink]="['/register']">Register</a>
       </div>
+      <div *ngIf="user">
+        You are logged in with address: <i>{{user}}</i>
+      </div>
+
     </md-card-content>
   </md-card>
 </div>

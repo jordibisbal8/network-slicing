@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?><graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+
+  <key attr.name="LinkNote" attr.type="string" for="edge" id="d24" />
+  <key attr.name="edge_color" attr.type="string" for="edge" id="d23" />
+  <key attr.name="edge_width" attr.type="double" for="edge" id="d22" />
+  <key attr.name="zorder" attr.type="double" for="edge" id="d21" />
+  <key attr.name="LinkSpeedRaw" attr.type="double" for="edge" id="d20" />
+  <key attr.name="LinkSpeedUnits" attr.type="string" for="edge" id="d19" />
+  <key attr.name="LinkSpeed" attr.type="string" for="edge" id="d18" />
+  <key attr.name="LinkType" attr.type="string" for="edge" id="d17" />
+  <key attr.name="key" attr.type="integer" for="edge" id="d16" />
+  <key attr.name="LinkLabel" attr.type="string" for="edge" id="d15" />
+
+  <key attr.name="type" attr.type="string" for="node" id="d14" />
+  <key attr.name="hyperedge" attr.type="integer" for="node" id="d13" />
+  <key attr.name="id" attr.type="integer" for="node" id="d12" />
+  <key attr.name="Latitude" attr.type="double" for="node" id="d11" />
+  <key attr.name="Internal" attr.type="integer" for="node" id="d10" />
+  <key attr.name="label" attr.type="string" for="node" id="d9" />
+  <key attr.name="Longitude" attr.type="double" for="node" id="d8" />
+  <key attr.name="NetworkDate" attr.type="string" for="node" id="d7" />
+  <key attr.name="Country" attr.type="string" for="node" id="d6" />
+  <key attr.name="Network" attr.type="string" for="node" id="d5" />
+  <key attr.name="asn" attr.type="string" for="node" id="d4" />
+  <key attr.name="GeoLocation" attr.type="string" for="node" id="d3" />
+  <key attr.name="Network" attr.type="string" for="graph" id="d2" />
+  <key attr.name="GeoLocation" attr.type="string" for="graph" id="d1" />
+  <key attr.name="Date" attr.type="integer" for="graph" id="d0" />
+  <graph edgedefault="undirected">
+    <data key="d0">2011</data>
+    <data key="d1">Europe</data>
+    <data key="d2">European NRENs</data>
+    <node id="106">
+      <data key="d3">Europe</data>
+      <data key="d4">20965</data>
+      <data key="d5">GEANT</data>
+      <data key="d6">United Kingdom</data>
+      <data key="d7">2010-08</data>
+      <data key="d8">-0.12574</data>
+      <data key="d9">UK</data>
+      <data key="d10">1</data>
+      <data key="d11">51.50853</data>
+      <data key="d14">Fully Featured</data>
+      <data key="d12">106</data>
+    </node>
+    <node id="110">
+      <data key="d3">Europe</data>
+      <data key="d4">20965</data>
+      <data key="d5">GEANT</data>
+      <data key="d6">Denmark</data>
+      <data key="d7">2010-08</data>
+      <data key="d8">12.56553</data>
+      <data key="d9">DK</data>
+      <data key="d10">1</data>
+      <data key="d11">55.67594</data>
+      <data key="d14">Fully Featured</data>
+      <data key="d12">110</data>
+    </node>
+    <node id="111">
+      <data key="d3">Europe</data>
+      <data key="d4">20965</data>
+      <data key="d5">GEANT</data>
+      <data key="d6">Poland</data>
+      <data key="d7">2010-08</data>
+      <data key="d8">16.96667</data>
+      <data key="d9">PL</data>
+      <data key="d10">1</data>
+      <data key="d11">52.41667</data>
+      <data key="d14">Off fibre net</data>
+      <data key="d12">111</data>
+    </node>
+    <node id="112">
+      <data key="d3">Europe</data>
+      <data key="d4">20965</data>
+      <data key="d5">GEANT</data>
+      <data key="d6">Netherlands</data>
+      <data key="d7">2010-08</data>
+      <data key="d8">4.88969</data>
+      <data key="d9">NL</data>
+      <data key="d10">1</data>
+      <data key="d11">52.37403</data>
+      <data key="d14">Fully Featured</data>
+      <data key="d12">112</data>
+    </node>
+    <node id="113">
+      <data key="d3">Europe</data>
+      <data key="d4">20965</data>
+      <data key="d5">GEANT</data>
+      <data key="d6">France</data>
+      <data key="d7">2010-08</data>
+      <data key="d8">2.3488</data>
+      <data key="d9">FR</data>
+      <data key="d10">1</data>
+      <data key="d11">48.85341</data>
+      <data key="d14">Fully Featured</data>
+      <data key="d12">113</data>
+    </node>
+    <node id="114">
+      <data key="d3">Europe</data>
+      <data key="d4">20965</data>
+      <data key="d5">GEANT</data>
+      <data key="d6">Germany</data>
+      <data key="d7">2010-08</data>
+      <data key="d8">8.68333</data>
+      <data key="d9">DE</data>
+      <data key="d10">1</data>
+      <data key="d11">50.11667</data>
+      <data key="d14">Fully Featured</data>
+      <data key="d12">114</data>
+    </node>
+    <node id="116">
+      <data key="d3">Europe</data>
+      <data key="d4">20965</data>
+      <data key="d5">GEANT</data>
+      <data key="d6">Switzerland</data>
+      <data key="d7">2010-08</data>
+      <data key="d8">7.44744</data>
+      <data key="d9">CH</data>
+      <data key="d10">1</data>
+      <data key="d11">46.94809</data>
+      <data key="d14">Fully Featured</data>
+      <data key="d12">116</data>
+    </node>
+    <node id="117">
+      <data key="d3">Europe</data>
+      <data key="d4">20965</data>
+      <data key="d5">GEANT</data>
+      <data key="d6">Italy</data>
+      <data key="d7">2010-08</data>
+      <data key="d8">9.18951</data>
+      <data key="d9">IT</data>
+      <data key="d10">1</data>
+      <data key="d11">45.46427</data>
+      <data key="d14">Fully Featured</data>
+      <data key="d12">117</data>
+    </node>
+    <node id="118">
+      <data key="d3">Europe</data>
+      <data key="d4">20965</data>
+      <data key="d5">GEANT</data>
+      <data key="d6">Spain</data>
+      <data key="d7">2010-08</data>
+      <data key="d8">-3.70256</data>
+      <data key="d9">ES</data>
+      <data key="d10">1</data>
+      <data key="d11">40.4165</data>
+      <data key="d14">Fully Featured</data>
+      <data key="d12">118</data>
+    </node>
+    <node id="120">
+      <data key="d3">Europe</data>
+      <data key="d4">20965</data>
+      <data key="d5">GEANT</data>
+      <data key="d6">Austria</data>
+      <data key="d7">2010-08</data>
+      <data key="d8">16.37208</data>
+      <data key="d9">AT</data>
+      <data key="d10">1</data>
+      <data key="d11">48.20849</data>
+      <data key="d14">Fully Featured</data>
+      <data key="d12">120</data>
+    </node>
+
+    <edge source="106" target="118">
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d23">#333333</data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="106" target="110">
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d23">#333333</data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="106" target="112">
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d23">#333333</data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="106" target="113">
+      <data key="d17">Fibre</data>
+      <data key="d23">#333333</data>
+      <data key="d15">Lit Fibre</data>
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d24">Lit </data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="106" target="114">
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d23">#333333</data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="110" target="112">
+      <data key="d17">Fibre</data>
+      <data key="d23">#333333</data>
+      <data key="d15">Lit Fibre</data>
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d24">Lit </data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="110" target="114">
+      <data key="d17">Fibre</data>
+      <data key="d23">#333333</data>
+      <data key="d15">Lit Fibre</data>
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d24">Lit </data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="111" target="114">
+      <data key="d18">10</data>
+      <data key="d23">#333333</data>
+      <data key="d15">10 Gbps</data>
+      <data key="d21">1.5</data>
+      <data key="d20">10000000000.0</data>
+      <data key="d22">4.5</data>
+      <data key="d19">G</data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="112" target="114">
+      <data key="d17">Fibre</data>
+      <data key="d23">#333333</data>
+      <data key="d15">Lit Fibre</data>
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d24">Lit </data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="113" target="114">
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d23">#333333</data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="113" target="116">
+      <data key="d17">Fibre</data>
+      <data key="d23">#333333</data>
+      <data key="d15">Lit Fibre</data>
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d24">Lit </data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="113" target="118">
+      <data key="d18">10</data>
+      <data key="d23">#333333</data>
+      <data key="d15">10 Gbps</data>
+      <data key="d21">1.5</data>
+      <data key="d20">10000000000.0</data>
+      <data key="d22">4.5</data>
+      <data key="d19">G</data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="114" target="116">
+      <data key="d17">Fibre</data>
+      <data key="d23">#333333</data>
+      <data key="d15">Lit Fibre</data>
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d24">Lit </data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="114" target="120">
+      <data key="d18">10</data>
+      <data key="d23">#333333</data>
+      <data key="d15">10 Gbps</data>
+      <data key="d21">1.5</data>
+      <data key="d20">10000000000.0</data>
+      <data key="d22">4.5</data>
+      <data key="d19">G</data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="116" target="117">
+      <data key="d17">Fibre</data>
+      <data key="d23">#333333</data>
+      <data key="d15">Lit Fibre</data>
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d24">Lit </data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="116" target="118">
+      <data key="d17">Fibre</data>
+      <data key="d23">#333333</data>
+      <data key="d15">Lit Fibre</data>
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d24">Lit </data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="117" target="118">
+      <data key="d18">10</data>
+      <data key="d23">#333333</data>
+      <data key="d15">10 Gbps</data>
+      <data key="d21">1.5</data>
+      <data key="d20">10000000000.0</data>
+      <data key="d22">4.5</data>
+      <data key="d19">G</data>
+      <data key="d16">0</data>
+    </edge>
+    <edge source="117" target="120">
+      <data key="d17">Fibre</data>
+      <data key="d23">#333333</data>
+      <data key="d15">Lit Fibre</data>
+      <data key="d21">1.5</data>
+      <data key="d22">4.5</data>
+      <data key="d24">Lit </data>
+      <data key="d16">0</data>
+    </edge>
+  </graph>
+</graphml>

@@ -9,6 +9,8 @@ import {VirtualNetworkRequestComponent} from "./virtual-network/virtual-network-
 import {VirtualNetworkDetailComponent} from "./virtual-network/virtual-network-detail.component";
 import {AuctionComponent} from "./auction/auction.component";
 import {SettingsComponent} from "./settings/settings.component";
+import {SubstrateNetworkComponent} from "./substrate-network/substrate-network.component";
+import {EvaluationComponent} from "./evaluation/evaluation.component";
 
 
 
@@ -17,9 +19,11 @@ export const routes: Routes = [
   { path: 'auction', component: AuctionComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'home', component: HomeComponent},
+  { path: 'evaluation', component: EvaluationComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'settings', component: SettingsComponent},
+  { path: 'substrate-network', component: SubstrateNetworkComponent},
   { path: 'virtual-network', component: VirtualNetworkListComponent},
   { path: 'virtual-network/:id', component: VirtualNetworkDetailComponent},
   { path: 'virtual-network-request', component: VirtualNetworkRequestComponent},

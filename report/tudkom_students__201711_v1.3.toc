@@ -36,21 +36,21 @@
 \contentsline {subsection}{\numberline {4.2.2}System Architecture}{28}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Blockchain Type and Mining Strategy}{30}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}Authentication System}{30}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}The Vickrey Auction Model}{31}{subsection.4.2.5}
-\contentsline {section}{\numberline {4.3}Summary}{33}{section.4.3}
-\contentsline {chapter}{\numberline {5}Implementation}{35}{chapter.5}
-\contentsline {section}{\numberline {5.1}Design Decisions}{35}{section.5.1}
-\contentsline {section}{\numberline {5.2}Architecture}{36}{section.5.2}
-\contentsline {section}{\numberline {5.3}Interaction of Components}{36}{section.5.3}
-\contentsline {section}{\numberline {5.4}Summary}{36}{section.5.4}
-\contentsline {chapter}{\numberline {6}Evaluation}{37}{chapter.6}
-\contentsline {section}{\numberline {6.1}Goal and Methodology}{37}{section.6.1}
-\contentsline {section}{\numberline {6.2}Evaluation Setup}{37}{section.6.2}
-\contentsline {section}{\numberline {6.3}Evaluation Results}{37}{section.6.3}
-\contentsline {section}{\numberline {6.4}Analysis of Results}{37}{section.6.4}
-\contentsline {chapter}{\numberline {7}Conclusions}{39}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary}{39}{section.7.1}
-\contentsline {section}{\numberline {7.2}Contributions}{39}{section.7.2}
-\contentsline {section}{\numberline {7.3}Future Work}{39}{section.7.3}
-\contentsline {section}{\numberline {7.4}Final Remarks}{39}{section.7.4}
-\contentsline {chapter}{Bibliography}{39}{dummy.1}
+\contentsline {subsection}{\numberline {4.2.5}The Vickrey Auction Model}{32}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}Summary}{36}{section.4.3}
+\contentsline {chapter}{\numberline {5}Implementation}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Design Decisions}{37}{section.5.1}
+\contentsline {section}{\numberline {5.2}Architecture}{37}{section.5.2}
+\contentsline {section}{\numberline {5.3}Interaction of Components}{37}{section.5.3}
+\contentsline {section}{\numberline {5.4}Summary}{38}{section.5.4}
+\contentsline {chapter}{\numberline {6}Evaluation}{39}{chapter.6}
+\contentsline {section}{\numberline {6.1}Goal and Methodology}{39}{section.6.1}
+\contentsline {section}{\numberline {6.2}Evaluation Setup}{39}{section.6.2}
+\contentsline {section}{\numberline {6.3}Evaluation Results}{39}{section.6.3}
+\contentsline {section}{\numberline {6.4}Analysis of Results}{39}{section.6.4}
+\contentsline {chapter}{\numberline {7}Conclusions}{41}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{41}{section.7.1}
+\contentsline {section}{\numberline {7.2}Contributions}{41}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future Work}{41}{section.7.3}
+\contentsline {section}{\numberline {7.4}Final Remarks}{41}{section.7.4}
+\contentsline {chapter}{Bibliography}{41}{dummy.1}

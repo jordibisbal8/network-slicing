@@ -27,6 +27,13 @@ import {AngularDateTimePickerModule} from "angular2-datetimepicker";
 import {AuctionComponent} from "./auction/auction.component";
 import {AuctionService} from "./services/auction-service";
 import {SettingsComponent} from "./settings/settings.component";
+import {SubstrateNetworkComponent} from "./substrate-network/substrate-network.component";
+import {PeeringNodeDialogComponent,} from "./substrate-network/dialogs/peering-node.dialog.component";
+import {SubstrateNetworkService} from "./services/substrate-network.service";
+import {VirtualNetworkService} from "./services/virtual-network.service";
+import {AuctionResultDialogComponent} from "./virtual-network/dialogs/auction-result.dialog.component";
+import {EvaluationComponent} from "./evaluation/evaluation.component";
+import {EvaluationService} from "./services/evaluation-service";
 
 
 @NgModule({
@@ -34,13 +41,17 @@ import {SettingsComponent} from "./settings/settings.component";
   declarations: [
     AppComponent,
     AuctionComponent,
+    AuctionResultDialogComponent,
     CheckSignatureDialogComponent,
     ContactComponent,
+    EvaluationComponent,
     HomeComponent,
     LoginComponent,
+    PeeringNodeDialogComponent,
     ProjectHeaderComponent,
     RegisterComponent,
     SettingsComponent,
+    SubstrateNetworkComponent,
     ShowAddressDialogComponent,
     VirtualNetworkDetailComponent,
     VirtualNetworkListComponent,
@@ -60,8 +71,8 @@ import {SettingsComponent} from "./settings/settings.component";
     ClipboardModule
   ],
   // expose our Services and Providers into Angular's dependency injection
-  providers: [AuthService, AuctionService, HttpClient],
-  entryComponents: [CheckSignatureDialogComponent, ShowAddressDialogComponent,
-                    VirtualNodeDialogComponent],
+  providers: [AuthService, AuctionService, EvaluationService, HttpClient, SubstrateNetworkService, VirtualNetworkService],
+  entryComponents: [CheckSignatureDialogComponent, ShowAddressDialogComponent, PeeringNodeDialogComponent,
+                    VirtualNodeDialogComponent, AuctionResultDialogComponent],
 })
 export class AppModule { }

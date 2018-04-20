@@ -6,39 +6,36 @@
       <div class="row">
         <div class="col-xs-12">
           <button  md-raised-button class="pull-right" [routerLink]="['/virtual-network-request']" style="background-color: #009688;color: white">
-            + Create new VN request
+            + Start new auction
           </button>
-          <h4>New Services</h4>
+          <h4>Open auctions ({{openAuctionList.length}})</h4>
           <md-grid-list cols="3" rowHeight="250">
-            <md-grid-tile> <!-- ngFor goes here -->
-              <virtual-network-tile (click)="openVirtualNetwork()"></virtual-network-tile>
+            <md-grid-tile *ngFor="let auction of openAuctionList">
+              <virtual-network-tile [auction] = "auction"(click)="openAuction(auction.auctionAddr)"></virtual-network-tile>
             </md-grid-tile>
           </md-grid-list>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <h4>Open Services</h4>
+          <h4>Ended but not closed auctions ({{endAuctionsList.length}})</h4>
           <md-grid-list cols="3" rowHeight="250">
-            <md-grid-tile> <!-- ngFor goes here -->
-              <virtual-network-tile (click)="openVirtualNetwork()"></virtual-network-tile>
-            </md-grid-tile>
-            <md-grid-tile> <!-- ngFor goes here -->
-              <virtual-network-tile (click)="openVirtualNetwork()"></virtual-network-tile>
+            <md-grid-tile *ngFor="let auction of endAuctionsList">
+              <virtual-network-tile [auction] = "auction" (click)="openAuction(auction.auctionAddr)"></virtual-network-tile>
             </md-grid-tile>
           </md-grid-list>
         </div>
       </div>
-      <!--<div class="row">
+      <div class="row">
         <div class="col-xs-12">
-          <h4>Closed Services</h4>
+          <h4>Closed auctions ({{closedAuctionList.length}})</h4>
           <md-grid-list cols="3" rowHeight="250">
-            <md-grid-tile> <!-- ngFor goes here
-              <virtual-network-tile (click)="openVirtualNetwork()"></virtual-network-tile>
+            <md-grid-tile *ngFor="let auction of closedAuctionList">
+              <virtual-network-tile [auction] = "auction" (click)="openAuction(auction.auctionAddr)"></virtual-network-tile>
             </md-grid-tile>
           </md-grid-list>
         </div>
-      </div>-->
+      </div>
     </md-card-content>
   </md-card>
 </div>

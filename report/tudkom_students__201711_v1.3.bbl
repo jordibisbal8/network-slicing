@@ -11,9 +11,9 @@ Saveen~A Abeyratne and Radmehr~P Monfared.
 \newblock Blockchain ready manufacturing supply chain using distributed ledger.
 \newblock 2016.
 
-\bibitem[ama]{amazonEC2}
+\bibitem[ama18]{amazonEC2}
 Amazon ec2 instance types.
-\newblock \url{http://aws.amazon.com/ec2/instance-types}.
+\newblock \url{http://aws.amazon.com/ec2/instance-types}, 2018.
 \newblock Accessed: 2018-01-16.
 
 \bibitem[B{\etalchar{+}}14]{buterin2014next}
@@ -21,6 +21,11 @@ Vitalik Buterin et~al.
 \newblock A next-generation smart contract and decentralized application
   platform.
 \newblock {\em white paper}, 2014.
+
+\bibitem[bit09]{bitcoin}
+Bitcoin is an innovative payment network and a new kind of money.
+\newblock \url{https://bitcoin.org/e/}, 2009.
+\newblock Accessed: 2018-03-26.
 
 \bibitem[BM00]{boyd2000security}
 Colin Boyd and Wenbo Mao.
@@ -110,6 +115,11 @@ David Hausheer and Burkhard Stiller.
 \newblock In {\em Communications, 2005. ICC 2005. 2005 IEEE International
   Conference on}, volume~3, pages 1583--1587. IEEE, 2005.
 
+\bibitem[hyp17]{hyperledger}
+Business blockchain frameworks hosted with hyperledger.
+\newblock \url{https://www.hyperledger.org/}, 2017.
+\newblock Accessed: 2018-03-26.
+
 \bibitem[HZRS17]{hans2017blockchain}
 Ronny Hans, Hendrik Zuber, Amr Rizk, and Ralf Steinmetz.
 \newblock Blockchain and smart contracts: Disruptive technologies for the
@@ -177,10 +187,10 @@ Melanie Swan.
 \newblock {\em Blockchain: Blueprint for a new economy}.
 \newblock " O'Reilly Media, Inc.", 2015.
 
-\bibitem[Tea]{blockchainBerkeley}
+\bibitem[Tea17]{blockchainBerkeley}
 Roster Team.
 \newblock Blockchain at berkeley.
-\newblock \url{https://blockchain.berkeley.edu}.
+\newblock \url{https://blockchain.berkeley.edu}, 2017.
 \newblock Accessed: 2018-02-18.
 
 \bibitem[TT16]{tapscott2016blockchain}

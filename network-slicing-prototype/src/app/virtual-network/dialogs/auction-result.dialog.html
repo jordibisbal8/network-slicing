@@ -1,0 +1,63 @@
+<div class="dialog-header" style="background-color: #009688">
+  <div class="dialog-header-content">
+    <h3 md-dialog-title>Auction result</h3>
+  </div>
+</div>
+
+<h4 *ngIf="packageWinner  && packageWinner !== user">
+  The InP has won the whole package
+</h4>
+<h4 *ngIf="packageWinner && packageWinner === user">
+  You are the winner, the owner will contact you soon!
+</h4>
+<h4 *ngIf="!packageWinner">
+  Check the winners for each virtual node
+</h4>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div *ngIf="packageWinner">
+      <span style="display: block">
+        <span *ngIf="packageWinner !== user">
+          <b>InP winner:</b> {{packageWinner}}
+        </span>
+      </span>
+      <span style="display: block">
+        <b>Reserved price: </b> {{packageValue}} ETH
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-1">
+    <div *ngFor="let virtualNode of virtualNodes" style="margin-top:10px">
+      <table border="1">
+        <tr>
+          <td *ngIf="virtualNode.type === 'A'" class="resourceType" style="background: #009688;">A</td>
+          <td *ngIf="virtualNode.type === 'B'" class="resourceType" style="background: #009688;">B</td>
+          <td *ngIf="virtualNode.type === 'C'" class="resourceType" style="background: #009688;">C</td>
+          <td *ngIf="virtualNode.type === 'D'" class="resourceType" style="background: #009688;">D</td>
+          <td *ngIf="virtualNode.type === 'E'" class="resourceType" style="background: #009688;">E</td>
+          <td *ngIf="virtualNode.type === 'F'" class="resourceType" style="background: #009688;">F</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="col-xs-11">
+    <div *ngFor="let virtualNode of virtualNodes" style="height: 50px;margin-top:10px">
+      <div><b>Location: </b> {{virtualNode.country}}</div>
+      <div *ngIf="!packageWinner">
+        <b *ngIf="virtualNode.winner === user">You are the winner, the owner will contact you soon! </b>
+        <span *ngIf="virtualNode.winner !== user">
+          <b>InP winner:</b> {{virtualNode.winner}}
+        </span>
+      </div>
+      <div *ngIf="!packageWinner"> <b>Reserved price: </b> {{virtualNode.reservedPrice}} ETH </div>
+    </div>
+  </div>
+</div>
+
+<div md-dialog-actions style="float:right">
+  <button md-button (click)="dialogRef.close()">Close</button>
+</div>

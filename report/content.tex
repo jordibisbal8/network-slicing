@@ -1,5 +1,5 @@
 \begin{abstract}
- The abstract goes here... (BITCOIN influence -> Blockchain). Captivate readers attention.
+Captivate readers attention.
 \end{abstract}
 
 
@@ -30,7 +30,7 @@ After investigating several blockchain applications in real scenarios, we observ
 
 Supply chain management is the process of linking organizations through information flows, in order to achieve a competitive strength or advantage, which will maximise customer value. Supply chain activities go from the design or development of a product, up to its return on investment (ROI). Thus, a good coordination during these activities is extremely needed.
 
-Nowadays in the Big Data era, enterprises must handle a huge amount of information. This leads companies to suffer from considerable issues, such as scalability, data security or communication. Currently most of the companies rely on third parties, which help them on the mentioned problems. But what if this process could be efficiently accelerated in a secure and decentralized manner? Here, is where Blockchain could play a crucial role.
+Nowadays in the Big Data era, enterprises handle a huge amount of information. This leads companies to suffer from considerable issues, such as scalability, data security or communication. Currently most of the companies rely on third parties, which help them on the mentioned problems. But what if this process could be efficiently accelerated in a secure and decentralized manner? Here, is where Blockchain could play a crucial role.
 
 During the paper, the focus will be on IT companies facing this dilemma. The scenario will include in one side different customers, and in the other organizations acting as providers. For example, eBay, one of the biggest multinational e-commerce corporations, acts as an intermediate for the product's purchase-sale. Thus, eBay is responsible for managing all this data. However, can a user/company always safely trust third-parties? Why not distributing these privileges among multiple users, which cooperate for handling such complex tasks? As a result, a direct customer-provider relation, avoiding the presence of any intermediaries, will be maintained.
 
@@ -69,7 +69,7 @@ However, when a new technology appears, the first user's goal is normally to exp
 
 \subsection{Blockchain 1.0: Cryptocurrencies}
 
-At of the end of January 2018, Coinmarketcap\footnote{https://coinmarketcap.com/}, a cryptocurrency market tracker, lists more than 1,400 cryptocurrencies with an aggregate value approaching USD 700bn. But what are cryptocurrencies? Cryptocurrencies are a variety of digital currencies pretending to work as a medium of exchange, such as Euro or USD does. As the name suggests, apart from being a virtual currency, they use cryptography to secure and verify its transactions. The main difference with traditional currencies is that they do not have any physical equivalent in the real world. Nevertheless, they can be used to pay goods and service, with the advantage of not being constrained with geographical or political borders. For example, GMO Internet\footnote{https://www.gmo.jp/en/}, a Japanese company, will start paying parts of employees salaries in cryptocurrencies (Bitcoin).
+At of the end of January 2018, Coinmarketcap\footnote{\url{https://coinmarketcap.com/}}, a cryptocurrency market tracker, lists more than 1,400 cryptocurrencies with an aggregate value approaching USD 700bn. But what are cryptocurrencies? Cryptocurrencies are a variety of digital currencies pretending to work as a medium of exchange, such as Euro or USD does. As the name suggests, apart from being a virtual currency, they use cryptography to secure and verify its transactions. The main difference with traditional currencies is that they do not have any physical equivalent in the real world. Nevertheless, they can be used to pay goods and service, with the advantage of not being constrained with geographical or political borders. For example, GMO Internet\footnote{\url{https://www.gmo.jp/en/}}, a Japanese company, will start paying parts of employees salaries in cryptocurrencies (Bitcoin).
 
 In this paper, we will set aside whether cryptocurrencies can become true currencies or not, and also the political, social or economic impact. The only focus will be on the technology behind it, as blockchain can be extended to much more than digital currencies. Thus, we will start from the genesis of the technology, with Bitcoin as its revolutionary innovator.
 
@@ -114,9 +114,11 @@ Furthermore, in Bitcoin, each block and transaction is restricted to a size of 1
 	\item If all previous steps confirmed, store state at the end of the block and return true.
 \end{itemize}  
 
-In the third step of the block validation process, appears the term \textit{Proof-of-work}. Bitcoin uses the \textit{Hashcash} proof of work algorithm to prove that a block miner spent some computational time creating a block. More precisely, Bitcoin protocol demands that miners find an input, which is a valid $block \, header$ formed by a random value ($c$) and a nonce ($x$), whose cryptographic hash (e.g $SHA256$) is less than a \textit{target} value (non-encoded version of Nbits). This value is obtained from $d$, the blockchain difficulty. Then, the only way to create a valid block is simply trial and error until a valid Proof-of-Work is generated. Proof-of-work is also used in other contexts, such as for limiting email spam or denial-of-service attacks (DoS).
+In the third step of the block validation process, appears the term \textit{Proof-of-work}. Bitcoin uses the \textit{Hashcash} proof of work algorithm, see \eqref{eq:proofOfWork}, to prove that a block miner spent some computational time creating a block. More precisely, Bitcoin protocol demands that miners find an input, which is a valid $block \, header$ formed by a random value ($c$) and a nonce ($x$), whose cryptographic hash (e.g $SHA256$) is less than a \textit{target} value (non-encoded version of Nbits). This value is obtained from $d$, the blockchain difficulty. Then, the only way to create a valid block is simply trial and error until a valid Proof-of-Work is generated. Proof-of-work is also used in other contexts, such as for limiting email spam or denial-of-service attacks (DoS).
 
-$$ F_d( \, block \, header \,) = F_d( \,c,x \,) = SHA256( \, SHA256( \, c|x \,) \,)\, < \frac{2^{224}}{d}$$
+\begin{equation} \label{eq:proofOfWork}
+ F_d( \, block \, header \,) = F_d( \,c,x \,) = SHA256( \, SHA256( \, c|x \,) \,)\, < \frac{2^{224}}{d}
+\end{equation}
 
 \paragraph{Key management}
 
@@ -169,7 +171,7 @@ Therefore, smart contracts allow anyone to write their own functions, in just a 
 	
 	\item Ethereum's block time is shorter, specifically it is around 14s. Remember that Bitcoin's mining time was around 10 minutes. Hence, as a consequence, Ethereum needs to handle large amounts of transactions per seconds, which means that the network can easily get separated in different subchains. To solve these scalability issues, \textit{Casper}, a protocol from the new \textit{Proof-of-Stake} (PoS) mechanism has been recently proposed \cite{proofOfStake}.
 	\item Thus, Ethereum pretends to move from the \textit{Proof-of-Work} to the \textit{Proof-of-Stake} consensus algorithm. In contrast to PoW, where the miners that first solve a mathematical problem are rewarded, in PoS, validators propose and vote the next block. The voting power is directly proportional to the validator's stake (deposit). To become validators, users need to lock up their ether into a deposit. Therefore, in PoS there are validators rather than miners.
-	\item Bitcoin's blocks and transaction sizes are indicated in bytes, however, in Ethereum, this depends on the contract complexity. This complexity is expressed in terms of \textit{gas}, which is the amount of \textit{ether}\footnote{\textit{ether} or ETH is the digital currency used by Ethereum}, used for executing contracts in the Ethereum blockchain. 
+	\item Bitcoin's blocks and transaction sizes are indicated in bytes, however, in Ethereum, this depends on the contract complexity. This complexity is expressed in terms of \textit{gas}, which is the amount of \textit{ETH}\footnote{\textit{ETH} or \textit{Ether} is the digital currency used by Ethereum}, used for executing contracts in the Ethereum blockchain. 
 
 	\item Ethereum transactions compared to the mentioned Bitcoin fields consists of (i) the transaction value in Ether, (ii) recipient address, (iii) data arguments and (iv) execution cost.
 	\item Ethereum is account-based and not transaction-based.
@@ -190,9 +192,11 @@ In the last point, we observe that Ethereum introduces a new concept called acco
   \label{fig:EthereumAccounts}
 \end{figure}
 
-However, what happens if this contract code results in an infinite loop?Ethereum solves this using gas. For example, suppose an EOA calling a contract account for money transfer. Apart from the ether transferred, it will also spend an additional amount of ether (gas). Thus, the ether used for a transaction, or transaction fee $F$ is:
+However, what happens if this contract code results in an infinite loop?Ethereum solves this using gas. For example, suppose an EOA calling a contract account for money transfer. Apart from the ether transferred, it will also spend an additional amount of ether (gas). Thus, the ether used for a transaction, or transaction fee $F$ is given by:
 
-$$F = P \times L + V - R$$
+\begin{equation}
+	F = P \times L + V - R
+\end{equation}
 
 Firstly, the gas limit $L$ is the maximum amount of gas to spend on a transaction, which is by default 21000. Secondly, on Ethereum the gas price $P$ is measured in units of Gwei, which is equivalent to $1e^{-9}$ ETH. Thirdly, the value $V$ is the amount of ether transferred to the other EOA. Fortunately, all unused gas $R$ during a transaction is refunded to the sender. Nevertheless, if a transaction returns an error, e.g: gas provided not enough to execute a contract, this provided ether will never be refunded. 
 
@@ -203,14 +207,14 @@ In conclusion, a smart contact is just an account containing code, which lives o
 In the Ethereum white paper \cite{buterin2014next} decentralized applications DAPPs are split into three types. The first group includes financial applications, where users only want to manage money transactions, e.g. a customer paying the provider through a blockchain application. The second group is formed by semi-financial applications, in which money is involved but it is mixed with other requirements. For instance, an application where users receive incentives when solutions to computational problems are provided. And finally, in the third category, there are non-financial applications. For instance, an online voting platform providing a better transparency into elections, without compromising voter confidentiality.
 
 Despite the blockchain is a secure technology, the created applications are constantly compromised to multiple attacks. This is because the majority of smart contracts are insecure, due to its code being prone to bugs.
-For example, in June 2016, the DAO\footnote{https://ethereum.org/dao}, a distributed autonomous organization instantiated on the Ethereum blockchain, was hacked. The attack, which was a smart contract bug, had resulted in over 50 million dollars of cryptocurrency theft. Thus, smart contracts need to be protected against malicious attacks before being uploaded on the blockchain.
+For example, in June 2016, the DAO\footnote{\url{https://ethereum.org/dao}}, a distributed autonomous organization instantiated on the Ethereum blockchain, was hacked. The attack, which was a smart contract bug, had resulted in over 50 million dollars of cryptocurrency theft. Thus, smart contracts need to be protected against malicious attacks before being uploaded on the blockchain.
 
 In the following section, an example application or process currently performed by IT companies will be introduced.
 
 
 \section{Network Virtualization} \label{networkvirtualization}
 
-In the last few years, network virtualization has started to grow in popularity since it enables simulating hardware networks. These virtual networks, in contrast to physical networks, provide flexibility, manageability and a low cost. 
+In the last few years, network virtualization has started to grow in popularity since it enables simulating baremetal networks. These virtual networks, in contrast to physical networks, provide flexibility, manageability and a low cost. 
 
 Network virtualization handles two main concepts: node virtualization and link virtualization. The former implies sharing the node's physical resources located in the substrate network (e.g: CPU, storage, memory) to multiple virtual nodes in the virtual networks, such as physical node A in Figure \ref{fig:networkvir}.a. The latter enables the transport of multiple virtual links in a single and shared physical link (Figure \ref{fig:networkvir}.b).
 
@@ -235,18 +239,18 @@ The presented process is coordinated by an actor, the VNP, who stores all the ne
 
 \subsection{Auction Mechanisms} \label{auctionMechanisms}
 
-Service negotiation has already been examined in many researchs, such as \citep{hausheer2005peermart}, \cite{ogston2002peer}, which have worked with diverse auctions platforms. An auction is a public negotiation method involving buyers and sellers that enables resource trading between peer-to-peer users. While the buyer's goal is to find the desired service at the lowest price, the providers or seller's goal is to sell the service at the highest "possible" price. Thus, an auction must provide fairness in terms of technical and economic efficiency, for both the buyer and the seller.
+Service negotiation has already been examined in many researchs, such as \citep{hausheer2005peermart}, \cite{ogston2002peer}, which have worked with diverse auctions platforms. An auction is a public negotiation method involving buyers and sellers that enables resource trading between peer-to-peer users. While the buyer's goal is to find the desired service at the lowest price, the providers or seller's goal is to sell the service at the highest "possible" price. Thus, an auction should provide fairness in terms of technical and economic efficiency, for both the buyer and the seller.
 
 Firstly, auctions can be divided into (i) \textit{one-sided auctions} where only the buyers submit their bids (e.g: a painting auctioned in an art exhibition), or (ii) \textit{two-sided auctions} in which buyers and sellers submit their bids. Normally, when any of the two sides (buyer or seller) cannot perform a good estimation of the service, a one-side auction is preferred. This is the case in network virtualization, where the SPs are not aware of the InPs physical nodes availability or complexity. Secondly, the auctions can be (i) \textit{open-cry} auctions, where the bids are broadcasted to all users, or (ii) \textit{sealed-bid} auctions in which bidders first commit bid values in secret that are later revealed (e.g: physical envelopes). In our scenario, the InPs should bid in a confidential manner, because they do not want to disclose internal network cost models. In addition, concerning auction types, our focus will be on the most common \cite{coppinger1980incentives}: 
 
 \begin{itemize}
 	\item \textbf{English auctions}, also called \textit{open-cry ascending-price} auction, is the classic bidding mechanism where the seller first sets a minimum starting value (reserve price), which buyers should overcome. Then, these buyers start to offer higher prices until nobody wants to offer a greater one. However, due to the competition, this auction model can result in a long process (e.g. low reserve price compared to real value) where users pay huge amounts.
 	\item \textbf{Dutch auctions} are similar to the English auctions, but on the contrary, they are \textit{open-cry descending-price} auctions. In this model, seller fixes a maximum value which is reduced slightly over time. Once a buyer accepts a price, the auction will finish. Nevertheless, to prevent ending with low prices for the sellers, they also establish the mentioned reserve price, which will be the minimum accepted amount. Dutch auctions are faster than the English ones, but buyers will also end up paying more to ensure that they win.
-	\item \textbf{Vickrey auctions} \cite{vickrey1961counterspeculation} has the particularity of corresponding to a \textit{sealed-bid second-price} auction. Since it is sealed, during the bidding time buyers do not know other bids and eventually, how the auction is evolving. In addition, the Vickrey auction corresponds to a second-price tender. This means that like standard auctions, the bidders will offer a price for the service, and the highest bid will win. Nevertheless, this service will be rendered at the second highest value. For example, imagine a bidding for product A, where the winner has bidden $\{A = 15\}$ and the second highest bid is $\{A = 10\}$. Then, this winner ends-up paying only $\{A = 10\}$. In addition, it is shown that a Vickrey auction is strategy-proof \cite{vickrey1961counterspeculation}, meaning that each bidder quotes the true cost of the service, and if they do so, the resulting total values are maximised. From the bidder's point of view this means that he can safely bid the real value, knowing that if he wins, he will pay less than his bid. Thus, a Vickrey auction compared to English and Dutch auctions, is considered a fair-price system since it provides a reasonable price to the buyer by motivating bidders to bid truthfully.
+	\item \textbf{Vickrey auctions} has the particularity of corresponding to a \textit{sealed-bid second-price} auction \cite{vickrey1961counterspeculation}. Since it is sealed, during the bidding time buyers do not know other bids and eventually, how the auction is evolving. In addition, the Vickrey auction corresponds to a second-price tender. This means that like standard auctions, the bidders will offer a price for the service, and the highest bid will win. Nevertheless, this service will be rendered at the second highest value. For example, imagine a bidding for product A, where the winner has bidden $\{A = 15\}$ and the second highest bid is $\{A = 10\}$. Then, this winner ends-up paying only $\{A = 10\}$. In addition, it is shown that a Vickrey auction is strategy-proof, meaning that each bidder quotes the true cost of the service, and if they do so, the resulting total values are maximised  \cite{vickrey1961counterspeculation}. From the bidder's point of view this means that he can safely bid the real value, knowing that if he wins, he will pay less than his bid. Thus, a Vickrey auction compared to English and Dutch auctions, is considered a fair-price system since it provides a reasonable price to the buyer by motivating bidders to bid truthfully.
 	\item \textbf{Reverse auctions} as the name states, buyers and sellers roles are switched. In contrast to ordinary auctions, where buyers compete to obtain an asset, in reverse auctions, sellers compete to gain a business. In other words, the seller bids for his own provided services, which in the end, will be given to the supplier offering the lowest price. For example, in the network virtualization process, InPs will bid for the lease of their physical nodes, and afterwards, the SP will rent the most economical ones.
 \end{itemize}
 
-Ultimately, after judging the preceding analysis regarding auction types, a \textbf{\textit{one-sided reverse Vickrey}} auction seems to be the most suitable for network virtualization since it provides confidentiality and the biggest aggregate profit among sellers and buyers. This will be later investigated in section \ref{ch:design}.
+Ultimately, after reviewing the preceding analysis regarding auction types, a \textbf{\textit{one-sided reverse Vickrey}} auction seems to be the most suitable for brokerless virtual network embedding since it provides confidentiality and the biggest aggregate profit among sellers and buyers. This will be later investigated in chapter \ref{ch:design}.
 
 \section{Summary}
 
@@ -288,11 +292,11 @@ At the end of \citep{abeyratne2016blockchain}, an example to better explain the 
 
 In the last years, many investigations in network virtualization have been conducted by different authors \citep{houidi2011virtual}, \citep{zhu2008cabernet}, \citep{chowdhury2009virtual}. Among these, it is important to highlight topics such as the trade-offs between single \citep{chowdhury2009virtual}, \citep{houidi2008distributed} and multi-provider VNE \citep{dietrich2017multi}, or the different techniques and algorithms used for achieving VN efficiency. Typically, they decompose the VNE into two tasks: VN partitioning and VN segment mapping \citep{fischer2013virtual}. 
 
-Each of these studies proposes new interesting features compared to the prior research. Nevertheless, in this paper, we will not contrast the different architectures (e.g. between a single or multiple InPs) or discuss the various VN partitioning and mapping algorithms. The main goal of this work will be to explore an existing network virtualization scenario, in particular, multi-provider VNE applications suffering from the limited information disclosure problem or LID \citep{dietrich2017multi}, \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}.
+Each of these studies proposes new interesting features compared to the prior research. Nevertheless, in this thesis, we will not contrast the different architectures (e.g. between a single or multiple InPs) or discuss the various VN partitioning and mapping algorithms. The main goal of this work will be to explore an existing network virtualization scenario, in particular, multi-provider VNE applications suffering from the limited information disclosure problem \citep{dietrich2017multi}, \citep{zaheer2010multi}, \citep{esposito2013general}, \citep{chowdhury2010polyvine}.
 
 \subsection{Multi-Provider Virtual Network Embedding with Limited Information Disclosure}
 
-To deploy wide-area networks, service providers are willing to embed virtual resources across heteregeneous domains belonging to different infrastructure providers. As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process, also named inter-domain VNE\footnote{inter-domain is between multiple InPs and intra-domain is inside a single InP.}, is descomposed in three main tasks \citep{chowdhury2010polyvine}:
+To deploy wide-area networks, service providers are willing to embed virtual resources across heteregeneous domains belonging to different infrastructure providers. As a result, the system avoids being restricted to just a single provider topology, providing at the same time better efficiency. This process, also named inter-domain VNE\footnote{Inter-domain is between multiple InPs and intra-domain is inside a single InP.}, is descomposed in three main tasks \citep{chowdhury2010polyvine}:
 
 \begin{itemize}
 	\item \textbf{VN request partitioning}: Divide the virtual network into groups of virtual nodes (subgraphs), such that virtual node and link requirements are satisfied, minimizing at the same time the software cost of the virtual network setup.
@@ -325,9 +329,9 @@ In \citep{dietrich2015multi}, a centralized VNE framework is implemented (Figure
   \label{fig:multiprov}
 \end{figure}
 
-Furthermore, in the \citep{dietrich2015multi} implemented framework, the slice embedding is achieved by subsequently perfoming the following tasks: Firstly, the above-mentioned resource information is sent from the InPs to the VNP, who registers and stores it. Secondly, the VNP matches the service provider request with this collected data. Thirdly, the corresponding partitioning and mapping algorithms are applied (not discussed in this paper). 
+Furthermore, in the \citep{dietrich2015multi} implemented framework, the slice embedding is achieved by subsequently perfoming the following tasks: Firstly, the above-mentioned resource information is sent from the InPs to the VNP, who registers and stores it. Secondly, the VNP matches the service provider request with this collected data. Thirdly, the corresponding partitioning and mapping algorithms are applied (not discussed in this thesis). 
 
-In addition, the results prove that this centralized VNE approach provides embedding costs not much higher than in an ideal case scenario (InPs announcing all required information) and a high ratio between the number of slices requested and later allocated. Despite the positive findings, this scenario suffers mainly from scalability, since everything relies on a single centralized authority: the virtual network provider. In addition, it assumes that InPs (if they do so) will be constantly advertising their updated data to the VNP, which can lead to undesired costs.
+In addition, the results prove that this centralized VNE approach provides embedding costs not much higher than in an ideal case scenario (InPs announcing all required information) and a high ratio between the number of slices requested and later allocated. Despite the positive findings, this scenario suffers mainly from scalability, since everything relies on a single centralized authority: the virtual network provider. In addition, it assumes that InPs will be constantly advertising their updated data to the VNP, which can lead to undesired costs.
 
 Therefore, other approaches where the actors benefit from a more scalable and distributed slice embedding need to be further investigated.
 
@@ -337,8 +341,8 @@ Many existing solutions \citep{houidi2011virtual}, \citep{dietrich2015multi}, \c
 
 \begin{itemize}
 	\item In \citep{esposito2013general}, a \textbf{consensus-based auction for distributed slice embedding (CAD)} is proposed. In particular, the physical nodes, which are owned by a single or different InPs, bid on virtual nodes. This value is subsequently stored in a vector $b_i$, where $i$ is the physical node. Afterwards, once the bidding phase concludes, each physical node exchange the bids with its neighbors to reach an agreement for the auctioned virtual nodes. The mentioned bidding can be for a single slice (2 virtual nodes and 1 link) or on the entire slice (multiple virtual nodes and links). In the former, there is a limit on the number of biddable nodes, which although it has a great performance, it provokes multiple iterations (excessive time). Despite in a multi-provider VNE scenario, the latter is more suitable, the InPs willingness to disclose their internal information will hamper the performance. Hence, this approach provides better scalability (decentralization), but it is not proper for our scenario since it does not solve our LID problem.
-	\item In \citep{chowdhury2010polyvine}, a \textbf{policy-based inter-domain VN embedding framework (PolyViNE)} is presented. In PolyViNE, each InP embeds part of the VN request under its internal policies, while they cooperate with other InPs in a decentralized manner. In addition, forwarded decisions are location-based. For example, in Figure \ref{fig:multi} each virtual node $\{A,B,C,D\}$, has a prefered geolocation. After that, the matched InPs will receive a notification for embedding the specific virtual node (e.g. InP3 with virtual node D). This whole process starts with the SP sending its VN request to multiple trusted InPs who reply back with the related embedding and its prices (bidding). Then, the SP will choose the most economical embedding. However, since there is no central broker, to ensure performance each SP must know $k^{SP} \geq 1$ InPs and each InP $k^{InP} \geq 1$ InPs. Also, most of the time a complete VN is not mappable by a single InP. In this case, the InP embeds its part and forwards the other to a known InP. \newline
-Despite, PolyViNE introduces a decentralized approach dealing with LID and uses the interesting location-assisted embedding, it has some drawbacks that need to be covered. Firstly, each InP has an extra overhead in communicating the rest of the request when the VN is not fully mapped. Secondly, the bidding to provide a competitive market is a good idea, but in this scenario, the bids can be publicly known by other InPs. Thus, a better bidding process preventing InPs from revealing its confidential data is needed. Finally, the requirement that SPs and InPs must know at least 1 InPs can lead to an application poor performance.
+	\item In \citep{chowdhury2010polyvine}, a \textbf{policy-based inter-domain VN embedding framework (PolyViNE)} is presented. In PolyViNE, each InP embeds part of the VN request under its internal policies, while they cooperate with other InPs in a decentralized manner. In addition, forwarded decisions are location-based. For example, in Figure \ref{fig:multi} each virtual node $\{A,B,C,D\}$, has a prefered geolocation. After that, the matched InPs will receive a notification for embedding the specific virtual node (e.g. InP3 with virtual node D). This whole process starts with the SP sending its VN request to multiple trusted InPs who reply back with the related embedding and its prices (bidding). Then, the SP will choose the most economical embedding. However, since there is no central broker, to ensure performance each SP needs to know $k^{SP} \geq 1$ InPs and each InP $k^{InP} \geq 1$ InPs. Also, most of the time a complete VN is not mappable by a single InP. In this case, the InP embeds its part and forwards the other to a known InP. \newline
+Despite, PolyViNE introduces a decentralized approach dealing with LID and uses the interesting location-assisted embedding, it has some drawbacks that need to be covered. Firstly, each InP has an extra overhead in communicating the rest of the request when the VN is not fully mapped. Secondly, the bidding to provide a competitive market is a good idea, but in this scenario, the bids can be publicly known by other InPs. Thus, a better bidding process preventing InPs from revealing its confidential data is needed. Finally, the requirement that SPs and InPs need to know at least 1 InPs can lead to an application poor performance.
 	
 \begin{figure}[bth]
 	\centering
@@ -404,7 +408,7 @@ After comparing the different multi-provider VNE approaches exposed throughout t
 	\item Computational and economic low costs.
 \end{itemize}
 
-Therefore, the main focus on this thesis will be to investigate and later implement an approach which fulfills the above-mentioned virtual network embedding demands, where we foresee that blockchain could play a significant role.
+Therefore, the main focus of this thesis will be to investigate and later implement an approach that gets rid of the VNP, and which fulfills the above-mentioned virtual network embedding demands. Here, we foresee that blockchain could play a significant role.
 
 
 %*****************************************
@@ -416,7 +420,7 @@ Based on the challenges highlighted in the previous chapter, a conceptional desi
 
 \section{Requirements and Assumptions} \label{requirements}
 
-Since blockchain is a disruptive technology, apparently it seems that it could improve many existing systems. However, is it suddenly blockchain the only way of approaching scalability, security or data handling between organizations? Or why not to use a traditional database rather than a blockchain? The truth of it is that there is not a single solution or better technology than the others, it just depends on user's requirements. Thus, it is important to understand in which scenarios blockchain could replace existing infrastructures. For this purpose, in Figure \ref{fig:bcFlowchart} we present a flowchart \citep{wust2017you}, which pretends to guide users in determining whether blockchain is the appropriate solution to resolve their problems, and if yes, the suitable BC type. We will also follow the diagram to decide if our defined VNE scenario demands match the blockchain use case.
+Since blockchain is a disruptive technology, apparently it seems that it could improve many existing systems. However, is the blockchain the only way of approaching scalability, security or data handling between organizations? Or why not use a traditional database rather than a blockchain? The truth is that there is not a single solution or better technology than the others, as it depends on user's requirements. Thus, it is important to understand in which scenarios the blockchain could replace existing infrastructures. For this purpose, in Figure \ref{fig:bcFlowchart} we present a flowchart \citep{wust2017you}, which pretends to guide users in determining whether blockchain is the appropriate solution to resolve their problems, and if yes, the suitable BC type. We will also follow the diagram to decide if our defined VNE scenario demands match the blockchain use case.
 
 \begin{figure}[bth]
 	\centering
@@ -425,9 +429,9 @@ Since blockchain is a disruptive technology, apparently it seems that it could i
   	\label{fig:bcFlowchart}
 \end{figure}
 
-Before starting with the flowchart, one statement needs to be clear: if the user does not need to store data, no blockchain or database is required. The discussion arises when multiple writers want to exchange data without relying on a trusted third party (TTP). In this context, a writer is a user that performs the four basic functions of persistent storage: create, read, update and delete data (CRUD). If they trust a TTP, a traditional or centralized database will always provide a better throughput. However, if this is not the case, then the user should first consider if all the writers are known and trusted. If so, again a typical database (e.g. SQL) will be better positioned. If all the last requirements are satisfied, or in other words, multiple untrusted writers are willing to update the state of a system without trusting a middle actor, it is then that using a blockchain is a reasonable solution.
+Before starting with the flowchart, one statement needs to be clarified: if the user does not need to store data, no blockchain or database is required. The discussion arises when multiple writers want to exchange data without relying on a trusted third party (TTP). In this context, a writer is a user that performs the four basic functions of persistent storage: create, read, update and delete data (CRUD). If they trust a TTP, a traditional or centralized database will always provide a better throughput. However, if this is not the case, then the user should first consider if all the writers are known and trusted. If so, again a typical database (e.g. SQL) will be better positioned. If all the last requirements are satisfied, or in other words, multiple untrusted writers are willing to update the state of a system without trusting a middle actor, it is then that using a blockchain is a reasonable solution.
 
-In Figure \ref{fig:bcFlowchart}, we also classify blockchains into two groups: \textit{permissionless} and \textit{permissioned} blockchains. To decide between these two approaches, the user should consider if he is willing to control his customized blockchain, creating his own specifications. For example, the main network of Bitcoin and Ethereum is permissionless, where users are added to the network and thus, restricted to its policies. In Table \ref{tab:blockchainTypes} the main characteristics of each blockchain type are summarized. Scalability is an important topic in the blockchain domain, where we distinguish: node scalability and performance scalability. The former is the capacity to add new participants in the blockchain without losing performance, and the latter is the number of transactions executed per second. In addition, note that some features depend on the blockchain design decisions since permissioned blockchains capabilities are easily modifiable. For example, if consensus algorithms are used, the interaction between users should have a cost in order to ensure performance, i.e miners need to be rewarded with transaction fees.
+In Figure \ref{fig:bcFlowchart}, we also classify blockchains into two groups: \textit{permissionless} and \textit{permissioned} blockchains. To decide between these two approaches, the user should consider if he is willing to control his customized blockchain, creating his own specifications. For example, the main networks of Bitcoin and Ethereum are permissionless, where users are added to the network and thus, restricted to its policies. In Table \ref{tab:blockchainTypes} the main characteristics of each blockchain type are summarized. Scalability is an important topic in the blockchain domain, where we distinguish: node scalability and performance scalability. The former is the capacity to add new participants in the blockchain without losing performance, and the latter is the number of transactions executed per second. In addition, note that some features depend on the blockchain design decisions since permissioned blockchains capabilities are easily modifiable. For example, if consensus algorithms are used, the interaction between users should have a cost in order to ensure performance, i.e miners need to be rewarded with transaction fees.
 
 \begin{table}[bth]
 	\myfloatalign \footnotesize
@@ -447,9 +451,9 @@ In Figure \ref{fig:bcFlowchart}, we also classify blockchains into two groups: \
 		Trusted & No & Yes \\
 		Node scalability & High & Low \\
 		Performance scalability & Low & High \\
-		Use cases & Cryptocurrencies (e.g. Bitcoin) & Transactions in business networks (Hyperledger Fabric) \\ \hline
+		Use cases & Cryptocurrencies (e.g. Bitcoin \citep{bitcoin}) & Transactions in business networks (Hyperledger Fabric \citep{hyperledger}) \\ \hline
 	\end{tabularx}
-		\caption{Types of blockchain: permissionless vs permissioned. Adapted from \citep{wust2017you}. (*) states for depending on blockchain design decisions.}
+		\caption{Types of blockchain: permissionless vs permissioned. Adapted from \citep{wust2017you}. (*) depending on blockchain design decisions.}
 	\label{tab:blockchainTypes}
 \end{table}
 
@@ -457,21 +461,21 @@ Furthermore, as stated in Figure \ref{fig:bcFlowchart}, permissioned blockchains
 
 \begin{itemize}
 	\item \textbf{Public permissioned blockchain:} Decentralized, all the participating users are allowed to read the system's state (transactions can be publicly verified), but just some of them have writing privileges.
-	\item \textbf{Private blockchain:} Centralized, with access and writing permissions restricted to a set of users. Note that in the flowchart this corresponds to an intra-firm consensus since it is only managed by a single organization. We understand by firm a traditional company or a pre-selected group of users.
-	\item \textbf{Hybrid/Consortium blockchain:} Partly decentralized, the blockchain management is controlled by a pre-established set of entities (inter-firm). In this model, each of the firms typically possesses a blockchain node to coordinate and ensure the system's functionality. Note that compared to the private blockchain, multiple firms maintain and serve the infrastructure rather than a single one. Thus, a consensus between these parties is also extremely needed. For example, currently, several banks deploy common blockchains to manage their shared data and reduce intermediaries costs. In this case, each bank will control a node, resulting in a better throughput in terms of scalability.
+	\item \textbf{Private blockchain:} Centralized, with access and writing permissions restricted to a set of users. Note that in the flowchart (Figure \ref{fig:bcFlowchart}) this corresponds to an intra-firm consensus since it is only managed by a single organization. We understand by firm a traditional company or a pre-selected group of users.
+	\item \textbf{Hybrid/Consortium blockchain:} Partly decentralized. The blockchain is controlled by a pre-established set of entities (inter-firm). In this model, each of these firms coordinates and ensures the system's functionality. Note that compared to the private blockchain, multiple firms maintain and serve the infrastructure rather than a single one. Thus, a consensus between these parties is also extremely needed. For example, currently, several banks deploy common blockchains to manage their shared data and reduce intermediaries costs. In this case, each bank will control a node, resulting in a better throughput in terms of scalability.
 \end{itemize}
 
-After presenting the blockchain use cases and types, we observe some similarities between a traditional shared database and a permissioned private chain, since they are both managed by a group of users, which simultaneously maintain the same confidential data. Despite private blockchains could be seen only as another term used to name shared databases, the truth of it is that each technology has its trade-offs, without mentioning scalability or cost issues. On one hand, centralized databases will always have better throughputs since, in addition to the basic transaction operations, blockchains need to perform cryptographic verifications, and ensure a consensus between the other participating nodes. On the other hand, private blockchains are less prone to malicious attacks, inasmuch as they spend a longer period in checking errors or validating transactions, than regular databases. The blockchain also organizes data into blocks, which is updated only appending new data. Therefore, as already noted, if users trust each other and a high-performance is desired, using a blockchain will not be the suitable solution.
+After presenting the blockchain use cases and types, we observe some similarities between a traditional shared database and a permissioned private chain, since they are both managed by a group of users, which simultaneously maintain the same confidential data. Despite private blockchains could be seen only as another term used to name shared databases, the truth is that each technology has its trade-offs, without mentioning scalability or cost issues. On one hand, centralized databases will always have better throughputs since, in addition to the basic transaction operations, blockchains need to perform cryptographic verifications, and ensure a consensus between the other participating nodes. On the other hand, private blockchains are less prone to malicious attacks, inasmuch as they spend a longer period in checking errors or validating transactions, than regular databases. The blockchain also organizes data into blocks, which is updated only appending new data. Therefore, as already noted, if users trust each other and a high-performance is desired, using a blockchain will not be the suitable solution.
 
 \subsection{Virtual Network Embedding with LID scenario}
 
-In section \ref{analysisOfRelatedWork}, we have concluded that although excellent research in network virtualization have been conducted, to the best of our knowledge, there is still not an approach solving the LID problem in terms of scalability, confidentiality, and low-cost performance. Thus, after having spotted the main benefits of integrating blockchain in real-scenarios, among which disintermediation, privacy  and transparency need to be highlighted, we assume that this technology could improve the VNE business process. Nevertheless, first, we should investigate whether our scenario could be integrated in a blockchain.
+In section \ref{analysisOfRelatedWork}, we have concluded that although some research in network virtualization have been conducted, to the best of our knowledge, there is still no approach under LID that gets rid of the broker (VNP), providing scalability, confidentiality, and low-cost performance. Thus, after having spotted the main benefits of integrating blockchain in real-scenarios, among which disintermediation, privacy  and transparency need to be highlighted, we assume that this technology could improve the VNE business process. Nevertheless, first, we should investigate whether our scenario could be integrated in a blockchain.
 
 In network virtualization, we mainly encounter users with two different roles: Infrastructure Providers and Service Providers. Moreover, as the VNE is typically performed by the same parties across the countries, e.g. Deutsche Telekom, Vodafone or O2 in Germany, the scenario is restricted to a limited amount of users that barely changes. Therefore, we are facing an application where multiple known users but probably not trusted, want to reach a virtual network agreement, without relying on a third party. The decision of not including a TTP or VNP is mainly to avoid exchanging the InPs internal network cost models to an intermediate actor.
 
-Observing the last mentioned requirements, we foresee that blockchain could be a suitable solution for our VNE scenario suffering from LID. However, the significant choice between blockchain types still needs to be argued. Obviously, the service negotiation between InPs and SPs is performed in a private environment, which automatically removes the permissionless and permissioned public blockchain options. Hence, the decision should be taken between a private or a hybrid blockchain.
+Observing the last mentioned requirements, we foresee that blockchain could be a suitable solution for our VNE scenario suffering from LID. However, an appropriate blockchain type still needs to be chosen. Obviously, the service negotiation between InPs and SPs is performed in a private environment, which automatically removes the permissionless and permissioned public blockchain options. Hence, the decision should be taken between a private or a hybrid blockchain.
 
-One of the main requirements noticed from the previous related work is that our approach must not suffer from scalability issues. Accordingly, using a private blockchain, which is a centralized system managed by a single firm, will provoke that users rely again on a central point or trusted party, converting it to an unfeasible workaround. Thereby, the \textbf{partly decentralized hybrid blockchain} seems to be the most suitable solution. In this scenario, a firm corresponds to each interested InP or SP willing to possess and control a blockchain node, in order to ensure the network virtualization functionality.
+One of the main requirements noticed from the previous related work is that our approach should address scalability issues. Accordingly, using a private blockchain, which is a centralized system managed by a single firm, will provoke that users rely again on a central point or trusted party, converting it to an unfeasible workaround. Thereby, the \textbf{partly decentralized hybrid blockchain} seems to be the most suitable solution. In this scenario, a firm corresponds to each interested InP or SP willing to possess and control a blockchain node, in order to ensure the network virtualization functionality.
 
 
 \subsection{Smart Contracts and Ethereum}
@@ -488,7 +492,7 @@ In the presented network virtualization example, as the users negotiate the leas
 
 \begin{itemize}
     \item \textbf{Easy to build, use and learn:} A low effort in setting the platform is essential. Thus, the smart contracts should be written or derived from common languages in the world of programming, such as JavaScript or Python.
-    \item \textbf{Support and documentation:} A consolidated platform, which is not in its early stages and with a high-maturity level achieved, is extremely needed. An active community of developers behind the project is also fundamental, e.g. with a considerable number of Github\footnote{\url{https://github.com/}} stars and forks.
+    \item \textbf{Support and documentation:} A consolidated platform, which is not in its early stages and with a high-maturity level achieved, is extremely needed. An active community of developers behind the project is also fundamental, e.g. with a considerable number of Github stars and forks.
     \item \textbf{Blockhain type:} Though it could be desirable that the main network is permissioned and hybrid or private, currently, in open source code platforms, the blockchain types can be modified. Thus, that the predefined main network type matches the desired one, is not a must-have feature.
 \end{itemize}
 
@@ -514,21 +518,21 @@ In the presented network virtualization example, as the users negotiate the leas
 
 In table \ref{tab:blockchainComparison}, a comparison of the most common blockchain platforms, in our opinion, is depicted. Since in our application a scripting language with smart contracts is preferrable, and Bitcoin and Ripple by default do not incorporate them, these platforms are automatically discarded. On the other hand, Hyperledger Fabric and R3 Corda are popular used platforms, whose main network perfectly fits our requirements. However, they provide customized blockchains with a high configuration effort, since its specifications need to be carefully designed. Thus, as a platform with a straightforward setup and usage is required, Ethereum seems to be the better positioned.
 
-Ethereum is a mature and easy to build project based on smart contracts with a large number of developers behind, who are actively discussing and improving its functionality. Thanks to this, the creation of new business models is extremelly facilitated for newcomers. Furthermore, Ethereum smart contracts are written in Solidity and Serpent, which are similar to JavaScript and Python respectively. Among these, Solidity seems to be more consolidated, which at the same time better matches our programming languages knowledge. Despite the fact that Ethereum's main network (public permissionless), is not the ideal for our scenario (permissioned and hybrid), the simple and easy set up of the platform's environment, will allow us to quickly deal with these issues. The last but not least, Ethereum Virtual Machine (EVM) is a Turing-complete system, which helps us in obtaining the maximum benefit from the smart contract's potential.
+Ethereum is a mature and easy to build project based on smart contracts with a large number of developers behind, who are actively discussing and improving its functionality. Thanks to this, the creation of new business models is extremelly facilitated for newcomers. Furthermore, Ethereum smart contracts are written in Solidity and Serpent, which are similar to JavaScript and Python respectively. Despite the fact that Ethereum's main network (public permissionless), is not the ideal for our scenario (permissioned and hybrid), the simple and easy set up of the platform's environment, will allow us to quickly deal with these issues. Finally, the Ethereum Virtual Machine (EVM) is a Turing-complete system, which helps us in obtaining the maximum benefit from the smart contract's potential.
 
-On balance, thanks to the blockchain, more precisely Ethereum and smart contracts, the untrustworthy VNP could be replaced with a secure, flexible and coordinated end-system. In this scenario, the reliance will now be distributed among multiple blockchain nodes rather than just on a costly single entity. However, challenges, such as the scalability or the service negotiation performance, will have to be thoroughly investigated along the thesis.
+Overall, thanks to the blockchain, more precisely Ethereum and smart contracts, the VNP could be replaced with a secure, flexible and coordinated system. In this scenario, the reliance will now be distributed among multiple blockchain nodes rather than just on a costly single entity. However, challenges, such as the scalability or the service negotiation performance, will have to be thoroughly investigated along the thesis.
 
 \section{System Design}
 
-Based on the requirements and assumptions defined in the previous section, the design of a multi-provider virtual network embedding scenario using the blockchain technology is now presented. The system's design considerations are described in the following manner. At first, the fundamental goals expected from the system are defined, followed by a general overview of the architecture and later on, the essential design features are also discussed.
+Based on the requirements and assumptions defined in the previous section, the design of a multi-provider virtual network embedding system using the blockchain technology is presented in the following. At first, the fundamental goals that are expected from the system are defined, followed by a general overview of the architecture and later on, the essential design features are discussed.
 
 \subsection{Fundamental Goals}
 
-In general, the fundamental goals for network virtualization relies on simulating hardware networks, providing improvements in terms of flexibility, manageability, and costs. In this scenario, the SPs are willing to embed virtual nodes across different InPs to create customized virtual networks. This embedding task consists first in the VN request partitioning and later, in the corresponding mapping to the InP's physical nodes, such that virtual node and link requirements are fulfilled. However, the problem appears when InPs are not willing to disclose detailed information about their resources availability or network topologies, which is indispensable for the VN partitioning efficiency. In this thesis, the VN partitioning is treated as a cost minimization problem, where the service provider pursues the minimum VN embedding cost. In a real scenario, there are other parameters that could be taken into consideration, such as quality of the service or the proportioned capacity, although they will not be the focus of this paper.
+In general, the fundamental goals for network virtualization relies on simulating baremetal networks, providing improvements in terms of flexibility, manageability, and costs. In this scenario, the SPs are willing to embed virtual nodes across different InPs to create customized virtual networks. This embedding task consists first of the VN request partitioning and later, of the corresponding mapping to the InP's physical nodes, such that virtual node and link requirements are fulfilled. However, the problem appears when InPs are not willing to disclose detailed information about their resource availability or network topologies, which is indispensable for the VN partitioning efficiency \citep{dietrich2015multi}. In this thesis, the VN partitioning is treated as a cost minimization problem, where the service provider pursues the minimum VN embedding cost\footnote{From now on, we use the term cost to refer the value that the SP must pay for embedding the virtual nodes across the InPs. This value is derived from the InP bids}. In a real world, there are more parameters that could be taken into consideration, such as quality of the service or the proportioned capacity.
 
-In a multi-provider scenario with full information disclosure (Figure \ref{fig:problem}.a), since the infrastructure provider's internal information is publicly available, the VN request partitioning is efficiently computed. Conversely, the lack of data in a limited information disclosure scenario (Figure \ref{fig:problem}.b), directly affects the VNE throughput. Nevertheless, there is some information not considered confidential by the InPs, such as the virtual node type cost or the InPs peering nodes. For instance, in Figure \ref{fig:problem}.b, InP2 has two peering nodes with virtual node type $\{A,B,D,E\}$ and $\{F,G\}$ respectively. Thus, in this thesis, new strategies and approaches to facilitate the service negotiation process between the InPs and SPs, must be developed. 
+In a multi-provider scenario with full information disclosure (Figure \ref{fig:problem}.a), since the infrastructure provider's internal information is publicly available, the VN request partitioning is efficiently computed. Conversely, the lack of data in a limited information disclosure scenario (Figure \ref{fig:problem}.b), directly affects the VNE throughput. Nevertheless, there is some information not considered confidential by the InPs, such as the location or the virtual node types offered by the peering nodes. For instance, in Figure \ref{fig:problem}.b, the InP1 has two peering nodes with locations in Germany and Switzerland, and virtual node types $\{A,B,D,E\}$ and $\{F,G\}$ respectively. These virtual node types, as Amazon EC2 \citep{amazonEC2} does, are used to classify the resources in different groups, each having common attributes, such as CPU, memory, storage and network capacity. Thus, in this thesis, new embedding strategies and approaches to facilitate the service negotiation process between the InPs and SPs, will be developed. 
 
-Moreover, in section \ref{analysisOfRelatedWork}, it has been contemplated that decentralized approaches tend to use auctions to negotiate the network workflows. Regardless of the auction model applied for our VNE framework, there are several objective metrics that must be considered: 
+Moreover, in section \ref{analysisOfRelatedWork}, it has been contemplated that decentralized approaches tend to use auctions to negotiate the network workflows. Regardless of the auction model applied for our VNE framework, there are several objective metrics that need be considered: 
 
 \begin{itemize}
     \item \textbf{Efficient:} The virtual network embedding must be efficient in terms of synchronization, communication, and data sharing between the participating users.
@@ -536,13 +540,13 @@ Moreover, in section \ref{analysisOfRelatedWork}, it has been contemplated that 
     \item \textbf{Market fairness:} The auction model requires that the SPs find the desired service at the lowest price and that the InPs obtain the highest possible revenue for the offered service.
     \item \textbf{Data confidentiality:} At the moment of bidding, the bids should be kept in secrecy in order to not alter the auction progress. In the end, the winners can be publicly known.
     \item \textbf{No trusted auctioneer:} Since confidentiality is required, a middle party or auctioneer should not be capable of managing the auction workflow and thus, accessing the private bidding values.
-     \item \textbf{Automated:} The virtual network embedding process needs to be automated with a friendly and easy-to-use framework, which guides the users through their operations. 
+     \item \textbf{Automated:} The virtual network embedding process needs to be automated with a friendly and easy-to-use framework.
 \end{itemize}
 
 \begin{figure}[bth]
 	\centering
 	\includegraphics[width=1\linewidth]{gfx/Problem}    
-  	\caption{Substrate network visibility. (a) Full information disclosure (FID). (b) Limited Information Disclosure (LID). Adapted from \citep{dietrich2015multi}}
+  	\caption{Substrate network visibility. (a) Full information disclosure (FID). (b) Limited Information Disclosure (LID) with virtual node types and the corresponding prices. Adapted from \citep{dietrich2015multi}.}
   	\label{fig:problem}
 \end{figure}
 
@@ -551,7 +555,7 @@ Moreover, in section \ref{analysisOfRelatedWork}, it has been contemplated that 
 \begin{figure}[bth]
 	\centering
 	\includegraphics[width=1\linewidth]{gfx/designWorkflow}    
-  	\caption{Design system architecture. UP states for upper bound cost and L for location}
+  	\caption{Our design for the system architecture. $u_i$ states for upper bound cost and $l_i$ for location}
   	\label{fig:designWorkflow}
 \end{figure}
 
@@ -559,99 +563,199 @@ After defining the main VNE problem that needs to be addressed, and describing t
 
 \begin{itemize}
     \item \textbf{Private group of users:} The system is composed of a private group, in which participants can be infrastructure providers or service providers. Since in private groups only certain members are allowed to access and alter the data, in this design, new users must ask for permission before joining the network. Furthermore, once entering the group, the newcomer can optionally act as a miner or just use the application without the need of maintaining a blockchain node.
-	\item \textbf{User interface (UI):} Through a friendly user interface,  each member will efficiently interact with the blockchain application. Depending on the user's role, i.e infrastructure providers or service providers, the UI will provide different functionalities. For example, SPs have the ability to request virtual networks and InPs to bid for the proposed virtual nodes, but not the other way around. Thus, the available operations must be restricted to the user's privileges.
-	\item \textbf{Ethereum blockchain:} One of the main differences between the Bitcoin and the Ethereum blockchain is that they are transaction-based and account-based respectively. For this reason, apart from a list of transactions, each Ethereum's block also stores the most recent state, i.e. the current accounts list with the corresponding balances. Nevertheless, every blockchain starts with the block 0, also called \textit{Genesis block}. Since it is the first block, is the only one not pointing to a predecessor and it is typically hardcoded in a file called \textit{genesis.json}. This file contains some of the blockchain specifications, such as the difficulty or the gas limit. By modifying the value of these parameters, users are allowed to create blockchains based on their requirements. More details about the genesis file content used in our system will be discussed in chapter \ref{ch:implementation}.
-	\item \textbf{Smart contracts:} In the previous point, we have mentioned that each Ethereum block stores a list of accounts with their corresponding balances, among others. These accounts can be externally owned accounts (users) or contract accounts (smart contracts). Our focus will be on the last since they enable reflecting user's needs into code. These smart contracts can be created or called either from another contract or simply by an EOA. In our system's design, the first block contains two fundamental static contracts, whose address will be user-known and hence, permanently requestable. On one side, the \textbf{Users} contract will store all the participant's information, and whenever a new user registers, this contract's data will be modified. On the other side, the \textbf{Auctions} contract will be the broker used for starting an auction, which creates a new contract with the requested data.
-
+	\item \textbf{User interface (UI):} Through an API (for automation), each member will efficiently interact with the blockchain application. Depending on the user's role, i.e infrastructure providers or service providers, the API will provide different functionalities. For example, SPs have the ability to request virtual networks and InPs to bid for the proposed virtual nodes, but not the other way around. Thus, the available operations must be restricted to the user's privileges.
+	\item \textbf{Ethereum blockchain:} One of the main differences between the Bitcoin and the Ethereum blockchain is that the first is transaction-based while the second account-based. For this reason, apart from a list of transactions, each Ethereum's block also stores the most recent state, i.e. the current account list with the corresponding balances. Nevertheless, every blockchain starts with the block 0, also called \textit{Genesis block}. Since it is the first block, it is the only one not pointing to a predecessor and it is typically hardcoded in a file called \textit{genesis.json}. This file contains some of the blockchain specifications, such as the difficulty or the gas limit. By modifying the value of these parameters, users are allowed to create blockchains based on their requirements. More details about the genesis file content used in our system will be discussed in chapter \ref{ch:implementation}.
+	\item \textbf{Smart contracts:} Above, we have mentioned that each Ethereum block stores a list of accounts with their corresponding balances, among others. These accounts can be externally owned accounts (users) or contract accounts (smart contracts). In the case of smart contracts, they enable reflecting user's needs into code and can be created or called either from another contract or simply by an EOA. In our system, a static contract called \textit{Users} is contained, which will be permanently requestable. This contract will store all the participant's information, and whenever a new user registers, its state will be modified. In addition, this contract includes the InPs entered information about their substrate networks, such as the peering nodes or the substrate node types, which will be used to match the virtual network requests.
 \end{itemize}
 
-To provide a clearer view of the last mentioned components, the application's functionality needs to be introduced. This VNE process entails the following steps (Figure \ref{fig:designWorkflow}):
+To provide a clearer view of the last mentioned components, the VNE functionality needs to be introduced. This VNE process entails the following steps (Figure \ref{fig:designWorkflow}):
 
 \begin{enumerate}
-    \item \textbf{VN request:} A service provider requests a virtual network by calling the \textit{Auctions} contract address, e.g. 0x452c812a1... The request can be represented in a graph as $G_k = (N_k , d_{ij})$ where $N_k$ consists of a set of virtual nodes, represented by $\{A,B,C,D\}$ and $d_{ij}$ as the bandwidth demand between the virtual nodes $i,j \in N_k$. Each $N_k$ is formed by a collection of attributes, such as the desired location $l_k$ or the upper bound cost $u_k$. In case an upper bound cost for the whole network is specified $u_{G_k}$, each virtual node $u_k$ will be averaged $u_k = \frac{u_{G_k}}{k}$
-    \item \textbf{Resource matching:} Once the \textit{Auctions} contract is called, it will first check the associated set of attributes (e.g. location) of the requested virtual nodes. These parameters will be used to match the corresponding InPs from the \textit{Users} contract. For instance, virtual nodes $\{A,B\}$ and $\{C,D\}$ will be matched with InPs possessing physical nodes in Germany (DE) and Switzerland (CH) respectively. In case no location is specified, the VN request will be broadcasted to all the registered infrastructure providers.
-	\item \textbf{Auction start:} Using the previous information, the corresponding smart contract, i.e. \textit{limited time auction}, is automatically created. This contract contains: (i) the data related to the virtual network nodes and links, (ii) the address of the SP willing to lease virtual nodes, (iii) a list of all the InPs addresses matched and (iv) an \textit{end-time} field. Since the bidding cannot last forever, in the first step, the SP must also add this \textit{end-time} field to the request.
- 	\item \textbf{Notification and bidding period:} After the new auction contract creation, the included InPs, which are the only users with the ability to bid for the resources, are notified. Despite having a full view of the VN request and knowing the other matched InPs, each InP is only allowed to bid for their paired resources. For instance, InPs from Germany can only bid for the resources $\{A,B\}$. Before bidding, these users typically evaluate the proposed virtual nodes into their substrate network, depicted as $G_s = (N_s , L_{ij})$, where $N_s$ are the physical nodes and $L_s$ the physical links between the $N_s$ nodes. Although InP's goal is to allocate the maximum amount of virtual nodes at a reasonable cost, a single InP can barely serve all the virtual nodes requirements. As a result, the virtual network will be supplied by different infrastructure providers. More details about the bidding mechanism will be presented in section \ref{vickrey}.
- 	\item \textbf{VN request partitioning and mapping:} Once the auction has finished, each virtual node will be assigned to the winning InPs so that the VN embedding cost is minimized (\textbf{min-C}). These winners will be publicly known by all the other participating users and thereupon, the service provider will contact them to ultimate the VN setting up, i.e. to perform the VN segment mapping.
+    \item \textbf{VN request:} A service provider requests a virtual network, which can be represented in a graph as $G^{R} = (N^{R} , d^{R})$, where $N^{R}$ consists of a set of $k$ virtual nodes, and $d^{R}$ the set of all bandwidth demands between the virtual nodes $i,j \in N^{R}$. Here, the superscript $R$ stands for request. In addition, each virtual node $N_i \in N^{R}$ is formed by a collection of attributes, such as the desired location $l_{i}$ or the upper bound cost $u_{i}$, where the last term may be the maximum amount of money that the SP is willing to pay for virtual node $N_i$. Otherwise, if an upper bound cost for the whole network is specified $u_{G}$, the one for each virtual node will be treated as $u_{i} = \frac{u_{G}}{k}$.
+    \item \textbf{Resource matching:} Before the auction starts, first, the associated set of attributes (e.g. location) of the requested virtual nodes $N^{R}$ are matched with the InPs entered data in the \textit{Users} contract. For instance, virtual nodes $\{A,B\}$ and $\{C,D\}$ will be matched with InPs possessing physical nodes in Germany (DE) and Switzerland (CH) respectively. In case no location $l_{i}$ is specified for the nodes $N^{R}$, the VN request will be broadcasted to all the registered infrastructure providers.
+	\item \textbf{Auction start:} Using the previous information, the corresponding smart contract, i.e. a \textit{limited time auction}, is created. This contract contains: (i) the data related to the virtual network nodes and links, (ii) the address of the SP willing to lease virtual nodes, (iii) a list of all the InPs addresses matched and (iv) an \textit{end-time} field. Since the bidding must terminate, in the first step, the SP must also add this \textit{end-time} field to the request.
+ 	\item \textbf{Notification and bidding period:} After the new auction contract creation, the included InPs, which are the only users with the ability to bid for the resources, are notified. Despite having a full view of the VN request and knowing the other matched InPs, each InP is only allowed to bid for their paired resources. For instance, InPs from Germany can only bid for the resources $\{A,B\}$. Before bidding, these users typically evaluate the request requirements into their substrate network, depicted as $G^{S} = (N^{S} , L^{S})$, such that $N^{S}$ and $L^{S}$ are the set of physical nodes and physical links respectively. Although InPs are interested in serving requests at maximum profit, a single InP can barely serve all the virtual nodes requirements. As a result, the virtual network just may be supplied by different infrastructure providers. More details about the bidding mechanism will be presented in section \ref{vickrey}.
+ 	\item \textbf{VN request partitioning and mapping:} Once the auction has finished, each virtual node will be assigned to the winning InPs so that the VN embedding cost is minimized. These winners will be publicly known by all the other participating users and thereupon, the service provider will contact them to ultimate the VN setting up, i.e. to perform the VN segment mapping.
 \end{enumerate}
 
 In a nutshell, the presented system design uses the blockchain technology, in particular, smart contracts, to enhance the VN partitioning efficiency in a multi-provider scenario with limited information disclosure. Nevertheless, up to now, this is only a conceptual design with a lot of features that must be further discussed.
 
 \subsection{Blockchain Type and Mining Strategy}
 
-Ethereum's main network, as Bitcoin, is public and permissionless, where all the users have access to the transferred values between accounts. However, since our described scenario has a small number of users, the fully decentralized approach will directly affect the application performance. Thus, as concluded in section \ref{requirements}, our focus is on \textbf{permissioned hybrid blockchains}, where a set of inter-firm entities control and maintain the blockchain functionality. 
+The Ethereum's main network, as Bitcoin, is public and permissionless, where all the users have access to the transferred values between accounts, since value transfers cannot be blinded. However, since our described scenario has a small number of users, the fully public decentralized approach will directly affect the application performance. Thus, as concluded in section \ref{requirements}, our focus is on \textbf{permissioned hybrid blockchains}, where a set of inter-firm entities control and maintain the blockchain functionality.
 
-On the other hand, the default Ethereum's consensus algorithm will be used, which is at the time of writing, the \textbf{Proof-of-Work} protocol. Nevertheless, since the blockchain can be customized, in chapter \ref{ch:implementation}, other mining strategies will be further in investigated.
+On the other hand, the default Ethereum's consensus algorithm will be used, which is at the time of writing, the \textbf{Proof-of-Work} protocol. Nevertheless, since the blockchain can be customized, in chapter \ref{ch:evaluation}, other mining strategies will be further investigated on their suitability.
 
-In summary, although the Ethereum's main network is public and permissionless, it can run as a private or hybrid blockchain, with the technology mechanisms and protocols remaining unaltered.
+In summary, although the Ethereum main network is public and permissionless, it can run as a private or hybrid blockchain, with the technology mechanisms and protocols remaining unaltered.
 
 \subsection{Authentication System} \label{authenticationSystem}
 
 In the following, we will discuss how a user is registered and authenticated to the system, see Figure \ref{fig:authenticationDesign}.
 
-First of all, in order to deploy and use the presented design, one user needs to set up the environment. Afterwards, he can invite others users to join his network, i.e. to create an Ethereum account (EOA) for the application. However, once these users are registered, the communication must be secured. For this reason, the blockchain technology uses the \textbf{public-key cryptography}, also called asymmetrical cryptography. In particular, Ethereum uses the \textit{Elliptic Curve Digital Signature Algorithm (ECDSA)} to validate the origin and integrity of messages. 
+First of all, in order to deploy and use the presented design, a single or a group of InPs need to set up the environment. Afterwards, this consortium of InPs or a public authority, such as a regulatory agency, is responsible for inviting others users (InPs or SPs) to join his network, i.e. to create an Ethereum account (EOA) for the application. 
+
+However, once these users are registered, the communication between them must be secured. For this reason, the blockchain technology applies the \textbf{public-key cryptography}, also called asymmetrical cryptography, which generates a public and private key pair. The first, as the name suggests, it is publicly disclosed, and the second must remain confidential to its respective owner. Since these keys are mathematically related, the information encrypted with a private key can only be decrypted with a public one, and vice-versa. In addition, the Ethereum address is derived from this key pair, more specifically, from the last 160 bits of the \textit{SHA3-256}\footnote{\url{https://en.wikipedia.org/wiki/SHA-3}} hash of the public key. Thus, once a user creates a new Ethereum account, the blockchain generates a public and private key pair for this user.
 
 \begin{figure}[bth]
 	\centering
 	\includegraphics[width=0.9\linewidth]{gfx/authentication_design}    
-  	\caption{Authentication design and public-key cryptography}
+  	\caption{Our authentication design and used public-key cryptography}
   	\label{fig:authenticationDesign}
 \end{figure}
 
-In addition, the Ethereum address is also extracted from this key pair, more specifically, from the last 160 bits of the \textit{SHA3-256}\footnote{\url{https://en.wikipedia.org/wiki/SHA-3}} hash of the public key. Thus, once a user creates a new Ethereum account, the blockchain generates a random public and private key pair. Since the private key can be used by an attacker to access the ledger or to impersonate the account's owner, it is essential to keep it secure.
+Furthermore, to validate the origin and integrity of the messages, users must always digitally sign their operations, by providing a \textbf{digital signature}. In particular, Ethereum uses the \textit{Elliptic Curve Digital Signature Algorithm (ECDSA)}. In this process, see Figure \ref{fig:authenticationDesign}, a sender uses his private key to sign a hashed version of the data, which produces the signature. This signature, together with the original data, is sent to the receiver, who uses the sender's public key and the data to verify that the information has been signed by who claims to be the owner and that the content has not been altered (hash value comparison).
 
-Furthermore, users must always digitally sign their operations to ensure authenticity and integrity, by providing a \textbf{digital signature}. In this process, they will use the private key to produce a short string of the data, called signature. In this way, the receiver can verify that the data has been signed by who claims to be the owner and that the content has not been altered.
+It is important to note that smart contracts, if well-defined, also provide security in terms of access control and confidentiality. Despite the fact that Ethereum users can create and own smart contracts, the content is not always accessible or alterable. For instance, when users are not willing to broadcast the contract's information or simply when they want to avoid that every party is able to alter the state of the contract. Thus, these operations can be restricted only to a set of users, whose addresses need to be known by the contract account. In our VNE scenario, the matched InPs are the only users allowed to bid on specific resources.
 
-On the other hand, it is important to note that smart contracts, if well-defined, they also provide security in terms of access control and confidentiality. Despite the fact that Ethereum users can create and own smart contracts, its content is not always accessible or alterable. For instance, when users are not willing to broadcast the contract's information or simply when they want to avoid that every party can alter the state of the contract. Thus, these operations are restricted only to a set of users, whose addresses need to be known by the contract account. In our VNE scenario, the matched InPs are the only users allowed to bid on specific resources.
-
-Therefore, although the blockchain is a decentralized and distributed technology, where the actors do not know or trust each other, thanks to cryptography, a secure communication between all the participants is achieved. In addition, since Ethereum uses smart contracts, the data access can also be restricted and with its content hardly manipulated.
+Although the blockchain is a decentralized and distributed technology, where the actors do not need to know or trust each other, thanks to cryptography, a secure and unalterable communication between all the participants is achieved. In addition, since Ethereum uses smart contracts, the data access can also be restricted.
 
 \subsection{The Vickrey Auction Model} \label{vickrey}
 
-In section \ref{auctionMechanisms}, after judging different auction types, it is concluded that a \textbf{one-sided reverse Vickrey auction} seems to be the most suitable for network virtualization. In the following, a more thorough examination in adapting this auction model in the multi-provider VNE scenario suffering from LID will be presented.
+In section \ref{auctionMechanisms}, after reviewing different auction types, we have concluded that a \textbf{one-sided reverse Vickrey auction} seems to be the most suitable for brokerless virtual network embedding. In the following, a more thorough examination in adapting this auction model to the multi-provider VNE scenario with LID will be presented.
 
-In this case, our auction procedure will start with the SP requesting a virtual network along with an upper bound, the last being the maximum amount of money the SP is willing to pay. Then, the InPs will estimate the request requirements (e.g: nodes availability or costs) in their infrastructure and thereafter submit their bids. In other words, the InPs will be sellers submitting bids and SPs the consumers requesting a service.
+Firstly, in this scenario, we seek an efficient virtual network partitioning where the requested virtual nodes are assigned to the participating InPs, such that the VNE costs are minimized. Note that, despite an auction could use a multi-dimensional process, i.e. more parameters, in this report, only the price quotes of the notified InPs will be used to determine the minimum VNE cost. Hence, the InPs act as sellers, who submit bids for the services requested by the SP, and once the auction finishes, the virtual network will be splitted between the winning InPs. In this section, our focus will be on the techniques and auction models applied for the VN partitioning.
 
-Thus we arrive at the one-sided sealed Vickrey auction
-model for V-Mart. Each VN Bidder receives a RFQ from the SP and submits a per virtual resource price quote for each resource it is willing to host. We will discuss how this per resource price quote can be determined later in this section. The SP takes all the quotes for each virtual resource and modifies the quote of each VN bidder to the quote of the
-immediate
+\begin{table}[htbp]
+	\myfloatalign \footnotesize
+	\begin{tabular}{m{2cm} m{14cm}}
+		\textbf{Symbol} & \textbf{Description}\\ 
+		\hline
+		$G^{R}$ & virtual network request formed by a set of virtual nodes $N^{R}$ and a set of bandwidth demands $d^{R}$  \\		$N^{R}$ & set of requested virtual nodes \\
+		$d^{R}$ & set of bandwidth demands between the virtual nodes $i,j \in N^{R}$ \\
+		$N_i$ & virtual node $N_i \in N^{R}$ \\
+		$N^{t}_i$ & virtual node $N_i$ type \\
+		$d_i$ & virtual node demand for node $N_i$ \\
+		$d_{ij}$ & bandwidth demand $d_{ij} \in d^{R}$ between the requested virtual nodes $i,j \in N^{R}$ \\
+		$P_l$ &  $l$ virtual nodes groups \\
+		$u_{i}$ & upper bound cost for the virtual node $N_i$ \\
+		$u_{G}$ & upper bound cost for the virtual network $G$ \\
+		$l_{i}$ & desired location for the virtual node $N_i$ \\
+		$b_n(N_i)$ & $n's$ bid value for the virtual node $N_i$ \\
+		$b_n(G)$ & bid value for the virtual network $G$ \\
+		$v_n(N_i)$ & $n's$ real cost for the virtual node $N_i$ \\
+		$v_n(G)$ & $n's$ real cost for the virtual network $G$ \\
+		$C_n(N_i)$ & cost of virtual node $N_i$ when assigned to InP $n$ \\
+		$C_n(P_l)$ &  cost of InP $n$ for $P_l$ virtual nodes group \\
+		$C_n(G)$ & cost of virtual network $G$ when assigned to InP $n$ \\
+		$C^{*}(G)$ & minimum cost of virtual network $G$ \\
+		$\gamma_n(N_i)$ & InP $n$ profit margin at the time of bidding on virtual node $N_i$ \\
+		$\gamma_n(G)$ & InP $n$ profit margin at the time of bidding on virtual network $G$\\
+		$G^{S}$ & substrate network formed by a set of substrate nodes $N^{S}$ and a set of links $L^{S}$\\
+		$N^{S}$ & set of substrate nodes \\
+		$L^{S}$ & set of substrate links between the substrate nodes $i,j \in N^{S}$ \\
+		$\alpha_i(N_s^{*})$ & dynamic cost for embedding $N_i$ in the paired substrate node $N_s^{*}$ \\
+		$\beta_{ij}(L_s^{*})$ & dynamic cost for sharing the paired substrate link $L_s^{*}$ \\
+		\hline
+	\end{tabular}
+	\caption{Notations}
+	\label{tab:notations}
+\end{table}
 
+Since in our scenario, the SPS request the embedding of different virtual nodes $N_i \in N^{R}$, we are facing a multi-unit auction. Thus, before defining the minimum VN cost $C^{*}(G)$ using the \textit{one-sided reverse Vickrey} auction, it is important to note that $n = 1,...,N$ InPs can submit bids per virtual node $b_n(N_i)$ or for a group of virtual nodes $b_n(P_l)$, where $P_l$ are the $l = 1,...,2^{k}-1$ possible virtual nodes combinations. 
+
+\begin{itemize}
+    \item \textbf{Per virtual node:} In a Vickrey auction with multiple items, the simplest form to bid is submitting a quote for each unit. In our scenario these units are virtual nodes, and in contrast to standard auctions, the \textbf{lowest bid} wins the service, inasmuch as the SPs are the ones who pay for the services offered by the InPs. Thus, to ensure not ending up with inflated prices, the SPs denote either an upper bound cost per virtual resource $u_{i}$, or a global one for the virtual network $u_{G}$, where $u_{G} = \sum_{i=1}^{k}u_i$. For instance, let $v_n(N_i)$ and $b_n(N_i)$ be, respectively, bidder $n$'s real cost and bid value for the virtual resource $N_i$. Since it is a \textit{low-bidding second-price auction}, the cost $C_n(N_i)$ that the service provider pays to InP $n$, is given by \eqref{eq:Cnkcost}. This value must also include the link costs, which after being evaluated by the InPs, are subsequently added to the quoted price $b_n(N_i)$. In this thesis, we assume that the internal link  costs within an InP are negligible and that the external links, due to the lack of information of the other InP's substrate topologies, must be roughly estimated by the InPs. On the other hand, it is important to note that in our system, when $b_n(N_i) = b_j(N_i)$, the first bidder will be the provisional winner. For instance, in an English auction the same decision is taken, since when a bidder overcomes a price, the next participant must always bid a higher value than the current one. Thus, the InP's goal is to smartly quote $b_n(N_i) = v_n(N_i) \times [1 + \gamma_n(N_i)] \leq u_{N_i}$, where the symbol $\gamma_n(N_i) \in [0,1]$ represents the profit margin that InP $n$ takes at the time of bidding for $N_i$, knowing that the lower $\gamma_n(N_i)$ is, the higher the probability of winning, although at a smaller revenue. The cost $C_n(N_i)$ that a SP pays to InP $n$ is given by:
+
+   \begin{equation} \label{eq:Cnkcost}
+   C_n(N_i) =
+   \begin{cases}
+    \min b_j(N_i), & b_n(N_i) < b_j(N_i) \leq u_{i} : \forall j \neq n, \exists b_j(N_i) \neq \infty \\
+    b_n(N_i), & b_n(N_i) < b_j(N_i) \leq u_{i}: \forall j \neq n , \nexists b_j(N_i) \neq \infty \\
+    \infty, & \text{otherwise } \\
+  \end{cases}   
+   \end{equation}
+   
+    \item \textbf{Per group of virtual nodes:} The Vickrey auction model behaves differently when a seller offers a package of items at a lower price, also called package pricing. In this context, rather than ending up paying the second price of the auction, the winner pays the \textbf{opportunity cost} for the units won, or in other words, the "damage" that his bids impose on the rest of the bidders. Formally, it is described as follows. Let $x$ be a vector of outcomes again with $n = 1,...,N$ players bidding $b_n(X_n)$. The mechanism will seek for the outcome $x^{*} \in argmax_{x_1,...,x_N} \sum_{n} b_n(X_n)$ that maximises the efficiency. Then, the cost for bidder $n$ will be $p_n = \sum_{j \neq n} b_j(x^{*}_{-n}) - \sum_{j \neq n} b_j(x^{*}_{j})$, where the term $x^{*}_{-n}$ refers to the most efficient outcome without the presence of bidder $n$. Generally speaking, this expression can be seen as the result of the auction when bidder $n$ is not participating in the auction, minus the total cost for the other bidders when $n$ participates. However, in \citep{ausubel2006lovely}, it has been proven that the Vickrey auction for multiple items suffers from serious weaknesses, e.g. zero revenues or unfair prices, which results in a poor performance. Due to the high degree of complexity, in this thesis, we investigate the package pricing when an InP bids for the whole VN network $C_n(G)$, rather than for partial biddings $C_n(P_l)$. For instance, as shown in Figure \ref{fig:vickrey} example, we will just consider bids for the entire network $b_n(ABCD)$ and not the other possible combinations, such as $b_n(AB)$ or $b_n(AB) + b_n(ABC)$. Hence, in this case the cost $C_n(G)$ will be treated exactly as in the per virtual node auction, represented as:
+    
+  \begin{equation} \label{eq:Gcost}
+   C_n(G) =
+   \begin{cases}
+    \min b_j(G), & b_n(G) < b_j(G) \leq u_{G}, : \forall j \neq n, \exists b_j(G) \neq \infty\\
+    b_n(G), & b_n(G) < b_j(G) \leq u_{G}: \forall j \neq n, \nexists b_j(G) \neq \infty \\
+    \infty, & \text{otherwise } \\
+  \end{cases}
+  \end{equation}
+\end{itemize}
+
+Finally, an algorithm that combines individual bidding and package pricing, and calculates the minimum VN cost $Cm(G)$, will be designed. Firstly, in case no bid per package is provided, the cost for the VN network can be generally expressed as $C^{*}(G) = \sum_{i=1}^{k}C_n(N_i)$, which is the sum of all minimum virtual nodes costs. However, when the two bidding types are used, the minimum cost will be calculated as follows \ref{eq:Cmcost}.
+
+  \begin{equation} \label{eq:Cmcost}
+        	C^{*}(G) = \min\{C_n(G), \sum_{i=1}^{k} C_n(N_i)\}
+  \end{equation}
+
+The last expression shows that in the end, the system first computes independently an individual and a package auction. Afterwards, the resulting costs for these two tenders are compared, whose minimum value gives us the final VNE cost $C^{*}(G)$. In case $C_n(G) = \sum_{i=1}^{k} C_n(N_i)$, the virtual network will be embedded to the InP offering package pricing, since the performance is always better within a single InP. Moreover, the common InPs bidding strategies and the encountered weaknesses of the Vickrey model for package pricing, need to be investigated in this design. Algorithm \ref{alg:algorithm1} shows the pseudocode of the InP $n$ resource matching and subsequently bidding strategy, where $N^{t}_i$ corresponds to the virtual node type of $N_i$.
+
+
+ \begin{algorithm}
+  \caption{InP $n$ resource matching and bidding strategy}
+ \label{alg:algorithm1}
+  \begin{algorithmic}[1]
+ \IF{$N_s \leftarrow \forall l_i \land \forall N^{t}_i$} 
+ 	\STATE{\Return $b_n(G) = v_n(G) \times [1 + \gamma_n(G)] \leq u_{G}: v_n(G) = \sum_{i=1}^{k} v_n(N_i), \gamma_n(G) \in [0,1] $}
+ \ELSE
+  	\FOR{$N_i \in N^{R}$}
+ 	 \IF{$N_s \leftarrow l_i \land N^{t}_i$}
+ 	  \STATE{$b_n(N_i) = v_n(N_i) \times [1 + \gamma_n(N_i)] \leq u_{N_i}: \gamma_n(N_i) \in [0,1]$}
+ 	 \ENDIF
+ 	\ENDFOR
+ 	\State \Return $b_n(N^{R})$
+ \ENDIF
+ \end{algorithmic}
+\end{algorithm}
+
+Firstly, according to Algorithm \ref{alg:algorithm1}, an InP bids either for the entire virtual network $b_n(G)$ or for individual virtual nodes $b_n(N_i)$ depending on the amount of paired resources. In other words, if all the virtual nodes locations $l_{i}$ and types $N^{t}_i$ are matched with certain InP substrate nodes $N_s$, then the system enables that the infrastructure provider bids for the entire virtual network. If not, an InP is only allowed to quote prices for the paired virtual nodes.
+
+To better explain the bidding strategy of Algorithm \ref{alg:algorithm1}, it is worth taking a look at the example from Figure \ref{fig:vickrey}. There, four InPs are competing to win virtual nodes $\{A,B,C,D\}$, each using profit margin values of $\{\gamma_1 = 0.6,\gamma_2 = 0.\wideparen{1},\gamma_3 = 0,\gamma_4 = 0.2\}$. In this example, the profit margins are identical for each $N_i$ and $G$. At the end of this auction, since the individual quotes are lower than the package pricing offer $C^{*}(G) = min\{30, 29\}$, the virtual network is partitioned across different InPs, i.e. $A \rightarrow InP_1, B \rightarrow InP_1, C \rightarrow InP_4, D \rightarrow InP_3$.  In addition, the prices that the SP must pay to each InP are the ones resulting from the \textit{low-bidding second-price auction} $C_n(N_i)$. 
 
 \begin{figure}[bth]
 	\centering
-	\includegraphics[width=0.9\linewidth]{gfx/vickrey}    
-  	\caption{Vickrey auction}
-  	\label{fig:vickreyAuction}
+	\includegraphics[width=1\linewidth]{gfx/vickrey}    
+  	\caption{Designed auction combining the Vickrey model with package pricing example}
+  	\label{fig:vickrey}
 \end{figure}
 
-WHY AND WHAT IS + PROCESS PICTURE EXPLANATION
-ATTACKS COUNTERMEASURES \citep{boyd2000security}
-MULTIPLE ITEMS AUCTION \citep{ausubel2006lovely}
-WHO OPENS THE BID? (PAPER EXPLANATION) \citep{ausubel2006lovely}
-CONS
-SOL
-Due to the lack of detailed knowledge of the substrate topologies, we will not be in position to account for all intra-provider link costs (COPIED).
-For VN request partitioning, we seek the assignment of the requested virtual nodes to the disclosed peering nodes, i.e.,NvP, such that the cost for the SP isminimized (COPIED)
+In the above-mentioned example, is important to note that although the $InP_1$ applies the highest profit margin, it is the one with the best outcome. Thus, since the virtual node and virtual network bids are determined first by $v_n(N_i)$, which is also used in $v_n(G) = \sum_{i=1}^{k} v_n(N_i)$, and second by $\gamma_n(N_i)$ and $\gamma_n(G)$, these values need to be examined:
+
+\begin{itemize}
+ \item \textbf{Real cost $\mathbf{v_n(N_i)}$}: Since network virtualization is a real-time process where the demand and availability of the resources are constantly changing, our approach encourages that users apply \textbf{dynamic pricing models}. A dynamic pricing model, in contrast to fixed pricing, is a strategy where the prices are flexibly adapted to the current market demands, rather than always charging the same costs. In our approach, InPs could use algorithms that take into account the SP demands and the current availability of the resources, to better define their product prices, and hence, to have a better market positioning or to open up new markets. For instance, they could use the demand and supply principle in microeconomics, which states that if the demand for a product short in supply is high, the price increases. In our scenario, this demand is related either with the computing or the bandwidth requirements, and the supply with the resource utilization. Thus, the real cost $v_n(N_i)$ is given by \eqref{eq:virtualNodeCost}, where $\alpha_i(N_s^{*})$ and $\beta_{ij}(L_s^{*})$ are the dynamic prices for the paired substrate node $N_s^{*}$ and link $L_s^{*}$, and whose values will be updated according to the resource availability (see chapter \ref{ch:evaluation}). Apart from demand and supply, InPs could also use automated processes based on other factors, such as competitive pricing or customer behaviors. In the former, since the reserved prices for the virtual nodes are publicly known when an auction finishes, it allows InPs to learn from competitors in order to be more proficient in incoming auctions. In the latter, the virtual node upper bound costs entered by the SPs on their VN requests, can also be used to adjust the InP prices on customers needs. Overall, due to the high elasticity of the prices, InPs should recalculate periodically their costs, in order to compete in the modern market. This cost estimation can be performed based on many other factors, which can be thoroughly examined in future research.
+ 
+  \begin{equation} \label{eq:virtualNodeCost}
+	v_n(N_i) = \alpha_i(N_s^{*}) + \sum_{j = 1}^{k} {\frac{\beta_{ij}(L_s^{*})}{2}} \qquad \forall j \in N^{R}, \exists d_{ij} \neq \infty : i \neq j
+  \end{equation}
+  
+  \item \textbf{Profit margins $\mathbf{\gamma_n(N_i)}$ and $\mathbf{\gamma_n(G)}$}: The profit margin is a measure to indicate the profitability of a product, which is extracted from the net profit divided by the cost. Equations \eqref{eq:profitmarginNode} and \eqref{eq:profitmarginGraph}, give the values of the profit margins for a virtual node and for the entire network. It is important to note that these values are provisional (at the time of bidding), since if a second lowest quote exists, as it is a \textit{second-price auction}, the values $b_n(N_i)$ and $b_n(G)$ will be replaced by $C_n(N_i)$ and $C_n(G)$ respectively. 
+
+Typically, a high-profit margin produces a higher revenue, although at a smaller probability of winning. Nevertheless, from the example in Figure \ref{fig:vickrey}, we can observe that if an InP performs a good market research (most probably $InP_1$), it can also obtain virtual nodes through high-profit margins. Thus, in chapter \ref{ch:evaluation}, we will examine how the risk taken by the InPs at the time of determining the profit margins, affects the VN embedding outcome.
+
+\begin{equation} \label{eq:profitmarginNode}
+	\gamma_n(N_i) = \frac{b_n(N_i)- v_n(N_i)}{v_n(N_i)} \qquad \gamma_n(N_i) \in [0,1]
+  \end{equation}
+  
+\begin{equation} \label{eq:profitmarginGraph}
+  \gamma_n(G) =  \frac{b_n(G)- v_n(G)}{v_n(G)} \qquad \ \  \gamma_n(G) \in [0,1]
+\end{equation}
+  
 
 
-It is important to note that in our scenario, similar to \citep{zaheer2010multi}, the \textbf{lowest auction} will win and not the highest. The reason is that at the end the SPs is who will pay the bid value. For instance, suppose that all the InPs make an offer close to the upper bound specified by the SP. If the highest bid wins, the SPs will always end-up paying approximately its upper bound (unfair). However, if the lowest bid wins, the system ensures that the InPs submits a bid proportional to the real cost since it will be the minimum amount of money that they could earn.
+\end{itemize}
 
-However, the second-price concept needs to be thoroughly investigated as long as a bidder can submit multiple bids. Imagine an scenario, where a single bidder A submits two bids: \{1 \euro,9 \euro\} for a service with a real cost 5 \euro. In this case, this buyer will end up paying 1 for the service. Therefore, the second-price auction model needs always to be compared between bidders and not between bids. Suppose the last example, with a second bidder B submitting \{5 \euro, 6 \euro\}. At the end user A, will win the bid but paying 6 \euro, risking that if he would have been the only user bidding, he would have payed 9 \euro.
+Lastly, we will analyse the weaknesses of the Vickrey auction model for package pricing in our design \citep{ausubel2006lovely}, and observe how the potential attacks in Internet auctions could hinder our system performance \citep{boyd2000security}:
 
-Explain that an auction could use a multi-dimensional process (more parameters).
+\begin{itemize}
+ \item \textbf{Bidder non-monotonicity:} Adding other bidders in a \textit{Vickrey auction} with package pricing can result in low or zero revenues, such that bidders pay the opportunity cost. Hence, the system has potential vulnerabilities that the bidders can exploit. In our design, as the virtual network and the corresponding virtual nodes are treated as single independent items, adding more bidders will only increase the resource competition.
+    \item \textbf{Multiple bidding identities:} In many Internet auctions, a single bidder can use multiple pseudonyms or accounts to bid and increase their profits. In our system, as users can only be registered once (through an invitation), it is not possible for an InP to have multiple Ethereum accounts to compromise the final outcome. Thus, this is a controlled system where InPs, such as Deutsche Telekom or Swisscom, are identified by a single account.
+    \item \textbf{Bid shielding:} It consists in the withdraw of bids in the last minute. Since our application interacts with a blockchain, where submitted data is immutable, this has no influence on the system.
+    \item \textbf{Bid sniping:} The auctions started by the SPs have a fixed duration, after which no further bids are accepted. In this case, an InP could enforce a denial of service attack, by sending multiple last-minute bids, in order to prevent that the system computes other bids and hence, winning the auction. For this reason, in our system, each InP will have to first pay his bid to the smart contract, and a percentage of this total quantity will be refunded after the sealed bid is opened.
+\end{itemize}
 
-Package pricing or volume discount?
-
-What can be externally extracted from a contract? Since value transfers cannot be blinded in Ethereum, anyone can see the value and therefore the highestBid. Sol: We can just see the address. That's a problem if there are just a few users. Do research on amount of users needed to solve the problem.
 
 \section{Summary}
 
-During this paper, the Ethereum blockchain will be used to perform a service negotiation (Vickrey auction) and later to track its possession throughout the supply chain process. This will be exemplified by a web application implementation, focused on network slicing. Thus, blockchain strengths and weaknesses will be further investigated.
+Virtual network embeding (VNE) enables SPs to embed virtual nodes across different InPs to create customized virtual networks. Typically, these InPs are not willing to disclose detailed information about their resources availability or network topologies, which directly affects the VNE performance. In addition, the service providers seek to minimize VNE embedding costs, such that the VN partitioning is treated as a cost minimization problem.
 
-The blockchain technology, in particular, secure smart contracts on the Ethereum platform, will be used to approach a real-world scenario. A decentralized application (third category) that enhances supply chain performance, will be implemented. More precisely, network virtualization providers and customers will improve its communication, through the use of a web application (front-end) connected to the blockchain (back-end).
+In this thesis, an approach to improve the VNE throughput under the limited information disclosure scenario has been introduced. More precisely, a complete system using the Ethereum blockchain has been presented, which thanks to smart contracts, enables the creation of new embedding strategies to facilitate the service negotiation between the InPs and SPs. In our case, an algorithm adapted from the Vickrey auction model has been designed, which improves the VN partitioning efficiency. In the following chapters, the implementation of this design will be evaluated.
 
-We do not claim that our approach is the best or the only way
-of performing VN embedding. On the contrary, it is more an add-on feature that can be merged with most of the existing solutions. In this scenario, the main goals are to remove the middleware or virtual network provider, by using a new prominent technology such as blockchain. Thus, a new decentralized, automated and secure system between the SPs and InPs will be created, which benefits from the blockchain potentials. Furthermore, to the best of our knowledge, this is the first approach using blockchain in the network virtualization context, and thanks to smart contract's flexibility, it can serve as a starting point for upcoming investigations.
+We do not claim that our approach is the only way of performing VN partitioning. However, it enables brokerless VN embedding in a distributed environment. Furthermore, to the best of our knowledge, this is the first approach using blockchain in the VNE context, and thanks to smart contract's flexibility, it can serve as a starting point for more upcoming investigations.
 
 %*****************************************
 \chapter{Implementation}
@@ -674,6 +778,8 @@ The section should have a length of about five pages.}
 5. Code examples
 6. Implement private main network (check geth ENODES number and file where to modify. Also check a dynamic way to do it). Data in contracts in bytecode, contracts not predefined structure (Check this).
 7. Mining
+8. Vickrey (fake value), \citep{boyd2000security} and who opens the bids? (paper explanation).
+9. Implementation workflow
 
 Explain that other parameters (not cost) could be used to perform the service negotiation.
 2. A well-design UI, should be designed with a focus on usability and efficiency.
@@ -684,22 +790,7 @@ To create it, they must register to the application entering the following field
 Ethereum account in the application with some fields. Users fixed amount of Ether.  
 7. For the implementation, like in Bitcoin at the beginning, a supernodes or mining users will be placed. This users, will be the only responsible for mining in the blockchain.
 
-\begin{table}[bth]
-	\myfloatalign \footnotesize
-	%18 columns
-	\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{4cm}}
-	 & Computing resource A & Computing resource B \\ 
-		\hline
-		InP1 & 8 &  - \\
-		InP2 & 10 & 7  \\
-		InP3 & 9 & 6  \\
-		Winner & InP1 & InP3  \\
-		Reserve price &  9 & 7 \\
-		\hline
-	\end{tabularx}
-		\caption{Vickrey auction example}
-	\label{tab:blockchainTypes}
-\end{table}
+9. Implementation workflow (1. InP registers from invitation, 2. InP add his peering nodes + virtual node types info, 3. SP request, 4. VN partitioning).
 
 \section{Design Decisions}
 

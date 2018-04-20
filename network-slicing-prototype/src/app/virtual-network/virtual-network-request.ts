@@ -1,11 +1,8 @@
-import {Http, Headers} from '@angular/http';
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {MdDialog} from "@angular/material";
+import {MdDialog, MdSnackBar} from "@angular/material";
 import {VirtualNodeDialogComponent} from "./dialogs/virtual-node.dialog.component";
-import {AuthService} from "../auth/auth.service";
-import {VnManager} from "../common/vn.manager";
-import {AuctionService} from "../services/auction-service";
+import {VirtualNetworkService} from "../services/virtual-network.service";
 
 declare let vis: any; // load library also in index.html
 
@@ -17,255 +14,292 @@ declare let vis: any; // load library also in index.html
 })
 
 export class VirtualNetworkRequestComponent implements OnInit {
+  @ViewChild('mynetwork') public container;
 
   public network;
   public nodes;
   public edges;
-  public movedNode;
-  public vnManager: VnManager = new VnManager();
-  public secondStep: boolean = false;
+  public isLoading: boolean;
+  public auctionAddr;
+  public bidders: any[];
 
-  @ViewChild('mynetwork') public container;
+  // virtual nodes info
+  idVirtualNodes = [];
+  resourceTypes = [];
+  locations = [];
+  x = [];
+  y = [];
+  upperBoundCosts = [];
 
-  public inPsList: string [];
+  // virtual links info
+  idLinks = [];
+  from = [];
+  to = [];
+  dBandwidth = [];
 
-  /*public isEditEnabled: boolean;
+  inputVnUpperBoundCost: number;
+  inputSumOfUpperBoundCosts: number;
 
-  @Input()
-  set editVersionMode(isEditEnabled) {
-    this.isEditEnabled = isEditEnabled;
-    this.ngOnInit();
-  }*/
+  public settings = {
+    timePicker: true,
+    format: 'dd-MMM-yyyy hh:mm a',
+  };
 
-  constructor(public route: ActivatedRoute,
-              public router: Router,
-              public http: Http,
-              public auctionService: AuctionService,
-              public dialog: MdDialog) {
+  public today: Date = new Date();
+  public _inputEndTime: Date = new Date();
+  public inputEndTime: number;
+
+  constructor(public dialog: MdDialog,
+              public virtualNetworkService: VirtualNetworkService,
+              public snackBar: MdSnackBar) {
   }
 
   ngOnInit() {
-    // TODO use them for the checkboxes.
-    this.auctionService.getInPs().subscribe((inPs: string []) => {
-      this.inPsList = inPs;
-    });
-    // Static Nodes
-    this.nodes = new vis.DataSet([
-      /*{id: 1000, x: -430, y: 303, label: 'A', group: 'A', fixed: true},
-      {id: 1001, x: -366, y: 301, label: 'B', group: 'B', fixed: true},
-      {id: 1002, x: -306, y: 302, label: 'C', group: 'C', fixed: true},
-      {id: 4, label: 'Legend', font: '30px arial black',  shape: 'text', x:-369, y:248, fixed: true},
-      {id: 5, label: 'Virtual network request', font: '30px arial black',  shape: 'text', x:-34, y:-303, fixed: true},*/
-    ]);
-    this.edges = new vis.DataSet([
-      {from: 0, to: 1, width: 3, color: '#989898', arrows: 'to', arrowStrikethrough: false},
-      {from: 3, to: 2, width: 3, color: '#989898', arrows: 'to', arrowStrikethrough: false}
-    ]);
-    // provide the data in the vis format
+    this.nodes = new vis.DataSet([]);
+    this.edges = new vis.DataSet([]);
+
     let data = {
       nodes: this.nodes,
       edges: this.edges,
     };
+
     let options = {
       nodes: {
         physics: false,
-        font: {
-          size: 20,
+        shape: 'box',
+        widthConstraint:
+          { minimum: 40},
+        heightConstraint:
+          { minimum: 40},
+        color: {
+          background: 'white',
+          border: 'black',
+          highlight: {background: '#009688', border: 'black'}, hover: {background: 'white', border: '#009688'}
         },
-        size:40,
+        font: {
+          size: 30,
+        },
+        group: 0,
+        size: 27,
         shapeProperties: {borderRadius: 0},
-        /*widthConstraint: {maximum: 200}, color: {
-          border: 'rgba(52,52,52,1)', background: 'rgba(186,186,186,1)',
-          highlight: {border: 'rgba(52,52,52,1)', background: 'rgba(186,186,186,1)'},
-          hover: {border: 'rgba(52,52,52,1)', background: 'rgba(186,186,186,1)'}
-        },*/
+      },
+      edges: {
+        font: {align: 'top'},
+        color: {
+          color: 'black',
+          highlight: '#009688', hover: '#009688'
+        },
+        smooth: false,
       },
       interaction: {hover: true},
-      groups: {
-        A: {
-          shape: 'image',
-          image: "../../assets/img/laptop-icon.png",
-          size: 30,
-
-        },
-        B: {
-          shape: 'image',
-          image: "../../assets/img/db_icon.png",
-          //color: "#2B7CE9", // blue
-          size: 30,
-
-        },
-        C: {
-          shape: 'image',
-          image: "../../assets/img/cloud_icon.png",
-          //color: "#C5000B", // red
-          size: 25,
-        },
-        D: {
-          shape: 'dot',
-          color: "#5A1E5C" // purple
-        },
-        E: {
-          shape: 'square',
-          color: "#109618" // green
-        }
-      },
       manipulation: {
         enabled: true,
         addNode: (nodeData, callback) => {
           let dialogRef = this.dialog.open(VirtualNodeDialogComponent, {
             width: '1000px'
           });
-          dialogRef.afterClosed().subscribe(result => {
-            if (result) {
-              nodeData.id = 'tmp_' + Math.random();
-              let addedNode = this.fillNodeData(result,nodeData,'add');
+          if (!this.inputVnUpperBoundCost && !!this.inputSumOfUpperBoundCosts)
+            dialogRef.componentInstance.isUpperBoundMandatory = !!this.inputSumOfUpperBoundCosts;
+          dialogRef.componentInstance.addMode = true;
+          dialogRef.afterClosed().subscribe(virtualNode => {
+            if (virtualNode) {
+              let addedNode = this.addNode(virtualNode, nodeData);
               callback(addedNode);
             }
-            else callback();
-          })
+            else
+              return callback();
+          });
         },
-        editNode: (nodeData, callback) => {
-          if (nodeData.id.indexOf("tmp") >= 0) {
-            let dialogRef = this.dialog.open(VirtualNodeDialogComponent, {
-              width: '1000px'
-            });
-            dialogRef.componentInstance.editMode = true;
-            dialogRef.componentInstance.inputNode = nodeData;
-            dialogRef.afterClosed().subscribe(result => {
-              if (result) {
-                console.log("-- result", result);
-                let editedNode = this.fillNodeData(result,nodeData,'edit');
-                callback(editedNode);
-              }
-              else callback();
-            })
-          }
-          else callback();
-        },
+
         deleteNode: (nodeData, callback) => {
-          // First we check if a fixed node wants to be deleted.
-          if (typeof (nodeData.nodes[0]) === 'number') {
-            window.alert('A fixed node cannot be deleted');
-            callback();
-            return;
-          }
-          // We check if a bm wants to be deleted.
-          if (nodeData.nodes[0].indexOf('bm') > -1) {
-            window.alert('A Business Model cannot be deleted from here');
-            callback();
-            return;
-          }
           let result = confirm('Are you sure you want to delete the clicked element?');
           if (result) {
+            this.nodes.forEach(node => {
+              if (node.id === nodeData.nodes[0])
+                if (this.inputSumOfUpperBoundCosts && node.upperBoundCost)
+                  this.inputSumOfUpperBoundCosts -= node.upperBoundCost;
+            });
             callback(nodeData);
           }
           else {
             callback();
           }
         },
+
         addEdge: (edgeData, callback) => {
-          /*let result = prompt('Bandwidth', 'MB');
-          if (result) {
-            edgeData.label = result;
+          let exists = false;
+          this.edges.forEach(edge => {
+            if (edge.from === edgeData.from && edge.to === edgeData.to)
+              exists = true;
+            if (edge.from === edgeData.to && edge.to === edgeData.from)
+              exists = true;
+          });
+
+          if (exists) {
+            window.alert('This edge already exists');
+            return callback();
+
+          }
+
+          let dBandwidth = prompt('Bandwidth demand', 'MB');
+          if (dBandwidth) {
+            edgeData.label = dBandwidth;
+            edgeData.dBandwidth = dBandwidth;
+            edgeData.id = 'tmp_' + Math.random();
             callback(edgeData);
           }
           else
-            callback();*/
-          callback(edgeData);
+            callback();
         },
-        editEdge: (edgeData,callback) => {
-          // TODO editWithoutDrag
-          callback(edgeData);
+        editEdge: (edgeData, callback) => {
+          let result = prompt('Bandwidth demand', edgeData.label);
+          if (result) {
+            edgeData.label = result;
+            return callback(edgeData)
+          }
+          else
+            callback();
         },
         deleteEdge: (edgeData, callback) => {
-          callback(edgeData);
+          if (confirm('Are you sure you want to delete the clicked link?'))
+            callback(edgeData);
+          else
+            callback();
         }
       }
     };
     // initialize your network!
     this.network = new vis.Network(this.container.nativeElement, data, options);
-
-    // To stabilize the zoom view
-    /*this.network.once('stabilized', () => {
-      let scaleOption = { scale : 0.5};
-      this.network.moveTo(scaleOption);
-    });*/
-    // Update node's position when using dragEnd in the DataView
-    this.network.on('dragEnd', (event) => {
-      /*if (!this.isEditEnabled)
-        return;*/
-      if (event.nodes.length === 0) {
-        return;
-      }
-      // For the case that is a fixed node. Cant move a fixed node.
-      /*if (typeof event.nodes[0] === 'number') {
-        return;
-      }*/
-      this.network.storePositions();
-      console.log('-- self.network.body.data.nodes._data', this.network.body.data.nodes._data);
-
-      let nodes = this.network.body.data.nodes._data;
-      for (let key in nodes) {
-        if (nodes[key].id === event.nodes[0]) {
-          this.movedNode = nodes[key];
-        }
+    this.network.on("doubleClick", params => {
+      if (params.nodes[0]) {
+        this.nodes.forEach(node => {
+          if (node.id === params.nodes[0]){
+            let dialogRef = this.dialog.open(VirtualNodeDialogComponent, {
+              width: '1000px'
+            });
+            dialogRef.componentInstance.inputNode = node;
+          }
+        });
       }
     });
   }
-  fillNodeData(result,nodeData, mode){
-    nodeData.resource = result.resource;
-    //nodeData.comment = result.comment;
-    nodeData.location = result.location;
-    nodeData.label = nodeData.resource;
-    nodeData.group = nodeData.resource;
-    if (nodeData.resource === 'Computing'){
-      nodeData.shape = 'image';
-      nodeData.image = "../../assets/img/laptop-icon.png";
-      nodeData.size = 30;
-      if (mode === 'edit') {
-        this.vnManager.aDimensions.forEach((dim,i) => {
-          if (dim.id === nodeData.id)
-            this.vnManager.aDimensions[i] = nodeData;
-        });
-      }
-      else
-        this.vnManager.aDimensions.push(nodeData);
-    }
-    if (nodeData.resource === 'Storage'){
-      nodeData.shape = 'image';
-      nodeData.image = "../../assets/img/db_icon.png";
-      nodeData.size = 30;
-      if (mode === 'edit') {
-        this.vnManager.bDimensions.forEach((dim,i) => {
-          if (dim.id === nodeData.id)
-            this.vnManager.bDimensions[i] = nodeData;
-        });
-      }
-      else
-        this.vnManager.bDimensions.push(nodeData);
-    }
-    if (nodeData.resource === 'Cloud'){
-      nodeData.shape = 'image';
-      nodeData.image = "../../assets/img/cloud_icon.png";
-      nodeData.size = 25;
-      if (mode === 'edit') {
-        this.vnManager.cDimensions.forEach((dim,i) => {
-          if (dim.id === nodeData.id)
-            this.vnManager.cDimensions[i] = nodeData;
-        });
-      }
-      else
-        this.vnManager.cDimensions.push(nodeData);
-    }
+
+  addNode(virtualNode, nodeData){
+    nodeData.id = 'tmp_' + Math.random();
+    if (this.inputSumOfUpperBoundCosts)
+      this.inputSumOfUpperBoundCosts += virtualNode.upperBoundCost;
+    else
+      this.inputSumOfUpperBoundCosts = virtualNode.upperBoundCost;
+    nodeData.label = virtualNode.type;
+    nodeData.type = virtualNode.type;
+    nodeData.location = virtualNode.location;
+    nodeData.title = virtualNode.location;
+    nodeData.upperBoundCost = virtualNode.upperBoundCost;
     return nodeData;
   }
 
-  toggleSteps() {
-    this.secondStep = !this.secondStep;
-  }
   send() {
-    alert('Coming Soon ...');
+    if (!this.inputVnUpperBoundCost && !this.inputSumOfUpperBoundCosts)
+      return window.alert('An upper bound cost for the whole virtual network or for each virtual node must be defined.');
+    let result = confirm('Are you sure you want to send the created virtual network request?');
+    if (result) {
+      this.isLoading = true;
+      this.network.storePositions();
+      this.snackBar.open("The auction with the matching InPs is being created...", 'X', {
+        duration:5000
+      });
+      let data = this.prepareVNRequest(this.network.body.data.nodes, this.network.body.data.edges, this.inputVnUpperBoundCost);
+      this.virtualNetworkService.sendVirtualNetwork(data)
+        .subscribe((res) => {
+        this.auctionAddr = res.auctionAddr;
+        this.snackBar.open("Auction successfully created with address" + this.auctionAddr, 'X', {
+          duration:5000
+        });
+        this.isLoading = false;
+      })
+    }
   }
 
+  isDisabled() {
+    return (this.nodes.length === 0 || !this.inputEndTime || this.edges.length === 0);
+  }
+
+  prepareVNRequest(virtualNodes, virtualLinks, VnUpperBoundCost) {
+
+    for (let i in virtualNodes._data) {
+      this.idVirtualNodes.push(virtualNodes._data[i].id);
+      this.resourceTypes.push(virtualNodes._data[i].type);
+      this.locations.push(virtualNodes._data[i].location);
+      this.x.push(parseInt(virtualNodes._data[i].x));
+      this.y.push(parseInt(virtualNodes._data[i].y));
+      // If upper bound cost for the whole network defined, the one for each virtual node will be treated as:
+      if (VnUpperBoundCost) {
+        this.upperBoundCosts.push(VnUpperBoundCost / virtualNodes.length);
+      }
+      else
+        this.upperBoundCosts.push(virtualNodes._data[i].upperBoundCost);
+    }
+
+    for (let i in virtualLinks._data) {
+      this.idLinks.push(virtualLinks._data[i].id);
+      this.from.push(virtualLinks._data[i].from);
+      this.to.push(virtualLinks._data[i].to);
+      this.dBandwidth.push(virtualLinks._data[i].label);
+    }
+    return {idVirtualNodes:this.idVirtualNodes, resourceTypes: this.resourceTypes, locations: this.locations, upperBoundCosts: this.upperBoundCosts,
+      x: this.x, y: this.y, idLinks: this.idLinks, from: this.from, to: this.to, dBandwidth: this.dBandwidth, endTime: this.inputEndTime};
+  }
+
+  endTimeChanged() {
+    if (new Date(this._inputEndTime) < this.today) {
+      return window.alert("Past dates are invalid")
+    }
+    this.inputEndTime = new Date(this._inputEndTime).getTime() / 1000; // to convert it to number
+  }
+
+  test1() {
+    let data = {
+      dBandwidth
+        :
+        ["55"],
+      endTime
+        :
+        this.inputEndTime,
+      from
+        :
+        ["tmp_0.9685257894965105"],
+      idLinks
+        :
+        ["tmp_0.2133892772549537"],
+      idVirtualNodes
+        :
+        ["tmp_0.9685257894965105", "tmp_0.16357679928240887"],
+      locations
+        :
+        ["DE", "ES"],
+      resourceTypes
+        :
+        ["A", "F"],
+      to
+        :
+        ["tmp_0.16357679928240887"],
+      upperBoundCosts
+        :
+        [20, 50],
+      x
+        :
+        [-320, -93],
+      y
+        :
+        [-46, -43]
+    };
+    this.virtualNetworkService.sendVirtualNetwork(data)
+      .subscribe((res) => {
+        this.auctionAddr = res.auctionAddr;
+        this.snackBar.open("Auction successfully created with address" + this.auctionAddr, 'X', {
+          duration:5000
+        });
+        this.isLoading = false;
+      })
+  }
 }

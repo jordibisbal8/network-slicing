@@ -5,7 +5,7 @@ import {MdDialog, MdSnackBar} from "@angular/material";
 import {Router} from "@angular/router";
 import Web3 from 'web3';
 import {HttpClient} from "../http-client.component";
-import {_localeFactory} from "@angular/core/src/application_module";
+import {Http} from "@angular/http";
 
 
 @Injectable()
@@ -25,15 +25,29 @@ export class AuthService{
     this.sync();
   }
   sync() {
-    // TODO update expiration time of token in server.
-    // TODO check in Server and not in localStorage.
-    let addr = localStorage.getItem('address');
-    if (addr) {
-      this.user.next(addr);
-      this.ether.next(this.web3.fromWei(this.web3.eth.getBalance(addr), "ether"));
-    }
-    else
-      this.user.next(null);
+    if (!localStorage.getItem('token'))
+      return this.user.next(null);
+
+    let url = '/api/isAuthenticated/';
+    this.http.get(url).map(res => res.json())
+      .subscribe(res => {
+      let addr = localStorage.getItem('address');
+      if (addr && res.token) {
+        // update token
+        localStorage.setItem('token', res.token);
+        this.user.next(addr);
+        this.ether.next(this.web3.fromWei(this.web3.eth.getBalance(addr), "ether"));
+      }
+      else
+        this.user.next(null);
+    }, (err) => {
+        if (err.status === 401) {
+          console.log("-- err", err);
+          this.snackBar.open('Token expired, you need to log in again', 'X', {
+            duration:7000
+          });
+        }
+      })
   }
   isUserLoggedIn(){
     return (!!localStorage.getItem('token'));
@@ -61,11 +75,12 @@ export class AuthService{
     }
   }
 
-  register(address, email, role){
+  register(address, email, role, name){
     // To check if it's the owner of the address
     this.login(address, (res) => {
       let url = '/api/user/';
-      this.http.post(url, JSON.stringify({address: address, email:email, role:role}))
+      // TODO use token instead of address
+      this.http.post(url, JSON.stringify({address: address, email:email, role:role, name: name}))
         .subscribe(res => {
           this.snackBar.open("User registered in the blockchain", 'X', {
               duration:7000
@@ -104,6 +119,7 @@ export class AuthService{
 
   logout() {
     localStorage.removeItem('address');
+    localStorage.removeItem('token');
     this.user.next(null);
   }
 

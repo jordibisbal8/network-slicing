@@ -12,10 +12,10 @@ import config from '../config/config';
 import authRoutes from './routes/_auth.router.js';
 
 // Load our API routes
-import userRoutes from './routes/_user.router';
-import serviceRoutes from './routes/_service.router';
-import auctionRoutes from './routes/_auction.router';
-import schedulerRoutes from './routes/_scheduler.router';
+import userRoutes from './routes/_users.router';
+import virtualNetworkRoutes from './routes/_virtual-network.router';
+import evaluationNetworkRoutes from './routes/_evaluation.router';
+
 
 export default (app, router, passport) => {
 
@@ -36,34 +36,26 @@ export default (app, router, passport) => {
         res.send(500, err);
       }
       else {
-        // TODO refresh token from Users Contract? (cost gas maybe...)
         req.user = decoded.user;
         next();
       }
     });
   };
 
-  let isTokenExpired = function isTokenExpired(req,res,next){
-
-  };
-
-
-  // #### RESTful API Routes
-
-  userRoutes(app, router, auth);
-
-  serviceRoutes(app, router, auth);
-
-  auctionRoutes(app, router, auth);
-
-  schedulerRoutes(app, router, auth);
 
   // Pass in our Express app and Router
 
   authRoutes(app, router, auth);
 
+  // #### RESTful API Routes
+
+  userRoutes(app, router, auth);
+
+  virtualNetworkRoutes(app, router, auth);
+
+  evaluationNetworkRoutes(app, router, auth);
+
 
 	// All of our routes will be prefixed with /api
 	app.use('/api', router);
-
 };

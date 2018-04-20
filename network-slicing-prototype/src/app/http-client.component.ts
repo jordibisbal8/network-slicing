@@ -10,9 +10,6 @@ export class HttpClient {
     if (localStorage.getItem('token') !== null){
       headers.append('Authorization', localStorage.getItem('token'));
     }
-    else{
-      window.alert('You are not logged in');
-    }
   }
 
   get(url) {
@@ -37,6 +34,15 @@ export class HttpClient {
     headers.append('Content-Type', 'application/json');
     this.createAuthorizationHeader(headers);
     return this.http.put(url, data, {
+      headers: headers
+    });
+  }
+
+  delete(url) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.createAuthorizationHeader(headers);
+    return this.http.delete(url, {
       headers: headers
     });
   }

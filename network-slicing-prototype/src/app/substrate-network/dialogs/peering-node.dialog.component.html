@@ -1,0 +1,52 @@
+<div class="dialog-header" style="background-color: #ad1457">
+  <div class="dialog-header-content">
+    <h3 md-dialog-title>Peering Node specifications</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <md-select *ngIf="addMode"
+               [(ngModel)]="inputLocation"
+               placeholder="Physical Location"
+               style="width:100%;margin-top: 15px;">
+      <md-option *ngFor="let location of locations"
+                 value="{{location.value}}">
+        {{location.country}}
+      </md-option>
+    </md-select>
+    <div *ngIf="!addMode"><b>Location:</b> {{inputPeeringNode.country}}</div>
+    <h5 style="margin-top:20px">Resource types:</h5>
+    <div *ngIf="addMode" style="margin-top: 5px">
+      <md-checkbox [(ngModel)]="typeA" (click)="typeClicked('A')">A</md-checkbox>
+      <md-checkbox [(ngModel)]="typeB" (click)="typeClicked('B')" style="margin-left: 5px">B</md-checkbox>
+      <md-checkbox [(ngModel)]="typeC" (click)="typeClicked('C')" style="margin-left: 5px">C</md-checkbox>
+      <md-checkbox [(ngModel)]="typeD" (click)="typeClicked('D')" style="margin-left: 5px">D</md-checkbox>
+      <md-checkbox [(ngModel)]="typeE" (click)="typeClicked('E')" style="margin-left: 5px">E</md-checkbox>
+      <md-checkbox [(ngModel)]="typeF" (click)="typeClicked('F')" style="margin-left: 5px">F</md-checkbox>
+    </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-3" style="margin-top:5px">
+    <table border="1">
+      <tr>
+        <td *ngIf="typeA" class="resourceType">A</td>
+        <td *ngIf="typeB" class="resourceType">B</td>
+        <td *ngIf="typeC" class="resourceType">C</td>
+      </tr>
+      <tr>
+        <td *ngIf="typeD" class="resourceType">D</td>
+        <td *ngIf="typeE" class="resourceType">E</td>
+        <td *ngIf="typeF" class="resourceType">F</td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-xs-9"></div>
+</div>
+<div md-dialog-actions style="float:right">
+  <button *ngIf="addMode" md-raised-button (click)="save()" [disabled]="isDisabled()" style="background-color: #ad1457;color: white">Save</button>
+  <button md-button *ngIf="addMode" (click)="dialogRef.close()">Cancel</button>
+  <button md-button *ngIf="!addMode" (click)="dialogRef.close()">Close</button>
+
+</div>
