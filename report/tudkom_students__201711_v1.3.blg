@@ -6,49 +6,52 @@ Database file #1: bibliography.bib
 Warning--to sort, need author or key in amazonEC2
 Warning--to sort, need author or key in bitcoin
 Warning--to sort, need author or key in hyperledger
+Warning--to sort, need author or key in zoo
+Warning--to sort, need author or key in sawtooth
+Warning--to sort, need author or key in sgx
 Warning--empty journal in abeyratne2016blockchain
 Warning--empty journal in hans2017blockchain
 Warning--there's a number but no volume in macdonald2017
 Warning--empty journal in mainelli2015sharing
-You've used 40 entries,
+You've used 44 entries,
             2543 wiz_defined-function locations,
-            784 strings with 10817 characters,
-and the built_in function-call counts, 15970 in all, are:
-= -- 1641
-> -- 698
-< -- 24
-+ -- 243
-- -- 235
-* -- 1069
-:= -- 2527
-add.period$ -- 132
-call.type$ -- 40
-change.case$ -- 238
-chr.to.int$ -- 40
-cite$ -- 50
-duplicate$ -- 659
-empty$ -- 1215
-format.name$ -- 281
-if$ -- 3357
+            799 strings with 11208 characters,
+and the built_in function-call counts, 16893 in all, are:
+= -- 1740
+> -- 709
+< -- 25
++ -- 246
+- -- 237
+* -- 1114
+:= -- 2649
+add.period$ -- 144
+call.type$ -- 44
+change.case$ -- 256
+chr.to.int$ -- 44
+cite$ -- 60
+duplicate$ -- 701
+empty$ -- 1314
+format.name$ -- 285
+if$ -- 3566
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 35
-newline$ -- 205
-num.names$ -- 111
-pop$ -- 275
+newline$ -- 225
+num.names$ -- 114
+pop$ -- 303
 preamble$ -- 1
-purify$ -- 281
+purify$ -- 302
 quote$ -- 0
-skip$ -- 571
+skip$ -- 610
 stack$ -- 0
-substring$ -- 842
-swap$ -- 135
-text.length$ -- 24
-text.prefix$ -- 12
+substring$ -- 874
+swap$ -- 138
+text.length$ -- 25
+text.prefix$ -- 13
 top$ -- 0
-type$ -- 308
-warning$ -- 7
-while$ -- 153
-width$ -- 41
-write$ -- 519
-(There were 7 warnings)
+type$ -- 340
+warning$ -- 10
+while$ -- 155
+width$ -- 45
+write$ -- 568
+(There were 10 warnings)

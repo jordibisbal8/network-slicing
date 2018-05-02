@@ -33,13 +33,14 @@
 \BOOKMARK [1][-]{section.5.3}{5.3 Interaction of Components}{chapter.5}% 33
 \BOOKMARK [1][-]{section.5.4}{5.4 Summary}{chapter.5}% 34
 \BOOKMARK [0][]{chapter.6}{6 Evaluation}{}% 35
-\BOOKMARK [1][-]{section.6.1}{6.1 Goal and Methodology}{chapter.6}% 36
-\BOOKMARK [1][-]{section.6.2}{6.2 Evaluation Setup}{chapter.6}% 37
-\BOOKMARK [1][-]{section.6.3}{6.3 Evaluation Results}{chapter.6}% 38
-\BOOKMARK [1][-]{section.6.4}{6.4 Analysis of Results}{chapter.6}% 39
-\BOOKMARK [0][]{chapter.7}{7 Conclusions}{}% 40
-\BOOKMARK [1][-]{section.7.1}{7.1 Summary}{chapter.7}% 41
-\BOOKMARK [1][-]{section.7.2}{7.2 Contributions}{chapter.7}% 42
-\BOOKMARK [1][-]{section.7.3}{7.3 Future Work}{chapter.7}% 43
-\BOOKMARK [1][-]{section.7.4}{7.4 Final Remarks}{chapter.7}% 44
-\BOOKMARK [0][]{dummy.1}{Bibliography}{}% 45
+\BOOKMARK [1][-]{section.6.1}{6.1 Evaluation environment}{chapter.6}% 36
+\BOOKMARK [2][-]{subsection.6.1.1}{6.1.1 Pricing Model}{section.6.1}% 37
+\BOOKMARK [2][-]{subsection.6.1.2}{6.1.2 Proof of Elapsed Time}{section.6.1}% 38
+\BOOKMARK [1][-]{section.6.2}{6.2 Goals and Metrics}{chapter.6}% 39
+\BOOKMARK [1][-]{section.6.3}{6.3 Evaluation Results}{chapter.6}% 40
+\BOOKMARK [0][]{chapter.7}{7 Conclusions}{}% 41
+\BOOKMARK [1][-]{section.7.1}{7.1 Summary}{chapter.7}% 42
+\BOOKMARK [1][-]{section.7.2}{7.2 Contributions}{chapter.7}% 43
+\BOOKMARK [1][-]{section.7.3}{7.3 Future Work}{chapter.7}% 44
+\BOOKMARK [1][-]{section.7.4}{7.4 Final Remarks}{chapter.7}% 45
+\BOOKMARK [0][]{dummy.1}{Bibliography}{}% 46

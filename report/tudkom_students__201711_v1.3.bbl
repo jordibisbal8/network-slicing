@@ -22,6 +22,12 @@ Vitalik Buterin et~al.
   platform.
 \newblock {\em white paper}, 2014.
 
+\bibitem[Bal17]{baliga2017understanding}
+Arati Baliga.
+\newblock Understanding blockchain consensus models.
+\newblock Technical report, Tech. rep., Persistent Systems Ltd, Tech. Rep,
+  2017.
+
 \bibitem[bit09]{bitcoin}
 Bitcoin is an innovative payment network and a new kind of money.
 \newblock \url{https://bitcoin.org/e/}, 2009.
@@ -171,6 +177,16 @@ Ameer Rosic.
 \newblock \url{https://blockgeeks.com/guides/ethereum-casper/}, November 2017.
 \newblock Accessed: 2018-02-09.
 
+\bibitem[saw18]{sawtooth}
+Hyperledger sawtooth.
+\newblock \url{https://www.hyperledger.org/projects/sawtooth}, 2018.
+\newblock Accessed: 2018-05-01.
+
+\bibitem[sgx18]{sgx}
+Intel® software guard extensions.
+\newblock \url{https://software.intel.com/en-us/sgx}, 2018.
+\newblock Accessed: 2018-05-01.
+
 \bibitem[Shi14]{BitcoinKey2018}
 Ken Shirriff.
 \newblock Bitcoins the hard way: Using the raw bitcoin protocol, February 2014.
@@ -213,6 +229,11 @@ William Vickrey.
 Karl W{\"u}st and Arthur Gervais.
 \newblock Do you need a blockchain?
 \newblock {\em IACR Cryptology ePrint Archive}, 2017:375, 2017.
+
+\bibitem[zoo16]{zoo}
+The internet topology zoo.
+\newblock \url{http://www.topology-zoo.org/index.html}, 2016.
+\newblock Accessed: 2018-04-30.
 
 \bibitem[ZXB10]{zaheer2010multi}
 Fida-E Zaheer, Jin Xiao, and Raouf Boutaba.

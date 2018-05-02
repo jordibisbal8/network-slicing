@@ -129,7 +129,7 @@ export class EvaluationComponent implements OnInit {
     let attributes = node._attributes;
     for (let i = 0; i < this.selectedInPs.length; i++) {
       let resources = [];
-      for (let j = 0; j < this.getRandomInt(1,6); j++) {
+      for (let j = 0; j < this.getRandomInt(3,5); j++) {
         let type = this.types[Math.floor(Math.random() * this.types.length)];
         // TO check it is not repeated
         if (resources.map(x => x.type).indexOf(type) === -1) {
@@ -140,6 +140,9 @@ export class EvaluationComponent implements OnInit {
             unitary_cost: unitary_cost,
             capacity: capacity,
           });
+        }
+        else {
+          j --;
         }
       }
       let _id = 'tmp_' + Math.random();
@@ -203,11 +206,13 @@ export class EvaluationComponent implements OnInit {
 
       // create edges in a scale-free-network way
       if (i == 1) {
-        let from = i;
+        let from = 1;
         let to = 0;
         edges.push({
+          id: 'tmp_' + Math.random(),
           from: from,
-          to: to
+          to: to,
+          dBandwidth: this.getRandomInt(1,10)
         });
         connectionCount[from]++;
         connectionCount[to]++;
@@ -263,7 +268,7 @@ export class EvaluationComponent implements OnInit {
   }
   partitioning() {
     // TODO FOR WITH ARRIVAL RATE
-    let data = this.getScaleFreeNetwork(this.getRandomInt(2,10));
+    let data = this.getScaleFreeNetwork(this.getRandomInt(2,5));
     let data2 = this.prepareVNRequest(data.nodes, data.edges);
     this.evaluationService.partitioning(data2).subscribe(res => {
       this.snackBar.open("Virtual network successfully embedded and expired", 'X', {
@@ -294,8 +299,6 @@ export class EvaluationComponent implements OnInit {
     let idVirtualNodes = [];
     let resourceTypes = [];
     let locations = [];
-    let x = [];
-    let y = [];
     let upperBoundCosts = [];
     let computing_demands = [];
 
@@ -305,7 +308,7 @@ export class EvaluationComponent implements OnInit {
     let to = [];
     let dBandwidth = [];
 
-    virtualNodes.forEach((node,i) => {
+    virtualNodes.forEach((node) => {
       idVirtualNodes.push(node._id);
       resourceTypes.push(node.type);
       locations.push(node.location);

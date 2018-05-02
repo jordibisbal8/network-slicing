@@ -48,7 +48,7 @@ export class RegisterComponent {
       validator: AddressValidation.isAddressValid
     });
     this.web3 = new Web3(
-      new Web3.providers.HttpProvider('http://localhost:8545')
+      new Web3.providers.HttpProvider('http://localhost:8545'),
     );
 
   }

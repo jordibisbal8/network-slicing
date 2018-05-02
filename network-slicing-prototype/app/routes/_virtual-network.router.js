@@ -2,7 +2,6 @@ import VickreyAuction from '../contracts/vickrey_auction_contract';
 import Users from '../contracts/users_contract';
 import web3 from '../controllers/web3';
 import async from 'async';
-import codegrid from 'codegrid-js';
 
 export default (app, router, auth) => {
 

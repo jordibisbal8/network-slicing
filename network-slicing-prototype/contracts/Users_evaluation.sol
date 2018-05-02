@@ -31,33 +31,41 @@ contract Users_evaluation {
   mapping(address => User) private users;
   mapping(address => PeeringNode[]) private peeringNodes;
   mapping(bytes32 => Link[]) private links;
+  mapping(address => uint256) private numOfSubTypes;
 
   // Events just called in transactions, not in calls.
   event LogNewPeeringNode (address sender, bytes32 idPeeringNode, bytes32 location);
   event LogNewLinks (address sender, bytes32[] idLinks);
   event LogErrors(string error);
 
+  bytes32 nullInBytes32 = 0x6e756c6c00000000000000000000000000000000000000000000000000000000;
 
 
-  function getCostsAndCapacities(address InP, bytes32[] idVirtualNodes, bytes32[] locations, bytes32[] resourceTypes) public constant returns (uint256[],uint256[],uint256[]) {
-    uint256[] memory uCosts = new uint256[](idVirtualNodes.length);
-    uint256[] memory uCapacities = new uint256[](idVirtualNodes.length);
-    uint256[] memory capacities = new uint256[](idVirtualNodes.length);
+
+  function getCostsAndCapacities(bytes32[] locations, bytes32[] resourceTypes) public constant returns (uint256[],uint256[],uint256[], bytes32[]) {
+    uint256[] memory uCosts = new uint256[](numOfSubTypes[msg.sender]);
+    uint256[] memory uCapacities = new uint256[](numOfSubTypes[msg.sender]);
+    uint256[] memory capacities = new uint256[](numOfSubTypes[msg.sender]);
+    bytes32[] memory countries = new bytes32[](numOfSubTypes[msg.sender]);
     for (uint i = 0; i < locations.length; i++) {
-      for (uint j = 0; j < peeringNodes[InP].length; j++) {
-        if (locations[i] == peeringNodes[InP][j].location) {
-          var peeringNode = peeringNodes[InP][j];
+      for (uint j = 0; j < peeringNodes[msg.sender].length; j++) {
+        if (locations[i] == nullInBytes32 || locations[i] == peeringNodes[msg.sender][j].location) {
+          var peeringNode = peeringNodes[msg.sender][j];
           for (uint k = 0; k < peeringNode.resourceTypes.length; k ++) {
             if (resourceTypes[i] == peeringNode.resourceTypes[k]) {
-              uCosts[i] = peeringNode.uCosts[k];
-              uCapacities[i] = peeringNode.uCapacities[k];
-              capacities[i] = peeringNode.capacities[k];
+              // If location null we return the substrate node data with less used capacity.
+              if (uCosts[i] == 0x00000000000000000000 || peeringNode.uCapacities[k] < uCapacities[i]) {
+                uCosts[i] = peeringNode.uCosts[k];
+                uCapacities[i] = peeringNode.uCapacities[k];
+                capacities[i] = peeringNode.capacities[k];
+                countries[i] = peeringNode.location;
+              }
             }
           }
         }
       }
     }
-    return (uCosts,uCapacities,capacities);
+    return (uCosts, uCapacities, capacities, countries);
   }
 
   // Updates InP capacities
@@ -104,6 +112,7 @@ contract Users_evaluation {
   // InP adds a peering node
   function addPeeringNode(bytes32 idPeeringNode, bytes32 location, bytes32[] subNodeTypes, uint256[] uCosts, uint256[] capacities) {
     peeringNodes[msg.sender].push(PeeringNode({idPeeringNode: idPeeringNode, location: location, resourceTypes: subNodeTypes, uCosts: uCosts, uCapacities: new uint256[](capacities.length), capacities: capacities}));
+    numOfSubTypes[msg.sender] += subNodeTypes.length;
     LogNewPeeringNode(msg.sender, idPeeringNode, location);
   }
 

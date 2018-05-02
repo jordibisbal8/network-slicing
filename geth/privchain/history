@@ -11,3 +11,124 @@ miner.stop()
 miner.start()
 miner.stop()
 miner.start()
+miner.stop()
+admin.nodeInfo.enode
+web3.net.peerCount
+admin.nodeInfo.enode
+web3.net.peerCount
+admin.nodeInfo.enode
+web3.net.peerCount
+admin.nodeInfo.enode
+web3.net.peerCount
+admin.nodeInfo.enode
+bootnode -genkey bootnode.key
+exi
+admin.nodeInfo.enode
+web3.net.peerCount
+admin.peers
+admin.nofeInfo
+admin.nodeInfo
+eth.blockNumber
+web3.net.peerCount
+personal.listAccounts
+admin.nodeInfo
+admin.nodeInfo.enode
+admin.peers
+web3.net.peerCount
+admin.peers
+admin.nodeInfo
+admin.nodeInfo.enode
+admin.peers
+web3.net.peerCount
+admin.nodeInfo.enode
+web3.net.peerCount
+admin.peers
+miner.start()
+miner.stop()
+eth.getBlock("pending").transactions
+personal.listAccounts
+function minedBlocks(lastn, addr) {
+  addrs = [];
+  if (!addr) {
+    addr = eth.coinbase
+  }
+  limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= limit; i--) {
+    if (eth.getBlock(i).miner == addr) {
+      addrs.push(i)
+    }
+  }
+  return addrs
+}
+minedBlocks(1000, eth.coinbase);
+exitexit
+exir
+admin.peers
+eth.getBlock(2937)
+eth.getBlock(2950)
+eth.getBlock(2948)
+eth.getBlock(2940)
+function getDifficulty(lastn) {
+  blocks = [];
+  limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= limit; i--) {
+     blocks.push({block: i, difficulty: eth.getBlock(i).difficulty, miner: eth.getBlock(i).miner})
+  }
+  return blocks;
+}
+getDifficulty(100)
+eth.getBlock("pending")
+exi
+eth.filter("latest");
+function minedBlocks(lastn) {
+  blocks = [];
+  limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= limit; i--) {
+     blocks.push({blockNumber: i, miner: eth.getBlock(i).miner})
+  }
+  return blocks
+}
+minedBlocks(10)
+function count(lastn) {
+  limit = eth.blockNumber - lastn
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = eth.blockNumber; i >= limit; i--) {
+     var found = false;
+     for (j = 0; j < numOfMiners; j++) {
+     if (counts[j] && eth.getBlock(i).miner === counts[j].miner) {
+   counts[j].count ++;
+   found = true;
+     }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(i).miner, count: 1});
+     }
+  }
+  return counts;
+}
+count(5);
+function getDifficulty(lastn) {
+  blocks = [];
+  limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= limit; i--) {
+     blocks.push({block: i, difficulty: eth.getBlock(i).difficulty, miner: eth.getBlock(i).miner})
+  }
+  return blocks;
+}
+getDifficulty(100)
+eth.getBlock(3214)
+eth.getBlock(3215)
+eth.getBlock(3214)
+eth.getBlock(3215)
+function minedBlocks(lastn) {
+  blocks = [];
+  limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= limit; i--) {
+     blocks.push({blockNumber: i, miner: eth.getBlock(i).miner})
+  }
+  return blocks
+}
+minedBlocks(50);
+eth.getBlock(3224)
+eth.getBlock(3348)

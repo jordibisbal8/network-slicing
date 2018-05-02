@@ -25,8 +25,9 @@ export class Static_Values {
     {country: 'Austria', value: 'AT'},
     {country: 'Denmark', value: 'DK'},
     {country: 'Poland', value: 'PL'},
+    {country: null, value: null},
   ];
-  // TODO {country: 'any', value: 'any'},
+
   // 6 resource types
   public types: string [] = ['A','B','C','D','E','F'];
 

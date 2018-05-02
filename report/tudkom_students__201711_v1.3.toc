@@ -42,15 +42,16 @@
 \contentsline {section}{\numberline {5.1}Design Decisions}{37}{section.5.1}
 \contentsline {section}{\numberline {5.2}Architecture}{37}{section.5.2}
 \contentsline {section}{\numberline {5.3}Interaction of Components}{37}{section.5.3}
-\contentsline {section}{\numberline {5.4}Summary}{38}{section.5.4}
+\contentsline {section}{\numberline {5.4}Summary}{37}{section.5.4}
 \contentsline {chapter}{\numberline {6}Evaluation}{39}{chapter.6}
-\contentsline {section}{\numberline {6.1}Goal and Methodology}{39}{section.6.1}
-\contentsline {section}{\numberline {6.2}Evaluation Setup}{39}{section.6.2}
-\contentsline {section}{\numberline {6.3}Evaluation Results}{39}{section.6.3}
-\contentsline {section}{\numberline {6.4}Analysis of Results}{39}{section.6.4}
-\contentsline {chapter}{\numberline {7}Conclusions}{41}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary}{41}{section.7.1}
-\contentsline {section}{\numberline {7.2}Contributions}{41}{section.7.2}
-\contentsline {section}{\numberline {7.3}Future Work}{41}{section.7.3}
-\contentsline {section}{\numberline {7.4}Final Remarks}{41}{section.7.4}
-\contentsline {chapter}{Bibliography}{41}{dummy.1}
+\contentsline {section}{\numberline {6.1}Evaluation environment}{39}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Pricing Model}{41}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Proof of Elapsed Time}{42}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}Goals and Metrics}{43}{section.6.2}
+\contentsline {section}{\numberline {6.3}Evaluation Results}{43}{section.6.3}
+\contentsline {chapter}{\numberline {7}Conclusions}{45}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{45}{section.7.1}
+\contentsline {section}{\numberline {7.2}Contributions}{45}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future Work}{45}{section.7.3}
+\contentsline {section}{\numberline {7.4}Final Remarks}{45}{section.7.4}
+\contentsline {chapter}{Bibliography}{45}{dummy.1}
