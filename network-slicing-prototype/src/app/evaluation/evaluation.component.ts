@@ -18,11 +18,22 @@ export class EvaluationComponent implements OnInit {
   peeringLinks: any [] = [];
   intraLinks: any[] = [];
 
-  // TODO FROM 5-10 InPs
-  InPs = ['0x124547c8ca778d9630ba75d9caff8fe0fe5f2d75',
-    '0x695685829237d41b912a947cf4fe820649ee4db7',
-    '0xa5aff7d0ba9c17ae3add40b47ab87a5982c96f95',
-    '0xb00197cd3cde1f7b89f246bf925ccc4df116ee37'
+  numOfRequest: number = 1;
+
+  /** TEST CONFIG **/
+  arrivalRate = 3;
+  runs = 30;
+  requests = 100;
+  lifetime = 10000; //L1 = 10000, L2= 25000
+
+  /** SCENARIO CONFIG 5 LOCATIONS **/
+  numOfInPs = 3;
+  numOfTypes = 5;
+
+  InPs = ['0xde501181911262542393beb7298b2f22e7c64416',
+    '0xd358821084f42c7e60ae0ca89b4337eb0cb24bb0',
+    '0xa18a26a37141f10f5874a30237dac76dd8994bdb',
+    '0xc6c33c61f4af52d75b0e54b4bdfebf73c2fc2713'
   ];
 
   selectedInPs = [];
@@ -67,7 +78,7 @@ export class EvaluationComponent implements OnInit {
   @ViewChild('mynetwork') public container;
 
   private locationsList = new Static_Values().locations;
-  private locations_with_broadcast = new Static_Values().locations_with_broadcast
+  private locations_with_broadcast = new Static_Values().locations_with_broadcast;
   private types = new Static_Values().types_ev;
 
 
@@ -81,12 +92,29 @@ export class EvaluationComponent implements OnInit {
   ngOnInit(){
     this.getInPs();
     this.getGraphML('condensed_west_europe_new.graphml');
-    //let uniformDistribution = this.getUniformDistribution(1,50);
+  }
+
+  // Prices from Amazon EC2 pricing
+  checkResourceCost(type) {
+    if (type === 'A') {
+      return this.getRandomFloat(10, 12)// We multiply per 100 because the blockchain does not accept floats
+    }
+    if (type === 'B') {
+      return this.getRandomFloat(10, 12);
+    }
+    if (type === 'C') {
+      return this.getRandomFloat(10, 12);
+    }
+    if (type === 'D') {
+      return this.getRandomFloat(10, 12);
+    }
+    if (type === 'E') {
+      return this.getRandomFloat(10, 12);
+    }
   }
 
   getInPs() {
-    // TODO LENGTH this.getRandomInt(5,10);
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < this.numOfInPs; i++) {
       this.selectedInPs.push(this.InPs[i]);
     }
   }
@@ -100,7 +128,9 @@ export class EvaluationComponent implements OnInit {
       parser.parse(graphmlText, (err, graphs) => {
         // asn id 20965 European NREN Model
         graphs.nodes.forEach(node => {
-          this.createSubstrateNode(node);
+          if (node._attributes.Country === "Germany" || node._attributes.Country === "Switzerland"|| node._attributes.Country === "France"
+            || node._attributes.Country === "Italy" || node._attributes.Country === "Spain")
+            this.createSubstrateNode(node);
         });
         graphs.edges.forEach(edge => {
           this.peeringLinks.push({
@@ -110,35 +140,23 @@ export class EvaluationComponent implements OnInit {
             capacity: this.getRandomInt(4000,6000)
           })
         });
-        console.log("-- this.peeringNodes", this.peeringNodes);
-        console.log("-- this.peeringLinks", this.peeringLinks);
-        console.log("-- intraLinks", this.intraLinks);
       });
     });
-  }
-
-  getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-  }
-
-  getRandomFloat(min, max) {
-    return (Math.random() * (max - min) + min).toFixed(6); //The maximum is exclusive and the minimum is inclusive
   }
 
   createSubstrateNode(node) {
     let attributes = node._attributes;
     for (let i = 0; i < this.selectedInPs.length; i++) {
       let resources = [];
-      for (let j = 0; j < this.getRandomInt(3,5); j++) {
+      for (let j = 0; j < this.numOfTypes; j++) {
         let type = this.types[Math.floor(Math.random() * this.types.length)];
         // TO check it is not repeated
         if (resources.map(x => x.type).indexOf(type) === -1) {
           let unitary_cost = this.checkResourceCost(type);
-          let capacity = this.getRandomInt(200, 300);
           resources.push({
             type: type,
             unitary_cost: unitary_cost,
-            capacity: capacity,
+            capacity: 5
           });
         }
         else {
@@ -163,32 +181,76 @@ export class EvaluationComponent implements OnInit {
     }
   }
 
-  // Prices from Amazon EC2 pricing
-  checkResourceCost(type) {
-    if (type === 'A') {
-      return this.getRandomFloat(0.006, 0.12) * 1000; // We multiply per 1000 because the blockchain does not accept floats
-    }
-    if (type === 'B') {
-      return this.getRandomFloat(0.096, 0.119) * 1000;
-    }
-    if (type === 'C') {
-      return this.getRandomFloat(0.148, 0.16) * 1000;
-    }
-    if (type === 'D') {
-      return this.getRandomFloat(0.972, 1.323) * 1000;
-    }
-    if (type === 'E') {
-      return this.getRandomFloat(0.172, 0.794) * 1000;
+  enterInPsPeeringNodes() {
+    let data = {peeringNodes: this.peeringNodes, peeringLinks: this.peeringLinks};
+    this.evaluationService.savePeeringNodes(data).subscribe(res => {
+      this.snackBar.open("Substrate networks added into the blockchain", 'X', {
+        duration:5000
+      });
+    })
+  }
+
+  start(run) {
+    if (run <= this.runs) {
+      this.partitioning(true, () => {
+        setTimeout(() => {
+          run = run + 1;
+          console.log("-- run", run);
+          this.start(run);
+        }, this.lifetime);
+      })
     }
   }
 
+  partitioning(isNewTest,callback) {
+    this.partitioningRequest(isNewTest);
+    if (this.numOfRequest < this.requests ) {
+      setTimeout(() => {
+        console.log("-- this.counter", this.numOfRequest);
+        this.numOfRequest ++;
+        this.partitioning(false,callback);
+      }, 5000 / this.arrivalRate); //
+    }
+    else {
+      this.numOfRequest = 1;
+      return callback();
+    }
+  }
+
+  partitioningRequest(isNewTest) {
+    let nodeCount = 5 //this.getRandomInt(5, 10);
+    let data = this.getScaleFreeNetwork(nodeCount);
+    let data2 = this.prepareVNRequest(data.nodes, data.edges, isNewTest);
+    this.evaluationService.partitioning(data2).subscribe(res => {
+      this.snackBar.open("Virtual network successfully embedded", 'X', {
+        duration:5000
+      });
+    }, err => {
+      this.snackBar.open(err._body, 'X', {
+        duration:5000
+      });
+    });
+
+    // initialize your network
+    this.network = new vis.Network(this.container.nativeElement, data, this.options);
+    this.network.on("doubleClick", params => {
+      if (params.nodes[0]) {
+        this.network.body.data.nodes.forEach(node => {
+          if (node.id === params.nodes[0]){
+            let dialogRef = this.dialog.open(VirtualNodeDialogComponent, {
+              width: '1000px'
+            });
+            dialogRef.componentInstance.inputNode = node;
+          }
+        });
+      }
+    });
+  }
 
   getScaleFreeNetwork(nodeCount) {
     let nodes = [];
     let edges = [];
     let connectionCount = [];
-
-    // randomly create some nodes and edges
     for (let i = 0; i < nodeCount; i++) {
       let location = this.locations_with_broadcast[Math.floor(Math.random() * this.locations_with_broadcast.length)];
       let type = this.types[Math.floor(Math.random()*this.types.length)];
@@ -199,8 +261,8 @@ export class EvaluationComponent implements OnInit {
         type: type,
         location: location.country,
         title: location.country,
-        upperBoundCost: this.getRandomInt(5,20) * 1000,
-        computing_demand: this.getRandomInt(1,8)
+        upperBoundCost: 200,
+        computing_demand: this.getRandomInt(1,3)//this.getRandomInt(1,8)
       });
       connectionCount[i] = 0;
 
@@ -244,57 +306,7 @@ export class EvaluationComponent implements OnInit {
     return {nodes:nodes, edges:edges};
   }
 
-  getUniformDistribution(min,max) {
-    let uniformDistribution = {};
-    for (let i = 0; i < 100; i++)
-    {
-      let a = this.getRandomInt(min,max);
-
-      if (typeof uniformDistribution[a] === 'undefined') // first time initialize
-        uniformDistribution[a] = 1;
-      else
-        uniformDistribution[a] ++;
-    }
-    return uniformDistribution;
-  }
-
-  enterInPsPeeringNodes() {
-    let data = {peeringNodes: this.peeringNodes, peeringLinks: this.peeringLinks};
-    this.evaluationService.savePeeringNodes(data).subscribe(res => {
-      this.snackBar.open("Substrate networks added into the blockchain", 'X', {
-        duration:5000
-      });
-    })
-  }
-  partitioning() {
-    // TODO FOR WITH ARRIVAL RATE
-    let data = this.getScaleFreeNetwork(this.getRandomInt(2,5));
-    let data2 = this.prepareVNRequest(data.nodes, data.edges);
-    this.evaluationService.partitioning(data2).subscribe(res => {
-      this.snackBar.open("Virtual network successfully embedded and expired", 'X', {
-        duration:5000
-      });    }, err => {
-      window.alert(err._body);
-    });
-
-    // initialize your network
-    this.network = new vis.Network(this.container.nativeElement, data, this.options);
-    this.network.on("doubleClick", params => {
-      if (params.nodes[0]) {
-        this.network.body.data.nodes.forEach(node => {
-          if (node.id === params.nodes[0]){
-            let dialogRef = this.dialog.open(VirtualNodeDialogComponent, {
-              width: '1000px'
-            });
-            dialogRef.componentInstance.inputNode = node;
-          }
-        });
-      }
-    });
-  }
-
-  prepareVNRequest(virtualNodes, virtualLinks) {
-    let lifetime = this.getRandomInt(500,5000); // OR FIXED?
+  prepareVNRequest(virtualNodes, virtualLinks, isNewTest) {
     // virtual nodes info
     let idVirtualNodes = [];
     let resourceTypes = [];
@@ -322,7 +334,17 @@ export class EvaluationComponent implements OnInit {
       dBandwidth.push(link.dBandwidth);
     });
     return {idVirtualNodes:idVirtualNodes, resourceTypes: resourceTypes, locations: locations, upperBoundCosts: upperBoundCosts,
-      computing_demands: computing_demands, idLinks: idLinks, from: from, to: to, dBandwidth: dBandwidth, lifetime: lifetime, InPs: this.InPs};
+      computing_demands: computing_demands, idLinks: idLinks, from: from, to: to, dBandwidth: dBandwidth, lifetime: this.lifetime, InPs: this.InPs,
+      arrivalRate:this.arrivalRate, numOfRequest: this.numOfRequest, isNewTest: isNewTest };
   }
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  }
+
+  getRandomFloat(min, max) {
+    return (Math.random() * (max - min) + min).toFixed(6); //The maximum is exclusive and the minimum is inclusive
+  }
+
 
 }

@@ -132,3 +132,735 @@ function minedBlocks(lastn) {
 minedBlocks(50);
 eth.getBlock(3224)
 eth.getBlock(3348)
+admin.peers
+admin.verbosity(6)
+function getDifficulty(lastn) {
+  blocks = [];
+  limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= limit; i--) {
+     blocks.push({block: i, difficulty: eth.getBlock(i).difficulty, miner: eth.getBlock(i).miner})
+  }
+  return blocks;
+}
+getDifficulty(100)
+getDifficulty(10)
+function logMiner(block,miner) {
+    var fs = require('fs');
+    var newLine = "\r\n";
+    var data = [block, miner];
+    var dataToWrite = data + newLine;
+    fs.appendFile('../evaluation/experiments/1/3.csv', dataToWrite, function (err) {
+        if (err) throw err;
+        console.log('The data was appended to file!');
+    });
+}
+eth.getBlock("latest")
+logMiner("test", "2")
+function minedBlocks(lastn) {
+  blocks = [];
+  limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= limit; i--) {
+     blocks.push({blockNumber: i, miner: eth.getBlock(i).miner})
+  }
+  return blocks
+}
+minedBlocks(100)
+function minedBlocks(lastn) {
+  blocks = [];
+  limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= limit; i--) {
+     //blocks.push({blockNumber: i, miner: eth.getBlock(i).miner})
+     blocks.push(miner);
+  }
+  return blocks
+}
+minedBlocks(100)
+function minedBlocks(lastn) {
+  blocks = [];
+  limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= limit; i--) {
+     //blocks.push({blockNumber: i, miner: eth.getBlock(i).miner})
+     blocks.push(eth.getBlock(i).miner);
+  }
+  return blocks
+}
+minedBlocks(100)
+function minedBlocks(lastn) {
+  blocks = [];
+  limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= limit; i--) {
+     blocks.push({blockNumber: i, miner: eth.getBlock(i).miner})
+  }
+  return blocks
+}
+minedBlocks(100)
+admin.nodeInfo.enode
+miner.start()
+miner.stop()
+eth.getBlock("latest")
+function minedBlocks(lastBlock) {
+  blocks = [];
+  //limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= lastBlock; i--) {
+     blocks.push({blockNumber: i, miner: eth.getBlock(i).miner})
+  }
+  return blocks
+}
+minedBlocks(30)
+minedBlocks(32)
+minedBlocks(33)
+eth.getBlock("last").number
+eth.getBlock("latest").number
+miner.start
+miner.start()
+miner.stop()
+eth.getBlock("latest").number
+meter
+timer.
+meter
+debug
+debug.verbosity
+debug.verbosity()
+debug.verbosity(3)
+debug.verbosity(5)
+debug.verbosity(2)
+clear
+debug.metrics
+debug.metrics()
+debug
+debug.metrics().p2p
+debug.metrics().p2p.InboundTraffi
+debug.metrics().p2p.InboundTraffic
+debug.metrics().chain
+debug.metrics(true)
+debug.metrics(true).eth.fetcher
+debug.metrics(true).eth.fetcher.filters
+debug.metrics(true).eth.fetcher.filter
+debug.verbosity(3)
+debug.metrics(true)
+debug.metrics(true).eth
+debug.metrics(true).eth.db
+function minedBlocks(lastBlock) {
+  blocks = [];
+  //limit = eth.blockNumber - lastn
+  for (i = eth.blockNumber; i >= lastBlock; i--) {
+     blocks.push({blockNumber: i, miner: eth.getBlock(i).miner})
+  }
+  return blocks
+}
+minedBlocks(500)
+eth.getBlock("latest")
+etm = eth.getBlock("latest").difficulty/miner.hashrate; // estimated time in seconds
+Math.floor(etm / 3600.) + "h " + Math.floor((etm % 3600)/60) + "m " +  Math.floor(etm % 60) + "s";
+etm = eth.getBlock("latest").difficulty/miner.hashrate
+etm = eth.getBlock("latest").difficulty
+miner
+etm = eth.getBlock("latest").difficulty/miner.getHashrate
+etm = eth.getBlock("latest").difficulty/miner.getHashrate()
+miner.getHashrate()
+miner.start()
+miner.getHashrate()
+miner.start()
+miner.getHashrate()
+miner.start()
+miner.getHashrate()
+miner.start()
+miner.getHashrate()
+miner.start()
+miner.getHashrate()
+miner
+miner.hashrate
+miner.start()
+miner.hashrate
+miner.getHashrate()
+miner.stop()
+miner.start()
+eth.getBlock("latest")
+function getMiningTime(from,to) {
+    return eth.getBlock(to).timestamp - eth.getBlock(from).timestamp
+}
+getMiningTime(330,430)
+function getMiningTime(from,to) {
+    return new Date(eth.getBlock(to).timestamp*1000).format('h:i:s')
+    //return eth.getBlock(to).timestamp - eth.getBlock(from).timestamp
+}
+getMiningTime(330,430)
+function getMiningTime(from,to) {
+    return new Date(eth.getBlock(to).timestamp*1000);
+    //return eth.getBlock(to).timestamp - eth.getBlock(from).timestamp
+}
+getMiningTime(330,430)
+getMiningTime(330,362)
+function getMiningTime(from,to) {
+    var time = eth.getBlock(to).timestamp - eth.getBlock(from).timestamp;
+    return new Date(time*1000).getSeconds();
+}
+getMiningTime(230,330)
+function getMiningTime(from,to) {
+    var timeTo = eth.getBlock(to).timestamp;
+    var timeFrom =  eth.getBlock(from).timestamp;
+    console.log(new Date(timeFrom*1000));
+    console.log(new Date(timeTo*1000));
+    console.log(new Date(timeTo-timeFrom *1000).getSeconds());
+    return
+}
+getMiningTime(330,362)
+function getMiningTime(from,to) {
+    var timeTo = new Date(eth.getBlock(to).timestamp*1000);
+    var timeFrom = new Date(eth.getBlock(from).timestamp*1000);
+    console.log(timeTo);
+    console.log(timeFrom);
+    console.log(timeTo-timeFrom);
+    return timeTo-timeFrom / 1000;
+}
+getMiningTime(330,362)
+function getMiningTime(from,to) {
+    var timeTo = new Date(eth.getBlock(to).timestamp*1000);
+    var timeFrom = new Date(eth.getBlock(from).timestamp*1000);
+    console.log(timeTo);
+    console.log(timeFrom);
+    return (timeTo-timeFrom) / 1000;
+}
+getMiningTime(330,362)
+function count(lastn) {
+  limit = eth.blockNumber - lastn
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = eth.blockNumber; i >= limit; i--) {
+     var found = false;
+     for (j = 0; j < numOfMiners; j++) {
+     if (counts[j] && eth.getBlock(i).miner === counts[j].miner) {
+   counts[j].count ++;
+   found = true;
+     }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(i).miner, count: 1});
+     }
+  }
+  return counts;
+}
+count(100)
+function count(from, to) {
+  limit = eth.blockNumber - lastn
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = eth.getBlock(from); i <= 100; i++) {
+     var found = false;
+     for (j = 0; j < numOfMiners; j++) {
+     if (counts[j] && eth.getBlock(i).miner === counts[j].miner) {
+   counts[j].count ++;
+   found = true;
+     }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(i).miner, count: 1});
+     }
+  }
+  return counts;
+}
+count(1000,1100)
+function count(from, to) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = eth.getBlock(from); i <= 100; i++) {
+     var found = false;
+     for (j = 0; j < numOfMiners; j++) {
+     if (counts[j] && eth.getBlock(i).miner === counts[j].miner) {
+   counts[j].count ++;
+   found = true;
+     }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(i).miner, count: 1});
+     }
+  }
+  return counts;
+}
+count(1000,1100)
+eth.getBlock(1000)
+function count(from, to) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = eth.getBlock(from); i <= 100; i++) {
+     var found = false;
+     for (j = 0; j < numOfMiners; j++) {
+     if (counts[j] && eth.getBlock(from + i).miner === counts[j].miner) {
+   counts[j].count ++;
+   found = true;
+     }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(from + i).miner, count: 1});
+     }
+  }
+  return counts;
+}
+eth.getBlock(1000)
+count(1000,1100)
+function count(from, to) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = from; i <= 100; i++) {
+     var found = false;
+     for (j = 0; j < numOfMiners; j++) {
+     if (counts[j] && eth.getBlock(from + i).miner === counts[j].miner) {
+   counts[j].count ++;
+   found = true;
+     }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(from + i).miner, count: 1});
+     }
+  }
+  return counts;
+}
+count(1000,1100)
+function count(from, to) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = from; i <= to; i++) {
+     var found = false;
+     for (j = 0; j < numOfMiners; j++) {
+     if (counts[j] && eth.getBlock(from + i).miner === counts[j].miner) {
+   counts[j].count ++;
+   found = true;
+     }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(from + i).miner, count: 1});
+     }
+  }
+  return counts;
+}
+count(1000,1100)
+function count(from, to) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = from; i <= to; i++) {
+     var found = false;
+     for (j = 0; j < numOfMiners; j++) {
+     if (counts[j] && eth.getBlock(i).miner === counts[j].miner) {
+   counts[j].count ++;
+   found = true;
+     }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(i).miner, count: 1});
+     }
+  }
+  return counts;
+}
+count(1000,1100)
+function count(from, to) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = from; i < to; i++) {
+     var found = false;
+     for (j = 0; j < numOfMiners; j++) {
+     if (counts[j] && eth.getBlock(i).miner === counts[j].miner) {
+   counts[j].count ++;
+   found = true;
+     }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(i).miner, count: 1});
+     }
+  }
+  return counts;
+}
+count(1000,1100)
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(k).miner, count: 1});
+     }
+  }
+}
+countEach(1000,1100,null)
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(k).miner, count: 1});
+     }
+  }
+}
+countEach(1000,1100,null)
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(k).miner, count: 1});
+     }
+  }
+}
+countEach(1000,1100,null)
+function countEach(from, to, each) {
+  var counts = [][];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(k).miner, count: 1});
+     }
+  }
+}
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i] && counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     }
+     if (!found) {
+counts.push({miner: eth.getBlock(k).miner, count: 1});
+     }
+  }
+}
+countEach(1000,1100,null)
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i] && counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     if (!found) {
+counts.push({miner: eth.getBlock(k).miner, count: 1});
+     }
+     }
+  }
+}
+countEach(1000,1100,null)
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i] && counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     if (!found) {
+counts.push({miner: eth.getBlock(k).miner, count: 1});
+console.log(counts);
+     }
+     }
+  }
+}
+countEach(1000,1100,null)
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i] && counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     if (!found) {
+counts.push({miner: eth.getBlock(k).miner, count: 1});
+     }
+     }
+  }
+  return counts;
+}
+countEach(1000,1100,null)
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i] && counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     if (!found) {
+counts.push({miner: eth.getBlock(k).miner, count: 1, i: i, k: k});
+     }
+     }
+  }
+  return counts;
+}
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i] && counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     if (!found) {
+counts[i].push({miner: eth.getBlock(k).miner, count: 1, i: i, k: k});
+     }
+     }
+  }
+  return counts;
+}
+countEach(1000,1100,null)
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i] && counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     if (!found) {
+counts[i].push({miner: eth.getBlock(k).miner, count: 1, i: i, k: k});
+     }
+     }
+  }
+  return counts;
+}
+countEach(1000,1100,null)
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i] && counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     if (!found) {
+counts.push({miner: eth.getBlock(k).miner, count: 1, i: i, k: k});
+     }
+     }
+  }
+  return counts;
+}
+countEach(1000,1100,null)
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i] && counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+     if (!found) {
+if (counts[i]) {
+   counts[i].push(({miner: eth.getBlock(k).miner, count: 1, i: i, k: k});
+        }
+else {
+   counts[i] = [({miner: eth.getBlock(k).miner, count: 1, i: i, k: k})];
+}
+     }
+     }
+  }
+  return counts;
+}
+}
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i] && counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+        if (!found) {
+        if (counts[i]) {
+            counts[i].push(({miner: eth.getBlock(k).miner, count: 1, i: i, k: k});
+            }
+        else {
+            counts[i] = [({miner: eth.getBlock(k).miner, count: 1, i: i, k: k})];
+        }
+        }
+     }
+  }
+  return counts;
+}
+}
+function countEach(from, to, each) {
+  var counts = [];
+  var numOfMiners = 3;
+  for (i = 1; i < 20; i++) {
+     subTo = 5 * i;
+     for (k = from; k < from + subTo; k++) {
+        var found = false;
+        for (j = 0; j < numOfMiners; j++) {
+           if (counts[i] && counts[i][j] && eth.getBlock(k).miner === counts[i][j].miner) {
+      counts[i][j].count ++;
+      found = true;
+        }
+        }
+        if (!found) {
+        if (counts[i]) {
+            counts[i].push({miner: eth.getBlock(k).miner, count: 1, i: i, k: k});
+            }
+        else {
+            counts[i] = [({miner: eth.getBlock(k).miner, count: 1, i: i, k: k})];
+        }
+        }
+     }
+  }
+  return counts;
+}
+countEach(1000,1100,null)
+minedBlocks()
+countEach(1000,1100,null)
+countEach(1000,1100)
+countEach(1000,1700)
+exitz
+countEach(1000,1700)
+countEach(1000,1100)
+countEach(1000,1700)
+countEach(1000,1100)
+countEach(1000,1700)
+countEach(1000,1100)
+countEach(1000,1700)
+countEach(1000,1100)
+countEach(1000,1700)
+download([{miner: "0xde501181911262542393beb7298b2f22e7c64416"}, {miner: "0x7233aa6d9d51f7b5de95a70fc1b7b7a64b094cc8"}], test, null)
+download([{miner: "0xde501181911262542393beb7298b2f22e7c64416"}, {miner: "0x7233aa6d9d51f7b5de95a70fc1b7b7a64b094cc8"}], test.txt, null)
+download([{miner: "0xde501181911262542393beb7298b2f22e7c64416"}, {miner: "0x7233aa6d9d51f7b5de95a70fc1b7b7a64b094cc8"}], "test", null)
+test()
+countEach(1000,1700)
+eth.getBlock("latest")
+getMiningTime(1000,1100)
+getMiningTime(1000,1200)
+getMiningTime(1000,1300)
+getMiningTime(1200,1300)
+getMiningTime(1300,1400)
+getMiningTime(1100,1200)
+getMiningTime(1000,1100)
+getMiningTime(1100,1200)
+getMiningTime(1200,1300)
+getMiningTime(1300,1400)
+getMiningTime(1000,1200,100)
+getMiningTime(1000,1200,100,2)
+getMiningTime(1000,1200,100,2exit)
+getMiningTime(1000,1200,100)
+getMiningTime(1000,1300,100)
+getMiningTime(1000,1300,500)
+getMiningTime(1000,1300,50)
+getMiningTime(1000,1700,100)
+getMiningTime(500,1200,100)
+getMiningTime(800,1200,100)
+getMiningTime(1000,1900,100)
+getMiningTime(1000,1800,100)
+eth.getBlock("latest")
+getMiningTime(1746,1754,8)
+eth.getBlock("latest")
+getMiningTime(1760,1773,13)
+eth.getBlock("latest")
+personal.listAccounts
+eth.getBlock("latest")
+getMiningTime(1880,2880)
+getMiningTime(18880,28800)
+getMiningTime(8880,11880,100)
+eth.getBlock("latest")
+getMiningTime(28800,29123,100)
+getMiningTime(28800,29100,100)
+exi
+getMiningTime(32130,33130,100)
+countEach(28713,29312)
+countEach(29375,29475)
+countEach(29792,30392)
+countEach(29792,30292)
+countEach(30316,32116)
+countEach(33133,33333)
+getMiningTime(33133,33333,100)
+getMiningTime(33580,39580,100)
+getMiningTime(33580,33980,100)
+getMiningTime(33133,33533,100)
+getMiningTime(33590,34590,100)
+getMiningTime(36027,36627,100)
+getMiningTime(36663,37563,100)
+getMiningTime(36663,37363,100)
+getMiningTime(35595,35995,100)

@@ -32,7 +32,7 @@ export default (app, router, auth) => {
       if (addr === req.body.address) {
         console.log('signature check SUCCEED');
         // JSON web token for the owner that expires in 1h
-        let token = jwt.sign({user: req.body.address}, config.secret,  {expiresIn: '1h' });
+        let token = jwt.sign({user: req.body.address}, config.secret,  {expiresIn: '3h' });
         res.json({token: token});
         /*Users.deployed().then(contractInstance => {
           contractInstance.isUserRegistered.call(req.body.address).then(isRegistered => {

@@ -14,7 +14,7 @@ export class Static_Values {
     {country: 'Poland', value: 'PL'},
   ];
 
-  public locations_with_broadcast: any [] = [
+  /*public locations_with_broadcast: any [] = [
     {country: 'Germany', value: 'DE'},
     {country: 'Switzerland', value: 'CH'},
     {country: 'France', value: 'FR'},
@@ -26,11 +26,18 @@ export class Static_Values {
     {country: 'Denmark', value: 'DK'},
     {country: 'Poland', value: 'PL'},
     {country: null, value: null},
+  ];*/
+  public locations_with_broadcast: any [] = [
+    {country: 'Germany', value: 'DE'},
+    {country: 'Switzerland', value: 'CH'},
+    {country: 'France', value: 'FR'},
+    {country: 'Italy', value: 'IT'},
+    {country: 'Spain', value: 'ES'},
   ];
 
   // 6 resource types
   public types: string [] = ['A','B','C','D','E','F'];
 
-  public types_ev: string [] = ['A','B','C','D','E'];
+  public types_ev: string [] = ['A', 'B','C','D','E'];
 
 }

@@ -1,0 +1,36 @@
+INFO [05-08|11:39:14] Maximum peer count                       ETH=5 LES=0 total=5
+INFO [05-08|11:39:14] Starting peer-to-peer node               instance=Geth/node5/v1.8.7-unstable/linux-amd64/go1.10.1
+INFO [05-08|11:39:14] Allocated cache and file handles         database=/home/jordibisbal/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing/geth/privchain5/geth/chaindata cache=768 handles=512
+INFO [05-08|11:39:14] Initialised chain configuration          config="{ChainID: 987654321 Homestead: 0 DAO: <nil> DAOSupport: false EIP150: <nil> EIP155: 0 EIP158: 0 Byzantium: <nil> Constantinople: <nil> Engine: unknown}"
+INFO [05-08|11:39:14] Disk storage enabled for ethash caches   dir=/home/jordibisbal/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing/geth/privchain5/geth/ethash count=3
+INFO [05-08|11:39:14] Disk storage enabled for ethash DAGs     dir=/home/jordibisbal/.ethash                                                                 count=2
+INFO [05-08|11:39:14] Initialising Ethereum protocol           versions="[63 62]" network=58342
+INFO [05-08|11:39:14] Loaded most recent local header          number=34594 hash=0ab869…e67290 td=35424257
+INFO [05-08|11:39:14] Loaded most recent local full block      number=34594 hash=0ab869…e67290 td=35424257
+INFO [05-08|11:39:14] Loaded most recent local fast block      number=34594 hash=0ab869…e67290 td=35424257
+INFO [05-08|11:39:14] Loaded local transaction journal         transactions=0 dropped=0
+INFO [05-08|11:39:14] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [05-08|11:39:14] Starting P2P networking 
+INFO [05-08|11:39:14] RLPx listener up                         self="enode://d533c87a92b2e1dafe4630ec5f5bf7fc92b98f0c94f53655abfebe572ea99c0abc6cd9b143fd926f3f69e65b48021c8cf2c1b17562fe1e69f7bd688227d726cd@[::]:3025?discport=0"
+INFO [05-08|11:39:14] IPC endpoint opened                      url=/home/jordibisbal/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing/geth/privchain5/geth.ipc
+INFO [05-08|11:39:14] HTTP endpoint opened                     url=http://127.0.0.1:8565                                                                  cors=http://localhost:8000 vhosts=localhost
+INFO [05-08|11:39:15] Unlocked account                         address=0x7Ae32310a5393e60d8B31cC76eC49790F92597EA
+INFO [05-08|11:39:15] Etherbase automatically configured       address=0x7Ae32310a5393e60d8B31cC76eC49790F92597EA
+INFO [05-08|11:39:24] Block synchronisation started 
+INFO [05-08|11:39:24] Imported new chain segment               blocks=2 txs=2 mgas=0.244 elapsed=16.860ms mgasps=14.443 number=34596 hash=07bcc4…7c86cc cache=6.27kB
+INFO [05-08|11:39:24] Imported new chain segment               blocks=6 txs=10 mgas=11.132 elapsed=37.573ms mgasps=296.266 number=34602 hash=d19d19…0e44bf cache=75.84kB
+INFO [05-08|11:39:25] Imported new chain segment               blocks=164 txs=385 mgas=39.500 elapsed=799.193ms mgasps=49.425  number=34766 hash=2bd5b2…ff2d76 cache=496.22kB
+INFO [05-08|11:39:28] Imported new chain segment               blocks=820 txs=1979 mgas=202.776 elapsed=3.285s    mgasps=61.713  number=35586 hash=2881d3…319b0a cache=472.25kB
+INFO [05-08|11:40:05] HTTP endpoint closed                     url=http://127.0.0.1:8565
+INFO [05-08|11:40:05] IPC endpoint closed                      endpoint=/home/jordibisbal/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing/geth/privchain5/geth.ipc
+INFO [05-08|11:40:05] Writing cached state to disk             block=35586 hash=2881d3…319b0a root=24f125…e2bbe3
+INFO [05-08|11:40:05] Persisted trie from memory database      nodes=197 size=64.22kB time=2.324515ms gcnodes=8569 gcsize=2.67mB gctime=13.964066ms livenodes=1400 livesize=408.03kB
+INFO [05-08|11:40:05] Writing cached state to disk             block=35585 hash=b9f785…fb33e6 root=eed31a…c81c02
+INFO [05-08|11:40:05] Persisted trie from memory database      nodes=3   size=1.28kB  time=68.677µs   gcnodes=0    gcsize=0.00B  gctime=0s          livenodes=1397 livesize=406.75kB
+INFO [05-08|11:40:05] Writing cached state to disk             block=35459 hash=b9e57c…1a779d root=aa817f…9a65ae
+INFO [05-08|11:40:05] Persisted trie from memory database      nodes=45  size=9.13kB  time=454.57µs   gcnodes=0    gcsize=0.00B  gctime=0s          livenodes=1352 livesize=397.62kB
+INFO [05-08|11:40:05] Blockchain manager stopped 
+INFO [05-08|11:40:05] Stopping Ethereum protocol 
+INFO [05-08|11:40:05] Ethereum protocol stopped 
+INFO [05-08|11:40:05] Transaction pool stopped 
+INFO [05-08|11:40:05] Database closed                          database=/home/jordibisbal/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing/geth/privchain5/geth/chaindata
