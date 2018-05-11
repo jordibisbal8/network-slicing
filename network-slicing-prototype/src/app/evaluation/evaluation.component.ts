@@ -97,7 +97,7 @@ export class EvaluationComponent implements OnInit {
   // Prices from Amazon EC2 pricing
   checkResourceCost(type) {
     if (type === 'A') {
-      return this.getRandomFloat(10, 12)// We multiply per 100 because the blockchain does not accept floats
+      return this.getRandomFloat(10, 12);
     }
     if (type === 'B') {
       return this.getRandomFloat(10, 12);

@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-bar_width = 2
+bar_width = 5
 
 # Choose the height of the error bars (bars1)
 
@@ -18,9 +18,9 @@ dfx['avg1']=dfx[miner1].mean(axis=1) / dfx['index']
 dfx['avg2']=dfx[miner2].mean(axis=1) / dfx['index']
 dfx['avg3']=dfx[miner3].mean(axis=1) / dfx['index']
 
-dfx['std1']=dfx[miner1].std(axis=1) / dfx['index']
-dfx['std2']=dfx[miner2].std(axis=1) / dfx['index']
-dfx['std3']=dfx[miner3].std(axis=1) / dfx['index']
+dfx['std1']=1.96 * (dfx[miner1].std(axis=1) / dfx['index']) / np.sqrt(30)
+dfx['std2']=1.96 * (dfx[miner2].std(axis=1) / dfx['index']) / np.sqrt(30)
+dfx['std3']=1.96 * (dfx[miner3].std(axis=1) / dfx['index']) / np.sqrt(30)
 
 ax.bar(dfx['index'] - bar_width, dfx['avg1'], bar_width, label= 'Node 1', yerr=dfx['std1'], capsize=7);
 ax.bar(dfx['index'], dfx['avg2'], bar_width, label= 'Node 2', yerr=dfx['std2'], capsize=7);
@@ -32,11 +32,13 @@ ax.yaxis.grid(linestyle=':',linewidth=1.5)
 ax.spines['right'].set_visible(False)
 ax.spines['top'].set_visible(False)
 
+plt.tick_params(axis='both', which='major', labelsize=16)
+ax.legend(loc=1,prop={'size': 16})
+
 ax.set_ylim(ymin=0,ymax=1)
-plt.xlabel('# blocks')
-plt.ylabel('% mined blocks ' + '$B_m$')
+plt.xlabel('# blocks', fontsize=16)
+plt.ylabel('% mined blocks ' + '$B_m$', fontsize=16)
 ax.set_axisbelow(True)
-ax.legend()
 plt.savefig('ev_fairness_poet.png')
 plt.show();
 

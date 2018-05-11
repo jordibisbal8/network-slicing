@@ -58,11 +58,9 @@ A blockchain is a decentralized distributed ledger, which stores the entire hist
 
 \begin{figure}[bth]
 	\myfloatalign
-	\subfloat[Traditional database.]
 	{\includegraphics[width=0.4\linewidth]{gfx/cenVsDec}} \quad
-	\subfloat[Blockchain.]
 	{\includegraphics[width=0.4\linewidth]{gfx/cenVsDec2}} \\
-	\caption{Centralized approach compared to a decentralized approach (blockchain).}
+	\caption{Centralized approach (traditional database) compared to a decentralized approach (blockchain).}
 	\label{fig:CentralizedvsDecentralizedx}
 \end{figure}
 At the beginning, the terms Bitcoin and blockchain were sometimes interchanged, as these words were used to refer: (i) the technology, (ii) the protocol for making transactions and (iii) the cryptocurrency. Therefore, before continuing, one statement needs to be clear: \textbf{Bitcoin is a cryptocurrency that uses the blockchain technology and cryptocurrencies are just one of the multiple blockchain applications.} 
@@ -218,14 +216,16 @@ In the following section, an example application or process currently performed 
 
 In the last few years, network virtualization has started to grow in popularity since it enables simulating baremetal networks. These virtual networks, in contrast to physical networks, provide flexibility, manageability and a low cost. 
 
-Network virtualization handles two main concepts: node virtualization and link virtualization. The former implies sharing the node's physical resources located in the substrate network (e.g: CPU, storage, memory) to multiple virtual nodes in the virtual networks, such as physical node A in Figure \ref{fig:networkvir}.a. The latter enables the transport of multiple virtual links in a single and shared physical link (Figure \ref{fig:networkvir}.b).
+Network virtualization handles two main concepts: node virtualization and link virtualization. The former implies sharing the node's physical resources located in the substrate network (e.g: CPU, storage, memory) to multiple virtual nodes in the virtual networks, such as physical node A in Figure \ref{fig:networkvir_a}. The latter enables the transport of multiple virtual links in a single and shared physical link (Figure \ref{fig:networkvir_b}).
 
 \begin{figure}[bth]
 	\myfloatalign
 	\subfloat[Network virtualization model.]
-	{\includegraphics[width=0.48\linewidth]{gfx/networkvir}} \quad
+	{\label{fig:networkvir_a}%
+	\includegraphics[width=0.48\linewidth]{gfx/networkvir}} \quad
 	\subfloat[Network virtualization elements.]
-	{\includegraphics[width=0.48\linewidth]{gfx/networkvir2}} \\
+	{\label{fig:networkvir_b}%
+	\includegraphics[width=0.48\linewidth]{gfx/networkvir2}} \\
 	\caption{Network virtualization model and its basic elements. Adapted from \citep{carapinha2009network}.}
 	\label{fig:networkvir}
 \end{figure}
@@ -281,21 +281,23 @@ In the following section, a blockchain application for a manufacturing supply ch
 
 \subsection{Blockchain Ready Manufacturing Supply Chain} \label{manufacturing}
 
-In this part, a blockchain example \citep{abeyratne2016blockchain}, which stores and distributes specific product information during its lifecycle, will be discussed. This task also named product lifecycle management (PLM), involves different stages \citep{stark2015product}, in which multiple parties modify the product's data, see Figure \ref{fig:supplyChain}.a. In this scenario, each actor interacts with a user interface, which is connected to the product's data from the blockchain. Each product is created in form of rules (smart contract) so that only specific users can access or modify the information. To access or alter this data, parties must authenticate themselves signing the requests with their private keys. 
+In this part, a blockchain example \citep{abeyratne2016blockchain}, which stores and distributes specific product information during its lifecycle, will be discussed. This task also named product lifecycle management (PLM), involves different stages \citep{stark2015product}, in which multiple parties modify the product's data, see Figure \ref{fig:supplyChain_a}. In this scenario, each actor interacts with a user interface, which is connected to the product's data from the blockchain. Each product is created in form of rules (smart contract) so that only specific users can access or modify the information. To access or alter this data, parties must authenticate themselves signing the requests with their private keys. 
 
 \begin{figure}[bth]
 	\myfloatalign
 	\subfloat[PLM stages.]
-	{\includegraphics[width=0.48\linewidth]{gfx/supplyChain}} \quad
+	{\label{fig:supplyChain_a}%
+	\includegraphics[width=0.48\linewidth]{gfx/supplyChain}} \quad
 	\subfloat[Cardbox example.]
-	{\includegraphics[width=0.48\linewidth]{gfx/supplyChain2}} \\
+	{\label{fig:supplyChain_b}%
+	\includegraphics[width=0.48\linewidth]{gfx/supplyChain2}} \\
 	\caption{Product Lifefcycle Management (PLM) stages and cardbox blockchain application example \citep{stark2015product}.}
 	\label{fig:supplyChain}
 \end{figure}
 
 During the lifecycle management, a product is owned by an entity, for instance the distributors. Moreover, when a product goes to another actor (e.g. from distributors to a consumer), both parties will sign a contract that updates product's ownership. Thus, the system ensures that in each phase, only the granted user modifies the contract.
 
-At the end of \citep{abeyratne2016blockchain}, an example to better explain the mentioned approach is also presented. The application consists of the product lifecycle of a cardboard box, starting from the trees cut down until the box is recycled. In Figure \ref{fig:supplyChain}.b an overview of the implemented design is presented. In this business process, different actors are entailed. For instance, the box manufacturer first receives the physical object and then signs a contract to gain the product's access. Afterwards, he is allowed to alter it through the user interface (e.g. modify the box quality). Once finished, he will transfer the package (signed) to the next actor, in particular, the product filler, who will follow the same steps.
+At the end of \citep{abeyratne2016blockchain}, an example to better explain the mentioned approach is also presented. The application consists of the product lifecycle of a cardboard box, starting from the trees cut down until the box is recycled. In Figure \ref{fig:supplyChain_b} an overview of the implemented design is presented. In this business process, different actors are entailed. For instance, the box manufacturer first receives the physical object and then signs a contract to gain the product's access. Afterwards, he is allowed to alter it through the user interface (e.g. modify the box quality). Once finished, he will transfer the package (signed) to the next actor, in particular, the product filler, who will follow the same steps.
 
 
 \section{Network virtualization}
@@ -325,19 +327,21 @@ One of the main challenges of inter-domain VNE, is that InPs are not willing to 
 
 \subsubsection{Centralized Slice Embedding}
 
-In \citep{dietrich2015multi}, a centralized VNE framework is implemented (Figure \ref{fig:multiprov}.a). There, the mentioned LID partitioning problem is approached through a VPN, who accesses public information that is not considered confidential by the InPs:
+In \citep{dietrich2015multi}, a centralized VNE framework is implemented (Figure \ref{fig:multiprov_a}). There, the mentioned LID partitioning problem is approached through a VPN, who accesses public information that is not considered confidential by the InPs:
 
 \begin{itemize}
 	\item \textbf{Virtual resources availability}: In this case, virtual resources examples are obtained from Amazon EC2 \cite{amazonEC2}, which announces the attributes (CPU, memory, cost) of different instances types.
-	\item \textbf{Substrate network topology}: Most of network's topology information is treated confidentially for the InPs. Nevertheless, there are certain aspects of the network which are not considered private, such as InPs peerings (including location) and its related link cost (Figure \ref{fig:multiprov}.b).
+	\item \textbf{Substrate network topology}: Most of network's topology information is treated confidentially for the InPs. Nevertheless, there are certain aspects of the network which are not considered private, such as InPs peerings (including location) and its related link cost (Figure \ref{fig:multiprov_b}).
 \end{itemize}
 
 \begin{figure}[bth]
 	\myfloatalign
 	\subfloat[VNP's full view on substrate network.]
-	{\includegraphics[width=0.48\linewidth]{gfx/multiprov}} \quad
+	{\label{fig:multiprov_a}%
+	\includegraphics[width=0.48\linewidth]{gfx/multiprov}} \quad
 	\subfloat[VNP's limited view on substrate network.]
-	{\includegraphics[width=0.48\linewidth]{gfx/multiprov2}} \\
+	{\label{fig:multiprov_b}%
+	\includegraphics[width=0.48\linewidth]{gfx/multiprov2}} \\
 	\caption{Virtual network Request across multiple InPs using a VN Provider. Adapted from \citep{dietrich2015multi}.}
 	\label{fig:multiprov}
 \end{figure}
@@ -543,7 +547,7 @@ Based on the requirements and assumptions defined in the previous section, the d
 
 In general, the fundamental goals for network virtualization relies on simulating baremetal networks, providing improvements in terms of flexibility, manageability, and costs. In this scenario, the SPs are willing to embed virtual nodes across different InPs to create customized virtual networks. This embedding task consists first of the VN request partitioning and later, of the corresponding mapping to the InP's physical nodes, such that virtual node and link requirements are fulfilled. However, the problem appears when InPs are not willing to disclose detailed information about their resource availability or network topologies, which is indispensable for the VN partitioning efficiency \citep{dietrich2015multi}. In this thesis, the VN partitioning is treated as a cost minimization problem, where the service provider pursues the minimum VN embedding cost\footnote{From now on, we use the term cost to refer the value that the SP must pay for embedding the virtual nodes across the InPs. This value is derived from the InP bids}. In a real world, there are more parameters that could be taken into consideration, such as quality of the service or the proportioned capacity.
 
-In a multi-provider scenario with full information disclosure (Figure \ref{fig:problem}.a), since the infrastructure provider's internal information is publicly available, the VN request partitioning is efficiently computed. Conversely, the lack of data in a limited information disclosure scenario (Figure \ref{fig:problem}.b), directly affects the VNE throughput. Nevertheless, there is some information not considered confidential by the InPs, such as the location or the virtual node types offered by the peering nodes. For instance, in Figure \ref{fig:problem}.b, the InP1 has two peering nodes with locations in Germany and Switzerland, and virtual node types $\{A,B,D,E\}$ and $\{F,G\}$ respectively. These virtual node types, as Amazon EC2 \citep{amazonEC2} does, are used to classify the resources in different groups, each having common attributes, such as CPU, memory, storage and network capacity. Thus, in this thesis, new embedding strategies and approaches to facilitate the service negotiation process between the InPs and SPs, will be developed. 
+In a multi-provider scenario with full information disclosure (Figure \ref{fig:problem_a}), since the infrastructure provider's internal information is publicly available, the VN request partitioning is efficiently computed. Conversely, the lack of data in a limited information disclosure scenario (Figure \ref{fig:problem_b}), directly affects the VNE throughput. Nevertheless, there is some information not considered confidential by the InPs, such as the location or the virtual node types offered by the peering nodes. For instance, in Figure \ref{fig:problem}.b, the InP1 has two peering nodes with locations in Germany and Switzerland, and virtual node types $\{A,B,D,E\}$ and $\{F,G\}$ respectively. These virtual node types, as Amazon EC2 \citep{amazonEC2} does, are used to classify the resources in different groups, each having common attributes, such as CPU, memory, storage and network capacity. Thus, in this thesis, new embedding strategies and approaches to facilitate the service negotiation process between the InPs and SPs, will be developed. 
 
 Moreover, in section \ref{analysisOfRelatedWork}, it has been contemplated that decentralized approaches tend to use auctions to negotiate the network workflows. Regardless of the auction model applied for our VNE framework, there are several objective metrics that need be considered: 
 
@@ -559,9 +563,11 @@ Moreover, in section \ref{analysisOfRelatedWork}, it has been contemplated that 
 \begin{figure}[bth]
 	\myfloatalign
 	\subfloat[Full information disclosure (FID).]
-	{\includegraphics[width=0.48\linewidth]{gfx/Problem}} \quad
+	{\label{fig:problem_a}%
+	\includegraphics[width=0.48\linewidth]{gfx/Problem}} \quad
 	\subfloat[Limited Information Disclosure (LID) with peering node locations and resource types.]
-	{\includegraphics[width=0.48\linewidth]{gfx/Problem2}} \\
+	{\label{fig:problem_b}%
+	\includegraphics[width=0.48\linewidth]{gfx/Problem2}} \\
 	\caption{Substrate network visibility. Adapted from \citep{dietrich2015multi}.}
 	\label{fig:problem}
 \end{figure}
@@ -837,13 +843,13 @@ The section should have a length of about five pages.}
 \label{ch:evaluation}
 %*****************************************
 
-In this chapter, we evaluate the efficiency of the previously presented brokerless VNE system, which uses the blockchain technology to improve the multi-provider VN embedding throughput under the limited information disclosure scenario. First, we present the evaluation environment, which describes the substrate and virtual network topologies. In addition, in this section, we introduce a pricing model used for the InPs to dynamically quote their services, and a consensus algorithm, which enhances the standard PoW transmission time in private blockchains while maintaining fairness between the mining nodes. Afterwards, we define the goals and metrics used for characterizing the performance, costs and fairness of the system. Lastly, we will examine and interpret the results of our evaluation.
+In this chapter, we evaluate the efficiency of the previously presented brokerless VNE system, which uses the blockchain technology to improve the multi-provider VN embedding throughput under the limited information disclosure scenario. First, we present the evaluation setup, which illustrates the architecture used and describes the substrate and virtual network topologies. In addition, in this section, we introduce a pricing model used for the InPs to dynamically quote their services, and a consensus algorithm, which enhances the standard PoW transmission time in private blockchains while maintaining fairness between the mining nodes. Afterwards, we define the goals and metrics used for characterizing the performance, costs and fairness of the system. Lastly, we will examine and interpret the results of our evaluation.
 
-\section{Evaluation environment}
+\section{Evaluation Setup}
 
-Our evaluation is carried out on a single computer with four Intel Core i7-7500U CPU at 2.70 GHz and 16 GB of main memory, using the back-end components from the prototype described in the implementation chapter. Figure \ref{fig:ev_scenario} depicts the architecture of the evaluation scenario, which consists of a middleware that sends the corresponding transactions to the blockchain, through three mining nodes. In this setting, if one node cannot serve the transaction, i.e. it is not available, the request will be sent to the following node to ensure the system functionality.
+Our evaluation is carried out on a single computer with four Intel Core i7-7500U CPU at 2.70 GHz and 16 GB of main memory, using the back-end components from the prototype described in the implementation chapter. Figure \ref{fig:ev_scenario} depicts the architecture of the evaluation scenario, which consists of a middleware that sends the corresponding transactions to the blockchain, through different mining nodes. In this setting, if one node cannot serve the transaction, i.e. it is not available, the request will be sent to the following node to ensure the system functionality.
 
-Moreover, note that since our system is formed by a hybrid blockchain, multiple nodes (InPs) maintain and serve the infrastructure. Thus, in this scenario, the mining nodes are set up in three different ports from a single machine, each pointing to the same genesis file. In a real world, these nodes will be controlled independently by different firms which cooperate to regulate and ensure the application performance.
+Moreover, since our system is formed by a hybrid blockchain, multiple nodes (InPs) maintain and serve the infrastructure. In this scenario, we have adjusted the number of available mining nodes ranging from one to five depending on the aim of the test, since this amount of nodes is sufficient to flawlessly compare the different blockchain throughputs. Thus, these mining nodes are set up in different ports from a single machine, each pointing to the same genesis file. In a real world, these nodes will be controlled independently by different firms which cooperate to regulate and ensure the application performance.
 
 \begin{figure}[bth]
 	\centering
@@ -852,28 +858,30 @@ Moreover, note that since our system is formed by a hybrid blockchain, multiple 
   	\label{fig:ev_scenario}
 \end{figure}
 
-In the following, we discuss the substrate network and virtual network request topologies, along with the parameters specifications used in our evaluation:
+In the following, we discuss the substrate network and virtual network request topologies, along with the parameters specifications used in our evaluation. Note that, the values assigned for these parameters have been selected in order to illustrate the subsequent evaluation metrics (section \ref{metrics}).
 
 \begin{itemize}
  \item \textbf{Substrate network:} To simulate a real scenario, we have generated a substrate network based on the network topology from the GÉANT\footnote{\url{https://www.geant.org/}} backbone, which interconnects the National Research and Education Networks (NRENs) across Europe. We have used this model since it is formed by already known non-commercial research and education networks, which do not reveal confidential data. The European NREN dataset model was downloaded from the Internet Topology Zoo \citep{zoo}, which is a project that collects data network topologies derived from publicly available records.
 
-Furthermore, since our evaluation scenario must contain different InPs competing for embedding virtual nodes in diverse locations, we have tailored the European NREN dataset model and their interconnections to fulfill our requirements. Figure \ref{fig:ev_top}.a shows that our substrate network contains nodes located in ten different European countries (yellow nodes), in which InPs possess peering nodes (white nodes). These peering nodes are formed from 3 to 5 resource types (blue boxes), whose availability and costs are, as stated throughout the thesis, not broadcasted. Nevertheless, each node contains a maximum capacity $\mu_{max}$, i.e. a maximum resource utilization, to identify if the InP can serve incoming VN requests in the selected node. The mentioned evaluation parameters for the substrate network are summarized in the left part of Table \ref{tab:evparams}.
+Furthermore, since our evaluation scenario must contain different InPs competing for embedding virtual nodes in diverse locations, we have tailored the European NREN dataset model and their interconnections to fulfill our requirements. Figure \ref{fig:ev_top_a} shows that our substrate network contains nodes located in ten different European countries (yellow nodes), in which InPs possess peering nodes (white nodes). These peering nodes are formed from 3 to 5 resource types (blue boxes), whose availability and costs are, as stated throughout the thesis, not broadcasted. Nevertheless, each node contains a maximum capacity $\mu_{max}$, i.e. a maximum resource utilization, to identify if the InP can serve incoming VN requests in the selected node.
 
-Apart from these parameters, we need reference costs for every resource type, in order to perform the service negotiation between SPs and InPs. For this reason, we have researched the pricing models and costs, provided by different cloud providers. In particular, Amazon EC2 \citep{amazonEC2} offers a broad selection of instance types along with the corresponding on-demand prices. These instances offer hourly prices per computing capacity, which exactly meets our requirements. Thus, we have extracted the average of the minimum and maximum hourly unitary costs per resource type in the European region, to obtain real values for our presented evaluation scenario. Specifically, our $\{A, B, C, D, E\}$ node types, correspond to the general purpose, compute optimized, memory optimized, accelerated computing and storage optimized Amazon EC2 instance types.
+Apart from these parameters, we need reference costs for every resource type, in order to perform the service negotiation between SPs and InPs. For this reason, we have researched the pricing models and costs, provided by different cloud providers. In particular, Amazon EC2 \citep{amazonEC2} offers a broad selection of instance types along with the corresponding on-demand prices. These instances contain hourly prices per computing capacity, which exactly meets our requirements. Thus, we have extracted the average of the minimum and maximum hourly unitary costs per resource type $\sigma_s$ in the European region, to obtain real values for our presented evaluation scenario.  Specifically, our $\{A, B, C, D, E\}$ node types, correspond to the general purpose, compute optimized, memory optimized, accelerated computing and storage optimized Amazon EC2 instance types. The mentioned evaluation parameters for the substrate network are summarized in the left part of Table \ref{tab:evparams}.
 
 \begin{figure}[bth]
 	\myfloatalign
 	\subfloat[European NREN Model.]
-	{\includegraphics[width=0.48\linewidth]{gfx/Evaluation_topologies}} \quad
+	{\label{fig:ev_top_a}%
+	\includegraphics[width=0.48\linewidth]{gfx/Evaluation_topologies}} \quad
 	\subfloat[Virtual network request.]
-	{\includegraphics[width=0.48\linewidth]{gfx/Ev_vnr}} \\
+	{\label{fig:ev_top_b}%
+	\includegraphics[width=0.48\linewidth]{gfx/Ev_vnr}} \\
 	\caption{Evaluation topologies used as substrate network and virtual network request.}
 	\label{fig:ev_top}
 \end{figure}
 
-\item \textbf{Virtual network request:} A VN request is composed of a set of virtual nodes and the corresponding virtual links. Each virtual node contains exactly the same locations of the substrate network, plus a null one used for embedding the resource type in any location. In addition, the virtual node computing demand $d_i$ and the bandwidth demand $d_{ij}$ are also given from a uniform distribution. In a real world, the bandwidth demand between the virtual nodes is typically given by a traffic matrix. However, note that in section \ref{vickrey}, we have stated that intra-link costs within an InP are negligible and that the inter-links, due to the lack of information of the other InP's substrate topologies, must be roughly estimated by the InPs. For simplicity, in this chapter, the inter-links have fixed unitary costs and these are added after partitioning rather than during the bidding process. In other words, if two virtual nodes are embedded to the same InP, no link cost will be added. Nevertheless, if two nodes are contained into two different providers, then the link cost $\beta_{s^{*}}(L_{ij})$ is given by Equation \ref{eq:ev_linkCosts} (derived from Equation \ref{eq:virtualNodeCost}), where $c$ is the constant corresponding to the fixed unitary cost.
+\item \textbf{Virtual network request:} A VN request is composed of a set of virtual nodes and the corresponding virtual links (Figure \ref{fig:ev_top_b}). Each virtual node contains exactly the same locations of the substrate network, plus a null one used for embedding the resource type in any location. In addition, the virtual node computing demand $d_i$ and the bandwidth demand $d_{ij}$ are also given from a uniform distribution. In a real world, the bandwidth demand between the virtual nodes is typically given by a traffic matrix. However, note that in section \ref{vickrey}, we have stated that intra-link costs within an InP are negligible and that the inter-links, due to the lack of information of the other InP's substrate topologies, must be roughly estimated by the InPs. For simplicity, in this chapter, the inter-links have fixed unitary costs and these are added after partitioning rather than during the bidding process. In other words, if two virtual nodes are embedded to the same InP, no link cost will be added. Nevertheless, if two nodes are contained into two different providers, then the link cost $\beta_{s^{*}}(L_{ij})$ is given by Equation \ref{eq:ev_linkCosts} (derived from Equation \ref{eq:virtualNodeCost}), where $c$ is the constant corresponding to the fixed unitary cost.
 
-Furthermore, we model the VN requests events through a Poisson process, where each arrival occurs at arbitrary positive times, but without a fixed probability at any given instant. Regarding the lifetime of the VN requests, it is also given by a uniform distribution. The evaluation parameters for the VN requests are summarized in the right part of Table \ref{tab:evparams}.
+Furthermore, we model the VN requests events through a periodic arrival rate $\lambda$, where each arrival occurs always at the same fixed positive time. Regarding the lifetime of the VN requests, they have also two fixed values $L_1 = 10s$ and $L_2 = 25s$. The reason for using periodic arrival rates and fixed lifetimes rather than, for example, Poisson processes and arbitrary lifetimes, is to better study and illustrate the affect of the resource consumption in a non-optimum scenario. The evaluation parameters for the VN requests are summarized in the right part of Table \ref{tab:evparams}.
 
 \end{itemize}
 
@@ -884,15 +892,16 @@ Furthermore, we model the VN requests events through a Poisson process, where ea
 \begin{table}[bth]
 	\myfloatalign \footnotesize
 	%18 columns
-	\begin{tabularx}{\textwidth}{p{4cm}p{4cm}|p{4cm}p{4cm}}
+	\begin{tabularx}{\textwidth}{p{4.5cm}p{3.5cm}|p{4cm}p{4cm}}
 	 	\textbf{Substrate Network} && \textbf{Virtual Network Request} \\
 		\hline
 		InPs & 3 to 7 & Virtual nodes & uniform distrib. [5,10] \\
 		Peering node locations & \{ES, FR, IT, CH, DE, AT, PL, NL, DK, UK\} & Virtual node locations & \{ES, FR, IT, CH, DE, AT, PL, NL, DK, UK, NULL\}  \\
-		Peering nodes per InP & 10 (1 per location) & Bandwidth demand $d_{ij}$ & uniform distrib. [1,10] \\
+		Peering nodes per InP & 10 (1 per location) & Computing demand $d_i$ & uniform distrib. [1,3] \\
 		Node types & $\{A, B, C, D, E\}$ & Virtual node types & $\{A, B, C, D, E\}$ \\
-		Node types per peering node & uniform distrib. [3,5]  & Computing demand $d_i$ & uniform distrib. [1,3] \\
-		Node capacity $\mu_{max}$ & uniform distrib. [5,100] & Mean arrival rate $\lambda$ & 1 request per second \\
+		Node types per peering node & uniform distrib. [3,5]  & Bandwidth demand $d_{ij}$ & uniform distrib. [1,10] \\
+		Node capacity $\mu^{s}_{max}$ & uniform distrib. [5,100] & Arrival rate $\lambda$ & 1 to 5 requests per second \\
+		Unitary cost per node type $\sigma_s$ & uniform distrib. [10,12] & Lifetimes $L_1$ and $L_2$ & 10s and 25s respectively
 	\end{tabularx}
 	\caption{Evaluation parameters: Substrate network and virtual network request.}
 	\label{tab:evparams}
@@ -900,17 +909,17 @@ Furthermore, we model the VN requests events through a Poisson process, where ea
 
 \subsection{Pricing Model} \label{pricing model}
 
-In section \ref{vickrey}, we have discussed that our approach encourages that users apply dynamic pricing models for network virtualization. In dynamic pricing, there are many strategies to set flexible service costs based on current market demands. In this chapter, we will adapt the demand and supply labels to match our scenario. In particular, the first corresponds to the computing demand $d_i$ for a resource type, and the second to the resource utilization $\mu$ in the substrate node maintaining the service.
+In section \ref{vickrey}, we have discussed that our approach encourages that users apply dynamic pricing models for network virtualization. In dynamic pricing, there are many strategies to set flexible service costs based on current market demands. In this chapter, we will adapt the demand and supply labels to match our scenario. In particular, the first corresponds to the computing demand $d_i$ for a resource type, and the second to the resource utilization $\mu_s$ in the substrate node maintaining the service.
 
-In contrast to the demand and supply concept, in our evaluation, the capacity does not increase according to the demand, since the resources have fixed maximum capacities $\mu_{max}$. Thus, the costs will be given according to the current resource utilization, which is based on the residual capacities. Figure \ref{fig:pricing_model} depicts an example of the dynamic cost per hour $\alpha^{h}_{s^{*}}(N_i)$ for the resource type C. From this chart, we can observe how the price gradually increases as the resource is utilized. In this case, the probability of embedding the virtual node is lower, and hence, the resource will wait until the node is more released, to embed further VN requests. Equations \ref{eq:ev_price_model} and \ref{eq:ev_resource_uti} reflect the mentioned behaviour, where $\sigma$, $\mu$, $\mu_u$ and $\mu_{max}$ are the unitary cost, resource utilization, used capacity and maximum capacity respectively. In the equations below, note also that the dynamic price per hour $\alpha^{h}_{s^{*}}(N_i)$ is multiplied for the lifetime $L$ of the virtual network request. In case the lifetime $L$ is less than one hour, then the unitary cost $\sigma$ will be adapted accordingly.
+In contrast to the demand and supply concept, in our evaluation, the capacity does not increase according to the demand, since the resources have fixed maximum capacities $\mu^{s}_{max}$. Thus, the costs will be given according to the current resource utilization, which is based on the residual capacities. Figure \ref{fig:pricing_model} depicts an example of the dynamic cost per hour $\alpha^{h}_{s^{*}}(N_i)$ for the resource type C. From this chart, we can observe how the price gradually increases as the resource is utilized. In this case, the probability of embedding the virtual node is lower, and hence, the resource will wait until the node is more released, to embed further VN requests. Equations \ref{eq:ev_price_model} and \ref{eq:ev_resource_uti} (derived from Equation \ref{eq:virtualNodeCost}) reflect the mentioned behaviour, where $\sigma_s$, $\mu_s$, $\mu^{s}_u$ and $\mu^{s}_{max}$ are the unitary cost, resource utilization, used capacity and maximum capacity respectively. In the equations below, note also that the dynamic price per hour $\alpha^{h}_{s^{*}}(N_i)$ is multiplied for the lifetime $L$ of the virtual network request. In case the lifetime $L$ is less than one hour, then the unitary cost $\sigma_s$ must be adapted accordingly.
 
 Therefore, thanks to the presented algorithm, the InPs define their product costs regarding the current demands and resources utilization, which provides real-time and on-demand values. These costs are further used to quote prices for the requested virtual node while taking into account the desired profit margins. In future research, this cost estimation can be performed based on many other parameters, which will enable InPs to have a better market positioning.
 
   \begin{equation} \label{eq:ev_price_model}
-	 \alpha_{s^{*}}(N_i) = \alpha^{h}_{s^{*}}(N_i) \times L =  (\sigma + \frac{\mu}{1 - \mu}) \times L \qquad \mu \in [0, 1], \ L \in [500,5000], \ N_i \in N^R 
+	 \alpha_{s^{*}}(N_i) = \alpha^{h}_{s^{*}}(N_i) \times L =  (\sigma_s + \frac{\mu_s}{1 - \mu_s}) \times L \qquad \mu_s \in [0, 1], \ N_i \in N^R 
   \end{equation}
     \begin{equation} \label{eq:ev_resource_uti}
-  \qquad \mu = \frac{\mu_u + d_i}{\mu_{max}} \qquad \mu_{max} \in [200,300], \ \mu_u \in [0, \mu_{max}] , \ d_i \in [1, 10]   
+  \qquad \mu_s = \frac{\mu^{s}_u + d_i}{\mu^{s}_{max}} \qquad \mu^{s}_{max} \in [5,100], \ \mu_u \in [0, \mu^{s}_{max}] , \ d_i \in [1, 3]   
   \end{equation}
 
 \begin{figure}[bth]
@@ -924,24 +933,27 @@ Therefore, thanks to the presented algorithm, the InPs define their product cost
 
 At the beginning of chapter \ref{ch:design}, we have discussed the different blockchain types, in order to select the most suitable type for our application: \textbf{the hybrid/consortium blockchain}. In addition, it is obvious that depending on the blockchain type and the desired functionality, different consensus mechanisms need to be used to fulfill the application requirements. For instance, the Ethereum main network uses the \textit{Proof-of-Work} consensus algorithm, which provides a great scalability between a large number of unknown users, granting them with equal mining probabilities. Nevertheless, since miners need to solve hard cryptographic puzzles to add a new block on the blockchain, this consensus model provides high energy consumptions and slow throughputs, which is obviously not an appropriate solution for private blockchains.
 
-For this reason, after examining consensus mechanism that provides medium-high transaction rates in a scalable and untrusted model, we have ended up with the \textbf{Proof of Elapsed Time (PoET)} protocol. Other consensus algorithms, such as Proof-of-Stake, Byzantine Fault Tolerance or Proof-of-Authority \citep{baliga2017understanding}, where excluded either due to the integration complexity into our current Ethereum platform or since they sacrifice the trust of our system (not hybrid).
+For this reason, after examining consensus mechanism that provides medium-high transaction rates in a scalable and untrusted model, we have ended up with the \textbf{Proof of Elapsed Time (PoET)} protocol. Other consensus algorithms, such as Proof-of-Stake, Byzantine Fault Tolerance or Proof-of-Authority \citep{baliga2017understanding}, have also been investigated. Nevertheless, the first two were excluded due to the integration complexity into our current Ethereum platform and the third since it sacrifices the trust of our system (not hybrid).
 
 The Proof of Elapsed Time consensus mechanism is used in the Hyperledger Sawtooth project \citep{sawtooth}, designed by Intel. PoET is a lottery based consensus, where the next miner (also called leader) is randomly selected. The workflow is simple: First, each mining node waits a random time (sleep). Afterwards the node with the shortest wait time, wakes up and commits the next block. Finally, the other mining nodes are notified.
 
 To work properly, the leader election needs to be totally random, where a miner cannot manipulate this waiting time. To achieve this, the Hyperledger Sawtooth project relies on specialized hardware, in particular, on the Intel’s Software Guard Extensions (SGX) \citep{sgx}. Through this trusted environment, the participants are supplied with fair waiting times. Nevertheless, in our scenario, we will assume that there are no malicious nodes manipulating these waiting times. In a nutshell, we will tailor the idea of PoET to fit in our Ethereum platform.
  
-\section{Goals and Metrics} 
+\section{Goals and Metrics}  \label{metrics}
 
 Due to the lack of previous work on multi-provider VNE using the blockchain technology, the main goals in this chapter, are to check the feasibility of the introduced solution, and to demonstrate its practical potential. Thus, we set up the previous environment (Figure \ref{fig:ev_scenario}) based on the architecture presented in \ref{architecture}, to explore the benefits and implications of the proposed system.
 
 Moreover, to study the behavior and performance of our approach, each InP makes use of the previously introduced pricing model (section \ref{pricing model}), with homogenous prices. Apart from the real cost of the asset, note that each InP defines his own profit margins $\gamma_n(N_i),\gamma_n(G)$, to perform the bid. Therefore, we will also examine how the deviations in these values affect the final outcome of the VN partitioning.
 
-On the other hand, another fundamental factor for the throughput of our system are the different blockchain specifications. From these properties, one of the key elements that directly influence the functionality is the consensus mechanism employed by the mining nodes. For this reason, we first discuss why \textit{Proof-of-Work (PoW)} protocol hinder the system performance, and check if altering the block difficulty optimizes theresults. In addition, we also inspect whether the aforementioned \textit{Proof of Elapsed Time (PoET)} consensus enhances the PoW protocol while maintaining fairness between the mining nodes.
+On the other hand, another fundamental factor for the throughput of our system are the different blockchain specifications. From these properties, one of the key elements that directly influence the functionality is the consensus mechanism employed by the mining nodes. For this reason, we first discuss why \textit{Proof-of-Work (PoW)} protocol hinder the system performance, and check if altering the block difficulty optimizes the results. In addition, we also inspect whether the aforementioned \textit{Proof of Elapsed Time (PoET)} consensus enhances the PoW protocol while maintaining fairness between the mining nodes.
 
 Following these definitions, we further summarize the metrics used in our study:
 
  \begin{itemize}
-\item \textbf{Acceptance rate}: Based on our approach and the proposed pricing model, we examine the VN embedding efficiency through the acceptance rate. This VN acceptance rate is the percentage of embedded virtual nodes from the total incoming VN requests. Nevertheless, these values are significantly influenced by many circumstances. Between these, we demonstrate how the following parameters alter the performance: (i) the VN requests arrival rate $\lambda$, (ii) the virtual network request lifetime $L$, (iii) the number of participating InPs and (iv) the InPs profit margins $\gamma_n(N_i),\gamma_n(G)$.
+\item \textbf{Acceptance rate}: Based on our approach and the proposed pricing model, we examine the VN embedding efficiency through the acceptance rate. This VN acceptance rate is the percentage of embedded virtual nodes from the total incoming VN requests. Nevertheless, these values are significantly influenced by many circumstances. Between these, we demonstrate how the following parameters alter the performance: (i) the virtual network request lifetime $L$, (ii) the number of participating InPs $I_p$, (iii) the VN requests arrival rate $\lambda$.
+
+\item \textbf{Bidding strategy}: The InPs bidding strategies are evaluated based on how the profit margins $\gamma_n(N_i),\gamma_n(G)$ employed by the different InPs, produce significant revenues on certain scenarios. 
+
 \item \textbf{Blockchain performance}: The blockchain performance will be verified in this thesis, basically in terms of the block generation time (mining) and the number of forks. The former, since each block contains many transactions, is the more accurate manner to calculate the speed of the transactions. The latter, once the block generation time decreases, the number of new blocks solutions increases, which can as a consequence, create forks on the blockchain. Another parameter that also steps up the number of forks is the network latency. Nevertheless, since our mining nodes are on a single machine and these values are not large in a real world, we will neglect the network latency between our mining nodes.
 \item \textbf{Mining fairness}: We consider our system fairness regarding the mining nodes contribution into the blockchain growth, i.e. the number of blocks that each blockchain node mines. Since, our approach corresponds to a hybrid blockchain, where each InP coordinates and ensures the system's functionality, the effort on mining blocks must be equally shared between the blockchain nodes. Thus, in a fair system, each node roughly mine the same number of blocks.
  \end{itemize}
@@ -957,11 +969,13 @@ In this section, we present the evaluation results of the Vickrey auction model 
 	\begin{tabular}{m{2cm} m{13.5cm}}
 		\textbf{Symbol} & \textbf{Description}\\ 
 		\hline
-		$\sigma$ & unitary cost for a resource type in substrate node $N_s^{*}$  \\
-		$\mu$ & variable $\in [0,1]$ expressing the resource utilization in substrate node $N_s^{*}$ \\
-		$\mu_{max}$ & variable $\in [5,100]$ expressing the maximum capacity of a resource type in substrate node $N_s^{*}$ \\
-		$\mu_u$ & variable $\in [0,\mu_{max}]$ expressing the used capacity of a resource type in substrate node $N_s^{*}$ \\
-		$\alpha^{h}_{s^{*}}(N_i)$ & dynamic hourly unitary cost for virtual node $N_i \in N^{R}$ \\
+		$\sigma_s$ & unitary cost for a resource type in substrate node $N_s^{*}$  \\
+		$\mu_s$ & variable $\in [0,1]$ expressing the resource utilization in substrate node $N_s^{*}$ \\
+		$\mu^{s}_{max}$ & variable $\in [5,100]$ expressing the maximum capacity of a resource type in substrate node $N_s^{*}$ \\
+		$\mu^{s}_u$ & variable $\in [0,\mu_{max}]$ expressing the used capacity of a resource type in substrate node $N_s^{*}$ \\
+		$\alpha^{h}_{s^{*}}(N^R)$ & dynamic hourly unitary cost for virtual network request $N^{R}$ \\
+		$\varphi$ & acceptance rate $\varphi \in [0,1]$ \\
+		$I_p$ & participating InPs \\
 		$\lambda$ & virtual network request arrival rate (number of requests in 5s) \\
 		$L$ & virtual network lifetime \\
 		$B_m$ & mined block \\
@@ -977,13 +991,13 @@ In this section, we present the evaluation results of the Vickrey auction model 
 	\label{tab:ev_notations}
 \end{table}
 
-\subsection{Acceptance Rate}
+\subsection{Acceptance Rate and Bidding Strategy}
 
-Initially, 
+Initially, to measure the acceptance rate of our model under different conditions, we first study the influence of the VNR lifetime $L$. The reason to start proving this is that since our defined pricing model (section \ref{pricing model}), is directly linked to the resource utilization, the VNR lifetime most probably has a significant impact on the performance.
 
-$\gamma_1 = 0.1, \gamma_2 = 0.2, \gamma_3 = 0.4$
+Therefore, we have defined a scenario where three participating InPs ($I_p$) with zero profit margins ($\gamma_n(N_i),\gamma_n(G) = 0$) embed 100 VNR across 200 runs. In the first half of the runs, these requests have a small lifetime $L_1 = 5s$. Then, to compare the outcome with a larger lifetime, a second lifetime $L_2=20s$ has been set for the remaining runs. In addition, these requests are sent periodically every second, i.e. with arrival time $\lambda = 5$.
 
-$u_i = E[C_i] \times (1- \gamma_{SP}$
+Figure \ref{fig:acceptance_rate} illustrates the mean acceptance rates $\varphi$ with CI=95\%, when the lifetimes $L_1$ and $L_2$ are applied. As expected, this value is higher for $L_1$ inasmuch as smaller lifetimes ($L_1 < L_2$) utilize the resources during a shorter period, and consequently, the nodes are earlier released. More specifically, first, the acceptance rate decreases for both cases as the resources are gradually filled, which hampers the embedding of the following VNRs. Afterwards, we contemplate that both lifetimes reach steady states as the number of VNR grows. This is because the lifetime of the first incoming VNR expires, which reduce the nodes used capacities $\mu^s_u$. Since this cycle is repeated over the time, it produces the named steady state. In particular, $L_1$ and $L_2$ start to experience this phenomenon around 10s and 25s respectively, which exactly corresponds to the lifetime of our requests.
 
 \begin{figure}[bth]
 	\centering
@@ -992,29 +1006,49 @@ $u_i = E[C_i] \times (1- \gamma_{SP}$
   	\label{fig:acceptance_rate}
 \end{figure}
 
-For \ref{fig:acceptance_rate} and \ref{fig:pricing}, 3 InPs.
-For \ref{fig:acceptance_rate_3D} average values, not shown the CI. $L_1$ and $\lambda = 5$
-
-\begin{figure}[bth]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[scale=1]{gfx/ev_acceptance_rate3D.png}    
-  	\caption{Acceptance rate $\varphi$ with different number of InPs.}
+  	\caption{Acceptance rate $\varphi$ during the virtual network requests with different number of InPs.}
   	\label{fig:acceptance_rate_3D}
 \end{figure}
+
+In Figure \ref{fig:acceptance_rate}, we have seen that at the beginning, a high volume of requests in a short period, cause that the acceptance rate scales down, since the resource utilization augment. For this reason, we need to investigate how the throughput is enhanced, when there are more resources, or in other words, as the number of $I_p$ increases. Thus, we will repeat the experiment again, now in presence of 3 to 7 InPs, using $\lambda = 5$ and $L_1$. Despite the fact that with large lifetimes $L_2$ the differences would have been obviously higher, in this trial, we have applied a lifetime $L_1$ in order to observe whether the acceptance rate also varies for small lifetimes. Figure \ref{fig:acceptance_rate_3D} illustrates the average acceptance rates $\varphi$ with 3 to 7 $I_p$.
+
+Firstly, we observe that with $I_p = 3$ the acceptance rate $\varphi$ exactly matches our first introduced Figure \ref{fig:acceptance_rate}. Nevertheless, the interesting point is once $I_p$ has a greater value. In this case, we notice that the initial acceptance rate is larger since the number of free resources is bigger. Besides, we also contemplate the slight slope reflected during the VNR, although Figure \ref{fig:acceptance_rate_3D} provides no statistical evidence of a significant slope for a determined number of $I_p$. Thus, we can assert that for $L_1$ the acceptance rate $\varphi$ slightly improves initially, even though in the end, the steady-state difference is not steep. However, we can deduce that for larger lifetimes the slope variations will be more meaningful.
+
+On the other hand, we have above-mentioned that our costs are directly linked to the resource utilization. For this reason, an analysis of our proposed pricing model is extremely required. In addition, in the following test, we also investigate the arrival rate $\lambda$ footprint on the VNR costs, tailoring these values from one to five, i.e. from one to five requests every 5s. These values are chosen with regard to five seconds, because the minimum processing time for one request in our system is approximately 1s, meaning that $\lambda = 5$ corresponds to this minimum (1 req/s).
+
+Figure \ref{fig:pricing}, depicts the mean hourly costs for the requested virtual nodes $N^R$ with lifetimes $L_1$ and $L_2$, towards the different arrival rates. Note that this value corresponds to the hourly cost $\alpha^{h}_{s^{*}}(N^R)$ rather than the final $ \alpha_{s^{*}}(N^R) = \alpha^{h}_{s^{*}}(N^R) \times L$. In this manner, the impact of the different arrival rates and lifetimes is best reflected, since the cost difference is directly proportional to the resource utilization. Besides that, to better precise the mean costs in a graph, we have reduced the randomness of $N^R$, fixing the number of VNRs to 5 rather than applying a uniform distrib. [5,10]. Thus, since in Table \ref{tab:evparams}, we have defined that the nodes unitary costs $\sigma_s$ values are around 10 and 12, and the number of $N^R = 5$, the minimum costs of $\alpha^{h}_{s^{*}}(N^R)$ start roughly at 50.
+
+In case of small arrival rates ($\lambda = 1$), as the resources are less utilized, then the Equation \ref{eq:ev_price_model} results in $\alpha^{h}_{s^{*}} \approx \sigma_s$, and hence, to 50 independently of the applied lifetimes. However, once the arrival rate value increases, the deviations from $L_1$ to $L_2$ are higher. The main reason is that the second term of the Equation \ref{eq:ev_price_model}, tends to infinity when the resources are occupied, which occurs frequently by large lifetimes. For instance, when $\lambda = 5$, the difference between $L_1$ and $L_2$ on the average cost is approximately to $21\%$.
 
 \begin{figure}[bth]
 	\centering
 	\includegraphics[scale=0.7]{gfx/ev_pricing.png}    
-  	\caption{Estimated VN request cost with different arrival rates $\lambda$.} 
+  	\caption{ Estimated VN request cost with different arrival rates $\lambda$} 
   	\label{fig:pricing}
 \end{figure}
 
-\begin{figure}[bth]
+
+In the previous experiments, we have evaluated the acceptance rate $\varphi$ regarding the lifetimes $L_1$ and $L_2$, and different $I_p$. In addition, we have studied how the costs are altered with different arrival rates $\lambda$. 
+
+Nevertheless, we have considered so far that the InPs apply zero profit margins ($\gamma_n(N_i),\gamma_n(G) = 0$), which indicates that the bidder strategies need to be further assessed. For this reason, we have set up a similar scenario with the same arrival rates $\lambda$, lifetimes $L_1$ and $L_2$ and $I_p = 3$, where each InP has individual and package profits $\gamma_1 = 0.1, \gamma_2 = 0.2, \gamma_3 = 0.4$ respectively. Moreover, we have established an upper bound $u_G = 80$ cost for the whole virtual network, to prevent that InPs use immense profit margins. This value is a slight increment of the maximum cost reached in Figure \ref{fig:pricing}.
+
+Figure \ref{fig:winners} depicts the percentage of embedded virtual network requests for each InP. To better remark the differences, in this plot, we have divided the results for $L_1$ and $L_2$, which corresponds to Figures \ref{fig:winners1} and \ref{fig:winners2} respectively. In the first, we observe that for low arrival rates the values between the $I_p$ are completely different because the resources are not yet fully occupied. Hence, the InP with lower profit margins, in this case, InP1 embeds most of the VNR. In contrast, for larger $\lambda$ the second InP, since the InP1 resources are utilized, start to gradually increase the number of embedded VNRs. Finally, InP3 embeds the remaining VNR, although this amount is not significant since the other InPs can still deal with the requests.
+
+Meanwhile, when the VNR contain larger lifetimes $L_2$ (Figure \ref{fig:winners2}), the denouement is more weighted. From the beginning, since the InP's resources are largely populated, the incoming requests need to be served by other InPs. Naturally, first the InPs with lower profit margins handle the petitions. However, as the number of resources is not sufficient, InPs with bigger profits start to embed a meaningful fraction of them.
+
+In a nutshell, in this section, we have studied the acceptance rate based on several parameters, and an example outcome for InPs with different bidding strategies has been introduced. After examining these results, we first conclude that a huge number of available resources, i.e. multiple InPs, are essential for achieving great acceptances rates. This can be contemplated, after disrupting the system performance through different arrival rates $\lambda$ and lifetimes $L_1$ and $L_2$, which detects the changing behaviors in the worst case scenarios. In addition, thanks to the bidding strategy experiment, we have observed that InPs with high-profit margins also embeds VNR under certain conditions. For this reason, we reinforce the idea introduced during this thesis, which states that a well-executed market research can be translated with high revenues, and thereby, to a better market positioning.
+
+\begin{figure}[t]
 	\myfloatalign
 	\subfloat[$L_1 \approx$ 10s.]
-	{\includegraphics[width=0.48\linewidth]{gfx/ev_winners_L1.png}} \quad
+	{\label{fig:winners1}
+	\includegraphics[width=0.48\linewidth]{gfx/ev_winners_L1.png}} \quad
 	\subfloat[$L_2 \approx$ 25s.]
-	{\includegraphics[width=0.48\linewidth]{gfx/ev_winners_L2.png}} \\
+		{\label{fig:winners2}
+	\includegraphics[width=0.48\linewidth]{gfx/ev_winners_L2.png}} \\
 	\caption{VN requests winners with different arrival rates $\lambda$ and lifetimes $L_1 < L_2$.}
 	\label{fig:winners}
 \end{figure}
@@ -1040,23 +1074,6 @@ Look for a timeout that define how the window time should be set.
  Not good implementation for setting window time, showing graph. When a few miners the window range should be smaller and as the number of miners increases this time should be bigger to avoid forks.
  Sol1: Central node distributes $w_i$ for each mining node, being $w = = \{1, n\}$.
  Sol2: Each winning miner specificies next window times. explain pseudocode ($t_{min}$ minimum processing time, $x_j$ miner ID).
- 
- \begin{algorithm}
-  \caption{Pseudocode for PoET window times distribution across multiple mining nodes}
- \label{alg:algorithm2}
-  \begin{algorithmic}[1]
-  \STATE{$w = \{w_1,w_2,...,w_n\}: \ \Delta w = w_{i+1} - w_i \geq t_{min} $}
-  \STATE{$x = \{x_1,x_2,x_j,...,x_n\}$}
-  \STATE{$x^{'} = x - \{x_j\}$}
-  \STATE{$p = \{p_1,p_2,...,p_n\}$}
-  \STATE{$p_n = \{x_j, w_n\}$}
-  \FOR{$i=1;\ i < n$}
- 	\STATE{$k = rand\{x^{'}\}$}
- 	\STATE{$x^{'} = x^{'} - \{k\}$}
- 	\STATE{$p_i = \{x_k, w_i\}$}
-  \ENDFOR
- \end{algorithmic}
-\end{algorithm}
 
 \begin{figure}[bth]
 	\myfloatalign
@@ -1084,6 +1101,23 @@ Look for a timeout that define how the window time should be set.
   	\caption{Block time with different nodes using PoET.}
   	\label{fig:block_time}
 \end{figure}
+
+ \begin{algorithm}
+  \caption{Pseudocode for PoET window times distribution across multiple mining nodes}
+ \label{alg:algorithm2}
+  \begin{algorithmic}[1]
+  \STATE{$w = \{w_1,w_2,...,w_n\}: \ \Delta w = w_{i+1} - w_i \geq t_{min} $}
+  \STATE{$x = \{x_1,x_2,x_j,...,x_n\}$}
+  \STATE{$x^{'} = x - \{x_j\}$}
+  \STATE{$p = \{p_1,p_2,...,p_n\}$}
+  \STATE{$p_n = \{x_j, w_n\}$}
+  \FOR{$i=1;\ i < n$}
+ 	\STATE{$k = rand\{x^{'}\}$}
+ 	\STATE{$x^{'} = x^{'} - \{k\}$}
+ 	\STATE{$p_i = \{x_k, w_i\}$}
+  \ENDFOR
+ \end{algorithmic}
+\end{algorithm}
 
 
 %*****************************************

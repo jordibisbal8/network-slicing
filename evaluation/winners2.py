@@ -14,9 +14,10 @@ mean1 = [dfx['I11'].mean(),dfx['I12'].mean(),dfx['I13'].mean(),dfx['I14'].mean()
 mean2 = [dfx['I21'].mean(),dfx['I22'].mean(),dfx['I23'].mean(),dfx['I24'].mean(),dfx['I25'].mean()]
 mean3 = [dfx['I31'].mean(),dfx['I32'].mean(),dfx['I33'].mean(),dfx['I34'].mean(),dfx['I35'].mean()]
 
-std1 = [dfx['I11'].std(),dfx['I12'].std(),dfx['I13'].std(),dfx['I14'].std(),dfx['I15'].std()]
-std2 = [dfx['I21'].std(),dfx['I22'].std(),dfx['I23'].std(),dfx['I24'].std(),dfx['I25'].std()]
-std3 = [dfx['I31'].std(),dfx['I32'].std(),dfx['I33'].std(),dfx['I34'].std(),dfx['I35'].std()]
+std1 = [1.96 * dfx['I11'].std()/np.sqrt(100), 1.96 * dfx['I12'].std()/np.sqrt(100), 1.96 * dfx['I13'].std()/np.sqrt(100),1.96 * dfx['I14'].std()/np.sqrt(100),1.96 * dfx['I15'].std()/np.sqrt(100)]
+std2 = [1.96 * dfx['I21'].std()/np.sqrt(100),1.96 *dfx['I22'].std()/np.sqrt(100),1.96 *dfx['I23'].std()/np.sqrt(100),1.96 *dfx['I24'].std()/np.sqrt(100),1.96 *dfx['I25'].std()/np.sqrt(100)]
+std3 = [1.96 * dfx['I31'].std()/np.sqrt(100),1.96 *dfx['I32'].std()/np.sqrt(100),1.96 *dfx['I33'].std()/np.sqrt(100),1.96 *dfx['I34'].std()/np.sqrt(100),1.96 *dfx['I35'].std()/np.sqrt(100)]
+
 
 index = dfx[dfx['arrivals'].notnull()]['arrivals']
 print dfx['I11'].std()
@@ -30,10 +31,13 @@ ax.yaxis.grid(linestyle=':',linewidth=1.5)
 ax.spines['right'].set_visible(False)
 ax.spines['top'].set_visible(False)
 
-ax.set_ylim(ymin=0,ymax=1.2)
+plt.tick_params(axis='both', which='major', labelsize=16)
+ax.legend(loc=1,prop={'size': 16})
+
+ax.set_ylim(ymin=0,ymax=1)
 ax.set_xlim(xmin=0,xmax=5.35)
-plt.xlabel('arrival rate ' +'$\lambda$')
-plt.ylabel('% VNR')
+plt.xlabel('arrival rate ' +'$\lambda$', fontsize=16)
+plt.ylabel('% VNR', fontsize=16)
 ax.set_axisbelow(True)
 ax.legend()
 plt.savefig('ev_winners_L2.png')

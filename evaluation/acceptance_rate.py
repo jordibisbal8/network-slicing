@@ -11,14 +11,14 @@ dfx1=df1[columns]
 dfx1['avg']=dfx1[columns].mean(axis=1) 
 
 
-dfx1['std']=dfx1[columns].std(axis=1) 
+dfx1['std']= 1.96 * dfx1[columns].std(axis=1)/np.sqrt(30)
 
 dfx2=df2[columns]
 
 dfx2['avg']=dfx2[columns].mean(axis=1) 
 
 
-dfx2['std']=dfx2[columns].std(axis=1) 
+dfx2['std']=1.96 * dfx2[columns].std(axis=1) / np.sqrt(30)
 
 
 ax = plt.subplot()

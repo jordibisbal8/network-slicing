@@ -50,16 +50,16 @@
 \contentsline {section}{\numberline {5.4}Implementation Workflow}{38}{section.5.4}
 \contentsline {section}{\numberline {5.5}Summary}{38}{section.5.5}
 \contentsline {chapter}{\numberline {6}Evaluation}{39}{chapter.6}
-\contentsline {section}{\numberline {6.1}Evaluation environment}{39}{section.6.1}
+\contentsline {section}{\numberline {6.1}Evaluation Setup}{39}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}Pricing Model}{41}{subsection.6.1.1}
 \contentsline {subsection}{\numberline {6.1.2}Proof of Elapsed Time}{42}{subsection.6.1.2}
 \contentsline {section}{\numberline {6.2}Goals and Metrics}{43}{section.6.2}
-\contentsline {section}{\numberline {6.3}Evaluation Results}{43}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Acceptance Rate}{44}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Blockchain Performance and Mining Fairness}{44}{subsection.6.3.2}
-\contentsline {chapter}{\numberline {7}Conclusions}{49}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary}{49}{section.7.1}
-\contentsline {section}{\numberline {7.2}Contributions}{49}{section.7.2}
-\contentsline {section}{\numberline {7.3}Future Work}{49}{section.7.3}
-\contentsline {section}{\numberline {7.4}Final Remarks}{49}{section.7.4}
-\contentsline {chapter}{Bibliography}{49}{dummy.1}
+\contentsline {section}{\numberline {6.3}Evaluation Results}{44}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Acceptance Rate and Bidding Strategy}{44}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Blockchain Performance and Mining Fairness}{48}{subsection.6.3.2}
+\contentsline {chapter}{\numberline {7}Conclusions}{51}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{51}{section.7.1}
+\contentsline {section}{\numberline {7.2}Contributions}{51}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future Work}{51}{section.7.3}
+\contentsline {section}{\numberline {7.4}Final Remarks}{51}{section.7.4}
+\contentsline {chapter}{Bibliography}{51}{dummy.1}

@@ -79,12 +79,12 @@ surf = ax.plot_surface(x, y, z)
 
 
 # Customize the axis.
-ax.set_zlim(0, 1.3)
+ax.set_zlim(0, 1)
 ax.set_xlim(xmin=0,xmax=100)
 ax.set_ylim(ymin=3,ymax=7)
 ax.w_yaxis.set_major_locator(LinearLocator(5))
 ax.set_xlabel('# VNR')
-ax.set_ylabel('# InPs')
+ax.set_ylabel('# ' + '$I_p$')
 ax.set_zlabel('acceptance rate ' + r'$\varphi$')
 plt.savefig('ev_acceptance_rate3D.png')
 plt.show()
