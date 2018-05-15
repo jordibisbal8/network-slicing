@@ -30,13 +30,13 @@ ax.yaxis.grid(linestyle=':',linewidth=1.5)
 ax.spines['right'].set_visible(False)
 ax.spines['top'].set_visible(False)
 
-plt.tick_params(axis='both', which='major', labelsize=16)
-ax.legend(loc=1,prop={'size': 16})
+plt.tick_params(axis='both', which='major', labelsize=14)
+ax.legend(loc=1,prop={'size': 14})
 
 ax.set_ylim(ymin=0,ymax=1)
 ax.set_xlim(xmin=0,xmax=5.35)
-plt.xlabel('arrival rate ' +'$\lambda$', fontsize=16)
-plt.ylabel('% VNR', fontsize=16)
+plt.xlabel('arrival rate ' +'$\lambda$', fontsize=14)
+plt.ylabel('% VNR', fontsize=14)
 ax.set_axisbelow(True)
 
 plt.savefig('ev_winners_L1.png')
