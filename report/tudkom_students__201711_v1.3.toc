@@ -35,30 +35,29 @@
 \contentsline {subsection}{\numberline {4.2.1}Fundamental Goals}{27}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}System Architecture}{28}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Blockchain Type and Mining Strategy}{30}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Authentication System}{30}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.4}Authentication System}{31}{subsection.4.2.4}
 \contentsline {subsection}{\numberline {4.2.5}The Vickrey Auction Model}{32}{subsection.4.2.5}
 \contentsline {section}{\numberline {4.3}Summary}{36}{section.4.3}
 \contentsline {chapter}{\numberline {5}Implementation}{37}{chapter.5}
 \contentsline {section}{\numberline {5.1}Design Decisions}{37}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Environment}{37}{subsection.5.1.1}
-\contentsline {section}{\numberline {5.2}Architecture}{37}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Hybrid Blockchain with Multiple Mining Nodes}{37}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Authentication system}{37}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}User Contract}{38}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Vickrey Contract}{38}{subsection.5.2.4}
-\contentsline {section}{\numberline {5.3}Implementation Workflow}{38}{section.5.3}
-\contentsline {section}{\numberline {5.4}Summary}{38}{section.5.4}
-\contentsline {chapter}{\numberline {6}Evaluation}{39}{chapter.6}
-\contentsline {section}{\numberline {6.1}Evaluation Setup}{39}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Pricing Model}{41}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Proof of Elapsed Time}{42}{subsection.6.1.2}
-\contentsline {section}{\numberline {6.2}Goals and Metrics}{43}{section.6.2}
-\contentsline {section}{\numberline {6.3}Evaluation Results}{44}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Acceptance Rate and Bidding Strategy}{44}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Blockchain Performance and Mining Fairness}{47}{subsection.6.3.2}
-\contentsline {chapter}{\numberline {7}Conclusions}{53}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary}{53}{section.7.1}
-\contentsline {section}{\numberline {7.2}Contributions}{53}{section.7.2}
-\contentsline {section}{\numberline {7.3}Future Work}{53}{section.7.3}
-\contentsline {section}{\numberline {7.4}Final Remarks}{53}{section.7.4}
-\contentsline {chapter}{Bibliography}{53}{dummy.1}
+\contentsline {section}{\numberline {5.2}Architecture}{39}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Hybrid Blockchain with Multiple Mining Nodes}{40}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Authentication system}{42}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Users Contract}{43}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Vickrey Contract}{45}{subsection.5.2.4}
+\contentsline {section}{\numberline {5.3}Implementation Workflow}{47}{section.5.3}
+\contentsline {section}{\numberline {5.4}Summary}{48}{section.5.4}
+\contentsline {chapter}{\numberline {6}Evaluation}{49}{chapter.6}
+\contentsline {section}{\numberline {6.1}Evaluation Setup}{49}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Pricing Model}{51}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Proof of Elapsed Time}{52}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}Goals and Metrics}{53}{section.6.2}
+\contentsline {section}{\numberline {6.3}Evaluation Results}{54}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Acceptance Rate and Bidding Strategy}{54}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Blockchain Performance and Mining Fairness}{57}{subsection.6.3.2}
+\contentsline {chapter}{\numberline {7}Conclusions}{63}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{63}{section.7.1}
+\contentsline {section}{\numberline {7.2}Contributions}{63}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future Work}{63}{section.7.3}
+\contentsline {section}{\numberline {7.4}Final Remarks}{63}{section.7.4}
+\contentsline {chapter}{Bibliography}{63}{dummy.1}

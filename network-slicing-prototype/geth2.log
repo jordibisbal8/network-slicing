@@ -1,0 +1,18 @@
+INFO [05-17|16:10:01] Maximum peer count                       ETH=5 LES=0 total=5
+INFO [05-17|16:10:01] Starting peer-to-peer node               instance=Geth/node2/v1.8.7-unstable/linux-amd64/go1.10.1
+INFO [05-17|16:10:01] Allocated cache and file handles         database=/home/jordibisbal/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing/network-slicing-prototype/privchain2/geth/chaindata cache=768 handles=512
+INFO [05-17|16:10:01] Writing default main-net genesis block 
+INFO [05-17|16:10:01] Persisted trie from memory database      nodes=12356 size=2.34mB time=32.420594ms gcnodes=0 gcsize=0.00B gctime=0s livenodes=1 livesize=0.00B
+INFO [05-17|16:10:01] Initialised chain configuration          config="{ChainID: 1 Homestead: 1150000 DAO: 1920000 DAOSupport: true EIP150: 2463000 EIP155: 2675000 EIP158: 2675000 Byzantium: 4370000 Constantinople: <nil> Engine: ethash}"
+INFO [05-17|16:10:01] Disk storage enabled for ethash caches   dir=/home/jordibisbal/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing/network-slicing-prototype/privchain2/geth/ethash count=3
+INFO [05-17|16:10:01] Disk storage enabled for ethash DAGs     dir=/home/jordibisbal/.ethash                                                                                      count=2
+INFO [05-17|16:10:01] Initialising Ethereum protocol           versions="[63 62]" network=58342
+INFO [05-17|16:10:01] Loaded most recent local header          number=0 hash=d4e567…cb8fa3 td=17179869184
+INFO [05-17|16:10:01] Loaded most recent local full block      number=0 hash=d4e567…cb8fa3 td=17179869184
+INFO [05-17|16:10:01] Loaded most recent local fast block      number=0 hash=d4e567…cb8fa3 td=17179869184
+INFO [05-17|16:10:01] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [05-17|16:10:01] Starting P2P networking 
+INFO [05-17|16:10:01] RLPx listener up                         self="enode://642b069092fe4fb0bac7f0f74037e9d18e689f8e7d0c86f0e9b44387c22c400067cd8c2341a3d0654104661d86e784782c2d60e776abb6a3ebed006ad882e798@[::]:3010?discport=0"
+INFO [05-17|16:10:01] IPC endpoint opened                      url=/home/jordibisbal/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing/network-slicing-prototype/privchain2/geth.ipc
+INFO [05-17|16:10:01] HTTP endpoint opened                     url=http://127.0.0.1:8550                                                                                       cors=http://localhost:8000 vhosts=localhost
+Fatal: Failed to read password file: open password.txt: no such file or directory

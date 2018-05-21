@@ -9,7 +9,7 @@ contract VickreyAuction {
   address public packageWinner;
   uint8 public reservedPackagePrice;
 
-  // Set to true at the end, bid has been payed.
+  // Set to true at the end, bid has been paid.
   bool public ended;
   uint256 public endTime;
 

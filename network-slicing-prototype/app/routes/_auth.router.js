@@ -1,6 +1,8 @@
 import jwt from 'jsonwebtoken'; // used to create, sign, and verify tokens
 import ethUtil from 'ethereumjs-util';
 import config from '../../config/config'
+import web3 from '../controllers/web3';
+
 
 export default (app, router, auth) => {
 
@@ -23,6 +25,7 @@ export default (app, router, auth) => {
       let message = new Buffer(req.body.message);
       let signature = ethUtil.fromRpcSig(req.body.signature);
       let prefix = new Buffer("\x19Ethereum Signed Message:\n");
+      //web3.sha3(Buffer.concat([prefix, new Buffer(String(message.length)), message]));
       let prefixedMsg = ethUtil.sha3(
         Buffer.concat([prefix, new Buffer(String(message.length)), message])
       );
