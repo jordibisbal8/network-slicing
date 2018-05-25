@@ -68,8 +68,6 @@ df7 = pd.read_csv('/home/jordibisbal/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing
 y = np.array([3,4,5,6,7])
 x, y = np.meshgrid(df3.index.values, y)
 
-print df6.mean(axis=1).values
-print df5.mean(axis=1).values
 z = np.array([
  df3.mean(axis=1).values, df6.mean(axis=1).values, df4.mean(axis=1).values, df7.mean(axis=1).values,df5.mean(axis=1).values
 ])
@@ -85,7 +83,7 @@ ax.set_ylim(ymin=3,ymax=7)
 ax.w_yaxis.set_major_locator(LinearLocator(5))
 ax.set_xlabel('# VNR', fontsize=8)
 ax.set_ylabel('# ' + '$I_p$', fontsize=8)
-ax.set_zlabel('acceptance rate ' + r'$\varphi$', fontsize=8)
+ax.set_zlabel('average acceptance rate E[' + r'$\varphi$]', fontsize=8)
 plt.tick_params(axis='both', which='major', labelsize=8)
 plt.savefig('ev_acceptance_rate3D.png')
 plt.show()

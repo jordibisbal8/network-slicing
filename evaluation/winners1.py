@@ -20,9 +20,9 @@ std3 = [1.96 * dfx['I31'].std()/np.sqrt(100),1.96 *dfx['I32'].std()/np.sqrt(100)
 
 index = dfx[dfx['arrivals'].notnull()]['arrivals']
 
-ax.bar(index - bar_width, mean1, bar_width, label= 'InP1', yerr=std1, capsize=7);
-ax.bar(index, mean2, bar_width, label= 'InP2', yerr=std2, capsize=7);
-ax.bar(index + bar_width , mean3, bar_width, label= 'InP3', yerr=std3, color= 'gray',capsize=7);
+ax.bar(index - bar_width, mean1, bar_width, label= 'Infrastructure Provider $InP_1$', yerr=std1, capsize=7);
+ax.bar(index, mean2, bar_width, label= 'Infrastructure Provider $InP_2$', yerr=std2, capsize=7);
+ax.bar(index + bar_width , mean3, bar_width, label= 'Infrastructure Provider $InP_3$', yerr=std3, color= 'gray',capsize=7);
 
 ax.yaxis.grid(linestyle=':',linewidth=1.5)
 
@@ -35,8 +35,8 @@ ax.legend(loc=1,prop={'size': 14})
 
 ax.set_ylim(ymin=0,ymax=1)
 ax.set_xlim(xmin=0,xmax=5.35)
-plt.xlabel('arrival rate ' +'$\lambda$', fontsize=14)
-plt.ylabel('% VNR', fontsize=14)
+plt.xlabel('request arrival rate ' +'$\lambda$', fontsize=14)
+plt.ylabel('average fraction of requests assigned to $InP_x$', fontsize=14)
 ax.set_axisbelow(True)
 
 plt.savefig('ev_winners_L1.png')

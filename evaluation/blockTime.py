@@ -32,13 +32,16 @@ B = mean(mean(mean(mean(mean(A)))))
 fig, ax = plt.subplots(figsize=(7,5))
 
 ax.boxplot(data, 0, '', medianprops=medianprops,whiskerprops=whiskerprops)
-plt.plot([1,2,3,4,5,6], [5.5,3.85,3.025,2.53,2.2083,1.9784], 'ro')
+plt.plot([1,2,3,4,5,6], [5.5,3.85,3.025,2.53,2.2083,1.9784], 'ro', label= "analytical")
+plt.plot([1,2,3,4,5,6], [-1,-1,-1,-1,-1,-1], 'ro', label= "real-world")
 
 ax.yaxis.grid(linestyle=':',linewidth=1.5)
 ax.set_xlim(xmin=0)
 ax.set_ylim(ymin=0, ymax=10)
+ax.legend()
+
 plt.xlabel('# InPs')
-plt.ylabel('block time ' + 'E[' + r'$t_b]$')
+plt.ylabel('average block time ' + 'E[' + r'$t_b]$')
 
 plt.savefig('ev_block_time.png')
 plt.show();

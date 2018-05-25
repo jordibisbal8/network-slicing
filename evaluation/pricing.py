@@ -16,13 +16,13 @@ stdL2 =[  1.96 * df2['A1'].std()/np.sqrt(100), 1.96 * df2['A2'].std()/np.sqrt(10
 index=[1,2,3,4,5]
 
 ax = plt.subplot()
-ax.errorbar(index, meanL1, stdL1, fmt='-', label="L1")
-ax.errorbar(index, meanL2, stdL2, color="r", fmt='-', label="L2")
+ax.errorbar(index, meanL1, stdL1, fmt='-', label="lifetime $L_1$ = 5s")
+ax.errorbar(index, meanL2, stdL2, color="r", fmt='-', label="lifetime $L_2$ = 20s")
 
 
 
-plt.xlabel('arrival rate ' +'$\lambda$')
-plt.ylabel('hourly cost E[' + r'$\alpha^{h}_{s^{*}}(N^R)$]')
+plt.xlabel('request arrival rate ' +'$\lambda$ [req/sec]')
+plt.ylabel('average hourly cost E[' + r'$\alpha^{h}_{s^{*}}(N^R)$]')
 plt.grid(linestyle=':',linewidth=1.5)
 
 # Hide the right and top spines

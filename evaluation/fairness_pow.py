@@ -37,7 +37,7 @@ ax.legend(loc=1,prop={'size': 14})
 
 ax.set_ylim(ymin=0,ymax=1)
 plt.xlabel('# blocks', fontsize=14)
-plt.ylabel('% mined blocks ' + '$B_m$', fontsize=14)
+plt.ylabel('average fraction of mined blocks ' + '$B_m$', fontsize=14)
 ax.set_axisbelow(True)
 plt.savefig('ev_fairness_pow.png')
 plt.show();

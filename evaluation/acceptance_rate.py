@@ -24,10 +24,10 @@ dfx2['std']=1.96 * dfx2[columns].std(axis=1) / np.sqrt(30)
 ax = plt.subplot()
 
 
-ax.errorbar(dfx1.index, dfx1['avg'], dfx1['std'], color="b", fmt='.', label="L1")
-ax.errorbar(dfx2.index, dfx2['avg'], dfx2['std'], color="r", fmt='.', label="L2")
+ax.errorbar(dfx1.index, dfx1['avg'], dfx1['std'], color="b", fmt='.', label="lifetime $L_1$ = 5s")
+ax.errorbar(dfx2.index, dfx2['avg'], dfx2['std'], color="r", fmt='.', label="lifetime $L_2$ = 20s")
 plt.xlabel('#VNR')
-plt.ylabel('acceptance rate ' + r'$\varphi$')
+plt.ylabel('average acceptance rate E[' + r'$\varphi$]')
 plt.grid(linestyle=':',linewidth=1.5)
 
 # Hide the right and top spines
@@ -36,7 +36,7 @@ ax.spines['top'].set_visible(False)
 
 ax.set_xlim(xmin=0, xmax=100)
 ax.set_ylim(ymin=0, ymax=1)
-ax.legend(loc=4)
+ax.legend()
 
 plt.savefig('ev_acceptance_rate.png')
 plt.show()

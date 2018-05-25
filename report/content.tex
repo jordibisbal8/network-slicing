@@ -1165,17 +1165,17 @@ Apart from those parameters, we need reference costs for every resource type, in
 
 \begin{figure}[bth]
 	\myfloatalign
-	\subfloat[European NREN Model.]
+	\subfloat[European NREN topology \citep{zoo}.]
 	{\label{fig:ev_top_a}%
 	\includegraphics[width=0.48\linewidth]{gfx/Evaluation_topologies}} \quad
-	\subfloat[Virtual network request.]
+	\subfloat[Example of a virtual network request.]
 	{\label{fig:ev_top_b}%
 	\includegraphics[width=0.48\linewidth]{gfx/Ev_vnr}} \\
-	\caption{Evaluation topologies used as substrate network and virtual network request.}
+	\caption{(a) The evaluation topologies are sampled as subgraphs from the European NREN topology \citep{zoo}. (b) Example of a virtual network request with node types $\{A, B, ...\}$ and locations $\{DE, CH, ...\}$ }
 	\label{fig:ev_top}
 \end{figure}
 
-\item \textbf{Virtual network request:} A VN request is composed of a set of virtual nodes and the corresponding virtual links (Figure \ref{fig:ev_top_b}). Each virtual node contains exactly the same locations of the substrate network, plus a null one used for embedding the resource type in any location. In addition, the virtual node computing demand $d_i$ and the bandwidth demand $d_{ij}$ are also given from a uniform distribution. In a real world, the bandwidth demand between the virtual nodes is typically given by a traffic matrix. However, note that in section \ref{vickrey}, we have stated that intra-link costs within an InP are negligible and that the inter-links, due to the lack of information of the other InP's substrate topologies, must be roughly estimated by the InPs. For simplicity, in this chapter, the inter-links have fixed unitary costs and these are added after partitioning rather than during the bidding process. In other words, if two virtual nodes are embedded to the same InP, no link cost will be added. Nevertheless, if two nodes are contained into two different providers, then the link cost $\beta_{s^{*}}(L_{ij})$ is given by Equation \ref{eq:ev_linkCosts} (derived from Equation \ref{eq:virtualNodeCost}), where $c$ is the constant corresponding to the fixed unitary cost.
+\item \textbf{Virtual network request:} A VN request is composed of a set of virtual nodes and the corresponding virtual links. A virtual network request example is depicted in Figure \ref{fig:ev_top_b}. Each virtual node contains exactly the same locations of the substrate network, plus a null one used for embedding the resource type in any location. In addition, the virtual node computing demand $d_i$ and the bandwidth demand $d_{ij}$ are also given from a uniform distribution. In a real world, the bandwidth demand between the virtual nodes is typically given by a traffic matrix. However, note that in section \ref{vickrey}, we have stated that intra-link costs within an InP are negligible and that the inter-links, due to the lack of information of the other InP's substrate topologies, must be roughly estimated by the InPs. For simplicity, in this chapter, the inter-links have fixed unitary costs and these are added after partitioning rather than during the bidding process. In other words, if two virtual nodes are embedded to the same InP, no link cost will be added. Nevertheless, if two nodes are contained into two different providers, then the link cost $\beta_{s^{*}}(L_{ij})$ is given by Equation \ref{eq:ev_linkCosts} (derived from Equation \ref{eq:virtualNodeCost}), where $c$ is the constant corresponding to the fixed unitary cost.
 
 Furthermore, we model the VN requests events through a periodic arrival rate $\lambda$, where each arrival occurs always at the same fixed positive time. Regarding the lifetime of the VN requests, they have also two fixed values $L_1 = 10s$ and $L_2 = 25s$. The reason for using periodic arrival rates and fixed lifetimes rather than, for example, Poisson processes and arbitrary lifetimes, is to better study and illustrate the effect of the resource consumption in a non-optimum scenario. The evaluation parameters for the VN requests are summarized in the right part of Table \ref{tab:evparams}.
 
@@ -1221,7 +1221,7 @@ Therefore, thanks to the presented algorithm, the InPs define their product cost
 \begin{figure}[bth]
 	\centering
 	\includegraphics[scale=0.7]{gfx/pricing_model.png}    
-  	\caption{Example of pricing model for resource type C.}
+  	\caption{Our defined pricing model where dynamic costs increase as the resources are utilized. This is an example for resource type C}
   	\label{fig:pricing_model}
 \end{figure}
 
@@ -1293,19 +1293,19 @@ Initially, to measure the acceptance rate of our model under different condition
 
 Therefore, we have defined a scenario where three participating InPs ($I_p$) with zero profit margins ($\gamma_n(N_i),\gamma_n(G) = 0$) embed 100 VNR across 200 runs. In the first half of the runs, these requests have a small lifetime $L_1 = 5s$. Then, to compare the outcome with a larger lifetime, a second lifetime $L_2=20s$ has been set for the remaining runs. In addition, these requests are sent periodically every second, i.e. with arrival time $\lambda = 5$.
 
-Figure \ref{fig:acceptance_rate} illustrates the mean acceptance rates $\varphi$ with CI=95\%, when the lifetimes $L_1$ and $L_2$ are applied. As expected, this value is higher for $L_1$ inasmuch as smaller lifetimes ($L_1 < L_2$) utilize the resources during a shorter period, and consequently, the nodes are earlier released. More specifically, first, the acceptance rate decreases for both cases as the resources are gradually filled, which hampers the embedding of the following VNRs. Afterwards, we contemplate that both lifetimes reach steady states as the number of VNR grows. This is because the lifetime of the first incoming VNR expires, which reduce the nodes used capacities $\mu^s_u$. Since this cycle is repeated over the time, it produces the named steady state. In particular, $L_1$ and $L_2$ start to experience this phenomenon around 10s and 25s respectively, which exactly corresponds to the lifetime of our requests.
+Figure \ref{fig:acceptance_rate} illustrates the mean acceptance rates $\varphi$ with CI=0.95, when the lifetimes $L_1$ and $L_2$ are applied. As expected, this value is higher for $L_1$ inasmuch as smaller lifetimes ($L_1 < L_2$) utilize the resources during a shorter period, and consequently, the nodes are earlier released. More specifically, first, the acceptance rate decreases for both cases as the resources are gradually filled, which hampers the embedding of the following VNRs. Afterwards, we contemplate that both lifetimes reach steady states as the number of VNR grows. This is because the lifetime of the first incoming VNR expires, which reduce the nodes used capacities $\mu^s_u$. Since this cycle is repeated over the time, it produces the named steady state. In particular, $L_1$ and $L_2$ start to experience this phenomenon around 10s and 25s respectively, which exactly corresponds to the lifetime of our requests.
 
 \begin{figure}[bth]
 	\centering
 	\includegraphics[scale=0.65]{gfx/ev_acceptance_rate.png}    
-  	\caption{Acceptance rate $\varphi$ along the virtual network requests.}
+  	\caption{Average acceptance rate $\varphi \in [0,1]$ with CI = 0.95 describing the fraction of requests accepted. After a transient phase the request acceptance rate is dependent on the request lifetime $L$.}
   	\label{fig:acceptance_rate}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[scale=0.95]{gfx/ev_acceptance_rate3D.png}    
-  	\caption{Acceptance rate $\varphi$ along the virtual network requests with different number of InPs.}
+	\includegraphics[scale=0.9]{gfx/ev_acceptance_rate3D.png}    
+  	\caption{Average acceptance rate $\varphi \in [0,1]$ for $L = 5s$ and $\lambda = 5$, describing the fraction of requests accepted for infrastructure providers $I_p =[3,4,5,6,7]$. The acceptance rate is slightly higher as $I_p$ increases.}
   	\label{fig:acceptance_rate_3D}
 \end{figure}
 
@@ -1313,8 +1313,8 @@ In Figure \ref{fig:acceptance_rate}, we have seen that at the beginning, a high 
 
 \begin{figure}[bth]
 	\centering
-	\includegraphics[scale=0.7]{gfx/ev_pricing.png}    
-  	\caption{ Estimated VN request cost with different arrival rates $\lambda$} 
+	\includegraphics[scale=0.68]{gfx/ev_pricing.png}    
+  	\caption{Impact of a periodic arrival rate $\lambda$ on the average hourly costs. A higher request arrival rate causes a cost increase due to the resource utilization.} 
   	\label{fig:pricing}
 \end{figure}
 
@@ -1326,12 +1326,11 @@ Figure \ref{fig:pricing}, depicts the mean hourly costs for the requested virtua
 
 In case of small arrival rates ($\lambda = 1$), as the resources are less utilized, then the Equation \ref{eq:ev_price_model} results in $\alpha^{h}_{s^{*}} \approx \sigma_s$, and hence, to 50 independently of the applied lifetimes. However, once the arrival rate value increases, the deviations from $L_1$ to $L_2$ are higher. The main reason is that the second term of the Equation \ref{eq:ev_price_model}, tends to infinity when the resources are occupied, which occurs frequently by large lifetimes. For instance, when $\lambda = 5$, the difference between $L_1$ and $L_2$ on the average cost is approximately $21\%$.
 
-
 In the previous experiments, we have evaluated the acceptance rate $\varphi$ regarding the lifetimes $L_1$ and $L_2$, and different $I_p$. In addition, we have studied how the costs are altered with different arrival rates $\lambda$. 
 
-Nevertheless, we have considered so far that the InPs apply zero profit margins ($\gamma_n(N_i), \gamma_n(G) = 0$), which indicates that the bidder strategies need to be further assessed. Thus, we have set up a similar scenario with the same arrival rates $\lambda$, lifetimes $L_1$ and $L_2$ and $I_p = 3$, where each InP has individual and package profits $\gamma_1 = 0.1, \gamma_2 = 0.2, \gamma_3 = 0.4$ respectively. Moreover, we have established an upper bound $u_G = 80$ cost for the whole virtual network, to prevent that InPs use immense profit margins. This value is a slight increment of the maximum cost reached in Figure \ref{fig:pricing}.
+Nevertheless, we have considered so far that the InPs apply zero profit margins ($\gamma_n(N_i), \gamma_n(G) = 0$), which indicates that the bidder strategies need to be further assessed. Thus, we have set up a similar scenario with the same arrival rates $\lambda$, lifetimes $L_1$ and $L_2$ and $I_p = 3$, where each InP has individual and package profits $\gamma_1 = 0.1, \gamma_2 = 0.2, \gamma_3 = 0.4$ respectively. 
 
-Figure \ref{fig:winners} depicts the percentage of embedded virtual network requests for each InP. To remark the differences, in this plot, we have divided the results for $L_1$ and $L_2$, which corresponds to Figures \ref{fig:winners1} and \ref{fig:winners2} respectively. In the first, we observe that for low arrival rates the values between the $I_p$ are completely different because the resources are not yet fully occupied. Hence, the InP with lower profit margins, in this case, InP1 embeds most of the VNR. In contrast, for larger $\lambda$, the second InP, since the InP1 resources are utilized, start to gradually increase the number of embedded VNRs. Finally, InP3 embeds the remaining VNR, although this amount is not significant since the other InPs can still deal with the requests.
+Moreover, to prevent that InPs use immense profit margins, we have established a VN upper bound cost $u_G = 80$, which is a slight increment of the maximum cost reached in Figure \ref{fig:pricing}. Figure \ref{fig:winners} depicts the percentage of embedded virtual network requests for each InP. To remark the differences, in this plot, we have divided the results for $L_1$ and $L_2$, which corresponds to Figures \ref{fig:winners1} and \ref{fig:winners2} respectively. In the first, we observe that for low arrival rates the values between the $I_p$ are completely different because the resources are not yet fully occupied. Hence, the InP with lower profit margins, in this case, InP1 embeds most of the VNR. In contrast, for larger $\lambda$, the second InP, since the InP1 resources are utilized, start to gradually increase the number of embedded VNRs. Finally, InP3 embeds the remaining VNR, although this amount is not significant since the other InPs can still deal with the requests.
 
 Meanwhile, when the VNR contain larger lifetimes $L_2$ (Figure \ref{fig:winners2}), the denouement is more weighted. From the beginning, since the InP's resources are largely populated, the incoming requests need to be served by other InPs. Naturally, first the InPs with lower profit margins handle the petitions. However, as the number of resources is not sufficient, InPs with bigger profits start to embed a meaningful fraction of them.
 
@@ -1339,13 +1338,13 @@ To summarize, in this section, we have studied the acceptance rate based on seve
 
 \begin{figure}[t]
 	\myfloatalign
-	\subfloat[$L_1 \approx$ 10s.]
+	\subfloat[lifetime $L_1$ = 10s.]
 	{\label{fig:winners1}
 	\includegraphics[width=0.48\linewidth]{gfx/ev_winners_L1.png}} \quad
-	\subfloat[$L_2 \approx$ 25s.]
+	\subfloat[lifetime $L_2$ = 25s.]
 		{\label{fig:winners2}
 	\includegraphics[width=0.48\linewidth]{gfx/ev_winners_L2.png}} \\
-	\caption{VN requests winners with different arrival rates $\lambda$ and lifetimes $L_1 < L_2$.}
+	\caption{Average fraction of VN requests assigned to each InP with different arrival rates $\lambda$ and lifetimes $L_1 < L_2$. The InPs are heteregenous with different profit margins $\gamma_1 = 0.1, \gamma_2 = 0.2, \gamma_3 = 0.4$. With large lifetimes $L$ and arrival rates $\lambda$, InPs with higher profit margins start to embed virtual network requests.}
 	\label{fig:winners}
 \end{figure}
 
@@ -1389,25 +1388,25 @@ function tailoredPow() {
 
 \begin{figure}[bth]
 	\myfloatalign
-	\subfloat[PoW.]
+	\subfloat[Proof of Work (PoW).]
     {\label{fig:forks1}
 	\includegraphics[width=0.48\linewidth]{gfx/ev_forks_pow.png}} \quad
-	\subfloat[PoET.]
+	\subfloat[Proof of Elapsted time (PoET).]
 	{\label{fig:forks2}
 	\includegraphics[width=0.48\linewidth]{gfx/ev_forks_poet.png}} \\
-	\caption{Number of forks $f_b$ per block with three mining nodes using PoW with tiny difficulty and PoET.}
+	\caption{Number of forks $f_b$ per block with three mining nodes using PoW with tiny difficulty and PoET. Note that the difference depends on the parameters of PoW, i.e. difficulty. and PoET, i.e. the window size $w_n$}
 	\label{fig:forks}
 \end{figure}
 
 \begin{figure}[bth]
 	\myfloatalign
-	\subfloat[PoW.]
+	\subfloat[Proof of Work (PoW).]
 	{\label{fig:fairness1}
 	\includegraphics[width=0.48\linewidth]{gfx/ev_fairness_pow.png}} \quad
-	\subfloat[PoET.]
+	\subfloat[Proof of Elapsted time (PoET).]
     {\label{fig:fairness2}	
 	\includegraphics[width=0.48\linewidth]{gfx/ev_fairness_poet.png}} \\
-	\caption{Mining fairness among three mining nodes using PoW with tiny difficulty and PoET.}
+	\caption{Average fraction of mined blocks $B_m$ among three mining nodes using PoW with tiny difficulty and PoET. Using PoET the average fraction is more well-balanced due the random leader election.}
 	\label{fig:fairness}
 \end{figure}
 
@@ -1479,7 +1478,7 @@ Thus, regarding the forks, the presence of more miners creates more $f_b$ on the
 \begin{figure}[bth]
 	\centering
 	\includegraphics[scale=0.7]{gfx/ev_block_time.png}    
-  	\caption{Block time with different InPs mining and using PoET.}
+  	\caption{Average block time with different InPs mining and using the PoET consensus model. The difference between the analytical and real-world model is probably due to the overload in block generation (computation) and in informing the other mining nodes of the mined block.}
   	\label{fig:block_time}
 \end{figure}
   
