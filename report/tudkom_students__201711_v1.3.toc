@@ -45,19 +45,19 @@
 \contentsline {subsection}{\numberline {5.2.2}Authentication system}{42}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}Users Contract}{43}{subsection.5.2.3}
 \contentsline {subsection}{\numberline {5.2.4}Vickrey Contract}{45}{subsection.5.2.4}
-\contentsline {section}{\numberline {5.3}Implementation Workflow}{47}{section.5.3}
+\contentsline {section}{\numberline {5.3}Implementation Workflow}{46}{section.5.3}
 \contentsline {section}{\numberline {5.4}Summary}{48}{section.5.4}
-\contentsline {chapter}{\numberline {6}Evaluation}{51}{chapter.6}
-\contentsline {section}{\numberline {6.1}Evaluation Setup}{51}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Pricing Model}{53}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Proof of Elapsed Time}{54}{subsection.6.1.2}
-\contentsline {section}{\numberline {6.2}Goals and Metrics}{55}{section.6.2}
-\contentsline {section}{\numberline {6.3}Evaluation Results}{56}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Acceptance Rate and Bidding Strategy}{56}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Blockchain Performance and Mining Fairness}{59}{subsection.6.3.2}
-\contentsline {chapter}{\numberline {7}Conclusions}{65}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary}{65}{section.7.1}
-\contentsline {section}{\numberline {7.2}Contributions}{65}{section.7.2}
-\contentsline {section}{\numberline {7.3}Future Work}{65}{section.7.3}
-\contentsline {section}{\numberline {7.4}Final Remarks}{65}{section.7.4}
-\contentsline {chapter}{Bibliography}{65}{dummy.1}
+\contentsline {chapter}{\numberline {6}Evaluation}{49}{chapter.6}
+\contentsline {section}{\numberline {6.1}Evaluation Setup}{49}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Pricing Model}{51}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Proof of Elapsed Time}{52}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}Goals and Metrics}{53}{section.6.2}
+\contentsline {section}{\numberline {6.3}Evaluation Results}{54}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Acceptance Rate and Bidding Strategy}{54}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Blockchain Performance and Mining Fairness}{57}{subsection.6.3.2}
+\contentsline {chapter}{\numberline {7}Conclusions}{63}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{63}{section.7.1}
+\contentsline {section}{\numberline {7.2}Contributions}{63}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future Work}{63}{section.7.3}
+\contentsline {section}{\numberline {7.4}Final Remarks}{63}{section.7.4}
+\contentsline {chapter}{Bibliography}{63}{dummy.1}

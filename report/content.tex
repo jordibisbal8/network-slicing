@@ -843,14 +843,13 @@ In the first place, to initialise a private blockchain separated from the public
 
 \begin{enumerate}
 	
-	\item \textbf{Data Directory:} The data directory is where the chain data of our blockchain is stored. In our case, each firm has a specific folder in the machine running the mining node, where all this information is conserved.
+	\item \textbf{Data Directory:} It is where the chain data of our blockchain is stored. In our case, each firm has a specific directory in the machine running the mining node, where all this information is conserved.
 	\item \textbf{Network ID:} It is a scalar value that identifies the customized network, which must be random but different than other predefined networks, such as 1 or 4 used for the Ethereum public main network or the public Geth Ethereum testnet respectively. In our environment, this value needs to be known for all the mining nodes.
-	\item \textbf{Genesis Block:} The Genesis block, also called block 0, is the start of the Blockchain. It is hardcoded into the client in a file called genesis.json, whose content must be identical for all the mining nodes to ensure that they work on the same blockchain. Since it is written in JSON format, the specifications for the genesis block are written in key/value pairs. Despite most of these parameters are later on arbitrary, they need to be first defined for the genesis block \citep{GenesisParams}: (i) \textit{nonce}: Recap from \ref{mining_Transactions} that the nonce is a 64-bit hash, which proves that a sufficient amount of work has been performed on creating the next block header. (ii) \textit{mixhash}: It is an intermediary hash calculation (256-bit) for finding the nonce and used to determine if an attacker mines blocks with incorrect nonces, which has a lower computational cost. (iii) \textit{timestamp}: A scalar value equal to the current Unix time to identify when a block is mined. The values introduced until now are meaningless in the genesis block, since they will be later on arbitrary or specific to the current time (timestamp). (iv) \textit{difficulty}: An integer that defines the increase or decrease of the mining block complexity depending on the timestamp differences between the current and the parent block. (v) \textit{parentHash}: The keccak 256-bit hash of the parent block header. This is meaningless in the genesis block, since block 0 has no parent. (vi) \textit{extraData}: An optional value with a maximum size of 32-bytes. (vii) \textit{alloc}: It is a list of accounts with pre-allocated Ether. (viii) \textit{coinbase}: A 160-bit address to which all the mining rewards are sent. In our case, as the mining rewards are divided between the different nodes this value is not set. (ix) \textit{gasLimit}: A value equal to the maximum gas that a transaction can spend.
+	\item \textbf{Genesis Block:} The Genesis block, also called block 0, is the start of the Blockchain. It is hardcoded into the client in a file called genesis.json, whose content must be identical for all the mining nodes to ensure that they work on the same blockchain. Since it is written in JSON format, the specifications for the genesis block are written in key/value pairs. Despite most of these parameters are later on arbitrary, they need to be first defined for the genesis block \citep{GenesisParams}: (i) \textit{nonce}: Recap from \ref{mining_Transactions} that the nonce is a 64-bit hash, which proves that a sufficient amount of work has been performed on creating the next block header. (ii) \textit{mixhash}: It is an intermediary hash calculation (256-bit) for finding the nonce and used to determine if an attacker mines blocks with incorrect nonces, which has a lower computational cost. (iii) \textit{timestamp}: A scalar value equal to the current Unix time to identify when a block is mined. The values introduced until now are meaningless in the genesis block, since they will be later on arbitrary or specific to the current time (timestamp). (iv) \textit{difficulty}: An integer that defines the increase or decrease of the mining block complexity depending on the timestamp differences between the current and the parent block. (v) \textit{parentHash}: The keccak 256-bit hash of the parent block header. This is meaningless in the genesis block, since block 0 has no parent. (vi) \textit{extraData}: An optional value with a maximum size of 32-bytes. (vii) \textit{alloc}: It is a list of accounts with pre-allocated Ether. (viii) \textit{coinbase}: A 160-bit address to which all the mining rewards are sent. In our case, as the mining rewards are divided between the different nodes this value is not set. (ix) \textit{gasLimit}: A value equal to the maximum gas for transaction.
 
 \end{enumerate}
 
-In Listing \ref{lst:JSONFile}, we present the genesis file used for our implementation. For the moment, we define the \textit{difficulty} to be equal to 0x800, which is the minimum for the Ethereum PoW (explained later in section \ref{resultsBlock}). Note that in PoW a miner needs to find a valid block header, whose cryptographic hash is less than $\frac{2^{224}}{d}$, where $d$ is the block difficulty (Equation \ref{eq:proofOfWork}). Thus, a smaller difficulty gives us a higher value for this term, which results in a higher probability of finding the block header. In chapter \ref{ch:evaluation}, we will further examine how this parameter influences the block generation time, and which is the most suitable value for a private network. 
-\newline
+In Listing \ref{lst:JSONFile}, we present the genesis file used for our implementation. There, we define the \textit{difficulty} to be equal to 0x800, which is the minimum value for the Ethereum PoW (explained later in section \ref{resultsBlock}). Note that in PoW, a miner needs to find a valid block header, whose cryptographic hash is less than $\frac{2^{224}}{d}$, where $d$ is the block difficulty (Equation \ref{eq:proofOfWork}). Thus, a small difficulty gives us a higher value for this term, which results in a higher probability of finding the block header. In chapter \ref{ch:evaluation}, we will further examine how this parameter influences the block generation time, and which is the most suitable value for a private network. 
 
 \begin{lstlisting}[language=JSON,caption={Genesis file used for our implementation.},label={lst:JSONFile}]
 {
@@ -873,7 +872,7 @@ In Listing \ref{lst:JSONFile}, we present the genesis file used for our implemen
 }
 \end{lstlisting}
 
-Apart from the already introduced fields, in our genesis file, we have introduced a \textit{config} parameter, which specifies the settings configuration variables for Ethereum, and has no relation with block 0. In particular, \textit{chainId} is the chain to work, typically a random number, and it is totally different from the network ID. For instance, a peer can use the network ID 58342 but later mine in chain 1. When setting the \textit{homeSteadBlock} field to 0, means that the chain is using the Homestead release of Ethereum, which is the same of the main Ethereum network. Finally, the EIP parameters stand for Ethereum Improvement Proposals, from which we use the \textit{eip155Block} and \textit{eip155Block} that are used to prevent replay attacks and modify the way to deal with empty accounts (less space in BC) respectively.
+Apart from the already introduced fields, in our genesis file, we have introduced a \textit{config} parameter, which specifies the configuration variables for the Ethereum network, and has no relation with block 0. In particular, \textit{chainId} is the chain to work, typically a random number, and it is totally different from the network ID. For instance, a peer can use the network ID 58342 but later mine in chain 1. When setting the \textit{homeSteadBlock} field to 0, means that the chain is using the Homestead release of Ethereum, which is the same of the main Ethereum network. Finally, the EIP parameters stand for Ethereum Improvement Proposals, from which we use the \textit{eip155Block} and \textit{eip155Block} that are used to prevent replay attacks and modify the way to deal with empty accounts (less space in BC) respectively.
 
 After having defined the genesis file and in order to start running the blockchain, one Ethereum node must build it. An example of the two commands needed are illustrated below:
 \newline
@@ -885,10 +884,11 @@ $ geth --port 3000 --networkid 58342 --datadir="<path-to-directory>" --maxpeers=
 
 The first command specifies the data directory where the blockchain data is initialized and stored. The second starts running the blockchain with the specified parameters. In this example, the blockchain is configured to run locally in port 3000 and with network ID 58342. In addition, a gas price equal to 0, means that the transactions in the blockchain, if not explicitly specified, have not cost. Since we are building a private blockchain with different users, it is not logical to charge those when they are performing operations. For instance, when a user registers to the application or when a SP begins a new auction. Also, adding the field --nodiscover disables the peer discovery mechanism, i.e. nodes are only connected by manual addition. 
 
-After executing these commands, for the other Ethereum clients, which should have the same genesis file and network ID, but different domains, ports and data directories, these nodes need to be synchronized. To achieve this, Geth supports a feature called static nodes, which can be configured into <path-to-directory>/static-nodes.json. These static nodes are added through the so-called \textbf{Enodes}, which are Ethereum nodes written in a URL scheme. An example of the static-nodes file in a blockchain client, which adds two other Enodes, has the following format:
-\newline
+After executing these commands for each of the Ethereum clients, which should have the same genesis file and network ID but different domains, ports and data directories, these nodes need to be synchronized. To achieve this, Geth supports a feature called static nodes, which can be configured into <path-to-directory>/static-nodes.json. These static nodes are added through the so-called \textbf{Enodes}, which are Ethereum nodes written in a URL scheme. 
 
-\begin{lstlisting}[language=JSON,caption={Example of a static-nodes.json file that adds two other blockchain nodes}, label={lst:ENodes}]
+An example of the static-nodes file in a blockchain client, which adds two other Enodes, has the following format:
+
+\begin{lstlisting}[language=JSON,caption={Example of a static-nodes.json file that adds two other blockchain nodes.}, label={lst:ENodes}]
 [
 "enode://38dd47f0ed04ec88ede2f75970da08f23ca87de8f96bf576dc769b0f9df807782d3729bc83b99042a3eb193ff 091cb4715a0906e5e902fb5adc04af91f3a7ba7@[::]:3010?discport=0",
 
@@ -926,19 +926,15 @@ To summarize, thanks to the middleware and the web tokens, in the authentication
 
 \subsection{Users Contract}
 
-In the first design of the system architecture, see Figure \ref{fig:designWorkflow}, we have defined a permanently requestable smart contract named \textit{Users}, whose responsibility is to store the participant's information, such as the entered InP substrate networks (peering nodes and links), used to match different virtual node types in specific locations. 
+In the design of the system architecture, see Figure \ref{fig:designWorkflow}, we have defined a permanently requestable smart contract named \textit{Users}, whose responsibility is to store the participant's information, such as the entered InP substrate networks (peering nodes and links), used to match different virtual node types in specific locations. 
 
 Given the importance of this contract, on the next pages, we present the fundamental data structures and functions that describe its functionality. To understand the code, it is assumed that the reader has a basic knowledge of JavaScript or even better Solidity.
 
-To begin with the contract, we have defined the structs \textit{User} and \textit{UserAuction}. The first stores the email and role of the registered user and it is accessed by giving its Ethereum address (\textit{users} mapping). The second provides all the auctions (open and close) of a determined user by entering again the address as the key of the \textit{userAuctions} mapping. If the endTime is smaller than the current Unix time(), no more bids can be placed to the contract. This last struct is accessed by the function \textit{getUserAuctions()}, which gets all the auctions of a user. Since the auctions are multiple, in this function we define three dynamic arrays on the memory, which are filled with the corresponding auctions once entering the loop. Despite it is not illustrated, once a SP starts a new auction, the application appends the address of this new auction to the \textit{UserAuction} struct of the InPs with matched resources. Thus, once the InPs enter the application, the \textit{GetUserAuctions()} is called, and exclusively the paired InPs see this new auction for bidding. This behavior easily accomplishes the pull-based notifications required. In addition, the \textit{Vickrey contract} also stores these InPs, to prevent the bidding of other users (see section \ref{vickreyContract}).
+To begin with the contract, we have defined the structs \textit{User} and \textit{UserAuction}, see Listing \ref{lst:UserContract1}. The first stores the email and role of the registered user and it is accessed by giving its Ethereum address (\textit{users} mapping). The second provides all the auctions (open and close) of a determined user by entering again the address as the key of the \textit{userAuctions} mapping. If the endTime is smaller than the current Unix time(), no more bids can be placed to the contract. 
 
-Moreover, the \textit{Users} contract includes the \textit{PeeringNode} and \textit{Link} structs, which combined form the InPs substrate networks. The first includes the different resources types in a specific peering node location, such as $\{A, B, C, D\}$ in Germany. The second includes the \textit{from} and \textit{to} fields corresponding to the ids of the peering nodes connected by this link. Furthermore, we can also find the \textit{getMatchedVirtualNodes} function, which returns the id of the virtual nodes that were matched with an InP data. For instance, if InP1 has a peering node in Germany with resource types $\{A,B,C,D\}$, and a VNR contains $\{A, B, C\}$ in $\{DE, DE, CH\}$ respectively, only the virtual nodes $A$ and $B$ are return. In the application, this function is called for every InP after a SP sends a VN request. The aim is to use this data, to restrict the InPs to only bid for the paired virtual nodes, on the subsequently created \textit{Vickrey} contract. 
+This last struct is accessed by the function \textit{getUserAuctions()}, which gets all the auctions of a user. Since the auctions are multiple, in this function we define three dynamic arrays on the memory, which are filled with the corresponding auctions once entering the loop. Despite it is not illustrated, once a service provider starts a new auction, the application appends the address of this new auction to the \textit{UserAuction} struct of the InPs with matched resources. Thus, once an infrastructure provider enters the application, the \textit{GetUserAuctions()} is called, which exclusively returns the auctions where this InP is allowed to bid. This behavior easily accomplishes the pull-based notifications required, retrieving the new auctions address, and subsequently the specific information, in real-time. In addition, the \textit{Vickrey contract} also stores these InPs, to prevent the bidding of other users (see section \ref{vickreyContract}).
 
-Finally, it is also important to stress the modifier \textit{isUserInP}, which is placed in determined functions, such as to add peering nodes (not shown in code), in order to prevent that SPs perform operations not related to their roles. 
-
-\begin{lstlisting}[language=JavaScript]
-contract Users {
-
+\begin{lstlisting}[language=JavaScript,caption={Data structures and functions related to the user data in the Users contract. },label={lst:UserContract1}]
   struct User {
     bytes32 email;
     bytes32 role;
@@ -949,7 +945,30 @@ contract Users {
     bool isOpened;
     uint256 endTime;
   }
+
+  mapping(address => User) private users;
+  mapping(address => UserAuction[]) private userAuctions;
+  address[] public userAddresses;
   
+  // Method that gets the auctions addresses specific to the user requesting it
+  function getUserAuctions() public constant returns (address[], bool[], uint256[]) {
+    var auctions = userAuctions[msg.sender];
+    address[] memory auctionAddrs = new address[](auctions.length);
+    bool[] memory isOpened = new bool[](auctions.length);
+    uint256[] memory endTime = new uint256[](auctions.length);
+    for (uint i = 0; i < auctions.length; i++) {
+      auctionAddrs[i] = auctions[i].auctionAddr;
+      isOpened[i] = auctions[i].isOpened;
+      endTime[i] = auctions[i].endTime;
+    }
+    return (auctionAddrs, isOpened, endTime);
+  }
+\end{lstlisting}
+
+Moreover, the \textit{Users} contract includes the \textit{PeeringNode} and \textit{Link} structs, which combined form the InPs substrate networks, see Listing \ref{lst:UserContract2}. The first includes the different resources types in a specific peering node location, such as $\{A, B, C, D\}$ in Germany. The second includes the \textit{from} and \textit{to} fields corresponding to the ids of the peering nodes connected by this link.
+\newline
+
+\begin{lstlisting}[language=JavaScript,caption={Data structures related to the peering nodes and links in the Users contract.}, label={lst:UserContract2}]
   struct PeeringNode {
     bytes32 idPeeringNode;
     bytes32 location;
@@ -962,16 +981,21 @@ contract Users {
     bytes32 to;
   }
 
-  mapping(address => User) private users;
-  mapping(address => UserAuction[]) private userAuctions;
   mapping(address => PeeringNode[]) private peeringNodes;
   mapping(bytes32 => Link[]) private links;
-  address[] public userAddresses;
-  
+\end{lstlisting}
+
+Furthermore, in Listing \ref{lst:UserContract3}, we find the \textit{getMatchedVirtualNodes} function, which returns the id of the virtual nodes that were matched with an InP data. For instance, if InP1 has a peering node in Germany with resource types $\{A,B,C,D\}$, and a VNR contains $\{A, B, C\}$ in $\{DE, DE, CH\}$ respectively, only the virtual nodes $A$ and $B$ are return. The aim is to use this data, to restrict the InPs to only bid for the paired virtual nodes, on the subsequently created \textit{Vickrey} contract.
+
+Finally, it is also important to stress the modifier \textit{isUserInP}, which is placed in determined functions, such as to add peering nodes (not shown in code), in order to prevent that SPs perform operations not related to their roles. 
+\newline
+
+\begin{lstlisting}[language=JavaScript,caption={Function to get the paired virtual nodes in the Users contract.}, label={lst:UserContract3}]
+  // Modifier that when placed in a function, restrict the call to only the InPs
   modifier isUserInP(address sender) {
     require(users[sender].role == "InP"); _;
   }
-
+  // Method that returns the virtual nodes matched with the substrate networks
   function getMatchedVirtualNodes(address InP, bytes32[] idVirtualNodes, bytes32[] locations, bytes32[] resourceTypes) public constant returns (bytes32[]) {
     bytes32[] memory virtualNodes = new bytes32[](locations.length);
     for (uint i = 0; i < locations.length; i++) {
@@ -988,72 +1012,18 @@ contract Users {
     }
     return virtualNodes;
   }
-
-  function getUserAuctions() public constant returns (address[], bool[], uint256[]) {
-    var auctions = userAuctions[msg.sender];
-    address[] memory auctionAddrs = new address[](auctions.length);
-    bool[] memory isOpened = new bool[](auctions.length);
-    uint256[] memory endTime = new uint256[](auctions.length);
-    for (uint i = 0; i < auctions.length; i++) {
-      auctionAddrs[i] = auctions[i].auctionAddr;
-      isOpened[i] = auctions[i].isOpened;
-      endTime[i] = auctions[i].endTime;
-    }
-    return (auctionAddrs, isOpened, endTime);
-  }
-}
 \end{lstlisting}
 
 \subsection{Vickrey Contract} \label{vickreyContract}
 
-In the following, we present the most relevant data of the \textit{Vickrey} contract, whose ABI is loaded each time a service provider requests a VN, in order to create a new contract that initializes the auction corresponding to this VNR. Thus, in contrast to the single \textit{Users} contract, in the blockchain, there are multiple \textit{Vickrey} contracts, each having the same data structures and functions, although with different states. In addition, before its creation, the middleware always requests the \textit{Users} contract, to add to this new contract the data that restricts the virtual nodes bidding to only the paired InPs.
+In the following, we present the most relevant data of the \textit{Vickrey} contract. To create a contract that initiates the auction corresponding to the virtual network request, the ABI of the \textit{Vickrey} contract is loaded each time a service provider requests a VN. Thus, in contrast to the single \textit{Users} contract, in the blockchain, there are multiple \textit{Vickrey} contracts, each having the same data structures and functions, although with different states. In addition, before its creation, the middleware always requests the \textit{Users} contract, to add to this new contract the data that restricts the bidding to only the paired InPs.
 
-Firstly, when the contract is created, the constructor function \textit{Vickrey} is called, which stores the SP owning the contract and the auction end time, and adds the virtual nodes and links of the VNR in the first structs (functions not shown in code). Subsequently, the middleware adds the allowed InPs per virtual node and the ones enabled to bid for the whole virtual network, functions \textit{addInPsPerVNAllowed} and \textit{addInPsPackageAllowed} respectively. 
+Firstly, when the contract is created (Listing \ref{lst:Vickrey0}), the constructor function \textit{Vickrey} is called, which stores the SP owning the contract and the auction end time, and adds the virtual nodes and links of the VNR in the first structs (functions \textit{addVirtualNodes} and \textit{addVirtualLinks} not shown in code). \newline
 
-From now on, the paired InPs are allowed to bid for the corresponding virtual nodes or for the whole virtual network (if enabled) through the web application. These InPs call either the function \textit{commitIndividualBids} or \textit{commitPackageBid}. To restrict that non-allowed InPs bid or that an InP bids multiple times for the same resources, the function \textit{isInPAllowed} and mappings \textit{isInPPackageAllowed} and \textit{hasBidded} are defined. For instance, the function \textit{isInPAllowed} checks all the InPs per virtula node given by the mapping \textit{allowedInPsPerVirtualNode}, which returns true or false whether the passed InP is found or not.
-
-Lastly, once the auction finishes, i.e. endTime < now(), the SP needs to close the contract. In particular, the SP sends a request to the middleware, which gets all the bids from the contract and performs the Vickrey algorithm introduced in section \ref{vickrey}. Afterwards, the resulting winners and reserved prices are added to the contract and the boolean field \textit{isOpened} from the struct \textit{UserAuction} in \textit{Users} contract is set to false.
-
-\begin{lstlisting}[language=JavaScript]
-contract Vickrey {
-
-  struct VirtualNode {
-    bytes32 id;
-    bytes32 resourceType;
-    bytes32 location;
-    uint8 upperBoundCost;
-    uint8 computingDemand;
-  }
-
-  struct VirtualLink {
-    bytes32 id;
-    bytes32 from;
-    bytes32 to;
-    uint8 dBandwidth;
-  }
-  
-  struct Bid {
-    address InP;
-    uint8 value;
-  }
-  
+\begin{lstlisting}[language=JavaScript,caption={Data structures and functions called when the Vickrey contract is created}, label={lst:Vickrey0}]
   address public owner; //SP address
-  address[] public bidders; //InP addresses
-  address[] public packageBidders; //InP addresses
   uint256 public endTime;
-  
-  mapping(bytes32 => Bid[]) private bids; //per virtual node
-  mapping(address => uint8) private packageBid;
-  mapping(bytes32 => Bid) private reservedBid; //winning reserved bid per virtual node
-  uint8 public reservedPackagePrice;
-  VirtualNode[] public virtualNodes;
-  mapping(bytes32 => VirtualLink[]) public links; //from idVirtualNode
-  mapping(bytes32 => address[]) public allowedInPsPerVirtualNode;
-  mapping(address => bool) public isInPPackageAllowed;
-  mapping(address => bool) private hasBidded;
     
-  modifier onlyBefore(uint _time) { require(now < _time); _; }
-
   // Constructor method called when contract is created
   function Vickrey(bytes32[] idVirtualNodes, bytes32[] resourceTypes, bytes32[] locations, uint8[] upperBoundCosts, uint8[] cDemands, bytes32[] idLinks, bytes32[] from, bytes32[] to, uint8[] dBandwidth, uint256 time) public {
     owner = msg.sender;
@@ -1061,7 +1031,17 @@ contract Vickrey {
     addVirtualNodes(idVirtualNodes, resourceTypes, locations, cDemands, upperBoundCosts);
     addVirtualLinks(idLinks, from, to, dBandwidth);
   }
+\end{lstlisting}
 
+Subsequently, the middleware adds the allowed InPs per virtual node and the ones enabled to bid for the whole virtual network, functions \textit{addInPsPerVNAllowed} and \textit{addInPsPackageAllowed} respectively. Specifically, these methods change the state of the mappings \textit{allowedInPsPerVirtualNode} and \textit{isInPPackageAllowed}, which prevent the bidding of non-allowed InPs.
+
+Afterwards, once an InP bids for a virtual node, the function \textit{isInPAllowed} is called, which search the InP address inside the addresses given from the mapping \textit{allowedInPsPerVirtualNode}.
+\newline
+
+\begin{lstlisting}[language=JavaScript,caption={Data structures and functions called to prevent the bidding of non-allowed InPs.}, label={lst:Vickrey1}]
+  mapping(bytes32 => address[]) public allowedInPsPerVirtualNode;
+  mapping(address => bool) public isInPPackageAllowed;
+  
   // Add InPs allowed to bid per virtual node
   function addInPsPerVNAllowed(address[] allowedInPs, bytes32[] idVirtualNodes) private {
     for(uint i = 0; i < idVirtualNodes.length; i++) {
@@ -1076,8 +1056,8 @@ contract Vickrey {
     }
   }
   
-  // Check if InP is allowed to bid on the idVirtualNode
-  function isInPAllowed(address InP,bytes32 idVirtualNode) public constant returns (bool){
+  // Method that checks if an InP is allowed to bid on the passed virtual node.
+  function isInPAllowed(address InP, bytes32 idVirtualNode) public constant returns (bool){
     for(uint i = 0; i < allowedInPsPerVirtualNode[idVirtualNode].length; i++) {
       if (allowedInPsPerVirtualNode[idVirtualNode][i] == InP) {
         return true;
@@ -1085,12 +1065,34 @@ contract Vickrey {
     }
     return false;
   }
+\end{lstlisting}
 
+Therefore, from now on, the paired InPs are allowed to bid for the corresponding virtual nodes or for the whole virtual network (if enabled) through the web application. These InPs call either the function \textit{commitIndividualBids} or \textit{commitPackageBid}, see Listing \ref{lst:Vickrey2}, which can only be executed if the current time is lower than the \textit{endTime}. In addition, note that to restrict that an InP bids multiple times for the same resources, the mapping \textit{hasBidded} is defined, which returns true or false whether the passed InP has bidded or not.
+
+Lastly, once the auction finishes, i.e. endTime < now, the SP needs to close the contract. In particular, he sends a request to the middleware, which gets all the bids from the contract and performs the Vickrey algorithm introduced in section \ref{vickrey}. Afterwards, the resulting winners and reserved prices are added to the contract and the boolean field \textit{isOpened} from the struct \textit{UserAuction} is set to false (Listing \ref{lst:UserContract1}).
+
+\section{Implementation Workflow}
+
+After having introduced the two fundamental contracts of our scheme, we can now fully comprehend the interaction between the system components during the VN partitioning cycle. 
+
+The process begins with the InPs entering their peering nodes (location and resource types handled) and the peering links to the \textit{Users} contract. This information is later used to match the VNR to the entered substrate networks, allowing the bidding only to the InPs with paired resources. 
+
+\begin{lstlisting}[language=JavaScript,caption={Data structures and functions called for the individual and package bids of the Vickrey contract.}, label={lst:Vickrey2}]
+  struct Bid {
+    address InP;
+    uint8 value;
+  }
+  
+  mapping(bytes32 => Bid[]) private bids; //per virtual node
+  mapping(address => uint8) private packageBid;
+  mapping(address => bool) private hasBidded;
+  modifier onlyBefore() { require(now < endTime); _; }
+  
   // InP commits individual bids
-  function commitIndividualBids(bytes32[] idVirtualNodes, uint8[] values) public onlyBefore(endTime) {
-    if (!hasBidded[msg.sender]) {
+  function commitIndividualBids(bytes32[] idVirtualNodes, uint8[] values) onlyBefore() {
+   if (!hasBidded[msg.sender]) {
       for(uint i = 0; i < idVirtualNodes.length; i++) {
-        if (isInPPackageAllowed[msg.sender]||isInPVNAllowed(msg.sender,idVirtualNodes[i])) {
+        if (isInPPackageAllowed[msg.sender]||isInPAllowed(msg.sender,idVirtualNodes[i])) {
           bids[idVirtualNodes[i]].push(Bid({InP: msg.sender, value: values[i]}));
           hasBidded[msg.sender] = true;
         }
@@ -1099,21 +1101,16 @@ contract Vickrey {
   }
 
   // InP commits package Bid
-  function commitPackageBid(uint8 value) public onlyBefore(endTime) {
+  function commitPackageBid(uint8 value) public onlyBefore() {
     if (!hasBidded[msg.sender] && isInPPackageAllowed[msg.sender]) {
-        packageBidders.push(msg.sender);
-      }
       packageBid[msg.sender] = value;
-      hasBidded[msg.sender] = true;
+      hasBidded[msg.sender] = true;      
+      }
   }
 }
 \end{lstlisting}
 
-\section{Implementation Workflow}
-
-After having introduced the two fundamental contracts of our scheme, we can now fully comprehend the interaction between the system components during the VN partitioning cycle.
- 
-The process begins with the InPs entering their peering nodes (location and resource types handled) and the peering links to the \textit{Users} contract. This information is later used to match the VNR to the entered substrate networks, allowing the bidding only to the InPs with paired resources. Let us consider the whole workflow since the SP request a virtual network, see Figure \ref{fig:implementationWorkflow}, based on the example presented in Figure \ref{fig:vickrey}. Despite it is not illustrated, it is understood that the requests are sent from the web application to the middleware.
+Let us consider the whole workflow since the SP request a virtual network, see Figure \ref{fig:implementationWorkflow}, based on the example presented in Figure \ref{fig:vickrey}. Despite it is not illustrated, it is understood that the requests are sent from the web application to the middleware.
 
 Once the SP requests the virtual network, the middleware first calls the function \textit{getMatchedVirtualNodes} for each registered InP. Based on this information, the corresponding \textit{Vickrey} contract is created, which returns its address ($V$ in the example). Subsequently, this address is added to the \textit{UserAuction} struct from the \textit{Users} contract. Since the constant function \textit{getUsersAuctions} retrieves the auctions each time a user enters the application, the matched InPs will be further notified of the newly created contract $V$ (pull-based notification).
 
@@ -1365,12 +1362,12 @@ The above equation can be divided into two parts. The left part provides the dif
 
 Despite in a private network, the number of transactions is less than in a public network, we must bear in mind that every time that the state of a smart contract is changed, it is considered a transaction. Since this action frequently occurs in a private environment, and even if the difficulty is configured with a small value in the genesis block, the difficulty changing algorithm provokes ending up with undesired mining times (around 12s in the Ethereum main network). For this reason, we claim that using the standard PoW in private networks is not logical, and we must consider other consensus algorithms.
 
-The first approach is to establish an almost negligible difficulty with a fixed value from the beginning. To achieve this, we have modified a file from the open source code of Ethereum that defines the PoW consensus model (go-ethereum-master/consensus/ethash/consensus.go). Specifically, the CalcDifficulty function now returns 0x400, which is the hexadecimal value of 1024. Due to the bound divisor of Equation \ref{eq:pow}, in the PoW algorithm, this value cannot be smaller than 2048. For this reason, in this test, we have chosen a value that is a half of this minimum, which already give us huge differences. However, for further evaluations, this value could be set to even a smaller value (also in genesis block), such as big.NewInt(1), although the results will be almost equal.
+The first approach is to establish an almost negligible difficulty with a fixed value from the beginning. To achieve this, we have modified a file from the open source code of Ethereum that defines the PoW consensus model (go-ethereum-master/consensus/ethash/consensus.go). Specifically, the CalcDifficulty function (line 2 in Listing \ref{lst:tailorPow}) now returns 0x400, which is the hexadecimal value of 1024. Due to the bound divisor of Equation \ref{eq:pow}, in the PoW algorithm, this value cannot be smaller than 2048. For this reason, in this test, we have chosen a value that is a half of this minimum, which already give us huge differences. However, for further evaluations, this value could be set to even a smaller value (also in genesis block), such as big.NewInt(1), although the results will be almost equal.
 
-Furthermore, since a continuous and disproportionate growth of the blockchain is in most cases illogical for private networks, we have preloaded a JavaScript function that restricts the mining only with the presence of transactions. For instance, miner.start(miningThreads) begins the mining with mining threads being the number of used processor cores, and eth.getBlock("latest").number gets the block number of the latest mined block. The above mentioned Go and JavaScript functions are shown below.
+Furthermore, since a continuous and disproportionate growth of the blockchain is in most cases illogical for private networks, we have preloaded a JavaScript function that restricts the mining only with the presence of transactions (line 6 in Listing \ref{lst:tailorPow}). For instance, miner.start(miningThreads) begins the mining with mining threads being the number of used processor cores, and eth.getBlock("latest").number gets the block number of the latest mined block.
 \newline
 
-\begin{lstlisting}[language=JavaScript]
+\begin{lstlisting}[language=JavaScript,caption={Defined functions that specify the block difficulty and the tailored PoW.}, label={lst:tailorPow}]
 func (ethash *Ethash) CalcDifficulty(chain consensus.ChainReader, time uint64, parent *types.Header) *big.Int {
     return big.NewInt(0x400)
 }
@@ -1425,13 +1422,14 @@ In the following, we analyze the blockchain performance of the proposed solution
 
 Therefore, the tailored PoW consensus model offers great block generation times while maintaining a fair system. Nevertheless, since the difficulty is extremely low, multiple miners resolve blocks at the same time, which directly hinders the system performance with a huge expenditure of resources. Moreover, as having a higher number of mining nodes directly implies extra losses, this causes that the system suffers from scalability. 
 
-For this reason, we introduce a second approach, which implicitly, evaluates the PoET consensus model explained in section \ref{poet}. To prove this, first, we define an identical window time $w_n$ for each of the $n = 3$ mining nodes. In this workflow, only when a new transaction arrives, the mining nodes wait an arbitrary time between 1 or 10 seconds ($w_n \in [1,10]$), before appending a new block. Since in PoET there is no cryptographic work, the waiting period is directly proportional to the block generation time. Hence, the window range must not be too large (slow throughput), and not too short (many forks occurring). This is why a $w_n \in [1,10]$ appears to be a proper starting point. 
+For this reason, we introduce a second approach, which implicitly, evaluates the PoET consensus model explained in section \ref{poet}. To prove this, first, we define an identical window time $w_n$ for each of the $n = 3$ mining nodes. In this workflow, only when a new transaction arrives, the mining nodes wait an arbitrary time between 1 or 10 seconds ($w_n \in [1,10]$), before appending a new block. Since in PoET there is no cryptographic work, the block generation time is similar to the waiting period. Hence, the window range must not be too large (slow throughput), and not too short (many forks occurring). This is why a $w_n \in [1,10]$ appears to be a proper starting point. 
 
-The following code shows the implemented JavaScript functions. From this, it is important to understand line 6, which is the responsible for calling the function startMining() after waiting an arbitrary time given by the window $w_n$. Once entering the function, if the old txBlock is still equal to the pending block number, then the mining proceeds.
+The following code, see Listing \ref{lst:PoET}, shows the implemented JavaScript functions. From this, it is important to understand line 7, which is the responsible for calling the function startMining() after waiting an arbitrary time given by the window $w_n$. Once entering the function, if the old txBlock is still equal to the pending block number, then the mining proceeds.
 \newline
 
-\begin{lstlisting}[language=JavaScript]
+\begin{lstlisting}[language=JavaScript,caption={Defined functions to apply the Proof of Elapsted Time (PoET) in an Ethereum client.}, label={lst:PoET}]
 var timeout_set;
+var miningThreads = 1;
 
 function simulatePoET() {
     if (eth.getBlock("pending").transactions.length > 0) {
@@ -1447,7 +1445,7 @@ function simulatePoET() {
 function startMining(txBlock) {
     if (txBlock === eth.getBlock("pending").number) {
         if (eth.mining) return;
-        miner.start(1);
+        miner.start(miningThreads);
         while (eth.getBlock("latest").number < txBlock) {}
         miner.stop();
         timeout_set = false;
