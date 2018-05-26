@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  26 MAY 2018 14:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  26 MAY 2018 17:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1866,7 +1866,7 @@ rsion <1.7>, but at most version <1.5> allowed
 <gfx/cenVsDec.pdf, id=342, 296.10625pt x 216.81pt>
 File: gfx/cenVsDec.pdf Graphic file (type pdf)
  <use gfx/cenVsDec.pdf>
-Package pdftex.def Info: gfx/cenVsDec.pdf used on input line 62.
+Package pdftex.def Info: gfx/cenVsDec.pdf used on input line 61.
 (pdftex.def)             Requested size: 199.16626pt x 145.83426pt.
 
 
@@ -1875,57 +1875,57 @@ ersion <1.7>, but at most version <1.5> allowed
 <gfx/cenVsDec2.pdf, id=343, 296.10625pt x 216.81pt>
 File: gfx/cenVsDec2.pdf Graphic file (type pdf)
  <use gfx/cenVsDec2.pdf>
-Package pdftex.def Info: gfx/cenVsDec2.pdf used on input line 63.
+Package pdftex.def Info: gfx/cenVsDec2.pdf used on input line 62.
 (pdftex.def)             Requested size: 199.16626pt x 145.83426pt.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 73.
+(Font)              scaled to size 9.21606pt on input line 72.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 73.
+(Font)              scaled to size 6.43204pt on input line 72.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 73.
+(Font)              scaled to size 5.56804pt on input line 72.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.21606pt on input line 73.
+(Font)              scaled to size 9.21606pt on input line 72.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.43204pt on input line 73.
+(Font)              scaled to size 6.43204pt on input line 72.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 5.56804pt on input line 73.
+(Font)              scaled to size 5.56804pt on input line 72.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 73.
+(Font)              scaled to size 9.21606pt on input line 72.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 73.
+(Font)              scaled to size 6.43204pt on input line 72.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 73.
+(Font)              scaled to size 5.56804pt on input line 72.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 73.
+(Font)              scaled to size 9.21606pt on input line 72.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 73.
+(Font)              scaled to size 6.43204pt on input line 72.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 73.
+(Font)              scaled to size 5.56804pt on input line 72.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 73.
+(Font)              scaled to size 9.21606pt on input line 72.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 73.
+(Font)              scaled to size 6.43204pt on input line 72.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 73.
+(Font)              scaled to size 5.56804pt on input line 72.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 73.
+(Font)              scaled to size 9.21606pt on input line 72.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 73.
+(Font)              scaled to size 6.43204pt on input line 72.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 73.
+(Font)              scaled to size 5.56804pt on input line 72.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.21606pt on input line 73.
+(Font)              scaled to size 9.21606pt on input line 72.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.43204pt on input line 73.
+(Font)              scaled to size 6.43204pt on input line 72.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 5.56804pt on input line 73.
+(Font)              scaled to size 5.56804pt on input line 72.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 9.02402pt on input line 73.
+(Font)              scaled to size 9.02402pt on input line 72.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 6.298pt on input line 73.
+(Font)              scaled to size 6.298pt on input line 72.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 5.45201pt on input line 73.
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 73.
+(Font)              scaled to size 5.45201pt on input line 72.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 72.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
@@ -1939,9 +1939,9 @@ ion <1.7>, but at most version <1.5> allowed
 <gfx/mining.pdf, id=380, 805.0075pt x 340.27126pt>
 File: gfx/mining.pdf Graphic file (type pdf)
  <use gfx/mining.pdf>
-Package pdftex.def Info: gfx/mining.pdf used on input line 93.
+Package pdftex.def Info: gfx/mining.pdf used on input line 92.
 (pdftex.def)             Requested size: 497.92325pt x 210.46754pt.
-LaTeX Font Info:    Try loading font information for TS1+5ch on input line 99.
+LaTeX Font Info:    Try loading font information for TS1+5ch on input line 98.
 
 (/usr/share/texmf/tex/latex/tex-tudfonts/softmake/charter/ts15ch.fd
 File: ts15ch.fd 2008/06/23 Fontinst v1.927 font definitions for TS1/5ch.
@@ -1952,64 +1952,64 @@ sion <1.7>, but at most version <1.5> allowed
 <gfx/bitkeys.pdf, id=425, 798.985pt x 246.9225pt>
 File: gfx/bitkeys.pdf Graphic file (type pdf)
  <use gfx/bitkeys.pdf>
-Package pdftex.def Info: gfx/bitkeys.pdf used on input line 139.
+Package pdftex.def Info: gfx/bitkeys.pdf used on input line 138.
 (pdftex.def)             Requested size: 448.12788pt x 138.49417pt.
 
 [8 <./gfx/bitkeys.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 157--159
+Underfull \hbox (badness 10000) in paragraph at lines 156--158
 
  []
 
 LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <9.2> not available
-(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 161.
+(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 160.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.98405pt on input line 168.
+(Font)              scaled to size 9.98405pt on input line 167.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 7.00804pt on input line 168.
+(Font)              scaled to size 7.00804pt on input line 167.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.04803pt on input line 168.
+(Font)              scaled to size 6.04803pt on input line 167.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.98405pt on input line 168.
+(Font)              scaled to size 9.98405pt on input line 167.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 7.00804pt on input line 168.
+(Font)              scaled to size 7.00804pt on input line 167.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.04803pt on input line 168.
+(Font)              scaled to size 6.04803pt on input line 167.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.98405pt on input line 168.
+(Font)              scaled to size 9.98405pt on input line 167.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 7.00804pt on input line 168.
+(Font)              scaled to size 7.00804pt on input line 167.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.04803pt on input line 168.
+(Font)              scaled to size 6.04803pt on input line 167.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.98405pt on input line 168.
+(Font)              scaled to size 9.98405pt on input line 167.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.00804pt on input line 168.
+(Font)              scaled to size 7.00804pt on input line 167.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.04803pt on input line 168.
+(Font)              scaled to size 6.04803pt on input line 167.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.98405pt on input line 168.
+(Font)              scaled to size 9.98405pt on input line 167.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 7.00804pt on input line 168.
+(Font)              scaled to size 7.00804pt on input line 167.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.04803pt on input line 168.
+(Font)              scaled to size 6.04803pt on input line 167.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.98405pt on input line 168.
+(Font)              scaled to size 9.98405pt on input line 167.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 7.00804pt on input line 168.
+(Font)              scaled to size 7.00804pt on input line 167.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.04803pt on input line 168.
+(Font)              scaled to size 6.04803pt on input line 167.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.98405pt on input line 168.
+(Font)              scaled to size 9.98405pt on input line 167.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 7.00804pt on input line 168.
+(Font)              scaled to size 7.00804pt on input line 167.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.04803pt on input line 168.
+(Font)              scaled to size 6.04803pt on input line 167.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 9.77602pt on input line 168.
+(Font)              scaled to size 9.77602pt on input line 167.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 6.86201pt on input line 168.
+(Font)              scaled to size 6.86201pt on input line 167.
 LaTeX Font Info:    Font shape `OML/mdput/m/it' will be
-(Font)              scaled to size 5.92201pt on input line 168.
+(Font)              scaled to size 5.92201pt on input line 167.
 [9]
 
 pdfTeX warning: pdflatex (file ./gfx/ethereumAccounts.pdf): PDF inclusion: foun
@@ -2018,7 +2018,7 @@ d PDF version <1.7>, but at most version <1.5> allowed
 File: gfx/ethereumAccounts.pdf Graphic file (type pdf)
 
 <use gfx/ethereumAccounts.pdf>
-Package pdftex.def Info: gfx/ethereumAccounts.pdf used on input line 192.
+Package pdftex.def Info: gfx/ethereumAccounts.pdf used on input line 191.
 (pdftex.def)             Requested size: 298.75697pt x 227.48593pt.
  [10 <./gfx/ethereumAccounts.pdf>]
 
@@ -2027,7 +2027,7 @@ version <1.7>, but at most version <1.5> allowed
 <gfx/networkvir.pdf, id=496, 325.215pt x 266.9975pt>
 File: gfx/networkvir.pdf Graphic file (type pdf)
  <use gfx/networkvir.pdf>
-Package pdftex.def Info: gfx/networkvir.pdf used on input line 227.
+Package pdftex.def Info: gfx/networkvir.pdf used on input line 226.
 (pdftex.def)             Requested size: 239.00102pt x 196.22246pt.
 
 
@@ -2037,12 +2037,12 @@ pdfTeX warning: pdflatex (file ./gfx/networkvir2.pdf): PDF inclusion: found PDF
 File: gfx/networkvir2.pdf Graphic file (type pdf)
 
 <use gfx/networkvir2.pdf>
-Package pdftex.def Info: gfx/networkvir2.pdf used on input line 230.
+Package pdftex.def Info: gfx/networkvir2.pdf used on input line 229.
 (pdftex.def)             Requested size: 239.00102pt x 196.22246pt.
  [11 <./gfx/networkvir.pdf> <./gfx/networkvir2.pdf>]
 [12]
 LaTeX Font Info:    Font shape `T1/5ch/b/it' in size <11> not available
-(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 261.
+(Font)              Font shape `T1/5ch/b/sl' tried instead on input line 260.
  [13] [14
 
 
@@ -2056,7 +2056,7 @@ pdfTeX warning: pdflatex (file ./gfx/supplyChain.pdf): PDF inclusion: found PDF
 File: gfx/supplyChain.pdf Graphic file (type pdf)
 
 <use gfx/supplyChain.pdf>
-Package pdftex.def Info: gfx/supplyChain.pdf used on input line 292.
+Package pdftex.def Info: gfx/supplyChain.pdf used on input line 291.
 (pdftex.def)             Requested size: 239.00102pt x 215.99673pt.
 
 
@@ -2066,7 +2066,7 @@ F version <1.7>, but at most version <1.5> allowed
 File: gfx/supplyChain2.pdf Graphic file (type pdf)
 
 <use gfx/supplyChain2.pdf>
-Package pdftex.def Info: gfx/supplyChain2.pdf used on input line 295.
+Package pdftex.def Info: gfx/supplyChain2.pdf used on input line 294.
 (pdftex.def)             Requested size: 239.00102pt x 215.99673pt.
  [15] [16 <./gfx/supplyChain.pdf> <./gfx/supplyChain2.pdf>]
 
@@ -2075,7 +2075,7 @@ ersion <1.7>, but at most version <1.5> allowed
 <gfx/multiprov.pdf, id=661, 310.15875pt x 303.1325pt>
 File: gfx/multiprov.pdf Graphic file (type pdf)
  <use gfx/multiprov.pdf>
-Package pdftex.def Info: gfx/multiprov.pdf used on input line 343.
+Package pdftex.def Info: gfx/multiprov.pdf used on input line 342.
 (pdftex.def)             Requested size: 239.00102pt x 233.58388pt.
 
 
@@ -2084,7 +2084,7 @@ version <1.7>, but at most version <1.5> allowed
 <gfx/multiprov2.pdf, id=662, 317.185pt x 303.1325pt>
 File: gfx/multiprov2.pdf Graphic file (type pdf)
  <use gfx/multiprov2.pdf>
-Package pdftex.def Info: gfx/multiprov2.pdf used on input line 346.
+Package pdftex.def Info: gfx/multiprov2.pdf used on input line 345.
 (pdftex.def)             Requested size: 239.00102pt x 228.41728pt.
 
 [17] [18 <./gfx/multiprov.pdf> <./gfx/multiprov2.pdf>]
@@ -2094,15 +2094,15 @@ on <1.7>, but at most version <1.5> allowed
 <gfx/multi.pdf, id=701, 310.15875pt x 259.97125pt>
 File: gfx/multi.pdf Graphic file (type pdf)
  <use gfx/multi.pdf>
-Package pdftex.def Info: gfx/multi.pdf used on input line 368.
+Package pdftex.def Info: gfx/multi.pdf used on input line 367.
 (pdftex.def)             Requested size: 248.96162pt x 208.67545pt.
  [19 <./gfx/multi.pdf>]
-Overfull \hbox (1.94398pt too wide) in paragraph at lines 414--414
+Overfull \hbox (1.94398pt too wide) in paragraph at lines 413--413
 []|\T1/5ch/b/n/9.2 System|  
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 414--414
+Underfull \hbox (badness 10000) in alignment at lines 413--413
 [][][][][][][][][][][][][] 
  []
 
@@ -2118,16 +2118,16 @@ pdfTeX warning: pdflatex (file ./gfx/bcFlowchart.pdf): PDF inclusion: found PDF
 <gfx/bcFlowchart.pdf, id=751, 722.7pt x 368.37625pt>
 File: gfx/bcFlowchart.pdf Graphic file (type pdf)
  <use gfx/bcFlowchart.pdf>
-Package pdftex.def Info: gfx/bcFlowchart.pdf used on input line 446.
+Package pdftex.def Info: gfx/bcFlowchart.pdf used on input line 445.
 (pdftex.def)             Requested size: 497.92325pt x 253.80327pt.
 
 [23 <./gfx/bcFlowchart.pdf>]
-Underfull \hbox (badness 10000) in alignment at lines 474--474
+Underfull \hbox (badness 10000) in alignment at lines 473--473
 [][][] 
  []
 
 [24] [25]
-Overfull \hbox (0.86804pt too wide) in alignment at lines 533--533
+Overfull \hbox (0.86804pt too wide) in alignment at lines 532--532
 [][][][][][] 
  []
 
@@ -2138,7 +2138,7 @@ sion <1.7>, but at most version <1.5> allowed
 <gfx/Problem.pdf, id=816, 332.24126pt x 289.08pt>
 File: gfx/Problem.pdf Graphic file (type pdf)
  <use gfx/Problem.pdf>
-Package pdftex.def Info: gfx/Problem.pdf used on input line 569.
+Package pdftex.def Info: gfx/Problem.pdf used on input line 568.
 (pdftex.def)             Requested size: 239.00102pt x 207.95216pt.
 
 
@@ -2147,7 +2147,7 @@ rsion <1.7>, but at most version <1.5> allowed
 <gfx/Problem2.pdf, id=817, 339.2675pt x 296.10625pt>
 File: gfx/Problem2.pdf Graphic file (type pdf)
  <use gfx/Problem2.pdf>
-Package pdftex.def Info: gfx/Problem2.pdf used on input line 572.
+Package pdftex.def Info: gfx/Problem2.pdf used on input line 571.
 (pdftex.def)             Requested size: 239.00102pt x 208.59227pt.
 
 
@@ -2157,7 +2157,7 @@ PDF version <1.7>, but at most version <1.5> allowed
 File: gfx/designWorkflow.pdf Graphic file (type pdf)
 
 <use gfx/designWorkflow.pdf>
-Package pdftex.def Info: gfx/designWorkflow.pdf used on input line 581.
+Package pdftex.def Info: gfx/designWorkflow.pdf used on input line 580.
 (pdftex.def)             Requested size: 497.92325pt x 258.64421pt.
  [28 <./gfx/Problem.pdf> <./gfx/Problem2.pdf>]
 [29 <./gfx/designWorkflow.pdf>] [30]
@@ -2168,11 +2168,11 @@ pdfTeX warning: pdflatex (file ./gfx/authentication_design.pdf): PDF inclusion:
 File: gfx/authentication_design.pdf Graphic file (type pdf)
 
 <use gfx/authentication_design.pdf>
-Package pdftex.def Info: gfx/authentication_design.pdf used on input line 625.
+Package pdftex.def Info: gfx/authentication_design.pdf used on input line 624.
 (pdftex.def)             Requested size: 398.28853pt x 219.21928pt.
  [31 <./gfx/authentication_design.pdf>]
 [32] [33]
-Overfull \hbox (10.56007pt too wide) detected at line 727
+Overfull \hbox (10.56007pt too wide) detected at line 726
 [][] 
  []
 
@@ -2183,14 +2183,14 @@ sion <1.7>, but at most version <1.5> allowed
 <gfx/vickrey.pdf, id=920, 657.45625pt x 411.5375pt>
 File: gfx/vickrey.pdf Graphic file (type pdf)
  <use gfx/vickrey.pdf>
-Package pdftex.def Info: gfx/vickrey.pdf used on input line 735.
+Package pdftex.def Info: gfx/vickrey.pdf used on input line 734.
 (pdftex.def)             Requested size: 493.09099pt x 308.65237pt.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 11.04007pt on input line 743.
+(Font)              scaled to size 11.04007pt on input line 742.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 743.
+(Font)              scaled to size 7.68005pt on input line 742.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 6.62404pt on input line 743.
+(Font)              scaled to size 6.62404pt on input line 742.
 
 [34] [35 <./gfx/vickrey.pdf>] [36]
 chapter 5.
@@ -2202,15 +2202,15 @@ n: found PDF version <1.7>, but at most version <1.5> allowed
 File: gfx/Smart_contract_workflow.pdf Graphic file (type pdf)
 
 <use gfx/Smart_contract_workflow.pdf>
-Package pdftex.def Info: gfx/Smart_contract_workflow.pdf used on input line 806
+Package pdftex.def Info: gfx/Smart_contract_workflow.pdf used on input line 805
 .
 (pdftex.def)             Requested size: 497.92325pt x 132.87051pt.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 9.21606pt on input line 811.
+(Font)              scaled to size 9.21606pt on input line 810.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 6.43204pt on input line 811.
+(Font)              scaled to size 6.43204pt on input line 810.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 5.56804pt on input line 811.
+(Font)              scaled to size 5.56804pt on input line 810.
  [37
 
 
@@ -2223,20 +2223,20 @@ File: gfx/Implementation_architecture.pdf Graphic file (type pdf)
 
 <use gfx/Implementation_architecture.pdf>
 Package pdftex.def Info: gfx/Implementation_architecture.pdf used on input line
- 831.
+ 830.
 (pdftex.def)             Requested size: 497.92325pt x 193.63737pt.
  [39 <./gfx/Implementation_architecture.pdf>] [40]
-Underfull \hbox (badness 10000) in paragraph at lines 877--879
+Underfull \hbox (badness 10000) in paragraph at lines 876--878
 
  []
 
 
-Overfull \hbox (2.3211pt too wide) in paragraph at lines 893--895
+Overfull \hbox (2.3211pt too wide) in paragraph at lines 892--894
 [][][] 
  []
 
 [41]
-Overfull \hbox (2.3211pt too wide) in paragraph at lines 895--896
+Overfull \hbox (2.3211pt too wide) in paragraph at lines 894--895
 [][][] 
  []
 
@@ -2249,25 +2249,25 @@ File: gfx/Authentication_implementation.pdf Graphic file (type pdf)
 
 <use gfx/Authentication_implementation.pdf>
 Package pdftex.def Info: gfx/Authentication_implementation.pdf used on input li
-ne 919.
+ne 918.
 (pdftex.def)             Requested size: 497.92325pt x 217.71922pt.
  [42] [43 <./gfx/Authentication_implementation.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 968--970
+Underfull \hbox (badness 10000) in paragraph at lines 967--969
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 990--992
+Underfull \hbox (badness 10000) in paragraph at lines 989--991
 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1021--1022
+Underfull \hbox (badness 10000) in paragraph at lines 1020--1021
 
  []
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1038--1040
+Underfull \hbox (badness 10000) in paragraph at lines 1037--1039
 
  []
 
@@ -2280,7 +2280,7 @@ File: gfx/implementation_workflow.pdf Graphic file (type pdf)
 
 <use gfx/implementation_workflow.pdf>
 Package pdftex.def Info: gfx/implementation_workflow.pdf used on input line 112
-3.
+2.
 (pdftex.def)             Requested size: 497.92325pt x 194.26994pt.
  [47] [48 <./gfx/implementation_workflow.pdf>]
 chapter 6.
@@ -2292,7 +2292,7 @@ ound PDF version <1.7>, but at most version <1.5> allowed
 File: gfx/Evaluation_scenario.pdf Graphic file (type pdf)
 
 <use gfx/Evaluation_scenario.pdf>
-Package pdftex.def Info: gfx/Evaluation_scenario.pdf used on input line 1150.
+Package pdftex.def Info: gfx/Evaluation_scenario.pdf used on input line 1149.
 (pdftex.def)             Requested size: 497.92325pt x 139.2391pt.
  [49
 
@@ -2305,7 +2305,7 @@ pdfTeX warning: pdflatex (file ./gfx/Evaluation_topologies.pdf): PDF inclusion:
 File: gfx/Evaluation_topologies.pdf Graphic file (type pdf)
 
 <use gfx/Evaluation_topologies.pdf>
-Package pdftex.def Info: gfx/Evaluation_topologies.pdf used on input line 1168.
+Package pdftex.def Info: gfx/Evaluation_topologies.pdf used on input line 1167.
 
 (pdftex.def)             Requested size: 239.00102pt x 215.10406pt.
 
@@ -2315,16 +2315,16 @@ ion <1.7>, but at most version <1.5> allowed
 <gfx/Ev_vnr.pdf, id=1308, 361.35pt x 310.15875pt>
 File: gfx/Ev_vnr.pdf Graphic file (type pdf)
  <use gfx/Ev_vnr.pdf>
-Package pdftex.def Info: gfx/Ev_vnr.pdf used on input line 1171.
+Package pdftex.def Info: gfx/Ev_vnr.pdf used on input line 1170.
 (pdftex.def)             Requested size: 239.00102pt x 205.14554pt.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 9.98405pt on input line 1172.
+(Font)              scaled to size 9.98405pt on input line 1171.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 7.00804pt on input line 1172.
+(Font)              scaled to size 7.00804pt on input line 1171.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 6.04803pt on input line 1172.
+(Font)              scaled to size 6.04803pt on input line 1171.
  [50 <./gfx/Evaluation_topologies.pdf> <./gfx/Ev_vnr.pdf>]
-Overfull \hbox (5.9331pt too wide) in alignment at lines 1199--1199
+Overfull \hbox (5.9331pt too wide) in alignment at lines 1198--1198
 [][][][] 
  []
 
@@ -2332,21 +2332,21 @@ Overfull \hbox (5.9331pt too wide) in alignment at lines 1199--1199
 File: gfx/pricing_model.png Graphic file (type png)
 
 <use gfx/pricing_model.png>
-Package pdftex.def Info: gfx/pricing_model.png used on input line 1221.
+Package pdftex.def Info: gfx/pricing_model.png used on input line 1220.
 (pdftex.def)             Requested size: 290.88477pt x 211.96645pt.
  [52 <./gfx/pricing_model.png>] [53]
 <gfx/ev_acceptance_rate.png, id=1382, 462.528pt x 346.896pt>
 File: gfx/ev_acceptance_rate.png Graphic file (type png)
 
 <use gfx/ev_acceptance_rate.png>
-Package pdftex.def Info: gfx/ev_acceptance_rate.png used on input line 1298.
+Package pdftex.def Info: gfx/ev_acceptance_rate.png used on input line 1297.
 (pdftex.def)             Requested size: 300.63962pt x 225.47972pt.
 
 <gfx/ev_acceptance_rate3D.png, id=1383, 371.4678pt x 263.0628pt>
 File: gfx/ev_acceptance_rate3D.png Graphic file (type png)
 
 <use gfx/ev_acceptance_rate3D.png>
-Package pdftex.def Info: gfx/ev_acceptance_rate3D.png used on input line 1305.
+Package pdftex.def Info: gfx/ev_acceptance_rate3D.png used on input line 1304.
 (pdftex.def)             Requested size: 334.31793pt x 236.75432pt.
 
 
@@ -2356,7 +2356,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: gfx/ev_pricing.png Graphic file (type png)
 
 <use gfx/ev_pricing.png>
-Package pdftex.def Info: gfx/ev_pricing.png used on input line 1314.
+Package pdftex.def Info: gfx/ev_pricing.png used on input line 1313.
 (pdftex.def)             Requested size: 298.29768pt x 215.24611pt.
  [55 <./gfx/ev_acceptance_rate.png> <./gfx/ev_acceptance_rate3D.png>] [56 <./gf
 x/ev_pricing.png>]
@@ -2364,17 +2364,17 @@ x/ev_pricing.png>]
 File: gfx/ev_winners_L1.png Graphic file (type png)
 
 <use gfx/ev_winners_L1.png>
-Package pdftex.def Info: gfx/ev_winners_L1.png used on input line 1341.
+Package pdftex.def Info: gfx/ev_winners_L1.png used on input line 1340.
 (pdftex.def)             Requested size: 239.00102pt x 182.08298pt.
 
 <gfx/ev_winners_L2.png, id=1421, 443.0151pt x 337.5009pt>
 File: gfx/ev_winners_L2.png Graphic file (type png)
 
 <use gfx/ev_winners_L2.png>
-Package pdftex.def Info: gfx/ev_winners_L2.png used on input line 1344.
+Package pdftex.def Info: gfx/ev_winners_L2.png used on input line 1343.
 (pdftex.def)             Requested size: 239.00102pt x 182.08298pt.
  [57 <./gfx/ev_winners_L1.png> <./gfx/ev_winners_L2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1364--1366
+Underfull \hbox (badness 10000) in paragraph at lines 1363--1365
 
  []
 
@@ -2382,32 +2382,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 1364--1366
 File: gfx/ev_forks_pow.png Graphic file (type png)
 
 <use gfx/ev_forks_pow.png>
-Package pdftex.def Info: gfx/ev_forks_pow.png used on input line 1391.
+Package pdftex.def Info: gfx/ev_forks_pow.png used on input line 1390.
 (pdftex.def)             Requested size: 239.00102pt x 144.97186pt.
 
 <gfx/ev_forks_poet.png, id=1460, 529.0164pt x 320.8788pt>
 File: gfx/ev_forks_poet.png Graphic file (type png)
 
 <use gfx/ev_forks_poet.png>
-Package pdftex.def Info: gfx/ev_forks_poet.png used on input line 1394.
+Package pdftex.def Info: gfx/ev_forks_poet.png used on input line 1393.
 (pdftex.def)             Requested size: 239.00102pt x 144.97186pt.
 
 <gfx/ev_fairness_pow.png, id=1461, 443.0151pt x 317.988pt>
 File: gfx/ev_fairness_pow.png Graphic file (type png)
 
 <use gfx/ev_fairness_pow.png>
-Package pdftex.def Info: gfx/ev_fairness_pow.png used on input line 1403.
+Package pdftex.def Info: gfx/ev_fairness_pow.png used on input line 1402.
 (pdftex.def)             Requested size: 239.00102pt x 171.55568pt.
 
 <gfx/ev_fairness_poet.png, id=1462, 443.0151pt x 317.988pt>
 File: gfx/ev_fairness_poet.png Graphic file (type png)
 
 <use gfx/ev_fairness_poet.png>
-Package pdftex.def Info: gfx/ev_fairness_poet.png used on input line 1406.
+Package pdftex.def Info: gfx/ev_fairness_poet.png used on input line 1405.
 (pdftex.def)             Requested size: 239.00102pt x 171.55568pt.
  [59 <./gfx/ev_forks_pow.png> <./gfx/ev_forks_poet.png> <./gfx/ev_fairness_pow.
 png> <./gfx/ev_fairness_poet.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1424--1426
+Underfull \hbox (badness 10000) in paragraph at lines 1423--1425
 
  []
 
@@ -2415,10 +2415,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 1424--1426
 File: gfx/ev_block_time.png Graphic file (type png)
 
 <use gfx/ev_block_time.png>
-Package pdftex.def Info: gfx/ev_block_time.png used on input line 1478.
+Package pdftex.def Info: gfx/ev_block_time.png used on input line 1477.
 (pdftex.def)             Requested size: 300.4966pt x 217.02531pt.
  [61 <./gfx/ev_block_time.png>]
-Overfull \hbox (10.56007pt too wide) detected at line 1505
+Overfull \hbox (10.56007pt too wide) detected at line 1504
 [][] 
  []
 
@@ -2467,7 +2467,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 291.
 Here is how much of TeX's memory you used:
  26143 strings out of 494860
  435622 string characters out of 6177601
- 710034 words of memory out of 5000000
+ 711034 words of memory out of 5000000
  28450 multiletter control sequences out of 15000+600000
  193076 words of font info for 204 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
@@ -2492,7 +2492,7 @@ texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chrmb.pfb></usr/share
 xmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/zapfding/uzdr.pfb>
-Output written on tudkom_students__201711_v1.3.pdf (75 pages, 1522095 bytes).
+Output written on tudkom_students__201711_v1.3.pdf (75 pages, 1523270 bytes).
 PDF statistics:
  1776 PDF objects out of 2073 (max. 8388607)
  1563 compressed objects within 16 object streams
