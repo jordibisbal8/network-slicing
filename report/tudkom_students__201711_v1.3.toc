@@ -57,7 +57,6 @@
 \contentsline {subsection}{\numberline {6.3.2}Blockchain Performance and Mining Fairness}{57}{subsection.6.3.2}
 \contentsline {chapter}{\numberline {7}Conclusions}{63}{chapter.7}
 \contentsline {section}{\numberline {7.1}Summary}{63}{section.7.1}
-\contentsline {section}{\numberline {7.2}Contributions}{63}{section.7.2}
-\contentsline {section}{\numberline {7.3}Future Work}{63}{section.7.3}
-\contentsline {section}{\numberline {7.4}Final Remarks}{63}{section.7.4}
-\contentsline {chapter}{Bibliography}{63}{dummy.1}
+\contentsline {section}{\numberline {7.2}Contributions}{64}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future Work}{65}{section.7.3}
+\contentsline {chapter}{Bibliography}{66}{dummy.1}

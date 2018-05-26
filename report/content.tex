@@ -1,5 +1,7 @@
 \begin{abstract}
-Captivate readers attention.
+
+
+
 \end{abstract}
 
 
@@ -62,7 +64,7 @@ A blockchain is a decentralized distributed ledger, which stores the entire hist
 	{\includegraphics[width=0.4\linewidth]{gfx/cenVsDec}} \quad
 	{\includegraphics[width=0.4\linewidth]{gfx/cenVsDec2}} \\
 	\caption{Centralized approach (traditional database) compared to a decentralized approach (blockchain).}
-	\label{fig:CentralizedvsDecentralizedx}
+	\label{fig:CentralizedvsDecentralized}
 \end{figure}
 At the beginning, the terms Bitcoin and blockchain were sometimes interchanged, as these words were used to refer: (i) the technology, (ii) the protocol for making transactions and (iii) the cryptocurrency. Therefore, before continuing, one statement needs to be clear: \textbf{Bitcoin is a cryptocurrency that uses the blockchain technology and cryptocurrencies are just one of the multiple blockchain applications.} 
 
@@ -418,13 +420,13 @@ Finally, we classified costs into virtual network embedding and economic. Overal
 
 \section{Summary}
 
-After comparing the different multi-provider VNE approaches exposed throughout this chapter, we find out that each of them introduces innovate features to handle network virtualization. However, there is no single solution that satisfies at the same time the following requirements:
+After comparing the different multi-provider VNE approaches exposed throughout this chapter, we ascertain that each of them introduces innovate features to handle network virtualization. However, there is no single solution that satisfies at the same time the following requirements:
 
 \begin{itemize}
 	\item Scalability.
 	\item LID problem approached with data confidentiality.
 	\item Large scenarios performance.
-	\item Computational and economic low costs.
+	\item Low computational and economic costs.
 \end{itemize}
 
 Therefore, the main focus of this thesis will be to investigate and later implement an approach that gets rid of the VNP, and which fulfills the above-mentioned virtual network embedding demands. Here, we foresee that blockchain could play a significant role.
@@ -637,7 +639,7 @@ Although the blockchain is a decentralized and distributed technology, where the
 
 In section \ref{auctionMechanisms}, after reviewing different auction types, we have concluded that a \textbf{one-sided reverse Vickrey auction} seems to be the most suitable for brokerless virtual network embedding. In the following, a more thorough examination in adapting this auction model to the multi-provider VNE scenario with LID will be presented.
 
-Firstly, we seek an efficient virtual network partitioning where the requested virtual nodes are assigned to the participating InPs, such that the VNE costs are minimized. Despite an auction could use a multi-dimensional process, i.e. more parameters, in this report, only the price quotes of the notified InPs will be used to determine the minimum VNE cost. Hence, the InPs act as sellers, who submit bids for the services requested by the SP, and once the auction finishes, the VN will be splitted between the winning InPs. In this section, our focus will be on the techniques and auction models applied for the VN partitioning (Table \ref{tab:notations} summarizes all notations).
+Firstly, we seek an efficient virtual network partitioning where the requested virtual nodes are assigned to the participating InPs, such that the VNE costs are minimized. Despite an auction could use a multi-dimensional process, i.e. more parameters, in this thesis, only the price quotes of the notified InPs will be used to determine the minimum VNE cost. Hence, the InPs act as sellers, who submit bids for the services requested by the SP, and once the auction finishes, the VN will be splitted between the winning InPs. In this section, our focus will be on the techniques and auction models applied for the VN partitioning (Table \ref{tab:notations} summarizes all notations).
 
 \begin{table}[htbp]
 	\myfloatalign \footnotesize
@@ -1129,9 +1131,7 @@ Finally, in all above cases, the auction in the \textit{Users} contract is close
 
 In this chapter, the implementation of a brokerless VNE system under limited information disclosure is presented. First, we have defined the design decisions and environment selected for our approach, which consists of a web application connected to an Ethereum blockchain through a middleware. Since this backend utilizes smart contracts, we have further detailed how to manage these on the blockchain, and which is the content of the two fundamental contracts (\textit{Users} and \textit{Vickrey}) that enable the defined VN partitioning algorithm integration. In addition, to improve the system's security by excluding smart contracts to directly interact with the external world (users), an authentication system has been developed. This provides compact and self-contained JSON tokens to ensure the data transmission between the users and the blockchain in a secure manner. Lastly, the interaction between our system components along the virtual network partitioning process has been specified.
 
-Nevertheless, since the defined system is experimental and still in its early phases, several constraints and improvements are already contemplated. Regarding the smart contract security, as any other programming code, it needs to be constantly tested to highlight potential security vulnerabilities and optimized to efficiently achieve the desired aims at lower costs (CPU, memory...). Apart from that, the \textit{Users} and \textit{Vickrey} contracts need to be consistent with the current market demands, and as a consequence, they most probably need to be redefined with new algorithms and protocols. Therefore, it is vital that the authorities responsible for maintaining the system fully understand the system set up, although its complexity. In addition, since currently, the Ether values have not a significant impact on the application, such that there are not high benefits for users on mining, it is probable that only a small group users end up ensuring the system functionality. Thus, incorporating incentives can prevent that our system suffers from scalability. Finally, due to the pull-based system notification, the InPs are only notified once accessing the application rather than when certain events occur, which can result in a poor performance. However, thanks to the middleware, the integration of other approaches can easily solve the issue.
-
-Therefore, to better reflect and examine the system functionalities and constraints, an evaluation of the different participating components is extremely required. In particular, our defined VN partitioning algorithm must be analyzed, together with the blockchain specifications that enhance the performance.
+Nevertheless, since the defined system is experimental and still in its early phases, several constraints and improvements are already deducted. Therefore, to better reflect and examine the system functionalities, an evaluation of the different participating components is extremely required. In particular, our defined VN partitioning algorithm must be analyzed, together with the blockchain specifications that enhance the performance.
 
 
 %*****************************************
@@ -1334,7 +1334,7 @@ Moreover, to prevent that InPs use immense profit margins, we have established a
 
 Meanwhile, when the VNR contain larger lifetimes $L_2$ (Figure \ref{fig:winners2}), the denouement is more weighted. From the beginning, since the InP's resources are largely populated, the incoming requests need to be served by other InPs. Naturally, first the InPs with lower profit margins handle the petitions. However, as the number of resources is not sufficient, InPs with bigger profits start to embed a meaningful fraction of them.
 
-To summarize, in this section, we have studied the acceptance rate based on several parameters, and an example outcome for InPs with different bidding strategies has been introduced. After examining these results, we first conclude that a huge number of available resources, i.e. multiple InPs, are essential for achieving great acceptances rates. This can be contemplated, after disrupting the system performance through different arrival rates $\lambda$ and lifetimes $L_1$ and $L_2$, which detects the changing behaviors in the worst case scenarios. In addition, thanks to the bidding strategy experiment, we have observed that InPs with high-profit margins also embeds VNR under certain conditions (large lifetimes $L$ and arrival rates $\lambda$). For this reason, we reinforce the idea introduced during this thesis, which states that a well-executed market research can be translated with higher revenues, and thereby, to a better market positioning.
+To summarize, in this section, we have studied the acceptance rate based on several parameters, and an example outcome for InPs with different bidding strategies has been introduced. After examining these results, we first conclude that a huge number of available resources, i.e. multiple InPs, are essential for achieving great acceptances rates. This can be contemplated, after disrupting the system performance through different arrival rates $\lambda$ and lifetimes $L_1$ and $L_2$, which detects the changing behaviors in the worst case scenarios. In addition, thanks to the bidding strategy experiment, we have observed that InPs with high-profit margins also embed VNR under certain conditions (large lifetimes $L$ and arrival rates $\lambda$). For this reason, we reinforce the idea introduced during this thesis, which states that a well-executed market research can be translated with higher revenues, and thereby, to a better market positioning.
 
 \begin{figure}[t]
 	\myfloatalign
@@ -1517,20 +1517,65 @@ For this reason, we have introduced PoET, which has considerably reduced the num
 \label{ch:closure}
 %*****************************************
 
-\hint{This chapter should summarize the thesis and describe the main contributions of the thesis. Subsequently, it should describe possible future work in the context of the thesis. What are limitations of the developed solutions? Which things can be improved?
-The section should have a length of about three pages.}
+In this last chapter, we first summarize the work covered in the thesis, to address the main challenges of a particular supply chain management example, the network slicing process. Afterwards, the major contribution and key findings of this research are described, through analyzing the benefits and drawbacks of the proposed solution, and by comparing it with the previous work. Finally, the limitations and the possible future of work is presented.
 
 \section{Summary}
 
+The main goal of this thesis is to observe how distributed workflows can automate the execution of complex supply chain processes. To exemplify this, our focus is based on using a new promising technology, the blockchain, to enhance an example of a tenancy agreement between multiple parties, the network virtualization cycle.
+
+In this process, the service providers (SPs) are willing to embed virtual nodes across multiple infrastructure providers (InPs) to create wide-area networks. This task consists first on the virtual network request partitioning, in which the service providers negotiate to obtain the minimum embedding cost, and the InPs seek for the maximum revenue on leasing their offered services.
+
+Nevertheless, the problem appears when InPs are not willing to disclose detailed information about their resource availability or network topologies, which directly hampers the efficiency of the service negotiation. Thus, a system that enables to share and alter real-time data in a secure, distributed and transparent manner is extremelly required.
+
+Since blockchain is a type of distributed ledger, which has been considered one of the most disruptive technologies of the last year, in chapter \ref{ch:background}, an overview of the blockchain technology concept and its evolution is provided. From this research, we highlight Ethereum smart contracts, which thanks to their Turing-complete system, they enable the implementation of any application into the blockchain, beyond money transfer. In addition, in this section, due to the importance of the resource negotiation between the SPs and InPs in an open environment, the auctions are discussed.
+
+In chapter \ref{ch:relatedwork}, firstly, we have explored the challenges that the enterprises encounter during the supply chain management, and how those could be faced by integrating the back-end system with a blockchain solution. In order to contemplate the main blockchain benefits compared to centralized technologies, an example of a blockchain application that stores and distributes specific product information during its lifecycle, is presented.
+
+In the second part of this chapter, a comprehensive overview of the related work in virtual network embedding is detailed. Among those, we need to differentiate the solutions utilizing centralized or decentralized systems. The former, since the application relies on a single point of failure, it produces a poor scalability. Furthermore, this middle-party, typically named virtual network provider, needs to be trusted as it stores and manages all the information, which is not a suitable approach to address the issue of InPs not willing to broadcast certain information. For this reason, we have considered focusing on the latter, i.e decentralized solutions. Nevertheless, after comparing the different multi-provider VNE approaches exposed, we ascertain that there is no single solution satisfying scalability, data confidentiality, large scenarios performance and low computational and economic costs requirements.
+
+Therefore, in chapter \ref{ch:design}, we first study the different types of blockchain and platforms, and subsequently, define the requirements to determine whether blockchain is an appropriate solution for the virtual network embedding context. Since in this scenario, multiple known but probably not trusted users are willing to perform a service negotiation in a private environment, without relying on a single central entity (brokerless), a decentralized hybrid blockchain is the most suitable solution.
+
+Afterwards, a complete design using the blockchain and smart contracts has been presented. This includes the main components of the system, the virtual network embedding application workflow, the authentication system and the auction model applied. The last introduces a new algorithm based on the Vickrey auction model, which improves the VN partitioning efficiency by providing fair costs between the SPs and InPs. In addition, since each InP is willing that SPs subscribe to their services paying higher values than the real costs, a profit margin parameter is also introduced.
+
+In chapter \ref{ch:implementation}, the implementation of the designed brokerless VNE system is provided, which consists of a web application connected to an Ethereum Blockchain through a middleware. Moreover, the content of the fundamental smart contracts to perform the VN partitioning algorithm is detailed. However, since the implemented system is experimental and it uses an algorithm related to the current market demands, the smart contracts need to be constantly redefined to obtain the maximum value.
+
+Due to the lack of previous work on multi-provider VNE using the blockchain technology, in chapter \ref{ch:evaluation}, we check the feasibility of the introduced solution to demonstrate its practical potential. Since network virtualization is a real-time process where the demand and availability of the resources are constantly changing, we have also introduced a dynamic pricing model for the InPs to quote for their services. In our case, these costs are given according to the resource utilization.
+
+To observe the behavior of the pricing model in our approach, we have first evaluated the acceptance rate, which is the percentage of embedded virtual nodes from the total incoming VN requests, and the impact of the bidding strategies (profit margin) applied by the participating infrastructure providers. After examining the results, we conclude that this pricing method places a great importance to the available resources, which results in a poor performance in certain scenarios, such as for high virtual network arrival rates and lifetimes. In addition, InPs with high-profit margins also embed virtual network requests under these circumstances.
+
+Finally, we have discussed that the Proof of Work (PoW) consensus model, due to its high energy consumptions and slow throughputs, is not an appropriate solution for private networks. For this reason, we have examined how the blockchain throughput (block generation time) is defined in the PoW algorithm. Since this directly depends on the block difficulty, we have tailored the PoW algorithm with an almost negligible difficulty. In particular, we have studied the blockchain performance based on the number of forks, mining fairness (fraction of mined blocks per client) and the block generation time.
+
+The results have shown that although the tailored PoW consensus model offers great block generation times while maintaining the system fairness, due to the low difficulty, multiple forks occur. This results in extra losses, which directly hamper the system scalability. Therefore, we introduced Proof of Elapsed Time (PoET), which is a lottery based consensus, where each miner waits an arbitrary time to mine a block, given this by a window size. Thus, to study the system behavior, we have performed an evaluation with an identical window for all the mining nodes. In the results, we have contemplated the importance of this parameter, as the blockchain generation time is approximately equal to the random value selected from this window. In addition, we have contemplated that a fixed window produces a poor throughput when the number of peers is small, and several forks when the number of participating mining nodes is high. To solve this, we have lastly presented a pseudocode that distributes the window times across multiple nodes in a decentralized and distributed manner.
+
 \section{Contributions}
+
+In this thesis, we have designed, implemented and evaluated, to the best of our knowledge, the first approach that uses the blockchain technology to enable brokerless virtual network embedding in a distributed environment. Since network virtualization is one example of the multiple IT supply chain processes, the system architecture along with the technologies and tools used during this work can also be integrated to many other applications. Nevertheless, our focus is now on the main contributions and key findings provided to the network slicing scenario.
+
+In previous related work, we observed how the confidentiality problem of infrastructure providers not willing to publicly disclose detailed information about their internal networks is addressed. However, there is no single solution that provides scalability, data confidentiality, low computational and economic costs, while ensuring a great system performance. Since blockchain is a new technology that supplies coordinated, secure and distributed workflows, a system to approach the mentioned requirements has been implemented and subsequently evaluated.
+
+Firstly, it is important to note that although apparently it seems that blockchain can improve many existing the systems, we have observed that a centralized database will always provide a better throughput. However, there are certain scenarios, such as when multiple untrusted users are willing to update the state of a system without trusting a middle actor, where the blockchain is a reasonable solution.
+
+In these scenarios, the type of blockchain implemented along with its specifications has a direct impact on the throughput and scalability of the system. Despite the specifications of a blockchain typically depends on the blockchain platform chosen, as the open-source code is available, these can always be altered, for instance, redefining the genesis block or integrating other consensus models.
+
+Moreover, another fundamental finding identified is that the throughput is proportional to the trust placed to the system. In other words, in a scenario where the mining nodes are working in a trusted environment (e.g. PoET), the performance is greater, such that the coordination and verification process is shorter. This can be compared to a distributed database, although in the blockchain, these mining nodes are maintained by different entities or firms rather than a single one. In contrast, in a scenario where all the clients are untrusted, the amount of work performed is higher (e.g. PoW), which is not reasonable for private networks. 
+
+Therefore, by introducing a blockchain in our VNE application, we have achieved a scalable system with a more distributed trust, a reduced set up complexity, lower maintenance costs and a more decentralized management. Regarding the data confidentiality, thanks to the cryptography, the mining nodes cannot access the information considered confidential, such as all the bids deposited in an auction. Thus, despite most of the blockchain platform and tools are on early phases, by integrating them to our approach, we can already contemplate the technology potential, such that most of our defined requirements have been addressed. Nevertheless, since the technology is constantly growing and our approach is experimental, these can always be enhanced.
+
+On the other hand, a new algorithm adapted from the Vickrey auction model has been designed and later implemented into the blockchain using smart contracts. This mechanism encourages users to apply dynamic pricing to better define their product prices. To evaluate it, we have described a pricing model, based on the resource utilization, to observe the efficiency of our proposed algorithm. Despite, our results illustrate that the defined algorithm is fair in terms of cost and embedding distribution across the InPs, it is also contemplated that due to the pricing model applied, the system has a poor performance in scenarios where the resources are overloaded. Thus, we reinforce that the cost estimation could be performed based on many other parameters rather than the resource utilization, which will provide a higher system efficiency and flexibility.
+
+On balance, we do not claim that our approach is the only way of performing VN partitioning using the blockchain technology, however,  thanks to smart contract's flexibility, this can serve as a starting point for more upcoming investigations.
 
 \section{Future Work}
 
-IOTA-TANGLE
-BigchainDB
-Hyperledger?
-The Front-end application could be hosted in a decentralized storage such as IPFS or SWARM.
-A DApp has its backend code running on a decentralized peer-to-peer network. Contrast this with an app where the backend code is running on centralized servers. A DApp can have frontend code and user interfaces written in any language (just like an app) that can make calls to its backend. Furthermore, its frontend can be hosted on decentralized storage such as Swarm or IPFS.
-BC storing chunks of data
+The main limitation of our thesis is the lack of related work on using the blockchain technology for virtual network embedding, which could be used to compare the obtained results with other approaches.
 
-\section{Final Remarks}
+Firstly, these will differ regarding the blockchain platform used and its specifications. For this reason, other private blockchains, such as Hyperledger Fabric or R3 Corda, or simply an upgraded version of our defined PoET consensus model, can be applied to build a partly decentralized hybrid blockchain.
+
+Secondly, regarding the smart contracts, as any other programming code, it needs to be constantly tested to highlight potential security vulnerabilities and optimized to efficiently achieve the desired aims at lower costs (CPU, memory...). Apart from that, the defined \textit{Users} and \textit{Vickrey} contracts need to be consistent with the current market demands, and as a consequence, they most probably need to be redefined with new algorithms and protocols.
+
+Thirdly, since currently, the Ether values have not a significant impact on the application, such that there are not high benefits for users on mining, it is probable that only a small group users end up ensuring the system functionality. Thus, incorporating incentives can prevent that our system suffers from scalability. In addition, in order to build a totally distributed system, the front-end application could also be hosted in a decentralized storage, such as IPFS. 
+
+On the other hand, despite our defined algorithm adapted from the Vickrey auction model could use a multi-dimensional process, in this thesis, only the price quotes of the notified InPs are used to determine the minimum VNE cost. Thus, other parameters such as the quality of service or the opinions giving by other users could be used to enhance the defined algorithm.
+
+Finally, apart from the established package pricing model, users could use automated processes based on other factors, such as competitive pricing, to better estimate the costs and compete in the market. For instance, since the reserved prices for the virtual nodes are publicly known when an auction finishes, this could be used for the InPs maintaining the application, to find insights and patterns in historical data, i.e to apply machine learning. Thanks to the middleware, the integration of other infrastructures or systems in our application can be easily accomplished.
+ 
