@@ -11,7 +11,7 @@
 \contentsline {subsection}{\numberline {2.1.1}Blockchain 1.0: Cryptocurrencies}{6}{subsection.2.1.1}
 \contentsline {subsubsection}{Bitcoin}{6}{subsubsection*.11}
 \contentsline {paragraph}{Mining and Transactions}{6}{paragraph*.12}
-\contentsline {paragraph}{Key management}{8}{paragraph*.14}
+\contentsline {paragraph}{Key management}{8}{paragraph*.15}
 \contentsline {subsection}{\numberline {2.1.2}Blockchain 2.0: Smart contracts}{8}{subsection.2.1.2}
 \contentsline {subsubsection}{Ethereum}{8}{subsubsection*.16}
 \contentsline {subsubsection}{Decentralized applications}{10}{subsubsection*.18}
@@ -24,9 +24,9 @@
 \contentsline {section}{\numberline {3.2}Network virtualization}{16}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Multi-Provider Virtual Network Embedding with Limited Information Disclosure}{16}{subsection.3.2.1}
 \contentsline {subsubsection}{Centralized Slice Embedding}{17}{subsubsection*.21}
-\contentsline {subsubsection}{Distributed Slice Embedding}{18}{subsubsection*.23}
+\contentsline {subsubsection}{Distributed Slice Embedding}{17}{subsubsection*.23}
 \contentsline {section}{\numberline {3.3}Analysis of Related Work}{19}{section.3.3}
-\contentsline {section}{\numberline {3.4}Summary}{20}{section.3.4}
+\contentsline {section}{\numberline {3.4}Summary}{21}{section.3.4}
 \contentsline {chapter}{\numberline {4}Design}{23}{chapter.4}
 \contentsline {section}{\numberline {4.1}Requirements and Assumptions}{23}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Virtual Network Embedding with LID scenario}{25}{subsection.4.1.1}
@@ -52,7 +52,7 @@
 \contentsline {subsection}{\numberline {6.1.1}Pricing Model}{51}{subsection.6.1.1}
 \contentsline {subsection}{\numberline {6.1.2}Proof of Elapsed Time}{52}{subsection.6.1.2}
 \contentsline {section}{\numberline {6.2}Goals and Metrics}{53}{section.6.2}
-\contentsline {section}{\numberline {6.3}Evaluation Results}{54}{section.6.3}
+\contentsline {section}{\numberline {6.3}Evaluation Results}{53}{section.6.3}
 \contentsline {subsection}{\numberline {6.3.1}Acceptance Rate and Bidding Strategy}{54}{subsection.6.3.1}
 \contentsline {subsection}{\numberline {6.3.2}Blockchain Performance and Mining Fairness}{57}{subsection.6.3.2}
 \contentsline {chapter}{\numberline {7}Conclusions}{63}{chapter.7}

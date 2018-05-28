@@ -169,6 +169,12 @@ Richard~Ramos Iuri~Matias, Jonathan~Rainville.
 \newblock Embark.
 \newblock \url{https://github.com/embark-framework/embark}, 2016.
 
+\bibitem[JMV01]{johnson2001elliptic}
+Don Johnson, Alfred Menezes, and Scott Vanstone.
+\newblock The elliptic curve digital signature algorithm (ecdsa).
+\newblock {\em International journal of information security}, 1(1):36--63,
+  2001.
+
 \bibitem[KARF03]{karkkainen2003product}
 Mikko K{\"a}rkk{\"a}inen, Timo Ala-Risku, and Kary Fr{\"a}mling.
 \newblock The product centric approach: a solution to supply network
