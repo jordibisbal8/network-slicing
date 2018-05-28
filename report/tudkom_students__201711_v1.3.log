@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  28 MAY 2018 11:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.21)  28 MAY 2018 16:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2162,7 +2162,7 @@ Package pdftex.def Info: gfx/designWorkflow.pdf used on input line 585.
 
 pdfTeX warning: pdflatex (file ./gfx/authentication_design.pdf): PDF inclusion:
  found PDF version <1.7>, but at most version <1.5> allowed
-<gfx/authentication_design.pdf, id=865, 497.86pt x 274.02374pt>
+<gfx/authentication_design.pdf, id=863, 497.86pt x 274.02374pt>
 File: gfx/authentication_design.pdf Graphic file (type pdf)
 
 <use gfx/authentication_design.pdf>
@@ -2178,7 +2178,7 @@ Overfull \hbox (10.56007pt too wide) detected at line 731
 
 pdfTeX warning: pdflatex (file ./gfx/vickrey.pdf): PDF inclusion: found PDF ver
 sion <1.7>, but at most version <1.5> allowed
-<gfx/vickrey.pdf, id=914, 657.45625pt x 411.5375pt>
+<gfx/vickrey.pdf, id=910, 657.45625pt x 411.5375pt>
 File: gfx/vickrey.pdf Graphic file (type pdf)
  <use gfx/vickrey.pdf>
 Package pdftex.def Info: gfx/vickrey.pdf used on input line 739.
@@ -2196,19 +2196,19 @@ chapter 5.
 
 pdfTeX warning: pdflatex (file ./gfx/Smart_contract_workflow.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<gfx/Smart_contract_workflow.pdf, id=962, 729.72626pt x 194.7275pt>
+<gfx/Smart_contract_workflow.pdf, id=957, 729.72626pt x 194.7275pt>
 File: gfx/Smart_contract_workflow.pdf Graphic file (type pdf)
 
 <use gfx/Smart_contract_workflow.pdf>
-Package pdftex.def Info: gfx/Smart_contract_workflow.pdf used on input line 810
+Package pdftex.def Info: gfx/Smart_contract_workflow.pdf used on input line 806
 .
 (pdftex.def)             Requested size: 497.92325pt x 132.87051pt.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 9.21606pt on input line 815.
+(Font)              scaled to size 9.21606pt on input line 811.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 6.43204pt on input line 815.
+(Font)              scaled to size 6.43204pt on input line 811.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 5.56804pt on input line 815.
+(Font)              scaled to size 5.56804pt on input line 811.
  [37
 
 
@@ -2216,25 +2216,30 @@ LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
 
 pdfTeX warning: pdflatex (file ./gfx/Implementation_architecture.pdf): PDF incl
 usion: found PDF version <1.7>, but at most version <1.5> allowed
-<gfx/Implementation_architecture.pdf, id=996, 722.7pt x 281.05pt>
+<gfx/Implementation_architecture.pdf, id=992, 722.7pt x 281.05pt>
 File: gfx/Implementation_architecture.pdf Graphic file (type pdf)
 
 <use gfx/Implementation_architecture.pdf>
 Package pdftex.def Info: gfx/Implementation_architecture.pdf used on input line
- 835.
+ 831.
 (pdftex.def)             Requested size: 497.92325pt x 193.63737pt.
- [39 <./gfx/Implementation_architecture.pdf>] [40]
-Underfull \hbox (badness 10000) in paragraph at lines 881--883
+ [39 <./gfx/Implementation_architecture.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 852--854
 
  []
 
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 878--880
 
-Overfull \hbox (2.3211pt too wide) in paragraph at lines 897--899
-[][][] 
  []
 
 [41]
-Overfull \hbox (2.3211pt too wide) in paragraph at lines 899--900
+Overfull \hbox (2.3211pt too wide) in paragraph at lines 894--896
+[][][] 
+ []
+
+
+Overfull \hbox (2.3211pt too wide) in paragraph at lines 896--897
 [][][] 
  []
 
@@ -2242,30 +2247,50 @@ Overfull \hbox (2.3211pt too wide) in paragraph at lines 899--900
 
 pdfTeX warning: pdflatex (file ./gfx/Authentication_implementation.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<gfx/Authentication_implementation.pdf, id=1063, 743.77875pt x 325.215pt>
+<gfx/Authentication_implementation.pdf, id=1061, 743.77875pt x 325.215pt>
 File: gfx/Authentication_implementation.pdf Graphic file (type pdf)
 
 <use gfx/Authentication_implementation.pdf>
 Package pdftex.def Info: gfx/Authentication_implementation.pdf used on input li
-ne 923.
+ne 916.
 (pdftex.def)             Requested size: 497.92325pt x 217.71922pt.
- [42] [43 <./gfx/Authentication_implementation.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 972--974
+ [42]
+Underfull \hbox (badness 10000) in paragraph at lines 928--930
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 994--996
+Underfull \hbox (badness 10000) in paragraph at lines 946--948
+
+ []
+
+[43 <./gfx/Authentication_implementation.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 968--970
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 990--992
 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1023
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1037--1040
 
  []
 
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 1042--1044
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1079
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1079
 
  []
 
@@ -2273,12 +2298,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1042--1044
 
 pdfTeX warning: pdflatex (file ./gfx/implementation_workflow.pdf): PDF inclusio
 n: found PDF version <1.7>, but at most version <1.5> allowed
-<gfx/implementation_workflow.pdf, id=1218, 794.97pt x 310.15875pt>
+<gfx/implementation_workflow.pdf, id=1216, 794.97pt x 310.15875pt>
 File: gfx/implementation_workflow.pdf Graphic file (type pdf)
 
 <use gfx/implementation_workflow.pdf>
 Package pdftex.def Info: gfx/implementation_workflow.pdf used on input line 112
-7.
+3.
 (pdftex.def)             Requested size: 497.92325pt x 194.26994pt.
  [47] [48 <./gfx/implementation_workflow.pdf>]
 chapter 6.
@@ -2286,11 +2311,11 @@ chapter 6.
 
 pdfTeX warning: pdflatex (file ./gfx/Evaluation_scenario.pdf): PDF inclusion: f
 ound PDF version <1.7>, but at most version <1.5> allowed
-<gfx/Evaluation_scenario.pdf, id=1268, 542.025pt x 151.56625pt>
+<gfx/Evaluation_scenario.pdf, id=1266, 542.025pt x 151.56625pt>
 File: gfx/Evaluation_scenario.pdf Graphic file (type pdf)
 
 <use gfx/Evaluation_scenario.pdf>
-Package pdftex.def Info: gfx/Evaluation_scenario.pdf used on input line 1154.
+Package pdftex.def Info: gfx/Evaluation_scenario.pdf used on input line 1150.
 (pdftex.def)             Requested size: 497.92325pt x 139.2391pt.
  [49
 
@@ -2299,124 +2324,124 @@ Package pdftex.def Info: gfx/Evaluation_scenario.pdf used on input line 1154.
 
 pdfTeX warning: pdflatex (file ./gfx/Evaluation_topologies.pdf): PDF inclusion:
  found PDF version <1.7>, but at most version <1.5> allowed
-<gfx/Evaluation_topologies.pdf, id=1299, 361.35pt x 325.215pt>
+<gfx/Evaluation_topologies.pdf, id=1297, 361.35pt x 325.215pt>
 File: gfx/Evaluation_topologies.pdf Graphic file (type pdf)
 
 <use gfx/Evaluation_topologies.pdf>
-Package pdftex.def Info: gfx/Evaluation_topologies.pdf used on input line 1172.
+Package pdftex.def Info: gfx/Evaluation_topologies.pdf used on input line 1168.
 
 (pdftex.def)             Requested size: 239.00102pt x 215.10406pt.
 
 
 pdfTeX warning: pdflatex (file ./gfx/Ev_vnr.pdf): PDF inclusion: found PDF vers
 ion <1.7>, but at most version <1.5> allowed
-<gfx/Ev_vnr.pdf, id=1302, 361.35pt x 310.15875pt>
+<gfx/Ev_vnr.pdf, id=1300, 361.35pt x 310.15875pt>
 File: gfx/Ev_vnr.pdf Graphic file (type pdf)
  <use gfx/Ev_vnr.pdf>
-Package pdftex.def Info: gfx/Ev_vnr.pdf used on input line 1175.
+Package pdftex.def Info: gfx/Ev_vnr.pdf used on input line 1171.
 (pdftex.def)             Requested size: 239.00102pt x 205.14554pt.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 9.98405pt on input line 1176.
+(Font)              scaled to size 9.98405pt on input line 1172.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 7.00804pt on input line 1176.
+(Font)              scaled to size 7.00804pt on input line 1172.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 6.04803pt on input line 1176.
+(Font)              scaled to size 6.04803pt on input line 1172.
  [50 <./gfx/Evaluation_topologies.pdf> <./gfx/Ev_vnr.pdf>]
-Overfull \hbox (5.9331pt too wide) in alignment at lines 1203--1203
+Overfull \hbox (5.9331pt too wide) in alignment at lines 1199--1199
 [][][][] 
  []
 
-[51] <gfx/pricing_model.png, id=1352, 415.5525pt x 302.8113pt>
+[51] <gfx/pricing_model.png, id=1350, 415.5525pt x 302.8113pt>
 File: gfx/pricing_model.png Graphic file (type png)
 
 <use gfx/pricing_model.png>
-Package pdftex.def Info: gfx/pricing_model.png used on input line 1225.
+Package pdftex.def Info: gfx/pricing_model.png used on input line 1221.
 (pdftex.def)             Requested size: 274.26549pt x 199.85606pt.
  [52 <./gfx/pricing_model.png>] [53]
-<gfx/ev_acceptance_rate.png, id=1377, 462.528pt x 346.896pt>
+<gfx/ev_acceptance_rate.png, id=1375, 462.528pt x 346.896pt>
 File: gfx/ev_acceptance_rate.png Graphic file (type png)
 
 <use gfx/ev_acceptance_rate.png>
-Package pdftex.def Info: gfx/ev_acceptance_rate.png used on input line 1300.
+Package pdftex.def Info: gfx/ev_acceptance_rate.png used on input line 1296.
 (pdftex.def)             Requested size: 300.63962pt x 225.47972pt.
 
-<gfx/ev_acceptance_rate3D.png, id=1378, 371.4678pt x 263.0628pt>
+<gfx/ev_acceptance_rate3D.png, id=1376, 371.4678pt x 263.0628pt>
 File: gfx/ev_acceptance_rate3D.png Graphic file (type png)
 
 <use gfx/ev_acceptance_rate3D.png>
-Package pdftex.def Info: gfx/ev_acceptance_rate3D.png used on input line 1307.
+Package pdftex.def Info: gfx/ev_acceptance_rate3D.png used on input line 1303.
 (pdftex.def)             Requested size: 334.31793pt x 236.75432pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<gfx/ev_pricing.png, id=1381, 438.6789pt x 316.5426pt>
+<gfx/ev_pricing.png, id=1379, 438.6789pt x 316.5426pt>
 File: gfx/ev_pricing.png Graphic file (type png)
 
 <use gfx/ev_pricing.png>
-Package pdftex.def Info: gfx/ev_pricing.png used on input line 1316.
+Package pdftex.def Info: gfx/ev_pricing.png used on input line 1312.
 (pdftex.def)             Requested size: 298.29768pt x 215.24611pt.
  [54] [55 <./gfx/ev_acceptance_rate.png> <./gfx/ev_acceptance_rate3D.png>] [56 
 <./gfx/ev_pricing.png>]
-<gfx/ev_winners_L1.png, id=1416, 443.0151pt x 337.5009pt>
+<gfx/ev_winners_L1.png, id=1414, 443.0151pt x 337.5009pt>
 File: gfx/ev_winners_L1.png Graphic file (type png)
 
 <use gfx/ev_winners_L1.png>
-Package pdftex.def Info: gfx/ev_winners_L1.png used on input line 1343.
+Package pdftex.def Info: gfx/ev_winners_L1.png used on input line 1339.
 (pdftex.def)             Requested size: 239.00102pt x 182.08298pt.
 
-<gfx/ev_winners_L2.png, id=1417, 443.0151pt x 337.5009pt>
+<gfx/ev_winners_L2.png, id=1415, 443.0151pt x 337.5009pt>
 File: gfx/ev_winners_L2.png Graphic file (type png)
 
 <use gfx/ev_winners_L2.png>
-Package pdftex.def Info: gfx/ev_winners_L2.png used on input line 1346.
+Package pdftex.def Info: gfx/ev_winners_L2.png used on input line 1342.
 (pdftex.def)             Requested size: 239.00102pt x 182.08298pt.
  [57 <./gfx/ev_winners_L1.png> <./gfx/ev_winners_L2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1366--1368
+Underfull \hbox (badness 10000) in paragraph at lines 1362--1364
 
  []
 
-<gfx/ev_forks_pow.png, id=1432, 529.0164pt x 320.8788pt>
+<gfx/ev_forks_pow.png, id=1430, 529.0164pt x 320.8788pt>
 File: gfx/ev_forks_pow.png Graphic file (type png)
 
 <use gfx/ev_forks_pow.png>
-Package pdftex.def Info: gfx/ev_forks_pow.png used on input line 1393.
+Package pdftex.def Info: gfx/ev_forks_pow.png used on input line 1389.
 (pdftex.def)             Requested size: 239.00102pt x 144.97186pt.
 
-<gfx/ev_forks_poet.png, id=1433, 529.0164pt x 320.8788pt>
+<gfx/ev_forks_poet.png, id=1431, 529.0164pt x 320.8788pt>
 File: gfx/ev_forks_poet.png Graphic file (type png)
 
 <use gfx/ev_forks_poet.png>
-Package pdftex.def Info: gfx/ev_forks_poet.png used on input line 1396.
+Package pdftex.def Info: gfx/ev_forks_poet.png used on input line 1392.
 (pdftex.def)             Requested size: 239.00102pt x 144.97186pt.
 
-<gfx/ev_fairness_pow.png, id=1434, 443.0151pt x 317.988pt>
+<gfx/ev_fairness_pow.png, id=1432, 443.0151pt x 317.988pt>
 File: gfx/ev_fairness_pow.png Graphic file (type png)
 
 <use gfx/ev_fairness_pow.png>
-Package pdftex.def Info: gfx/ev_fairness_pow.png used on input line 1405.
+Package pdftex.def Info: gfx/ev_fairness_pow.png used on input line 1401.
 (pdftex.def)             Requested size: 239.00102pt x 171.55568pt.
 
-<gfx/ev_fairness_poet.png, id=1435, 443.0151pt x 317.988pt>
+<gfx/ev_fairness_poet.png, id=1433, 443.0151pt x 317.988pt>
 File: gfx/ev_fairness_poet.png Graphic file (type png)
 
 <use gfx/ev_fairness_poet.png>
-Package pdftex.def Info: gfx/ev_fairness_poet.png used on input line 1408.
+Package pdftex.def Info: gfx/ev_fairness_poet.png used on input line 1404.
 (pdftex.def)             Requested size: 239.00102pt x 171.55568pt.
  [58] [59 <./gfx/ev_forks_pow.png> <./gfx/ev_forks_poet.png> <./gfx/ev_fairness
 _pow.png> <./gfx/ev_fairness_poet.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1426--1428
+Underfull \hbox (badness 10000) in paragraph at lines 1422--1424
 
  []
 
-[60] <gfx/ev_block_time.png, id=1519, 429.2838pt x 310.0383pt>
+[60] <gfx/ev_block_time.png, id=1517, 429.2838pt x 310.0383pt>
 File: gfx/ev_block_time.png Graphic file (type png)
 
 <use gfx/ev_block_time.png>
-Package pdftex.def Info: gfx/ev_block_time.png used on input line 1479.
+Package pdftex.def Info: gfx/ev_block_time.png used on input line 1475.
 (pdftex.def)             Requested size: 300.4966pt x 217.02531pt.
  [61 <./gfx/ev_block_time.png>]
-Overfull \hbox (10.56007pt too wide) detected at line 1506
+Overfull \hbox (10.56007pt too wide) detected at line 1502
 [][] 
  []
 
@@ -2463,9 +2488,9 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 291.
  ) 
 Here is how much of TeX's memory you used:
- 26142 strings out of 494860
- 435671 string characters out of 6177601
- 711167 words of memory out of 5000000
+ 26141 strings out of 494860
+ 435680 string characters out of 6177601
+ 710280 words of memory out of 5000000
  28453 multiletter control sequences out of 15000+600000
  189675 words of font info for 202 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
@@ -2490,10 +2515,10 @@ texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chrmb.pfb></usr/share
 xmf-dist/fonts/type1/public/txfonts/t1xbtt.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/zapfding/uzdr.pfb>
-Output written on tudkom_students__201711_v1.3.pdf (75 pages, 1408672 bytes).
+Output written on tudkom_students__201711_v1.3.pdf (75 pages, 1403158 bytes).
 PDF statistics:
- 1772 PDF objects out of 2073 (max. 8388607)
- 1559 compressed objects within 16 object streams
- 505 named destinations out of 1000 (max. 500000)
+ 1768 PDF objects out of 2073 (max. 8388607)
+ 1555 compressed objects within 16 object streams
+ 504 named destinations out of 1000 (max. 500000)
  606 words of extra memory for PDF output out of 10000 (max. 10000000)
 
