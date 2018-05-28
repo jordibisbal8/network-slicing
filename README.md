@@ -28,12 +28,11 @@ Download and install the project localy on your computer:
 
 ### Part 2
 
-For the second part, be sure you're connected to an Ethereum client before running the commands below. We will use geth to create our own private chain.
+For the second part, we will use geth to create our own private chain.
 
-4. Go to to the geth folder `cd geth` (not uploaded yet)
+4. Go to to the geth folder `cd geth`
 5. Start a node with the initialized genesis block:
-`geth --port 3000 --networkid 58342 --nodiscover --datadir="privchain/" --maxpeers=0 --rpc --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "http://localhost:8000" --rpcapi "eth,net,web3,personal" --gasprice "0" console`
-6. Remember to call  `miner.start()` before compiling or interacting with the BC.
+`geth --port 3000 --identity "node1" --networkid 58342 --datadir="privchain/" --maxpeers=5 --rpc --rpcport 8545 --rpcaddr 127.0.0.1 --rpccorsdomain "http://localhost:8000" --rpcapi "eth,net,web3,personal" --gasprice "0" --extradata 1 --nodiscover --syncmode 'full' --preload "poetSimulation.js" console`
 
 And then in the first tab, run:
 
@@ -48,14 +47,6 @@ If a contract is modified, it should be compiled and uploaded on the Blockchain.
 1. `truffle compile` to compile your contracts
 2. `truffle migrate` to deploy those contracts to the BC.
 
-## Running unit tests
-
-Coming soon...
-
-1. Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-2. Run `truffle test` to run tests associated with your solidity smart contracts. The test folder for this can be found in the `test` directory at the root level of this project
-
-
 
 ## Contributors
 1. [Jordi Bisbal](https://dev.kom.e-technik.tu-darmstadt.de/gitlab/jb64lori)
@@ -67,5 +58,9 @@ You can also contact me by: jordi.bisbalansaldo@stud.tu-darmstadt.de
 
 ## Technologies & Languages Used
 1. Angular2 (HTML/Typescript)
-2. Web3.js
-3. Truffle (Solidity)
+2. Node.js
+3. Truffle
+4. Web3.js
+5. GETH
+6. Solidity
+

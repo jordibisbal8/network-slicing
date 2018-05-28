@@ -21,8 +21,8 @@
       <file leaf-file-name="VickreyAuction.sol" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/contracts/VickreyAuction.sol">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="206" column="3" lean-forward="true" selection-start-line="206" selection-start-column="0" selection-end-line="219" selection-end-column="3" />
+            <state relative-caret-position="-250">
+              <caret line="206" column="3" lean-forward="false" selection-start-line="206" selection-start-column="0" selection-end-line="219" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -198,7 +198,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -207,44 +206,11 @@
               <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
               <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="contracts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="evaluation" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,16 +415,17 @@
       <workItem from="1526626807786" duration="11060000" />
       <workItem from="1526809657575" duration="3299000" />
       <workItem from="1527235259308" duration="2090000" />
+      <workItem from="1527519988184" duration="27000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1083090000" />
+    <option name="totallyTimeSpent" value="1083117000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2254" y="49" width="1617" height="1062" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17027864" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17027864" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -831,8 +798,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/contracts/VickreyAuction.sol">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="206" column="3" lean-forward="true" selection-start-line="206" selection-start-column="0" selection-end-line="219" selection-end-column="3" />
+        <state relative-caret-position="-250">
+          <caret line="206" column="3" lean-forward="false" selection-start-line="206" selection-start-column="0" selection-end-line="219" selection-end-column="3" />
           <folding />
         </state>
       </provider>
