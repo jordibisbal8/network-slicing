@@ -195,17 +195,6 @@
               <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
               <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="network-slicing-prototype" type="b2602c69:ProjectViewProjectNode" />
-              <item name="network-slicing-prototype" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -416,12 +405,12 @@
       <workItem from="1526809657575" duration="3299000" />
       <workItem from="1527235259308" duration="2090000" />
       <workItem from="1527519988184" duration="27000" />
-      <workItem from="1529326647855" duration="3239000" />
+      <workItem from="1529326647855" duration="3282000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1086356000" />
+    <option name="totallyTimeSpent" value="1086399000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2254" y="49" width="1617" height="1062" extended-state="7" />
