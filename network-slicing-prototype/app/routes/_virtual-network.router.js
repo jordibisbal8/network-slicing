@@ -16,7 +16,6 @@ export default (app, router, auth) => {
           // Get all InPs
           function getInPs(usersContract, callback)  {
             usersContract.getInPs.call().then(users => {
-              console.log("-- users", users);
               let InPs = [];
               users.forEach(user => {
                 if (user !== '0x0000000000000000000000000000000000000000')
@@ -60,9 +59,6 @@ export default (app, router, auth) => {
 
           // Creates the vickrey contract and adds the allowed InPs
           function createContract(allowedInPs, allowedVirtualNodes, packagePricingInPs, callback) {
-            console.log("-- allowedInPs", allowedInPs);
-            console.log("-- allowedVirtualNodes", allowedVirtualNodes);
-            console.log("-- packagePricingInPs", packagePricingInPs);
             VickreyAuction.new(req.body.idVirtualNodes, req.body.resourceTypes, req.body.locations, req.body.upperBoundCosts,
               req.body.x, req.body.y, req.body.idLinks, req.body.from, req.body.to, req.body.dBandwidth, req.body.endTime, {from: req.user, gas: 4000000})
               .then(vickreyContract => {
@@ -80,8 +76,6 @@ export default (app, router, auth) => {
               return allowedInPs.indexOf(value) === index;
             });
             InPs = InPs.concat(packagePricingInPs);
-            console.log("-- InPs", InPs);
-            // TODO TOO SLOW
             usersContract.addOpenedAuction(InPs, auctionAddr, req.body.endTime, {from: req.user, gas: 1400000});
             let isSent = false;
             usersContract.LogAuctionOpened().watch((error,result) => {
@@ -100,6 +94,7 @@ export default (app, router, auth) => {
 
   router.route('/virtual-network/:auctionAddr')
 
+    // Get the content of the auction address specified in req.params.auctionAddr
     .get(auth, (req, res) => {
       let vickreyContract = VickreyAuction.at(req.params.auctionAddr);
       let virtualNodes= [];
@@ -164,7 +159,6 @@ export default (app, router, auth) => {
           vickreyContract.ended.call().then(hasEnded => {
             if (hasEnded) {
               vickreyContract.packageWinner.call().then(winner => {
-                console.log("-- winner", winner);
                 if (winner !== '0x0000000000000000000000000000000000000000') {
                   vickreyContract.reservedPackagePrice.call().then(value => {
                     callback(null, owner, isPackageAllowed, null, hasEnded, winner, value.toNumber());
@@ -200,6 +194,7 @@ export default (app, router, auth) => {
 
   router.route('/virtual-network/bidding')
 
+    // Method that post an individual bidding of an InP.
     .post(auth, (req, res) => {
       let vickreyContract = VickreyAuction.at(req.body.auctionAddr);
       vickreyContract.commitIndividualBids(req.body.idVirtualNodes, req.body.values, {from: req.user, gas: 1400000});
@@ -222,6 +217,7 @@ export default (app, router, auth) => {
 
   router.route('/virtual-network/package-bidding')
 
+    // Method that post a package bidding of an InP.
     .post(auth, (req, res) => {
       let vickreyContract = VickreyAuction.at(req.body.auctionAddr);
       vickreyContract.commitPackageBid(req.body.value, {from: req.user, gas: 1400000});
@@ -244,6 +240,11 @@ export default (app, router, auth) => {
 
 
   router.route('/virtual-network/partitioning')
+
+  /**
+   * Method executed by the service provider, which is owner of the auction to perform the partitioning
+   * and subsequently close the auction.
+   */
     .post(auth, (req, res) => {
       let vickreyContract = VickreyAuction.at(req.body.auctionAddr);
       async.waterfall([
@@ -336,20 +337,13 @@ export default (app, router, auth) => {
         },
 
         function compareIndividualAndPackageBids(individualBids, individualNotCompleted, indInPs, packageBid, packageInPs, packageNotExist, callback) {
-          console.log("-- individualBids", individualBids);
-          console.log("-- packageBid", packageBid);
-          console.log("-- packageInPs", packageInPs);
-          console.log("-- individualNotCompleted", individualNotCompleted);
-          console.log("-- packageNotExist", packageNotExist);
           let sum = individualBids.map(x => x.reservedPrice).reduce((a, b) => a + b, 0);
-          console.log("-- sum", sum);
           // package pricing wins
           if ((individualNotCompleted ||  packageBid.reservedPrice <= sum) && !packageNotExist) {
             vickreyContract.addPackageWinnersAndBids(packageBid.reservedPrice, packageBid.InP, {from: req.user, gas: 1400000});
             let isSent = false;
             vickreyContract.LogEnded().watch((error, result) => {
               if (!isSent) {
-                console.log("-- result.args", result.args);
                 isSent = true;
                 return callback(null, packageInPs, indInPs);
               }
@@ -369,7 +363,6 @@ export default (app, router, auth) => {
             let isSent = false;
             vickreyContract.LogEnded().watch((error, result) => {
               if (!isSent) {
-                console.log("-- result.args1", result.args);
                 isSent = true;
                 return callback(null, packageInPs, indInPs);
               }
@@ -382,7 +375,6 @@ export default (app, router, auth) => {
 
         function closeAuction(packageInPs, indInPs, callback) {
           Users.deployed().then(usersContract => {
-            console.log("-- packageInPs.concat(indInPs)", packageInPs.concat(indInPs));
             usersContract.closeAuction(packageInPs.concat(indInPs), req.body.auctionAddr, {from: req.user, gas: 1400000});
             let isSent = false;
             usersContract.LogAuctionDeleted().watch((error,result) => {
@@ -393,7 +385,6 @@ export default (app, router, auth) => {
             })
           });
         }
-
       ], (err) => {
         if (err) return res.send(500, err);
         res.json({ok: 200});

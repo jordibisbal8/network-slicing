@@ -1,14 +1,12 @@
 import jwt from 'jsonwebtoken'; // used to create, sign, and verify tokens
 import ethUtil from 'ethereumjs-util';
 import config from '../../config/config'
-import web3 from '../controllers/web3';
-
 
 export default (app, router, auth) => {
 
   router.route('/isAuthenticated')
 
-    // Set expiration time 1h later
+    // Sends a new token with expiration time 1h later
     .get(auth, (req,res) => {
       let token = jwt.sign({user: req.user}, config.secret,  {expiresIn: '1h' });
       res.json({token});
@@ -16,6 +14,7 @@ export default (app, router, auth) => {
 
   router.route('/authenticate')
 
+    // Performs the digital signature verification and if address matched, a token is created.
     .post((req,res) => {
       // All Ethereum addresses are 42 characters long
       if(!req.body.address || req.body.address.length !== 42) {
@@ -25,7 +24,6 @@ export default (app, router, auth) => {
       let message = new Buffer(req.body.message);
       let signature = ethUtil.fromRpcSig(req.body.signature);
       let prefix = new Buffer("\x19Ethereum Signed Message:\n");
-      //web3.sha3(Buffer.concat([prefix, new Buffer(String(message.length)), message]));
       let prefixedMsg = ethUtil.sha3(
         Buffer.concat([prefix, new Buffer(String(message.length)), message])
       );
@@ -37,19 +35,6 @@ export default (app, router, auth) => {
         // JSON web token for the owner that expires in 1h
         let token = jwt.sign({user: req.body.address}, config.secret,  {expiresIn: '3h' });
         res.json({token: token});
-        /*Users.deployed().then(contractInstance => {
-          contractInstance.isUserRegistered.call(req.body.address).then(isRegistered => {
-            console.log("-- isRegistered", isRegistered);
-            if (isRegistered) {
-              // JSON web token for the owner that expires in 1h
-              let token = jwt.sign({user: req.body.address}, config.secret,  {expiresIn: '1h' });
-              res.json({token: token});
-            }
-            else {
-              res.send(500, { err: 'The user is not registered in the Blockchain.'});
-            }
-          })
-        });*/
       }
       else {
         console.log('signature check FAILED');

@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild} from "@angular/core";
 import {MdDialog, MdSnackBar} from "@angular/material";
-import {VnManager} from "../common/vn.manager";
 import {PeeringNodeDialogComponent} from "./dialogs/peering-node.dialog.component";
 import {SubstrateNetworkService} from "../services/substrate-network.service";
 import {PeeringNode} from "../model/PeeringNode";

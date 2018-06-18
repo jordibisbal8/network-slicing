@@ -1,9 +1,6 @@
 import Users from '../contracts/users_evaluation_contract'
 import web3 from '../controllers/web3';
-import VickreyAuction from '../contracts/vickrey_auction_evaluation_contract';
 import async from 'async';
-import fs from 'fs';
-var csv = require('csv');
 
 export default (app, router, auth) => {
 
@@ -25,19 +22,22 @@ export default (app, router, auth) => {
           });
           },
           function (err) {
-             console.log("-- ", );
              res.json({ok: 200});
           })
       })
     });
 
   router.route('/evaluation/virtual-network')
-
+  /**
+   * Route that performs all the VN partitioning once a VNR request has been sent.
+   * The number of InPs can be changed, but they must be previously registered in the Users contract.
+   * At this moment, 3 InPs have been defined with profit margins 0.1, 0.2 and 0.4 respectively.
+   */
     .post((req, res) => {
       Users.deployed().then(usersContract => {
         async.waterfall([
           async.constant(usersContract),
-          // Get the virtual nodes matched of the InPs and creates bids
+          // Get the virtual nodes matched of the InPs and creates bids with the specified profit margins.
           function getMatchedVirtualNodesAndCreateBid(usersContract,callback) {
             let matchedVirtualNodes = [];
             let packagePricingInPs =[];
@@ -47,11 +47,9 @@ export default (app, router, auth) => {
                     let counter = 0;
                     data[0].forEach((uCosts, i) => {
                       if (uCosts.toNumber() !== 0 && data[1][i].toNumber() + req.body.computing_demands[i] < data[2][i].toNumber()) {
-                        // (uCapacity + computing_demand) / allCapacity
                         let u = (data[1][i].toNumber() + req.body.computing_demands[i]) / data[2][i].toNumber();
                         console.log("-- InP", InP);
                         console.log("-- usedCapacity", data[1][i].toNumber());
-                        //console.log("-- u", u);
                         let cost = (uCosts.toNumber() + (u / (1 - u)));
                         let individualMargin;
                         let packageMargin;
@@ -102,9 +100,6 @@ export default (app, router, auth) => {
                               InP: InP,
                             }];
                           }
-                          /*usersContract.updateCapacity(req.body.computing_demands[i], req.body.resourceTypes[i], req.body.locations[i], true,
-                            {from: InP, gas: 1400000}).then(res => {
-                          });*/
                           counter ++;
                         }
                       }
@@ -114,18 +109,16 @@ export default (app, router, auth) => {
               },
               function(err)
               {
-                //console.log("-- matchedVirtualNodes", matchedVirtualNodes);
-                //console.log("-- packagePricingInPs", packagePricingInPs);
                 callback(err, matchedVirtualNodes, packagePricingInPs, usersContract);
               });
           },
 
+          // Gets lowest bids and reserved prices per virtual node, and package pricing prices.
           function getBidsPerVirtualNode(matchedVirtualNodes, packagePricingInPs, usersContract, callback) {
             let individualBids = [];
             let packageBid = [];
             let notWinningBids = [];
             let notWinningPackageBids = [];
-            // Gets bids per virtual node
             req.body.idVirtualNodes.forEach((idVirtualNode) => {
               for (let i in matchedVirtualNodes) {
                 let index = matchedVirtualNodes[i].map(x => x.idVirtualNode).indexOf(idVirtualNode);
@@ -182,7 +175,6 @@ export default (app, router, auth) => {
                 }
               }
             });
-            //console.log("-- individualBids", individualBids);
             callback(null, individualBids, packageBid, notWinningBids, notWinningPackageBids, usersContract)
           },
 
@@ -191,9 +183,9 @@ export default (app, router, auth) => {
             if (individualBids.length < req.body.idVirtualNodes.length) {
               incompleteInd = true;
             }
+            // Sum all the individuals to compare it with the lowest package pricing
             let sum = individualBids.map(x => x.reservedPrice).reduce((a, b) => a + b, 0);
-            //console.log("-- sum", sum);
-            //console.log("-- packageBid.reservedPrice", packageBid.reservedPrice);
+
             // package pricing wins
             if (!incompleteInd && ( !packageBid.reservedPrice  ||  packageBid.reservedPrice <= sum)) {
               // If winning InPs in virtual nodes are different, add inter-link costs.
@@ -221,34 +213,34 @@ export default (app, router, auth) => {
               callback('No solution exists', individualBids, usersContract)
             }
           },
-
+          // Function call to method updateCapacitiesInPs
           function updateInPsCapacities(packageBid, indBids, notWinningBids, notWinningPackageBids, usersContract, callback) {
             updateCapacitiesInPs(usersContract, packageBid, indBids, notWinningBids, notWinningPackageBids, false, req, (res) => {
               callback(null, packageBid, indBids, notWinningBids, usersContract);
             })
 
           },
+          // After the virtual network request lifetime, updateCapacitiesInPs is called and the capacities are updated accordingly.
           function lifeTimeEnded (packageBid, indBids, notWinningBids, usersContract, callback) {
+            // Response is already sent for not reaching a maximum number of HTTP requests for the test.
             res.json({ok: 200});
             setTimeout(updateCapacitiesInPs, req.body.lifetime, usersContract, packageBid, indBids, null, null, true, req, (res) => {
               callback(null, notWinningBids,usersContract);
             });
           }
         ], (err,notWinningBids, usersContract) => {
+          // If error the value stored is infinity.
           if (err) {
             console.log("-- notWinningBids", notWinningBids);
             storeValues("infinity", req.body.arrivalRate,req.body.isNewTest, req.body.numOfRequest);
-            /*if (notWinningBids)
-              updateCapacitiesInPs(usersContract, null, null, notWinningBids, null, true, req, (res) => {
-            });*/
             return res.send(500, err);
           }
         })
       })
     });
 
+  // Function that updates the InPs capacities and call the storeValues and storeWinners methods if outcome wants to be stored.
   function updateCapacitiesInPs(usersContract, packageBid, indBids,  notWinningBids, notWinningPackageBids, isFinished, req, callback) {
-    console.log(isFinished);
     if (packageBid) {
       if (!isFinished) {
         storeValues(packageBid.reservedPrice, req.body.arrivalRate, req.body.isNewTest, req.body.numOfRequest);
@@ -279,6 +271,7 @@ export default (app, router, auth) => {
     }
   }
 
+  // Method used to store the outcome of the VNR in csv files
   function storeWinner(InP, numOfVirtualNodes, isNewTest, arrivalRate, numOfRequest, total, indBids) {
     /*let newLine = "\r\n";
     let obj = csv();
@@ -333,6 +326,7 @@ export default (app, router, auth) => {
     })*/
   }
 
+  // Method used to store the outcome of the VNR in csv files
   function storeValues(price, arrivalRate, isNewTest, numOfRequest) {
     /** Start price **/
     /*let newLine = "\r\n";
@@ -398,253 +392,4 @@ export default (app, router, auth) => {
       });
     }*/
   }
-
-  /*Users.deployed().then(usersContract => {
-  async.waterfall([
-    async.constant(usersContract),
-    // Get the virtual nodes matched of the InPs and creates bids
-    function getMatchedVirtualNodesAndCreateBid(usersContract,callback) {
-      let matchedVirtualNodes = [];
-      let packagePricingInPs =[];
-      async.eachOfSeries(req.body.InPs, function eachInP(InP, i, eachOfSeriesCallback) {
-          usersContract.getCostsAndCapacities.call(req.body.locations, req.body.resourceTypes, {from: InP, gas: 1400000})
-            .then(data => {
-              let counter = 0;
-              data[0].forEach((uCosts, i) =>{
-                if (uCosts.toNumber() !== 0 && data[1][i].toNumber() + req.body.computing_demands[i] <= data[2][i].toNumber()) {
-                  // (uCapacity + computing_demand) / allCapacity
-                  let u = (data[1][i].toNumber() + req.body.computing_demands[i]) / data[2][i].toNumber();
-                  let cost = (uCosts.toNumber() + (u / (1 - u))); //TODO  * req.body.lifetime
-                  let individualMargin = 0; //TODO MARGINS
-                  let bid = cost * (1 + individualMargin);
-                  // TODO UPDATE CAPACITIES
-                  if (bid <= req.body.upperBoundCosts[i]) {
-                    if (matchedVirtualNodes[InP]) {
-                      matchedVirtualNodes[InP].push({
-                        idVirtualNode: req.body.idVirtualNodes[i],
-                        resourceType: req.body.resourceTypes[i],
-                        location: web3.toUtf8(data[3][i]),
-                        cost: cost,
-                        bid: bid, //FOR THE BLOCKCHAIN
-                      });
-                      if (counter === req.body.idVirtualNodes.length - 1) {
-                        let packageCost = matchedVirtualNodes[InP].map(x => x.cost).reduce((a, b) => a + b, 0);
-                        let packageMargin = 0; //TODO MARGINS
-                        let packageBid = packageCost * (1 + packageMargin);
-                        packagePricingInPs.push({
-                          InP: InP,
-                          cost: packageCost,
-                          bid: packageBid
-                        });
-                      }
-                    }
-                    else {
-                      matchedVirtualNodes[InP] = [{
-                        idVirtualNode: req.body.idVirtualNodes[i],
-                        resourceType: req.body.resourceTypes[i],
-                        location: web3.toUtf8(data[3][i]),
-                        cost: cost,
-                        bid: bid,
-                      }];
-                    }
-                    counter ++;
-                  }
-                }
-              });
-              eachOfSeriesCallback(null);
-            })
-        },
-        function(err)
-        {
-          console.log("-- allowedVirtualNodes", matchedVirtualNodes);
-          console.log("-- packagePricingInPs", packagePricingInPs);
-          callback(err, matchedVirtualNodes, packagePricingInPs, usersContract);
-        });
-    },
-
-    // Creates the vickrey contract and adds the allowed InPs
-    function createContract(matchedVirtualNodes, packagePricingInPs, usersContract, callback) {
-      VickreyAuction.new(req.body.idVirtualNodes, req.body.resourceTypes, req.body.locations, req.body.upperBoundCosts, req.body.capacities,
-        req.body.idLinks, req.body.from, req.body.to, req.body.dBandwidth, {from: req.user, gas: 4000000})
-        .then(vickreyContract => {
-          console.log("-- result.contract.address", vickreyContract.contract.address);
-            callback(null, vickreyContract.contract.address, matchedVirtualNodes, packagePricingInPs);
-        })
-    },
-    function bidding(auctionAddr, matchedVirtualNodes, packagePricingInPs, callback) {
-      let vickreyContract = VickreyAuction.at(auctionAddr);
-      async.eachOfSeries(req.body.InPs, function eachInP(InP, i, eachOfCallback) {
-          if (typeof matchedVirtualNodes[InP] === "undefined") {
-          return eachOfCallback(null);
-        }
-        if (packagePricingInPs.length === 0 || packagePricingInPs.map(x => x.InP).indexOf(InP) === -1) {
-          let ids = matchedVirtualNodes[InP].map(x => x.idVirtualNode);
-          let values = matchedVirtualNodes[InP].map(x => x.bid);
-          vickreyContract.commitIndividualBids(ids, values, {from: InP, gas: 1400000}).then(res => {
-            return eachOfCallback();
-          })
-        }
-        else {
-          vickreyContract.commitPackageBid(packagePricingInPs.filter(x => x.InP === InP)[0].bid, {from: InP, gas: 1400000}).then(res => {
-            return eachOfCallback();
-          })
-        }
-      },
-        function(err) {
-          callback(err, vickreyContract, usersContract)
-        });
-    },
-    // Partitioning
-    function getBidsPerVirtualNode (vickreyContract, usersContract, callback) {
-      let individualBids = [];
-      let individualNotCompleted;
-      let indInPs = [];
-      async.eachOf(req.body.idVirtualNodes, function eachVirtualNode(idVirtualNode, i, eachOfCallback) {
-          vickreyContract.getBidsPerVirtualNode.call(idVirtualNode, {from: req.user}).then(InPsAndBids => {
-            if (InPsAndBids[0].length === 0) {
-              individualBids[i] = {idVirtualNode:idVirtualNode, reservedPrice: 0};
-              individualNotCompleted = true;
-            }
-            else {
-              individualBids[i] = {idVirtualNode:idVirtualNode};
-              InPsAndBids[1].forEach((value, index) => {
-                if (indInPs.indexOf(InPsAndBids[0][index]) === -1)
-                  indInPs.push(InPsAndBids[0][index]);
-                // If first bid
-                if (!individualBids[i].lowestBid){
-                  individualBids[i].reservedPrice = value.toNumber();
-                  individualBids[i].lowestBid = value.toNumber();
-                  individualBids[i].InP = InPsAndBids[0][index];
-                }
-                else {
-                  // If lowest bid
-                  if (value.toNumber() < individualBids[i].lowestBid) {
-                    individualBids[i].reservedPrice = individualBids[i].lowestBid;
-                    individualBids[i].lowestBid = value.toNumber();
-                    individualBids[i].InP = InPsAndBids[0][index];
-                  }
-                  // If bigger than lowest bid but smaller than reserved price
-                  else if (individualBids[i].lowestBid === individualBids[i].reservedPrice ||
-                    value.toNumber() < individualBids[i].reservedPrice) {
-                    individualBids[i].reservedPrice = value.toNumber();
-                  }
-                  else {
-                    // do nothing
-                  }
-                }
-              });
-            }
-            eachOfCallback();
-          })
-        },
-        function(err)
-        {
-          callback(err, individualBids, individualNotCompleted, indInPs, vickreyContract, usersContract);
-        });
-    },
-    function getPackageBids(individualBids, individualNotCompleted, indInPs, vickreyContract, usersContract, callback) {
-      let packageInPs = [];
-      let packageNotExist;
-      vickreyContract.getPackageBids.call({from: req.user}).then(InPsAndBids => {
-        let packageBid = {};
-        if (InPsAndBids[0].length === 0) {
-          packageNotExist = true;
-        }
-        else {
-          InPsAndBids[1].forEach((value, index) => {
-            if (packageInPs.indexOf(InPsAndBids[0][index]) === -1)
-              packageInPs.push(InPsAndBids[0][index]);
-            if (!packageBid.lowestBid){
-              packageBid.reservedPrice = value.toNumber();
-              packageBid.lowestBid = value.toNumber();
-              packageBid.InP = InPsAndBids[0][index];
-            }
-            else {
-              if (value.toNumber() < packageBid.lowestBid) {
-                packageBid.reservedPrice = packageBid.lowestBid;
-                packageBid.lowestBid = value.toNumber();
-                packageBid.InP = InPsAndBids[0][index];
-              }
-              // If bigger than lowest bid but smaller than reserved price
-              else if (packageBid.lowestBid === packageBid.reservedPrice ||
-                value.toNumber() < packageBid.reservedPrice) {
-                packageBid.reservedPrice = value.toNumber();
-              }
-              else {
-                // do nothing
-              }
-            }
-          });
-        }
-        callback(null, individualBids, individualNotCompleted, indInPs, packageBid, packageInPs, packageNotExist, vickreyContract, usersContract);
-      });
-    },
-    function compareIndividualAndPackageBids(individualBids, individualNotCompleted, indInPs, packageBid, packageInPs, packageNotExist, vickreyContract, usersContract, callback) {
-      console.log("-- individualBids", individualBids);
-      console.log("-- packageBid", packageBid);
-      let sum = individualBids.map(x => x.reservedPrice).reduce((a, b) => a + b, 0);
-      // package pricing wins
-      if ((individualNotCompleted ||  packageBid.reservedPrice <= sum) && !packageNotExist) {
-        console.log("-- sum", sum);
-        vickreyContract.addPackageWinnersAndBids(packageBid.reservedPrice, packageBid.InP, {from: req.user, gas: 1400000});
-        let isSent = false;
-        vickreyContract.LogEnded().watch((error, result) => {
-          if (!isSent) {
-            isSent = true;
-            return callback(null, packageBid, null, vickreyContract, usersContract);
-          }
-        })
-      }
-      // individualVirtualNodes
-      else if (!individualNotCompleted) {
-        let idVirtualNodes = [];
-        let reservedPrices = [];
-        let InPs = [];
-        // If winning InPs in virtual nodes are different, add inter-link costs.
-        individualBids.forEach(bid => {
-          for (let i = 0; i < req.body.idLinks.length; i++) {
-            if (req.body.idVirtualNodes[req.body.from[i]] === bid.idVirtualNode) {
-              if (bid.InP !== individualBids.filter(y => y.idVirtualNode === req.body.idVirtualNodes[req.body.to[i]]).InP) {
-                bid.reservedPrice += (req.body.dBandwidth[i] * 1) / 2;
-              }
-            }
-            else if (req.body.idVirtualNodes[req.body.to[i]] === bid.idVirtualNode) {
-              if (bid.InP !== individualBids.filter(y => y.idVirtualNode === req.body.idVirtualNodes[req.body.from[i]]).InP) {
-                bid.reservedPrice += (req.body.dBandwidth[i] * 1)  / 2;
-              }
-            }
-          }
-          idVirtualNodes.push(bid.idVirtualNode);
-          reservedPrices.push(bid.reservedPrice);
-          InPs.push(bid.InP);
-        });
-        vickreyContract.addIndividualWinnersAndBids(idVirtualNodes, reservedPrices, InPs, {from: req.user, gas: 1400000});
-        let isSent = false;
-        vickreyContract.LogEnded().watch((error, result) => {
-          if (!isSent) {
-            isSent = true;
-            return callback(null, null, individualBids, vickreyContract, usersContract);
-          }
-        })
-      }
-      else {
-        callback('No solution exists')
-      }
-    },
-    function updateInPsCapacities(packageBid, indBids, vickreyContract, usersContract, callback) {
-      updateCapacitiesInPs(usersContract, packageBid, indBids, true, req, (res) => {
-        callback(null, packageBid, indBids, vickreyContract, usersContract);
-      })
-
-    },
-    function lifeTimeEnded (packageBid, indBids, vickreyContract, usersContract, callback) {
-      setTimeout(updateCapacitiesInPs, req.body.lifetime, usersContract, packageBid, indBids, false, req, () => {
-        callback(null, packageBid, indBids,vickreyContract);
-      });
-    }
-  ], (err) => {
-    if (err) return res.send(500, err);
-  })
-})
-});*/
 }
