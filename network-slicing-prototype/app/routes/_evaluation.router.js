@@ -31,7 +31,7 @@ export default (app, router, auth) => {
   /**
    * Route that performs all the VN partitioning once a VNR request has been sent.
    * The number of InPs can be changed, but they must be previously registered in the Users contract.
-   * At this moment, 3 InPs have been defined with profit margins 0.1, 0.2 and 0.4 respectively.
+   * At this moment, 3 InPs have been defined with profit margins γ_n(N_i) = γ_n(G) = 0.1, 0.2 and 0.4 respectively.
    */
     .post((req, res) => {
       Users.deployed().then(usersContract => {
@@ -47,12 +47,10 @@ export default (app, router, auth) => {
                     let counter = 0;
                     data[0].forEach((uCosts, i) => {
                       if (uCosts.toNumber() !== 0 && data[1][i].toNumber() + req.body.computing_demands[i] < data[2][i].toNumber()) {
-                        let u = (data[1][i].toNumber() + req.body.computing_demands[i]) / data[2][i].toNumber();
-                        console.log("-- InP", InP);
-                        console.log("-- usedCapacity", data[1][i].toNumber());
-                        let cost = (uCosts.toNumber() + (u / (1 - u)));
-                        let individualMargin;
-                        let packageMargin;
+                        let u = (data[1][i].toNumber() + req.body.computing_demands[i]) / data[2][i].toNumber(); // (μ^s_u + d_i) / μ^s_max
+                        let cost = (uCosts.toNumber() + (u / (1 - u))); // α_s(N_i) = σ_s + μ_s / (1 - μ_s)
+                        let individualMargin; // γ_n(N_i)
+                        let packageMargin; // γ_n(G)
                         if (InP ==='0xde501181911262542393beb7298b2f22e7c64416') {
                           individualMargin = 0.1; //10%
                           packageMargin = 0.1; //10%
@@ -66,8 +64,7 @@ export default (app, router, auth) => {
                           packageMargin = 0.4; //20%
 
                         }
-                        console.log("-- cost", cost);
-                        let bid = cost * (1 + individualMargin);
+                        let bid = cost * (1 + individualMargin); // b_n(N_i)
                         if (bid <= req.body.upperBoundCosts[i]) {
                           if (matchedVirtualNodes[InP]) {
                             matchedVirtualNodes[InP].push({
@@ -231,7 +228,6 @@ export default (app, router, auth) => {
         ], (err,notWinningBids, usersContract) => {
           // If error the value stored is infinity.
           if (err) {
-            console.log("-- notWinningBids", notWinningBids);
             storeValues("infinity", req.body.arrivalRate,req.body.isNewTest, req.body.numOfRequest);
             return res.send(500, err);
           }

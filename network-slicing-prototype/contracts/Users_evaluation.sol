@@ -44,8 +44,8 @@ contract Users_evaluation {
 
   function getCostsAndCapacities(bytes32[] locations, bytes32[] resourceTypes) public constant returns (uint256[],uint256[],uint256[], bytes32[]) {
     uint256[] memory uCosts = new uint256[](numOfSubTypes[msg.sender]);
-    uint256[] memory uCapacities = new uint256[](numOfSubTypes[msg.sender]);
-    uint256[] memory capacities = new uint256[](numOfSubTypes[msg.sender]);
+    uint256[] memory uCapacities = new uint256[](numOfSubTypes[msg.sender]); //used capacities
+    uint256[] memory capacities = new uint256[](numOfSubTypes[msg.sender]); // entire capacities
     bytes32[] memory countries = new bytes32[](numOfSubTypes[msg.sender]);
     for (uint i = 0; i < locations.length; i++) {
       for (uint j = 0; j < peeringNodes[msg.sender].length; j++) {
