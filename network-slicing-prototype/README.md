@@ -15,6 +15,6 @@ In this folder, you can find the code, which defines:
 3. The smart contracts content.
 
 <p align="center">		
-  <img src="project_directories.pdf">		
+  <img src="project_directories.png">		
  </p>
 
