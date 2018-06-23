@@ -15,7 +15,7 @@ fig, ax = plt.subplots(figsize=(8,5))
 ax.errorbar(x, np.log10(data.mean(axis=1)), yerr=np.log10(data.std(axis=1)*1.96/np.sqrt(30)) , fmt='.')
 
 plt.xlabel('# blocks', fontsize=16)
-plt.ylabel('log (# forks ' + '$f_b$)', fontsize=16)
+plt.ylabel('log (average # forks ' + '$f_b$)', fontsize=16)
 plt.grid(linestyle=':',linewidth=1.5)
 
 
