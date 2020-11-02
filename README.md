@@ -1,8 +1,4 @@
 # Network Slicing
-
-<p align="center">		
-  <img src="./network-slicing-prototype/src/assets/img/kom_logo.png">		
- </p>		
  	
  ------------------------		
 
@@ -12,9 +8,7 @@ An angular2 + [truffle](https://github.com/trufflesuite/truffle) starter app. Wr
 
 ## Installation
 
-First, download the project locally on your computer: 
-
-`git clone https://dev.kom.e-technik.tu-darmstadt.de/gitlab/aoc-theses/WS18-MSc-JordiBisbalAnsaldo--NetworkSlicing.git`.
+First, download the project locally on your computer.
 
 To successfully run this project two parts need to be configured: the front-end + middleware and the back-end.
 
