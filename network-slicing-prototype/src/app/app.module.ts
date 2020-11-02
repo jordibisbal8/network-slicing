@@ -34,6 +34,8 @@ import {VirtualNetworkService} from "./services/virtual-network.service";
 import {AuctionResultDialogComponent} from "./virtual-network/dialogs/auction-result.dialog.component";
 import {EvaluationComponent} from "./evaluation/evaluation.component";
 import {EvaluationService} from "./services/evaluation-service";
+import {CalendarModule, DateAdapter} from "angular-calendar";
+import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
 
 
 @NgModule({
@@ -68,7 +70,12 @@ import {EvaluationService} from "./services/evaluation-service";
     AppRoutingModule,
     ReactiveFormsModule,
     AngularDateTimePickerModule,
-    ClipboardModule
+    ClipboardModule,
+    NgbModalModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   // expose our Services and Providers into Angular's dependency injection
   providers: [AuthService, AuctionService, EvaluationService, HttpClient, SubstrateNetworkService, VirtualNetworkService],
